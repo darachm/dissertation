@@ -88,6 +88,53 @@ http://msb.embopress.org/content/7/1/514
 
 ## mRNA degradation 
 
+That PerezOrtin 2013 review:
+
+- they explain the simple ODE model, and that degradation rate 
+  changes sharpen temporal responses. However, deg rate doesn't 
+  correlate or anti-correlate with concentrations of mRNA, and 
+  they cite Schwanhausser 2011, Garcia-Martinez 2007, and 
+  Miller 2011 for this.
+- caveats of shut off techniques, they cite Grigull 2004, then
+  Muncel and a 2011 review of theirs, that shutoffs change gene
+  expression. Also cite Sun 2012 cDTA that there's an extensive
+  bias. 
+- Page 3756 they address that pulse-chase has issues.
+- "defects in nuclear mRNA processing and the formation of an
+  export compenent mRNP can lead to the degradation"
+- Mentions Garre et al perez ortin 2013, which talks about
+  how NMD represses unspliced RP mRNA during osmotic stress.
+- Discusses canonical pathways. Says degradation can occur in 
+  pbodies, and outside of them. Discusses conditions of changing
+  pbodies on page 3761.
+- Discusses cis-elements, as usually being in UTRs. One element
+  is au-rich recgonition elements (AREs), which are AUUUA pentamers.
+  Lots of proto-oncogenes recognize these, so regulation important.
+- ~" it seems that cells don't use DR to regulate mRNA conc " ~
+- roughly, most of gene regulation seems to happen through
+  changes in transcription rates
+- discusses changes in half-lives of RP regulon upon glucose to
+  galactose or upon heatshock, cites munchel, Garcia Martinez 2004,
+  jona and choder 2000.
+- half-live changes are important for sharpening the response, cite
+  Shalem 2008 and Rabani 2011. 
+- Mentions that DR changes seem to be a single regulatory event,
+  page 3764. 
+- General changes in degradation rates have been shown during
+  entry into stress conditions. 
+- Cth2 is an example of a thing that binds ARE elements to interact
+  with Dhh1 to mediate turnover ( Pedro-Segura 2008, Vergara 2011), 
+  and shuttles nuclear to cytoplasm dependent on transcription. 
+- Cites Schoenberg and Maquat 2011 to say that MAPK signals in 
+  through a TTP RBP to interact with 14-3-3 proteins to inhibit
+  degradation. 
+- Yoon 2010, phosphorylation of Dcp2 by Ste20 modulates SG assembly
+  and mRNA decay.
+- "suspect that" a number of other coordinators of nuclear processing
+  and export affect degradation in the cytoplasm.
+  
+
+
 ## The regulation of mRNA degradation
 
 ### Why repress mRNA?
@@ -127,6 +174,8 @@ Previous work to do genetics of transcript dynamics
 neklesa
 worley
 exotic methods, like COE
+
+Early work using radiolabeling and transcriptional shut-off assays established much of what we know about mRNA degradation rates (Parker 2012), but in the past decade the application of metabolic labeling with 4-thiouracil (Dölken et al. 2008) or other analogs has opened the door to genome-wide mRNA degradation rate measurements without the biases of transcriptional shut-off methods (Pelechano and Pérez-Ortín 2008; L. Yu et al. 2016).
 
 # Unorganized notes
 
@@ -231,3 +280,14 @@ strates, the normal-looking NMD substrates were found to
 have a higher rate of out-of-frame translation, lower average
 codon optimality, and a propensity to have longer stretches
 of non-optimal codons (Celik et al. 2017)."
+
+Hueso et al 2012.
+Gcn2, leu is important for dealing with acide stress.
+
+Tate et al Cooper 2017
+Gcn2 signals through to Ure2 and Gln3
+
+## chromatin
+
+Chromatin remodeling in NCR, so something to say about Swi6 if it comes up: https://www.nature.com/articles/srep33970
+
