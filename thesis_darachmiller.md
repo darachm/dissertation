@@ -141,10 +141,211 @@ That PerezOrtin 2013 review:
 Lee 2011
 Kief and Warner 1981
 
+### mRNA degradation regulation in dynamic conditions
 
+Mercado 1994
+
+Yin, Hatton, and Brown 2000
+Two classes of responses to glucose. High glucose (1%) triggers 
+degradation of SDH2/Ip mRNA. Low triggers destabilization of 
+FBP1 and PCK1 gluconeogenic mRNA. 
+Cites mercado that heat-shock affects yeast gluconeogenic mRNA,
+hence use of 1,10-phenanthroline. tps1KO, but not point mutant,
+blocks the accelerated degradation ... ? No degradation was observed
+in the hxk1,hxk2,glk1 mutant or when a non-phosphorylatable 
+6-deoxyglucose was added, so phosphorylated glucose seems to be
+the signal. Still get degradation in a wimp mutant. 
+
+Yin et al Brown 2003
+They did microarrays this time. Basically, glycolytic pathway is
+induced and gluconeogenesis, glyoxylate, and TCA pathways are 
+cleared. Ribiosomes induced.
+RPL3,24 and RPS4,6 are all stabilized within 1 hour, but then
+are normal stability later. 
+Not much changes with a wimp, ie you still get RP mRNA stabilization,
+with exceptions: RPL3 and 24 were not stabilized in a wimp, and
+RPL3 was stabilized in a hxk1,hxk2,glk1 mutant (wilson 2001).
+So there seems to be some divergence, that the large subunits
+depend on PKA signalling, and small on the phosphorylatable sugar.
 
 ## The growth of yeast under nitrogen limitation
+
+### Nitrogen Metabolism, transport
+
+Grenson 1992
+Yeast. Sacc. cer. can't use lysine. 
+"Most of the transported amino acids are accumulated inside the yeast cells
+against a concentration gradient. When amino acids are to be used as a general
+source of nitrogen, this concentration is crucial because most enzymes which cata-
+lyze the first step of catabolic pathways have a low affinity for their substrates."
+"A number of amino acids are transported by two permeases, a specific
+transporter plus the general amino acid permease, but others (e.g., methionine [12],
+histidine [13], glutarnic acid [14], lysine [15] and GABA [16]) are transported by two
+or three specific uptake systems with very different K , and V,,, values. High-
+affinity transporters allow the cells to scavenge even traces of amino acids from
+the culture medium. With such a battery of permeases, cells can take up amino
+acids at widely different rates over a vast range of external concentrations."
+"The synthesis of a number of amino acid permeases is prevented by a general
+regulatory mechanism called nitrogen-catabolite repression (NCR), which operates
+in cells grown in the presence of preferred nitrogen sources such as ammonium ions,
+asparagine or glutamine. The prototype of this family of transporters is the GAP1
+general amino acid permease."
+"Upon addition of ammonium ions to proline grown cells, the general
+amino acid permease progressively undergoes rapid and complete inactivation. This
+inhibition of permease activity is reversible [88]. Inactivation can be suppressed by
+several mutations [88]. Among these, the pgr mutations are linked to the GAPZ gene,
+whereas the npil and npi2 mutations (for nitrogen-permease inactivator) are not.
+NH4+-triggered repression of permease synthesis can easily be observed in all of
+these mutants, due to the absence of inactivation: whereas cell growth continues,
+permease activity stops increasing."
+"Several other amino acid permeases are also subject to ammonium-ion-triggered
+inactivation. These are the PUT4 proline permease, the UEPl/DALS ureidosucci-
+nate/allantoate permease [88], the GNPl glutamine permease [89], the MEPl and
+MEP2 methylamine/ammonium-ion permeases [90,89], and the UGA4 GABA per-
+mease (Vissers, Andre and Grenson, in preparation)."
+"The trans-acting npil and npi2 mutations, which cancel the GAPl permease
+inactivating process, are pleiotropic; they also release ammonia-triggered inactiva-
+tion of the PUT4 and UEPl/DALS permeases [88], as well as that of the G NP l
+glutamine permease [89]. There are other trans-acting mutations known which make
+other permeases ammonia-insensitive but they do not affect the permeases just
+mentioned. For instance, a npi5 mutation formerly named amul [90,89], suppresses
+ammonia-triggered inactivation of the MEP 1 and MEP2 methylamine/ammonium
+ion permeases, which is not affected by the npil and npi2 mutations. Similarly, the
+trans-acting gum1 mutation affects the UGA4 GABA permease, but not the GAPl
+permease (Vissers, Andrk and Grenson, in preparation). Although the analysis is
+not complete, it appears that ammonia inactivation involves a number of trans-
+acting proteins which target different spectra of ammonia-sensitive permeases.
+On the other hand, mutations have been obtained which suppress ammonia in-
+activation of a given permease specifically. As might be expected, these mutations
+are linked to the corresponding structural gene of the permease. For instance, while
+the pgr mutation is located in the reading frame of the GAPl gene [91], the prr
+mutation is genetically linked to the PUT4 gene, and the gar mutation is linked to
+the UGA4 gene (Hein, Jauniaux and Grenson, in preparation). So far, only the gar
+mutated UGA4 gene has been sequenced (Hein, Jauniaux and Grenson, in prepara-
+tion). The coding sequence of the UGA4 permease gene was modified in its carbox-
+yl-terminal region as a result of a 6 insertion. These cis-acting mutations are likely
+to affect the NCI-receptor site of the permeases."
+"To trigger
+NCR, however, ammonium ions must be transformed into glutamine. Reduced
+endogenous synthesis of glutamine in a mutant with a thermosensitive glutamine
+synthetase results in derepression of several permeases and enzymes, even in the
+presence of high NH4+ concentrations [88]. Since repression is restored by adding
+glutamine to the culture medium, it would appear that glutamine is a crucial effector
+molecule involved in this regulation. In mutants with a thermosensitive glutamine
+synthetase (glnl‘”), RNA transcripts of PUT4 [93] and GAPl [46] permease genes
+accumulate at high (non-permissive) temperatures despite the presence of
+ammonium ions."
+
+Grenson 1983
+"I n these mutants, a repression of the formation of active permease may clearly be observed in the presence of
+ammonium ions. This second regulatory mechanism is absent in mutants affected at the GDHCR locus, which might
+code for a repressor molecule. It is also relieved in the presence of a gln‘& mutation (which makes the glutamine
+synthetase thermosensitive) suggesting glutamine as an effector.
+Two other ammonia-sensitive permeases, namely the proline permease and the ureidosuccinic-acid permease,
+seem to be subject to the same double regulation.
+Mutations affecting the structural gene of the anabolic NADP-linked glutamate dehydrogenase (gdhA) seem to
+completely prevent repression of the general amino-acid permease, while they partially suppress its inactivation in the
+presence of ammonium ions."
+"Based on the fact that they support the highest  growth rates in minimal 
+medium, ammonium ions and glutamine may be considered as 
+the  best  nitrogen sources  for this  yeast."
+
+Fayyad-Kazan 2015
+"Nitrogen catabolite repression (NCR) is a wide tran-
+scriptional regulation program enabling baker’s yeast
+to downregulate genes involved in the utilization of
+poor nitrogen sources when preferred ones are avail-
+able. Nowadays, glutamine and glutamate, the major
+nitrogen donors for biosyntheses, are assumed to be
+key metabolic signals regulating NCR. NCR is con-
+trolled by the conserved TORC1 complex, which inte-
+grates nitrogen signals among others to regulate cell
+growth. However, accumulating evidence indicate
+that the TORC1-mediated control of NCR is only
+partial, arguing for the existence of supplementary
+regulatory processes to be discovered. In this work,
+we developed a genetic screen to search for new
+players involved in NCR signaling. Our data reveal
+that the NADP-glutamate dehydrogenase activity of
+Gdh1 negatively regulates NCR-sensitive gene tran-
+scription. By determining the total, cytoplasmic and
+vacuolar pools of amino acids, we show that there is
+no positive correlation between glutamine/glutamate
+reservoirs and the extent of NCR. While our data indi-
+cate that glutamine could serve as initial trigger of
+NCR, they show that it is not a sufficient signal to
+sustain repression and point to the existence of yet
+unknown signals. Providing additional evidence
+uncoupling TORC1 activity and NCR, our work revis-
+its the dogmas underlying NCR regulation."
+
+
+### Carbon Metabolism
+
+mae1, pyruvate, etc
+
+JEN1 is the pyruvate transporter, it seems. H+ symporter.
+
+
+
+mae1 pyk2 doesn't grow on ethanol (I think)
+
+PYK2 is destabilized upon upshift, PYK1/CDC19 is fine.
+
+Andrade and Casal 2001
+looked at JEN1 expression. 
+"JEN1 expression was followed in cells grown in YP–
+lactic acid at midexponential phase, upon the addition of
+glucose (Fig. 4a). The transport of lactate was measured in
+cells collected from the same samples (Fig. 4b). JEN1
+transcripts were completely undetectable 10 min after the
+pulse of glucose, while the permease activity ceased only
+after 50 min. Control of mRNA turnover is now a well-
+established mechanism of glucose repression (Scheffler et
+al., 1998). To evaluate whether JEN1 mRNA stability was
+affected by the presence of glucose, the mRNA half-life in
+lactic acid-grown cells was determined by the addition of
+1,10-phenantroline, which had an inhibitory effect on
+JEN1 expression. A value of 15.1 min was found for the
+half-life of JEN1 mRNA. The stimulated JEN1 mRNA
+degradation observed upon addition of glucose indicates
+the involvement of this additional mechanism of negative
+control of gene expression (Klein et al., 1998).
+The rapid decline of the carrier activity subsequently to
+the addition of glucose described in Fig. 4b cannot be
+attributed to the dilution of the protein due to a complete
+cell cycle. The inhibition of mRNA synthesis seems also
+not to be the limiting step, since we observed that lactic
+acid-grown cells, treated or not with 1,10-phenantroline,
+retained levels of the same order of magnitude for the
+permease activity after 2 h of incubation. These results
+point to the possible existence of a third glucose-negative
+control mechanism: carbon catabolite inactivation of the
+carrier (Klein et al., 1998)."
+"while
+those lacking fructose-1,6-bisphosphatase showed lactate
+permease activity, comparable with the one found in the
+wild-type strain. Furthermore, it was shown that the
+pck1⌬ mutant under derepression conditions in the pres-
+ence of glycerol recovered the activity of the lactate carrier
+(Casal et al., 1995)."
+They also show strain dependencies for activity.
+
+Mota et al Casal et al Paiva 2014
+"In this work, we showed that Dhh1 in particular, and the decapping complex in general, have roles in the post-transcriptional regulation of JEN1 expression, which depend on carbon source. In the absence of Dhh1, Pat1 or Lsm1, JEN1 mRNAs accumulated in formic acid and associated with polysomes, although we could not detect the translated functional protein. Hence, the translational status of JEN1 mRNAs in these conditions remains an open question. The same phenomena occurred in a mutant for Nam7/Upf1, which is an important actor of the NMD pathway. Additionally, we confirmed that the half-lives of the JEN1 mRNA actually increased in the absence of Dhh1, but not in the nam7 mutant. In contrast, in acetic acid, the inactivation of Pat1 or Dhh1 had a negative effect on JEN1 mRNA expression. Our microarray experiments suggest that other key genes of metabolic adaptation, like the transcription factor encoding gene CAT8 or the acetate transporter encoding gene ADY2 (Fig. 8), may encounter similar regulations."
+
+
+
 ### TORC1 - the nice linear pathway of nitrogen regulation
+
+
+
+Mahmoud 2017
+"Mutation of either Sit4 or Tco89, a
+nonessential subunit of TORC1, decreases proton efflux, K + uptake, intracel-
+lular pH, cell growth, and tolerance to weak organic acids. Tco89 does not
+affect Pma1 activity but activates K + transport."
+
 ### Alternative regulatory pathways
 ### Regulation of the GAP1 mRNA synthesis rate
 ### NCR
