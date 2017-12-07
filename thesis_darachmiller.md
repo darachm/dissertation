@@ -144,6 +144,18 @@ Kief and Warner 1981
 ### mRNA degradation regulation in dynamic conditions
 
 Mercado 1994
+They were fiddling around, looking to measure mRNA degradation.
+They did a rpb1-1, and found destabilization in the control 
+(no rpb1-1). So they parse it out and it looks like glucose, 
+heat shock, and pH all affect expression of FBP1 and PCK1 mRNA. 
+FBP1 decays rapidly even under ADH1 promoter. 
+Temperature shock destabilizes these guys, but not if you pregrow
+in glucose (!!!). The effect of pH drop (to 6.5) or heat shock
+were transient, but the glucose addition was not. 
+It appears that the glucose decay is mediated by promoters, ie
+with a different promoter you don't get the effect.
+The find a transient decay in response to pH, and ain't familiar
+with previous work suggesting that mRNAs respond to pH.
 
 Yin, Hatton, and Brown 2000
 Two classes of responses to glucose. High glucose (1%) triggers 
@@ -167,6 +179,32 @@ with exceptions: RPL3 and 24 were not stabilized in a wimp, and
 RPL3 was stabilized in a hxk1,hxk2,glk1 mutant (wilson 2001).
 So there seems to be some divergence, that the large subunits
 depend on PKA signalling, and small on the phosphorylatable sugar.
+
+Conway et al 2012
+Nice overview, and experiments. Lots of room to interpret
+broad patterns, but it's nice that someone took the time and money
+to do take these measurements. 
+There's some specific, and a lot shared between repletion of C,N,P 
+after starvation. Stress genes are downregulated, especially STRE
+and so forth, especially Msn2. 
+If you do double starves, it's the addition of G that triggers
+a bunch of txtome changes without producing growth (because N or P
+limitation). They show a gap1KO doesn't respond to citrulline,
+and mep mutants have tamped down AS responses. 
+"Prior to the advent of microarrays, a prevalent idea was that yeast
+growth fueled transcription in general. We show that large changes in
+mRNA abundance precede growth rather than result from growth and
+that they are readily decoupled from growth. For example, both
+citrulline and Gly3P are known agonists for their respective trans-
+ceptors, yet they are poor nutrients. However, both of these agents
+produced a large-scale response. A strain unable to take in and grow
+on glucose still produces a normal large-scale transcriptional response
+to G repletion (Slattery et al. 2008). In dually starved cells, addition of
+G alone produced a transcriptional response that was not sufficient to
+induce growth. Finally, the addition of cAMP mimicked the nutrient
+repletion responses in cells that remained nutrient depleted. These
+results are evidence for a sensing system that can directly determine
+when a missing nutrient is restored."
 
 ## The growth of yeast under nitrogen limitation
 
@@ -350,6 +388,37 @@ affect Pma1 activity but activates K + transport."
 ### Regulation of the GAP1 mRNA synthesis rate
 ### NCR
 GAT1,GLN3, DAL80, GZF3
+
+Rowen et al 1997
+Abf1 sites are important for Gat1 to activate Gap1. Gln3 doesn't
+need it.
+
+Stanbrough and Magasanik 1995
+"It appears that Gln3p is the primary
+transcriptional activator of GAP1 during growth on glutamate
+and that Gln3p contributes to the activation of GAP1 tran-
+scription during growth on urea in a wild-type strain, while an
+independent activator is responsible for about one-half of
+GAP1 transcription in a wild-type strain grown on urea and for
+all GAP1 transcription in a gln3 strain grown on urea. We have
+named this independent activator Nil1p and have evidence that"
+"There are several overlapping layers of control of the gen-
+eral amino acid permease that are finely tuned to respond to
+the nitrogen environment of the yeast cell. In general, growth
+on nitrogen sources that do not result in the fastest doubling
+times increases the amount of Gap1p activity. Any change in
+nitrogen conditions that allows faster growth causes an imme-
+diate decrease in the amount of Gap1p activity by inactivation
+of the permease. While it isn’t known whether there is a cor-
+responding rapid change in the transcription of GAP1 in re-
+sponse to a shift from limiting nitrogen sources to rich nitrogen
+sources, there is complex transcriptional control mediated by
+at least two systems that do not activate GAP1 transcription on
+the best simple nitrogen source, glutamine. Control of Gap1p
+activity in turn regulates the synthesis of a host of catabolic
+"
+
+
 torc1, gcn2
 
 ### GAP1 
@@ -402,6 +471,14 @@ degradation of PGK1. They map a similar sequence to PPR1, which is
 NMD dependent for 3-fold slower degradation in upf1KO cells. 
 They map it to be the 5' UTR and the first 92 bases of the ORF. 
 Need both of those. They don't think it's leaky scanning.
+
+Guisbert et al 2005
+RIP-Chip of Npl3, Nab2, Hrp1. Hrp1 binds UAUAUAA, and get this,
+amino acid metabolism genes. Also, RBPDB had the motif wrong.
+
+Estrella et al 2009 gonzalez
+Npl3 physically interacts with Pab1, a npl3 mutant genetically
+interacts with Upf1 to enhance defect.
 
 ## about condensates, granules, p-bodies
 
