@@ -1,0 +1,32 @@
+% From: https://stackoverflow.com/a/33801326
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{pgfmath}                                                      
+
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+\usepackage{tikz}                                                         
+\usetikzlibrary{arrows,arrows.meta,positioning,shapes,patterns
+  ,decorations.pathmorphing,decorations.fractals}                                 
+
+\renewcommand{\familydefault}{\sfdefault}                             
+\tikzset{                                                                 
+>=stealth',                                                               
+rrect/.style={ rectangle, rounded corners, draw=black, very thick,    
+minimum height=2em, text centered },                                      
+arect/.style={ rectangle, rounded corners, draw=black, very thick,    
+minimum height=2em, text centered , anchor=west},                         
+srect/.style={ rectangle, draw=black, thick,                              
+minimum height=2em, text centered },                                      
+ribo/.style={ circle, rounded corners, draw=black, very thick, text centered },
+textz/.style={ font=\scriptsize,align=left },                             
+snakey/.style={decorate, decoration={snake,segment length=0.75cm}}
+}                                                                         
+
+\tikzstyle{every picture}+=[remember picture]                             

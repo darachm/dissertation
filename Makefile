@@ -1,5 +1,7 @@
 
-thesis: thesis_darachmiller.html
+.PHONY: dissertation diss
+dissertation: diss
+diss: dissertation_darachmiller.html dissertation_darachmiller.pdf
 
-thesis_darachmiller.html: thesis_darachmiller.md
-	pandoc -o $@ $<
+%.html %.pdf: %.md
+	Rscript -e 'rmarkdown::render("$<",output_format="all")'

@@ -1,32 +1,28 @@
 ---
-title: "A thesis, give me a degree please so I can go back to my pen and just read about science"
+title: "Dissertation in the pursuit of a doctorate in philosopy"
 author: "Darach Miller"
-date: "Typeset on `r Sys.Date()`"
-toc: true
+date: "Typeset on `r Sys.Date()`"                                         
 fontsize: "11pt"
 output:
   pdf_document:
+    toc: True
     fig_width: 5
     fig_height: 3
     fig_caption: true
     includes:  
       in_header: preamble-latex.tex
     latex_engine: xelatex
+  html_document:
+    toc: True
 mainfont: DejaVuSans
 ---
-
-\pagebreak
 
 <!--
 Figures set up using the awesome answer here:
 https://stackoverflow.com/a/33801326
 -->
 
-
 <!--
-Thus begins the last leg of my journey, considered unenvieable by
-the traveler, but what does they know?
-
 Notes:
 
 PolyA binding proteins
@@ -64,9 +60,6 @@ https://www.frontiersin.org/articles/10.3389/fmolb.2017.00067/full
 
 lee 2011
 http://msb.embopress.org/content/7/1/514
-
-
-
 -->
 
 > "Science is a match that man has just got alight. He thought he 
@@ -364,7 +357,7 @@ carrier (Klein et al., 1998)."
 those lacking fructose-1,6-bisphosphatase showed lactate
 permease activity, comparable with the one found in the
 wild-type strain. Furthermore, it was shown that the
-pck1⌬ mutant under derepression conditions in the pres-
+pck1 mutant under derepression conditions in the pres-
 ence of glycerol recovered the activity of the lactate carrier
 (Casal et al., 1995)."
 They also show strain dependencies for activity.
@@ -501,7 +494,7 @@ Don't see p-bodies in aminoacid-limitation, but do in glucose
 limitation. Gcn2 response to aa limitation (Hinnebusch 2005).
 "amino acid star-
 vation, a stress that inhibits translation initiation by activating
-the eIF2α kinase Gcn2p to give lower TC levels (Hinnebusch,
+the eIF2 kinase Gcn2p to give lower TC levels (Hinnebusch,
 2005)."
 
 Sheth and Parker 2003.
