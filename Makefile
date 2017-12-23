@@ -3,5 +3,5 @@
 dissertation: diss
 diss: dissertation_darachmiller.html dissertation_darachmiller.pdf
 
-%.html %.pdf: %.md
+%.html %.pdf: %.Rmd
 	Rscript -e 'rmarkdown::render("$<",output_format="all")'
