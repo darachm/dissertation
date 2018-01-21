@@ -1,18 +1,22 @@
 \chapter{Introduction}
 
-\section{Regulated gene expression} 
-
 Organisms adapt to
 their environment by expressing different phenotypes as environments
 change. We expect this to be an advantageous strategy, depending on
 the various parameters of fitness advantages of each phenotype in each
 environment balanced against the costs of innovating and maintaining
-the machinery for adaptive differential gene expression (Kussell and
-Leibler 2005). If different mechanisms have different properties of
+the machinery for adaptive differential gene expression
+\citep{kussell2005phenotypic}. 
+If different mechanisms have different properties of
 efficacy and energetic costs, and if the phenotype to fitness
-relationship varies, then different selective conditions may select
+relationship varies, then different conditions may select
 for the use of different mechanisms of achieving appropriately
 regulated gene expression.
+Thus, understanding the adaptive basis of the diversity of 
+regulatory mechanisms may inform our understanding of selection 
+on complex systems.
+
+\section{Regulated gene expression} 
 
 Expression of a protein-coding gene
 product involves many complex steps, each with their own opportunities
@@ -21,20 +25,24 @@ that encode genetic elements are transcribed into corresponding chains
 of messenger RNA (mRNA). The rate of this transcription is helped by
 factors that facilitate recruitment of RNA polymerase II (RNA Pol II)
 and is hindered by factors that block this process by physical
-occlusion or changes in the accessibility to the chromatin (Hahn and
-Young 2011). The translation of mRNA into a protein product by
+occlusion or changes in the accessibility to the chromatin 
+\citep{hahn2011transcriptional}. 
+The translation of mRNA into a protein product by
 ribosomes occurs at different rate for different genes and different
 environments, regulated by a complex interplay between ribosomes and
 associated translation factors, RNA binding proteins (RBPs), and
-intrinsic factors of the mRNA like length or codon-usage (Dever et al.
-2016). For both the mRNA and its protein product, stability is also
-important (cite something about protein stability) (Pérez-Ortín et al.
-2013). Additionally, localization or allosteric regulation can change
+intrinsic factors of the mRNA like length or codon-usage 
+\citep{dever2016mechanism}. 
+For both the mRNA and its protein product, stability is also
+important 
+\textbf{(cite something about protein stability)} 
+\citep{perez2013eukaryotic}. 
+Additionally, localization or allosteric regulation can change
 the activity of a gene product. Myriad factors contribute to the
 expression of a gene product, and determining the functional adaptive
 basis for particular regulatory mechanisms, if they are indeed
 adaptive, would help us better understand the diversity of gene
-regulatory mechanism.  
+regulatory mechanisms.
 
 Functional transcriptome reprogramming during a
 nitrogen upshift The budding yeast Saccharomyces cerevisiae is a
@@ -54,21 +62,25 @@ elicit a common response between various nutrient limitations.
 Indeed, studies systematically varying nutrient environments have
 shown that about a quarter of the transcriptome is differentially
 expressed at different steady-state nutrient-limited growth states,
-regardless of nutrient used to limit growth (Brauer et al. 2008;
-Regenberg et al. 2006). Statistical modeling of this process
+regardless of nutrient used to limit growth 
+\citep{brauer2008coordination,regenberg2006growth}. 
+Statistical modeling of this process
 determined that the molecular signature of this growth-rate signalling
 could be capture in a small number of “calibrator” genes whose
 expression was very well correlated with changes in growth rate or
 perturbation of signalling pathways associated with this process, and
 importantly also changed during dynamic transitions or upon
-perturbation of growth signalling pathway PKA (Airoldi et al. 2009).
+perturbation of growth signalling pathway PKA 
+\citep{airoldi2009predicting}.
 Dynamic transitions to better nutrient environments (nitrogen, carbon,
-and phosphorus upshifts) shared a similar pattern (Conway et al.
-2012), and the pattern of gene expression associated with increased
+and phosphorus upshifts) shared a similar pattern 
+\citep{conway2012glucose}, 
+and the pattern of gene expression associated with increased
 nutrient availability and growth rates is the opposite of the
 Environmental Stress Response (ESR) --- a shared in co-regulation of
-~600 mRNA across dynamic responses to various stressors (Gasch et al.
-2000). Together, this shows how yeast has a common response that
+~600 mRNA across dynamic responses to various stressors 
+\citep{gasch2000genomic}. 
+Together, this shows how yeast has a common response that
 largely corresponds to the suitability of the sensed sensed
 environment. A better environment transduces to faster growth with
 more growth associated mRNA and less stress response mRNA, and this
@@ -86,14 +98,16 @@ Various
 nitrogen sources are then catabolized to eventually make glutamate and
 glutamine, with an estimated ~85\% of macromolecular nitrogen coming
 from the amino nitrogen in glutamate and the rest from the amide group
-of glutamine (Magasanik and Kaiser 2002). The addition of glutamine to
+of glutamine 
+\citep{magasanik2002nitrogen}. The addition of glutamine to
 a nitrogen-limited culture, for example grown with only the
 non-preferred proline as a nitrogen source, is called an upshift
 because it is the change from a slow growing condition to one of rapid
 growth. Through the use of a temperature-sensitive glutamine synthase
 allele or treatment with methionine sulfoximine, it has been shown
 that NCR is a response to intracellular glutamine availability
-(cites). Upon an upshift, a regulatory phenomenon called nitrogen
+\textbf{(cites)}
+. Upon an upshift, a regulatory phenomenon called nitrogen
 catabolite repression (NCR) ensures that the set of NCR transporters,
 metabolic enzymes, and regulatory factors are repressed.  
 
@@ -101,29 +115,38 @@ One layer of
 the repression occurs at the level of transcript synthesis. Four of
 the five GATA factors in yeast coordinate to control transcription of
 NCR genes, with two factors (Gln3p and Gat1p) activating transcription
-while two (Gzf3p and Dal80p) repress transcription (Hahn and Young
-2011; Stanbrough et al. 1995). These factors are also subject to NCR
+while two (Gzf3p and Dal80p) repress transcription 
+\citep{hahn2011transcriptional,stanbrough1995transcriptional}. 
+These factors are also subject to NCR
 control to different extents, with the activators increasing the
 expression of the repressive factors. This is thought to be an
 adaptation to enable quick repression upon a nitrogen upshift, as may
 be encountered when yeast is introduced to a new abundant nutrient
-environment of grape or wort (cite). It has been long known that the
+environment of grape or wort 
+\textbf{(cite)}
+. It has been long known that the
 eukaryotic growth signalling pathway TORC1 largely regulates these
 factors by controlling the activity of phosphatases and thus
-localization of these transcription factors, via Ure2p for Gln3p (Beck
-and Hall 1999)(classic ure2 papers) and unknown mechanisms for Gat1p
-(citez). However, careful genetics over the last two decades in
+localization of these transcription factors, via Ure2p for Gln3p 
+\citep{beck1999tor} 
+and unknown mechanisms for Gat1p
+\textbf{(citez, also classic ure2 papz)}
+. However, careful genetics over the last two decades in
 Terrance Cooper’s laboratory has identified that the genetic
 requirements for phenotypes differ in different environments, with
 comparisons of nitrogen “starvation” (8+ hours) versus “limitation”
 (<3 hours, or proline) showing that a large part of NCR regulation was
-still unexplained by TORC1 signalling (Tate and Cooper 2013). By way
+still unexplained by TORC1 signalling 
+\citep{tate2013five}. By way
 of a temperature-sensitive tRNA allele, they have since identified
 that Gcn2p impinges in a parallel pathway through the 14-3-3 proteins
-Bmh1/2 to promote the export of Gln3p and Gat1p[c] (Tate et al. 2017;
-Tate et al. 2014). Additionally, others have suggested that the
+Bmh1/2 to promote the export of Gln3p and Gat1p 
+\citep{tate2015gata,tate2015nitrogen,tate2017general}. 
+Additionally, others have suggested that the
 amino-acid permease Gap1p may directly signal to PKA, but more has to
-be done (theivelen eh). Thus, multiple signalling pathways converge to
+be done 
+(theivelen eh)
+. Thus, multiple signalling pathways converge to
 affect the import and export of NCR GATA factors to effect multiply
 redundant layers of NCR transcript synthesis control.  
 
@@ -132,18 +155,25 @@ regulation can also occur post-translationally. NCR has primarily
 referred to the control of transcript synthesis rates, but it has been
 long observed that upon addition of a preferred nitrogen source the
 enzymatic and permease activities are repressed faster than can be
-caused by a shut-off of synthesis (Cooper and Sumadra 1983). A
+caused by a shut-off of synthesis 
+\citep{cooper1983function}. A
 classical NCR-regulated gene is the general amino-acid permease GAP1.
 GAP1 mRNA is repressed much faster than the repression of the
-protein-product (Stanbrough and Magasanik 1995), and we know that this
-Gap1p shut-off is adaptive (Risinger et al. 2006), perhaps due to an
-excess of amino-acid transport causing ammonia toxicity (Hess et al.
-2006) or excess proton symport driving a depolarization against futile
+protein-product 
+\citep{stanbrough1995transcriptional}
+, and we know that this
+Gap1p shut-off is adaptive \citep{risinger2006activity}, 
+perhaps due to an
+excess of amino-acid transport causing ammonia toxicity 
+\citep{hess2006ammonium}
+or excess proton symport driving a depolarization against futile
 Pma1p proton-export activity. This growth phenotype allowed the early
 identification of mutants in this process, and this indicates that it
 is mediated by a uniquitinyation mark that inactivates the permease
-and leads to relocalization and degradation (more risinger? (Risinger
-and Kaiser 2008) earlier?). Thus multiple layers redundantly repress
+and leads to relocalization and degradation 
+\textbf{(more risinger? (Risinger and Kaiser 2008) earlier? smething
+from magasanik?)}
+. Thus multiple layers redundantly repress
 the NCR-regulated Gap1p.  
 
 In Chapters 2 and 3, I show how mRNA
