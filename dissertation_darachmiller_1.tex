@@ -1,0 +1,858 @@
+\chapter{Introduction}
+
+\section{Regulated gene expression} 
+
+Organisms adapt to
+their environment by expressing different phenotypes as environments
+change. We expect this to be an advantageous strategy, depending on
+the various parameters of fitness advantages of each phenotype in each
+environment balanced against the costs of innovating and maintaining
+the machinery for adaptive differential gene expression (Kussell and
+Leibler 2005). If different mechanisms have different properties of
+efficacy and energetic costs, and if the phenotype to fitness
+relationship varies, then different selective conditions may select
+for the use of different mechanisms of achieving appropriately
+regulated gene expression.
+
+Expression of a protein-coding gene
+product involves many complex steps, each with their own opportunities
+for a variety of regulatory mechanisms. At the outset, DNA sequences
+that encode genetic elements are transcribed into corresponding chains
+of messenger RNA (mRNA). The rate of this transcription is helped by
+factors that facilitate recruitment of RNA polymerase II (RNA Pol II)
+and is hindered by factors that block this process by physical
+occlusion or changes in the accessibility to the chromatin (Hahn and
+Young 2011). The translation of mRNA into a protein product by
+ribosomes occurs at different rate for different genes and different
+environments, regulated by a complex interplay between ribosomes and
+associated translation factors, RNA binding proteins (RBPs), and
+intrinsic factors of the mRNA like length or codon-usage (Dever et al.
+2016). For both the mRNA and its protein product, stability is also
+important (cite something about protein stability) (Pérez-Ortín et al.
+2013). Additionally, localization or allosteric regulation can change
+the activity of a gene product. Myriad factors contribute to the
+expression of a gene product, and determining the functional adaptive
+basis for particular regulatory mechanisms, if they are indeed
+adaptive, would help us better understand the diversity of gene
+regulatory mechanism.  
+
+Functional transcriptome reprogramming during a
+nitrogen upshift The budding yeast Saccharomyces cerevisiae is a
+classically studied model system for many fields, including gene
+expression regulation. In response to different nutrient
+availabilities, yeast will change gene expression programs on the
+whole transcriptome and adopt different rates of growth. The
+particular nutrient environment is described in terms of the quality
+and quantity of the nutrient provided. Quantity refers to just that,
+the molar availability of the nutrient that the yeast can take up,
+while quality is more of a empirical reference to how rapidly budding
+yeast can biochemically incorporate the nutrient into their metabolism
+--- ie rate of growth. One prediction from this understanding is that
+altering the quantity of the nutrient availability to vary growth
+rates in a range below which the quality limits growth rates will
+elicit a common response between various nutrient limitations.
+Indeed, studies systematically varying nutrient environments have
+shown that about a quarter of the transcriptome is differentially
+expressed at different steady-state nutrient-limited growth states,
+regardless of nutrient used to limit growth (Brauer et al. 2008;
+Regenberg et al. 2006). Statistical modeling of this process
+determined that the molecular signature of this growth-rate signalling
+could be capture in a small number of “calibrator” genes whose
+expression was very well correlated with changes in growth rate or
+perturbation of signalling pathways associated with this process, and
+importantly also changed during dynamic transitions or upon
+perturbation of growth signalling pathway PKA (Airoldi et al. 2009).
+Dynamic transitions to better nutrient environments (nitrogen, carbon,
+and phosphorus upshifts) shared a similar pattern (Conway et al.
+2012), and the pattern of gene expression associated with increased
+nutrient availability and growth rates is the opposite of the
+Environmental Stress Response (ESR) --- a shared in co-regulation of
+~600 mRNA across dynamic responses to various stressors (Gasch et al.
+2000). Together, this shows how yeast has a common response that
+largely corresponds to the suitability of the sensed sensed
+environment. A better environment transduces to faster growth with
+more growth associated mRNA and less stress response mRNA, and this
+holds true in steady-state differences and dynamic transitions.  
+
+One
+classically studied transition between growth rates is the nitrogen
+upshift. Yeast grows quickly when provided with nitrogen sources like
+glutamine or ammonium sulfate, but can make use of various
+less-preferred nitrogen sources like proline or urea by expressing
+overlapping sets of specific and general nitrogen-source permeases
+that concentrate these sources inside the cell for use.  
+
+Various
+nitrogen sources are then catabolized to eventually make glutamate and
+glutamine, with an estimated ~85\% of macromolecular nitrogen coming
+from the amino nitrogen in glutamate and the rest from the amide group
+of glutamine (Magasanik and Kaiser 2002). The addition of glutamine to
+a nitrogen-limited culture, for example grown with only the
+non-preferred proline as a nitrogen source, is called an upshift
+because it is the change from a slow growing condition to one of rapid
+growth. Through the use of a temperature-sensitive glutamine synthase
+allele or treatment with methionine sulfoximine, it has been shown
+that NCR is a response to intracellular glutamine availability
+(cites). Upon an upshift, a regulatory phenomenon called nitrogen
+catabolite repression (NCR) ensures that the set of NCR transporters,
+metabolic enzymes, and regulatory factors are repressed.  
+
+One layer of
+the repression occurs at the level of transcript synthesis. Four of
+the five GATA factors in yeast coordinate to control transcription of
+NCR genes, with two factors (Gln3p and Gat1p) activating transcription
+while two (Gzf3p and Dal80p) repress transcription (Hahn and Young
+2011; Stanbrough et al. 1995). These factors are also subject to NCR
+control to different extents, with the activators increasing the
+expression of the repressive factors. This is thought to be an
+adaptation to enable quick repression upon a nitrogen upshift, as may
+be encountered when yeast is introduced to a new abundant nutrient
+environment of grape or wort (cite). It has been long known that the
+eukaryotic growth signalling pathway TORC1 largely regulates these
+factors by controlling the activity of phosphatases and thus
+localization of these transcription factors, via Ure2p for Gln3p (Beck
+and Hall 1999)(classic ure2 papers) and unknown mechanisms for Gat1p
+(citez). However, careful genetics over the last two decades in
+Terrance Cooper’s laboratory has identified that the genetic
+requirements for phenotypes differ in different environments, with
+comparisons of nitrogen “starvation” (8+ hours) versus “limitation”
+(<3 hours, or proline) showing that a large part of NCR regulation was
+still unexplained by TORC1 signalling (Tate and Cooper 2013). By way
+of a temperature-sensitive tRNA allele, they have since identified
+that Gcn2p impinges in a parallel pathway through the 14-3-3 proteins
+Bmh1/2 to promote the export of Gln3p and Gat1p[c] (Tate et al. 2017;
+Tate et al. 2014). Additionally, others have suggested that the
+amino-acid permease Gap1p may directly signal to PKA, but more has to
+be done (theivelen eh). Thus, multiple signalling pathways converge to
+affect the import and export of NCR GATA factors to effect multiply
+redundant layers of NCR transcript synthesis control.  
+
+Gene product
+regulation can also occur post-translationally. NCR has primarily
+referred to the control of transcript synthesis rates, but it has been
+long observed that upon addition of a preferred nitrogen source the
+enzymatic and permease activities are repressed faster than can be
+caused by a shut-off of synthesis (Cooper and Sumadra 1983). A
+classical NCR-regulated gene is the general amino-acid permease GAP1.
+GAP1 mRNA is repressed much faster than the repression of the
+protein-product (Stanbrough and Magasanik 1995), and we know that this
+Gap1p shut-off is adaptive (Risinger et al. 2006), perhaps due to an
+excess of amino-acid transport causing ammonia toxicity (Hess et al.
+2006) or excess proton symport driving a depolarization against futile
+Pma1p proton-export activity. This growth phenotype allowed the early
+identification of mutants in this process, and this indicates that it
+is mediated by a uniquitinyation mark that inactivates the permease
+and leads to relocalization and degradation (more risinger? (Risinger
+and Kaiser 2008) earlier?). Thus multiple layers redundantly repress
+the NCR-regulated Gap1p.  
+
+In Chapters 2 and 3, I show how mRNA
+degradation also plays a role in this repression.  
+
+\section{mRNA degradation and its regulation}
+
+Even simply considering the regulation of mRNA
+abundance, there are at least two processes that contribute --- that
+of synthesis and degradation. We know much about transcript synthesis,
+perhaps owing to the fact that virtually all events of mRNA synthesis
+pass through a well-characterized reaction of synthesis by RNA Pol II,
+capping and polyadenylation, and export into the cytoplasm. The
+details may vary, but the common pathway is the same. Conversely, mRNA
+degradation does have a main pathway that performs the bulk of mRNA
+degradation but mRNA are also subject to divergent redundant pathways
+that have been challenging to measure. Moreover, the rates of this
+various process are subject to control in ways less well-understood.
+While some similarity is thought to exist in how RBPs may recognize
+cis-element sequences in RNA similar to how TFs recognize upstream
+activating or repressing sequences in DNA, the single-stranded
+nature[d] of mRNA complicates this process by blocking linear
+cis-elements (Li et al. 2010). Additionally, these secondary
+structures of RNA may be recognized as the cis-element, complicating
+our approaches to recognize these patterns (Goodarzi et al. 2012).
+Primary pathways of mRNA degradation The canonical protein-coding mRNA
+is synthesized in the nucleus from a DNA template by RNA Pol II, and
+is capped co-transcriptionally at the 5’ end with a m7G cap. As Pol II
+transcribes sequence 3’ of the stop codon the cleavage factor complex
+recognizes cis element binding motifs in the RNA to direct cleavage
+and polyadenylation to specific sites in the mRNA. Upon successful
+completion of this process, the nascent mRNA is exported to the
+cytoplasm where it enters into the pool of translatable mRNA.
+Typically, translation begins when initiation factors load ribosomal
+subunits to scan the 5’ leader or untranslated region (UTR) for the
+start codon where the process of coding sequence translation begins.
+These initiation factors (eIF4F) bind the m7G cap to load ribosome
+subunits (Dever et al. 2016), and thus most translation depends on the
+cap ( with an exception demonstrated by internal ribosome entry sites
+(Gilbert et al. 2007). The m7G cap is also critical for mRNA
+stability. Xrn1p is a highly-processive combination of helicase and
+exonucleolytic domains that as a single protein rapidly degrades
+transcripts from a 5’ to 3’ end, recognizing unprotected 5’
+phosphorylated ribonucleotides as substrates (Parker 2012). Thus, the
+inverted linkage of the m7G escapes degradation.  
+
+During rounds of
+translation the poly-adenosine tail is shortened from about 65-90
+adenosines to about 10 adenosines by a combination of the Pan2/3 and
+Ccr4/Pop2 deadenylase complexes, with activity antagonized by the
+poly-A binding protein Pab1p (Parker 2012; Decker and Parker 1993).
+When the tail is thus shortened to ~10 adenosines, the Lsm1-7p/Pat1p
+complex binds the remainder of the poly-A tail (Tharun et al. 2000).
+This complex is a heptameric ring of the Lsm1-7 proteins with the
+Lsm1p’s C-terminal domain elegantly spanning the center (Sharif and
+Conti 2013) and the last eight residues projecting into this center
+and critical for binding the shortened poly-A tail (Chowdhury et al.
+2016). The critical function of this complex is to recruit and promote
+activity of the decapping complex to the 5’ end of the mRNA, and in
+cooperation with Pat1p (Chowdhury et al. 2014) the binding of this
+complex to mRNA and to decapping factors is indeed correlated with
+decapping of the mRNA (Chowdhury and Tharun 2009). Thus, the complex
+maps the deadenylated status to the next step in mRNA degradation.  
+
+A
+cytoplasmic mRNA without a 5’ m7G cap is not long lived, by virtue of
+Xrn1p, thus the recruitment and activation of the decapping complex is
+thought to be the key regulatory step in rates of mRNA degradation
+(Coller and Parker 2004). Dcp2p carries out the catalytic activity of
+the holoenzyme but is promoted by the effects of Dcp1p, and in
+comparing in vitro to functional in vivo assays of mutants it appears
+that the catalytic rate of the enzyme is not the limiting step (Tharun
+and Parker 1999). Rather it is re-modeling of the mRNP complex that
+leads to association of the decapping enzyme complex with the 5’ cap,
+and the rate of this process determines the activity of this
+degradation pathway (Tharun and Parker 2001). This
+decapping-enzyme-localization process is promoted by the Lsm1-7p/Pat1p
+complex and inhibited by poly-A binding protein Pab1p (perhaps by
+competition of Pab1p with Lsm1-7p/Pat1p for the poly-A tail) and eIF4E
+(Coller and Parker 2004; Caponigro and Parker 1996). eIF4E, eIF4G, and
+eIF4A comprise the cap-dependent translation-initiation factor eIF4F
+(citez), which gives rise to an elegant model for the observed effect
+of translation initiation inhibiting decapping by competition for the
+5’ m7G cap (Huch and Nissan 2014), while the requirement of sufficient
+poly-A tail for Pab1p to bind is consistent with the effect of
+deadenylation in promoting deapping (Parker 2012). The Lsm1-7p/Pat1p
+complex and Dcp2p/Dcp1p are physically associated (by
+co-immunoprecipitation) with several factors that genetically modulate
+the activity of remodeling step ---Dhh1p, Edc3p, and Scd6p (Nissan et
+al. 2010).  
+
+Dhh1p is a helicase that associates with polysomes (mRNA
+with multiple ribosomes bound) and has been recently demonstrated to
+be genetically required for the relationship between codon optimality
+and mRNA stability (Radhakrishnan et al. 2016; Presnyak et al. 2015;
+Sweet et al. 2012). It has been demonstrated to play a critical
+genetic role in mapping codon-optimality and translation speed back to
+changes in mRNA stability. Curiously, tethering Dhh1p to a 3’ UTR
+using the MS2 system resulted in lower translation rate of an mRNA
+despite causing more ribosomes to be associated with the mRNA (Sweet
+et al. 2012), suggesting that Dhh1p resolves slowly translating
+ribosomes by promoting decapping and mRNA degradation.  
+
+Edc3p
+physically associates with the decapping complex and stimulates its
+activity (Nissan et al. 2010), but it has also been shown to be
+important (Decker et al. 2007) but not critical (Huch et al. 2016; Rao
+and Parker 2017) for the formation of processing-bodies. These are
+microscopically visible foci of mRNA and degradation factors that form
+in response to stress conditions but are assumed to be condensed from
+mRNA-protein complexes that exist before stress (Sheth and Parker
+2003; Lui et al. 2014; Rao and Parker 2017). Interestingly, the
+canonical role of processing-bodies had been as a site of mRNA
+degradation, but recent work with refined genetic tools demonstrated
+that mRNA degradation takes place outside of these sites (Tutucci et
+al. 2017). A mutant deleted of EDC3 and the C-terminal domain of the
+essential LSM4 is deficient in processing-body formation with , and is
+surprisingly this processing-body deficiency also correlates with a
+deficiency in the stabilization of several mRNA upon osmotic stress
+(Huch and Nissan 2017). Thus, the role of Edc3p may be to promote
+interactions between these mRNPs (mRNA-protein complexes) in a manner
+that affects how well mixed the degradation factors and targeted mRNAs
+are.  
+
+Scd6p inhibits the formation of the 48S pre-initation complex
+(when the 40S subunit associates with eIF4E cap-dependent initiation
+factors and begins to scan the 5’ UTR) via forming its own cap-binding
+complex with eIF4G subunit eIF4G1 in an arginine-methylation-dependent
+manner (Rajyaguru et al. 2012; Poornima et al. 2016). This is thought
+to physically occlude the normal initiation complex from binding.
+Scd6p also binds to several other factors in the Lsm1-7p/Pat1p
+deadenylation-promoting complex (Nissan et al. 2010), and thus may
+play an indirect role in preventing the pre-initiation complex from
+binding and stabilizing the mRNA through translation.  
+
+Other pathways
+of mRNA degradation exist. If the poly-A tail is completely removed,
+the cytoplasmic exosome complex can degrade the mRNA from 3’ to 5’.
+This redundant mechanism allows a xrn1$\Delta$ mutant to grow, although
+slowly, as the 5’ to 3’ pathway is throught to effect the bulk of mRNA
+degradation (Parker 2012). The balance between the two may be because
+of the enzymatic rate of digestion, but more likely because the
+binding of the Lsm1-7 complex to the shortened poly-A tail protects
+the mRNA from further deadenylation and thus represses this 3’ pathway
+(cite Tharun on this).  
+
+\section{Alternative pathways of mRNA degradation ---
+quality control and other }
+
+Three other pathways are known to act as a
+co-translational layer of quality control, where errors detected by
+abnormal translation processes result in destruction of the presumably
+defective mRNA. Nonsense-Mediated Decay (NMD) is the canonical example
+of this. A mutation, transcriptional error, alternative splicing
+event, or abnormal translational event (like leaky scanning or a uORF,
+explained later) can cause an mRNA to have a stop codon well before
+the usual position, which is recognized for destruction by a
+deadenylation-independent decapping and 5’->3’ decay (Muhlrad and
+Parker 1994). How the aberrant nature of the misplaced stop codon is
+detected is still a mystery, but NMD sensitivity is known to be
+maximally active after Xaa have been translation and this effect
+reduces to minimal activity towards the 3’ end of the transcript
+(Losson and Lacroute 1979). Non-Stop Decay refers to the inverse of
+NMD, no stop codon. Ribosomes that over-run into the poly-A tail
+recruit degradation by the 3’ exonuclease (exo review). No-go Decay is
+named after the phenomenon that triggers it, when ribosomes no go.
+Difficult to translate sequences (lysine repeats) trigger the
+endonucleolytic cleavage of the offending mRNA, which is then degraded
+from the cut towards both ends (Doma and Parker 2006). Very recently,
+it has been shown that it is likely the ribosome collisions that
+promote the ribosome ubiquitination associated with the triggering of
+No-Go decay (Simms et al. 2017), and other work has suggested that the
+protein Asc1p may play a key role in this process (Ikeuchi and Inada
+2016), perhaps via K63 ubiquitination (Saito et al. 2015). Together
+these pathways surveil translating mRNAs for defects, but it is likely
+that false positives in the recognition process also contribute to
+their regulatory effects.  
+
+Disruption of the NMD pathway is associated
+with different expression of many transcripts. Recent genome-wide
+analysis identifying ~900 mRNA upregulated upon deletion of any of
+UPF1-3, and subsequent ribosome profiling found this targeting to be
+associated with out-of-frame translation effects and non-optimal
+codons (Celik et al. 2017). NMD has been implicated in the regulation
+of ribosomal protein subunit pre-mRNA (Garre et al. 2013) in different
+environmental conditions, has been shown to interact genetically with
+Hrp1p and cis-elements spanning the start codon of PPR1 mRNA to target
+this mRNA for degradation (Pierrat et al. 1993; Kebaara et al. 2003),
+and may be triggered by upstream open reading frames (uORFs, discussed
+later). These could be specific regulation, or aberrant probabilistic
+activation due to the sensitivity of co-translational quality control
+(Celik et al. 2017).  
+
+The interaction of translation and mRNA
+degradation Codon-optimality refers to the concept that certain codons
+are translated by the ribosome more quickly than other codons. This is
+thought to result in part from changes in tRNA abundance and in part
+due to intrinsic differences in the decoding rates (Curran and Yarus
+1989; Thomas et al. 1988), and often quantified using the tAI index
+(dos Reis et al. 2004). The expectation that tRNA availability is
+associated with increased rates of translation has been tested with
+more recent ribosome footprint profiling experiments, and consistent
+with this ribosomes tend to occupy optimal codons less often (Weinberg
+et al. 2016).  
+
+The functional relationship between codon-optimality
+and mRNA degradation rate had been considered and rejected by a review
+of single-transcript studies (Caponigro and Parker 1996). However,
+with the advent of accurate genome-wide measurements of mRNA
+degradation rates, we are able to explore the generality of this
+principle in a relatively unbiased way. Several groups (Presnyak et
+al. 2015; Neymotin et al. 2016; Harigaya and Parker 2016; Cheng et al.
+2017) have found that poor codon-optimality and lower ribosome density
+is associated with a higher degradation rate when considered on a
+per-transcript basis. This can be explained through multiple models.
+One model is that translation elongation rates are sensed, with slower
+elongation accelerating the degradation of mRNA. Jeff Coller’s group
+has worked extensively on Dhh1p, and found that it is genetically
+required for the clear relationship between codon-optimality and mRNA
+stability (Radhakrishnan et al. 2016; Presnyak et al. 2015). Although
+the mechanism is at this point unclear, Dhh1p’s genetic association is
+a fruitful hub to work out from.  
+
+Alternatively, competition between
+decapping enzymes and translation initiation factors for access to the
+5’ m7G cap has long been proposed as a mechanism by which the two
+processes interact (Schwartz and Parker 1999; Schwartz and Parker
+2000). Karsten Weis’ group (Chan et al. 2017) reproduced the result
+that slowing elongation with cycloheximide, sordarin, or 3AT treatment
+slows mRNA degradation, but conversely inhibition of initiation with
+hippuristanol or a dominant negative eIF4E increased degradation
+rates. These measurements were made on the whole-transcriptome using
+4-thiouracil and RNA sequencing, similar to RATEseq (Neymotin et al.
+2014). The connection between the effect of elongation rates and
+initiation rates could be explained by the known effect of slow
+elongation rates inhibiting initiation events, as predicted (Shah et
+al. 2013) and measured (Chu et al. 2014).  
+
+Thus, much evidence points
+to competition between translation initiation and 5’ to 3’ degradation
+initiation at the cap as a major determinant of mRNA stability,
+although the molecular work with Dhh1p suggests that events after
+initiation still play a role. Other mRNA degradation pathways like NMD
+or NGD during elongation (as discussed earlier) could also possibly
+contribute to the effect.  
+
+Regulation of mRNA degradation mRNA
+degradation can be affected by various trans factors. While micro RNAs
+are prolific in regulating mRNA in animals and plants, budding yeast
+do not make use of this mechanism. Instead, in yeast mRNA degradation
+appears to be determined by a combination of intrinsic properties like
+length or codon-optimality, and trans factor RNA binding proteins
+(RBPs) that can bind cis element sequences in the mRNA sequence to
+effect changes in stability (cite? morris, cheng2017). The best
+example of this is Puf3p, which binds motifs in mRNA with products
+destined for mitochondrial function and degrades these in the
+appropriate environment (Olivas 2000; Miller et al. 2013), perhaps by
+mapping phosphorylation of Puf3p to association of these mRNA to
+cytoplasmic granules (Lee and Tu 2015). Secondary structures may
+complicate the recognition of linear cis elements, or be used as cis
+elements in their own right (Li et al. 2010), for example Vts1p (Smaug
+homolog) recognizes a small sequence motif in the context of the loop
+of a stem-loop hairpin (She et al. 2017; Aviv et al. 2003).
+Degradation rates can be affected by many mechanisms. Elements in
+promoters (cis when in DNA but not part of the affected mRNA) can
+“mark” transcripts for differential stability (Haimovich et al. 2013).
+One of the most well known examples of this is Dbf2p loading onto SWI5
+and CLB2 mRNA to effect destabilization upon mitosis (Trcek et al.
+2011). In a direct example, the transcription activation domain of
+Adr1p fused to a different DNA binding domain has been shown to be
+sufficient to mark ADH2 mRNA for destabilization upon a glucose
+upshift (Braun et al. 2015). Thus, RBPs may recognize sequence
+elements in the mRNA or be loaded onto messenger ribonucleo-protein
+complexes (RNPs) at synthesis (Gupta et al. 2016) to effect control of
+mRNA stability in response to events in the cytoplasm.  
+
+Non-RBP
+mechanisms can also be used. Upstream open reading frames (uORFs) were
+originally characterized using the phenotype of post-transcriptional
+regulation of the Gcn2-regulated Gcn4p (Dever et al. 1992) in part
+through quality control pathways (Ruiz-Echevarria and Peltz 1996).
+Canonical and non-canonical start-codons can recruit initiation of
+scanning ribosome subunits with a variety of effects on the
+translation of the main coding sequence and the mRNA stability
+(Spealman et al. 2017). Ribosomes may skip re-initiation at the
+primary start codon to generate N-terminal diversity by initiating at
+alternative start codons, or upon termination of a uORF very distant
+from the 3’ end of the transcript trigger the NMD pathway to destroy
+the mRNA (Dever et al. 2016). Additionally, modification of
+nucleotides such as m6A can play a regulatory effect (citez).  
+
+mRNA
+localization within the cytoplasm may affect degradation by virtue of
+regulating the accessibility of degradation factors. Processing-bodies
+were originally described as cytoplasmic co-localized foci of 5’->3’
+degradation factors that formed under stress induction conditions, and
+on the basis of steady-state genetics and experiments with an MS2
+aptamer-based live-imaging system, it was concluded that
+processing-bodies are foci of active mRNA degradation (Sheth and
+Parker 2003). These foci are usually studied by microscopy during
+stresses, entry into stationary phase, and in the use of mutants in
+degradation pathways, but recent advances in microscopy and nanoscopy
+particle tracking have identified that these complexes are likely
+condensations of previously-existing RNPs and depend on a network of
+redundant interactions between mRNA 5’ to 3’ degradation protein
+factors (Lui et al. 2014; Rao and Parker 2017). Additionally, recent
+adjustments to the aforementioned MS2 aptamer system and explorations
+during dynamic conditions point towards processing-bodies being sites
+of degradation factor sequestration (Huch and Nissan 2017; Tutucci et
+al. 2017). Interestingly, the formation of these processing-bodies are
+halted upon cycloheximide treatment (Sheth and Parker 2003),
+suggesting that translational status of the transcriptome and
+processing-body composition may be related. In recent work, inhibition
+of translation initiation was demonstrated to increase p-body
+formation in correlation with increased degradation rates (Chan et al.
+2017). Together, these observations indicate that processing-bodies
+result from a complex balance of mRNA degradation initiation,
+resolution, and mRNA degradation factor interactions with impacts on
+the accessibility of degradation factors to mRNA targets of
+degradation.  
+
+The role of stability control in transcriptome
+reprogramming The change in concentration of an mRNA ($R_t$) depends
+on the rates of mature transcript synthesis ($k_s$) and mRNA
+degradation ($k_d$). We assume that the cell volume is fixed, that
+synthesis is a constant rate dependent on the unchanging concentration
+of the DNA encoding the gene, and that degradation is a random first
+order process of the mRNA interacting with a fixed and unsaturated
+factor degradation. Thus, the change in mRNA over time is $$
+\frac{dR_t}{dt} = k_s - R_t k_d$$ From this, the two rates determine
+the steady-state equilibrium of $\frac{k_s}{k_d}$. Given a change in
+these rates, a faster mRNA degradation rate will approach or relax to
+the new equilibrium value quicker (Hargrove and Schmidt 1989), as the
+doubling time (or half-life) of the mRNA is dependent on only the
+degradation rate $\frac{log(2)}{k_d}$.  
+
+While both synthesis and
+degradation contribute to changes in abundance, changes in degradation
+rates can cause the changes to occur more rapidly. If we expect that
+the existence of a mechanism implies a selective pressure specifically
+for it (Gould and Lewontin 1979), then we would expect that studying
+an example of a transcript subject to both synthesis and degradation
+regulation might reveal a balance of selection during steady-state and
+dynamic conditions. 
+
+\section{Stress conditions trigger rapid regulation of mRNA stability}
+
+mRNA degradation rate changes have been characterized
+to play a role in responses to heat-shock, osmotic stress, pH
+increases, and oxidative stress, sharing a similar program of
+destabilization of mRNA coding for ribosomal-biogenesis gene products
+and stabilization of stress-responsive mRNA (Canadell et al. 2015;
+Molina-Navarro et al. 2008; Shalem et al. 2011; Romero-Santacreu et
+al. 2009; Molin et al. 2009; Castells-Roca et al. 2011; Miller et al.
+2011; Garre et al. 2013). Simultaneous increases in both synthesis and
+degradation rates of some of these mRNA are thought to serve to return
+the transcriptome quickly to a new steady-state after effecting a
+transient pulse of regulation (Shalem et al. 2008; Rabani et al.
+2011), demonstrating a key functional role in stability control in
+achieving a particular pattern of mRNA dynamics. Interestingly, these
+stability changes appear to be a singular regulatory event
+(Pérez-Ortín et al. 2013). Glucose deprivation stress also impacts
+mRNA stability (Munchel et al. 2011). 
+
+\subsection{Nutrient shifts also trigger mRNA stability changes }
+
+In response to a carbon-source downshift
+(glucose-grown cells resuspended in media with only galactose
+available), functionally important regulatory changes in mRNA
+stability occur (Munchel et al. 2011). Ribosome biogenesis associated
+mRNAs are are destabilized, an effect that can be phenocopied by the
+addition of rapamycin (inhibitor of the central growth signalling
+TORC1 pathway) (Munchel et al. 2011). Conversely, a carbon source
+upshift (galactose to glucose) triggers a destabilization of inducible
+GAL genes, an effect that appeared to be restricted to the dynamic
+condition as mRNA transgenically overexpressed in glucose media were
+stable (Munchel et al. 2011).  
+
+Global changes in transcription and
+mRNA destabilization has been observed before (Jona et al. 2000), and
+recently systematically measured to be correlated with changes in
+growth rate (García-Martínez et al. 2016). The involvement of the
+TORC1 pathway in this process has identified that its effect is
+specified to differentially regulate the stability of certain
+transcript sets (Albig and Decker 2001; Talarek et al. 2010).
+Recently, a phosphoproteomics approach to studying signallng of the
+AMPK homolog Snf1p during a carbon upshift identified a role in Xrn1p
+phosphorylation in the specification by this factor (Braun et al.
+2014). Thus, specific signalling pathways appear to effect large
+changes in mRNA stability in response to different nutrient conditions
+for growth. 
+
+Relieving nutrient limitation with a glucose upshift has
+been shown to mediate both stabilization of mRNA in the ribosomal
+protein subunit regulon (Yin et al. 2003) and destabilization of
+gluconeogenic transcripts (de la Cruz et al. 2002; Mercado et al.
+1994; Scheffler et al. 1998; Lombardo et al. 1992). Mapping the
+determinants of this effect has been met with mixed success. The
+destabilization of SDH2 and GAL1 mRNA have been mapped to elements in
+the 5’ UTR (Bennett et al. 2008) with destabilization of GAL1 being
+associated with a growth advantage in switching carbon-source
+environments (Baumgartner et al. 2011). JEN1 has been demonstrated to
+be destabilized upon glucose addition, and this has been mapped to cis
+elements of different transcription start sites which can act in trans
+to regulate other co-expressed engineered alleles of JEN1 through
+unknown mechanisms (Andrade et al. 2005) although subsequent work has
+identified DHH1 as being a genetic factor of the destabilization (Mota
+et al. 2014). Some transcripts respond at different levels of glucose
+addition and differently in different genetically-perturbed metabolic
+backgrounds (Yin et al. 2000), and disrupting signalling through the
+PKA pathway affects destabilization of some mRNA but not others (Yin
+et al. 2003). Thus, a systematic measurement of mRNA stability and a
+broad determination of genetic factors of the transcript dynamics
+would be useful for making progress at untangling the regulation of
+mRNA stability in response to the increase in growth rate upon a
+nutrient upshift.  
+
+\section{What is the function of rapid txtome changes upon upshift?}
+
+Up-regulation of mRNA abundance during an increase in growth
+rate serves a clear functional purposes. The ribosomal protein (RP)
+and ribosome biogenesis (RiBi) regulons are swiftly upregulated upon
+repletion of nutrients to nutrient-limited cultures of yeast
+(Jorgensen et al. 2004), and are well-correlated with growth rate in
+both dynamic and steady-state conditions (does brauer or airoldi show
+this?). Ribosomes are lower in slow growing conditions and need to be
+upregulated upon resumption of rapid growth. (von der Haar estimates,
+Tu, Hwa) (Estimated this is probably from 50k to about 200k.) The
+relative allocation of gene expression resources in the cell is a
+fundamentally important decision cells must make. Modeling of this
+phenomenon across various conditions, mainly in E. coli as a model
+system, as identified that a simple “pie-chart” model explains the
+up-regulation of ribosome biogenesis relative to the rest of the
+cellular investments well during steady-state.  
+
+A recent study has
+explored the theoretically best strategy during an increase in growth
+rates, and found that a “bang-bang singular” strategy of complete
+focus on generating gene expression machinery at the neglect of
+metabolism machinery would be the optimal strategy for resuming growth
+most rapidly (Giordano et al. 2016). With that, transcripts that are
+stress responsive or important for metabolism in the old environment
+are repressed upon a nutrient upshift.  
+
+What does rapid transcriptional reprogramming achieve with respect to gene regulation?
+In an integrative study of proteome and transcriptome dynamics from
+the Gasch laboratory (Lee et al. 2011), the authors found that while
+upregulation of mRNA did correlate with an increase in protein
+abundance, the repression of mRNA did not correlate with a
+downregulation of protein products on the timescales they measured.
+This asymmetry makes sense, as with protein approximately 20 times
+more stable than the mRNA they derive from (one of those reviews).
+This suggests that accelerated mRNA degradation may serve a different
+role. Others have suggested that degradation can help recycle
+nucleotides (Kresnowati et al. 2006) or that reprogramming the
+transcriptome would help to reallocate the extant translational
+capacity of the cell to enact a growth-optimal program (Kief and
+Warner 1981; Giordano et al. 2016; Shachrai et al. 2010). Identifying
+the genetic factors responsible for the degradation would allow us to
+test if the destabilization is adaptive, and if so to make progress in
+understanding the mechanistic basis of this phenomenon.[e] 
+
+\section{Measuring mRNA dynamics}
+
+It is easier to measure the abundance of something than
+it is to measure the change in abundance of something. While mRNA
+abundance measurements for entire transcriptomes are now routine,
+determining the rates that underlie this molecular phenotype has
+lagged. Synthesis rate control has largely been assayed by techniques
+like Genome Run On (GRO) sequencing (discussed below) to measure
+transcription rates or measuring intron-exon ratios (pick one, NET
+seq?) as a proxy for synthesis rates (Pérez-Ortín et al. 2013).
+Degradation rate measurements have used a variety of methods, but are
+now applied to the whole transcriptome with enough accuracy to enable
+systematic modeling of the determinants of mRNA degradation rates
+(Pérez-Ortín et al. 2013; Neymotin et al. 2016; Cheng et al. 2017).
+Pioneering studies used pulse-chase experiments with radioactive
+nucleotides to study turnover of the whole transcriptome, but were
+unable to assay the process at the single-gene level (that one that
+David sent me, and the one that Leon Chan sent me).  
+
+To study
+particular genes people have used promoters with inducible repression
+characteristics to halt transcription. Transgenes like the
+doxycycline-inducible TetOff (g something 1998?) use a heterologous
+system. Researchers have also made use of the GAL1 promoter. Upon
+addition of glucose, transcription of the GAL1 mRNA is immediately
+halted. This property has been exploited to study mRNA stability in a
+technically simple manner ( parker?, coller green ) and the promoter
+has been adapted to higher throughput studies ( that bullshit short
+half-life recent paper ). However, the last 100bp before the start
+codon of GAL1 has been shown to be necessary for accelerated
+degradation of this mRNA upon glucose addition (baumgarner, bennet,
+hasty), challenging the interpretation of mRNA stability measured in
+glucose-containing media with the GAL1 promoter fused directly
+upstream of the start codon. While some researchers take care to limit
+the glucose in the system (0.0?5\% in that bullshit paper) while using
+heterologous binding sites, researchers have shown that glucose
+concentrations of 0.0?1\% (56mM, check Ziv’s paper for making sure I’m
+not screwing up a decimal place) have triggered instability of
+gluconeogenic mRNA ( yin brown 2000 or 2003 ). Thus, while the GAL1
+system is a convenient system for studying degradation intermediates (
+parker and coller ), its use for studying the native stability of
+different mRNA and in different environments is uncertain.  
+
+A system
+that does not rely on engineered cis-elements would avoid these issues
+and scale to genome-wide assays, and thus two methods of
+transcriptional inhibition were applied to study mRNA degradation
+rates in landmark studies. A temperature sensitive rpb1-1 allele was
+demonstrated to halt most Pol II transcription at non-permissive
+temperatures, while the drugs thiolutin and 1,10-phenanthroline
+inhibited polymerases including Pol II to mostly halt transcription.
+These have been used widely, and are still used to this day. However,
+it has been shown that used of thiolutin or 1,10-phenalanthroline
+induces some heat-shock genes (Adams and Gross 1991), thiolutin
+inhibits mRNA degradation in a dose-dependent way (Pelechano and
+Pérez-Ortín 2008) (perhaps via inducing processing-body formation
+(Huch et al. 2016)), and eliminating the essential RNA Pol II complex
+from the nucleus has complex effects on the transcriptome dynamics (Yu
+et al. 2016). While it may seem logical that studies of mRNA
+associated with processes distinct from heat-shocks may be unaffected
+by these, the complexity of the cell demonstrated itself in vital
+controls run by (Mercado et al. 1994) which demonstrated that
+gluconeogenic mRNA were subject to destabilization upon a
+heat-shock[f]. Shutting off transcription has complex and difficult to
+predict effects on transcript abundance as the cells die over the
+course of the experiment.  
+
+Orthogonal to these approaches is GRO-seq
+(Genomic Run On)[g]. This method uses a sarkosyl treatment (and
+salt?)[h] to fix RNA Pol II complexes onto genomic DNA by freezing
+their elongation. Extraction and a defined in-vitro polymerase
+extension by reversing the fixation before profiling the resulting
+mRNA with microarrays or RNAseq allows for an estimate of the
+instantaneous transcription rate status for each gene in a population
+of cells. Interpretation of these numbers must be considered in the
+context of the in-vitro environment of the elongation step, but this
+method serves as an valuable orthogonal measure of transcript dynamics
+--- and an instantaneous one.  
+
+The development of 4-thiouracil
+metabolic labeling of RNA (Dölken et al. 2008) has enabled a return to
+the pulse-chase methodology in the development of genome-wide assays
+of mRNA dynamics. Fundamentally, these assays work by changing the
+labelling frequency of mRNA and tracking the dynamics as the labeled
+mRNA abundance relaxes towards that new equilibrium. Below I review
+the basis of these assays, then focus on their applications and where
+the dissertation work is placed.  
+
+If we consider mRNA abundance at a
+certain time as being denoted as $M_t$, then I expect this number to
+change as a zeroth order rate of synthesis per time ($k_s$) and a
+first order rate of degradation per mRNA ($k_d$). While mRNA
+degradation is a multi-step process (above) and more complex models
+may identify nuances in the rates of progression through these
+intermediates (Deneke et al. 2013), at steady-state the rate of
+degradation of mRNA in a population should be well modeled by a single
+first order rate ( ?can I find the cite for that? ).
+$$\frac{dM_t}{dt} = k_s - M_t*k_d$$ Introducing a term $L$ that
+denotes the fraction of newly synthesized mRNA that are labeled and
+measured after purifying mRNA for the labeled mRNA (thus $M_t$ is just
+labeled and captured mRNA), we can now model the changes as simply
+$$\frac{dM_t}{dt} = L k_s - M_t*k_d$$ I introduce the superscript
+notation of $L^o$ for the old labeling frequency and $L^n$ for the new
+labeling frequency, and solving for the change of $M_t$ from some
+steady-state equilibrium $L^o \frac{k_s^o}{k_d^o}$ to a new
+equilibrium $L^n \frac{k_s^n}{k_d^n}$, and rearranging terms we get
+$$M_t =  L^o \frac{k_s^o}{k_d^o} e^{-k_d^n t} + L^n \frac{k_s^n}{k_d^n} ( 1- e^{-k_d^n t} )$$ 
+This matches well with our
+intuition. On the right, the nascent transcripts are labeled at the
+new rate and approach this new equilibrium controlled by the term $(
+1- e^{-k_d^n t} )$, while on the left the extant transcripts approach
+zero in an exponential decrease controlled by the term $e^{-k_d^n t}$.
+These are both controlled by $k_d^n$, or the rate of mRNA degradation
+after chasing the label. Thus, by measuring the transition between the
+equilibrium we get the mRNA degradation rate, assuming that synthesis
+rates do not change.  
+
+Measuring specific rates with high confidence
+requires a steady-state approximation. RATEseq is one method to do so,
+using many timepoints to accurately model the approach of labeled mRNA
+abundance to a new equilibrium (Neymotin et al. 2014). This
+experimental design is theoretically the most accurate, although it
+requires the assumption that the total mRNA (labeled + unlabeled) is
+indeed at a steady-state abundance. Dynamic Transcriptome Analysis
+(Miller et al. 2011) violates this assumption to explore changes in
+degradation rates during 6 minute windows. While they sacrifice
+high-confidence of an exact rate, the temporal resolution of stability
+changes during osmotic stress has revealed an unprecedented dynamic
+view of the regulation of mRNA dynamics during complex processes. This
+approach requires that 4-thiouracil transport and incorporation into
+nucleotide metabolism occurs during the course of the perturbation
+experiment, but with the right measurements, normalization, and
+integration with other datasets an accurate and dynamic picture of
+transcriptome dynamics can be built. To assess mRNA stability changes
+during dynamic processes, one can also label the transcriptome to
+equilibrium and then chase out the label by adding an excess of
+unlabeled nucleotides. This approach was used by researchers in the
+Weis group to demonstrate changes in the stability of groups of mRNA
+in response to environmental changes, namely shifts in carbon sources
+and with rapamycin treatment inhibiting TORC1 (Munchel et al. 2011).
+They found that the RP (ribosomal protein) regulon was destabilized
+upon induction of nutrient starvation, demonstrating that mRNA
+degradation is under tight regulation from nutrient-sensing pathways.
+In Chapter 3 I demonstrate the use of a similar label-chase
+experimental design, with with refined analysis to explore
+single-transcript destabilization upon a nitrogen upshift.  
+
+\section{Methods for determining the genetic basis of a transcript
+dynamics phenotype}
+
+mRNA is an intermediate in the expression of a protein product, and
+has the key virtue of being much easier to measure than to measure
+abundance of the protein product. This became especially true with the
+advent of massively-parallelized DNA sequencers and the methods to
+accurately convert transcriptomes to DNA libraries, ie RNAseq
+(Shendure et al. 2017). For this reason, it is often used as a proxy
+of gene expression at the protein level. Although the relationship is
+strong when correcting for experimental noise (Csárdi et al. 2015),
+the quantitative functional nature of this relationship within a
+particular gene in different environments depends on the particular
+gene in question (Franks et al. 2017). It is also clear that
+transcriptomic and proteomic responses greatly vary in the timescales
+of effect, with the transcriptome subject to rapid impulses of
+changing abundance that may or may not result in longer term
+regulation of the protein product (Cheng et al. 2016; Lee et al.
+2011). Even then, protein abundance in a cell does not correspond
+perfectly to its activity, be that regulated allosterically or by
+localization.  
+
+Given this disparity, what can we learn about adaptive
+gene expression from mRNA abundance regulation? First, the expression
+of a gene product requires mRNA, thus the binary expression of mRNA is
+a predictor of the possibility of protein expression. Additionally,
+cellular processes often impinge upon changes in mRNA abundance, be
+they direct via regulation of abundance, activity, and localization of
+activity of specific effectors or by indirect effects on common gene
+expression machinery or cellular metabolism. In this way, a specific
+perturbation of a signalling pathway is expected to broadcast to
+changes in mRNA abundance. Quantification of the thousands of mRNA
+that are expressed in a cell is a sensitively quantitative measurement
+on thousands of dimensions, and can thus be used as a
+relatively-unbiased indicator of cellular status with which to explore
+the genetic requirements of particular signalling perturbations (that
+mol sys bio paper). Thus, efficient methods to explore the genetic
+basis of transcript dynamics upon a perturbation should help to
+accelerate the study of cellular signalling pathways.  
+
+Genetic screens
+in yeast have been a powerful tool to narrow down the immense search
+space of possibilities to a narrow set of hypotheses about a
+biological process. Classically, these function by mapping some
+phenotype of interest to a change in growth rate. For example, mutants
+in transporters of a particular amino-acid can be isolated by feeding
+the cells a toxic stereoisomer (like D-histidine). A more complex
+method in Lee Hartwell’s classic screen for cell-cycle mutants used
+the assay of growth at a low temperature and cessation of growth at a
+high temperature to identify mutants in critically important pathways
+(hartwell 1970), work that contributed to a 2001 Nobel Prize for
+advancing our understanding of the cell cycle. However, this concept
+becomes problematic when studying a molecular phenotype which is not
+known to be adaptive. 
+
+For example, gene regulation might not have a
+clear phenotypic outcome or be subject to redundant layers of
+regulation that mask the effect of a mutation. One solution is to
+engineer a specific reporter into the expressed gene, such that
+defects in gene expression can be assayed. It becomes more difficult
+if the phenotype is a transient one, such that a reporter through
+growth rate (perhaps a toxic peptide) does not have time to accumulate
+the signal of growth. A fluorescent tag is one approach that bypasses
+this requirement, as cells can be instantaneously assayed for the
+level of GFP fluorescence through methods like flow cytometry. The GFP
+can be fused to the protein of interest or simply placed downstream of
+an appropriate reporter, such as the strategy employed by (Neklesa and
+Davis 2009). They were able to use a DAL80 promoter upstream of a GFP
+reporter to explore the genetic requirements for the NCR-regulated
+expression of this promoter, discovering the SEACIT complex components
+Npr2/3p upstream of TORC1. However, this method requires that the gene
+expression phenotype be regulated at both the transcript synthesis
+level and be relevant at the level of protein expression. Additionally
+it requires that the GFP tag be a relevant and faithful reporter of
+the protein abundance, a condition which is not always satisfied given
+the stability of the GFP tag in the vacuole (find that cite).
+Previous work to do genetics of transcript dynamics neklesa - sortseq,
+reporters Mention problems of GFP stability worley - robotics exotic
+methods, like COE, so antibodies scRNAseq I think tavazoie’s stuff
+Fluorescent readout of mRNA degradation mechanisms at the protein
+level. (Aviv et al. 2003) GAP1 mRNA degradation, which we identify as
+being subject to accelerated mRNA degradation in Chapter 3 and 4,
+occurs much faster than the repression of the protein-product. We also
+know that Gap1p, the protein product of GAP1 mRNA, is subject to
+de-activation and re-localization in response to a nitrogen upshift.
+Thus, a functional assay of Gap1p is irrelevant to the dynamics of
+GAP1 mRNA repression, and requires a novel method to screen for
+genetic factors of this molecular phenotype.  
+
+Ambitious work from the
+Capaldi group developed a workflow using extensive automation to
+perform qPCR assays for NSR1 mRNA abundance 19 minutes after induction
+of an osmotic stress response (Worley et al. 2015). While accurate and
+reproducible, the extensive automation and reagent usage to perform
+qPCR on ~4700 mutant strains poses a financial and logistical
+challenge to performing the assay, and to perform the assay in
+different genetic backgrounds, in larger libraries, in replicates, or
+in different timepoints.  
+
+I composed several existing technologies to
+develop a direct assay of transcript abundance in a high-throughput
+pooled format. This is discussed in depth in Chapter 3. 
+
