@@ -1,5 +1,6 @@
 
-.PHONY: dissertation diss poison
+.PHONY: dissertation diss poison all
+all: dissertation
 dissertation: diss
 diss: dissertation_darachmiller_all.pdf
 
@@ -16,4 +17,7 @@ dissertation_darachmiller_all.pdf \
   dissertation_darachmiller_4.tex \
   dissertation_darachmiller_5.tex \
   dissertation_darachmiller_all.tex 
+	xelatex dissertation_darachmiller_all.tex 
+	bibtex dissertation_darachmiller_all
+	xelatex dissertation_darachmiller_all.tex 
 	xelatex dissertation_darachmiller_all.tex 
