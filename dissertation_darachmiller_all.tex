@@ -6,7 +6,13 @@
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
 
-\usepackage{natbib}
+%\usepackage{natbib}
+%\usepackage[backend=bibtex8]{biblatex}
+\usepackage[backend=bibtex8
+  ,backref=true,hyperref=true
+  ,refsection=chapter
+  ,style=authoryear-comp]{biblatex}
+\addbibresource{references_dissertation_darachmiller}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black }
@@ -15,7 +21,8 @@
 \makeatletter 
 \def\makemytitle{
   \newpage
-  \begin{center}
+\begin{center}
+\vfill
   \@title\\
 \vfill
   by\\
@@ -31,15 +38,15 @@
   \monthz, \yearz\\
   \end{center}
 \vfill
-  \begin{flushright}
+\begin{flushright}
   $\rule{5cm}{0.01mm}$\\
   David Gresham
-  \end{flushright}
+\end{flushright}
   \pagebreak
-  \begin{centering}
+\begin{center}
   \textcopyright \hspace{0.2em} \@author \\
   All rights reserved, \yearz \\
-  \end{centering}
+\end{center}
   \pagebreak
 }
 \makeatother
@@ -145,14 +152,32 @@ abstract
 
 \mainmatter
 
-\include{dissertation_darachmiller_1}
-\include{dissertation_darachmiller_2}
-\include{dissertation_darachmiller_3}
-\include{dissertation_darachmiller_4}
-\include{dissertation_darachmiller_5}
+\newcommand{\chapterbib}[0]{ 
+  {
+  \SingleSpacing
+  \printbibliography[heading=subbibnumbered,title={References}]
+  }
+}
 
-\bibliographystyle{apacite}
-\bibliography{references_dissertation_darachmiller}
+\include{dissertation_darachmiller_1} \chapterbib
+\include{dissertation_darachmiller_2} \chapterbib
+\include{dissertation_darachmiller_3} \chapterbib
+\include{dissertation_darachmiller_4} \chapterbib
+\include{dissertation_darachmiller_5} \chapterbib
+
+%\bibliographystyle{apacite}
+%\bibliography{references_dissertation_darachmiller}
+%\renewcommand*{\bibfont}{\small}                                         
+{                                                                        
+\SingleSpacing                                                           
+%\noindent\textbf{Literature cited} :                                     
+%\setlength\bibitemsep{0pt}                                               
+%\renewcommand\bibsection{\normalsize\textbf{Literature cited} :}        
+%\setlength\bibsep{0pt}                                                  
+%\bibliographystyle{abbrvnat}                                            
+%\bibliography{scripts/references_nrc_fellowship_2018}                   
+%\printbibliography%[heading=none,title=x]                                 
+} 
 
 \end{document}
 

@@ -1,8 +1,6 @@
 
 .PHONY: dissertation diss poison all
-all: dissertation
-dissertation: diss
-diss: dissertation_darachmiller_all.pdf
+all: dissertation_darachmiller_all.pdf
 
 #%.html %.pdf: %.Rmd
 #	Rscript -e 'rmarkdown::render("$<",output_format="all")'
@@ -18,6 +16,13 @@ dissertation_darachmiller_all.pdf \
   dissertation_darachmiller_5.tex \
   dissertation_darachmiller_all.tex 
 	xelatex dissertation_darachmiller_all.tex 
-	bibtex dissertation_darachmiller_all
+	bibtex8 dissertation_darachmiller_all1-blx || true
+	bibtex8 dissertation_darachmiller_all2-blx || true
+	bibtex8 dissertation_darachmiller_all3-blx || true
+	bibtex8 dissertation_darachmiller_all4-blx || true
+	bibtex8 dissertation_darachmiller_all5-blx || true
 	xelatex dissertation_darachmiller_all.tex 
+	xelatex dissertation_darachmiller_all.tex 
+
+diss:
 	xelatex dissertation_darachmiller_all.tex 
