@@ -7,3 +7,5 @@
 *.out
 *.toc
 img/
+*-blx.bib
+*.run.xml
