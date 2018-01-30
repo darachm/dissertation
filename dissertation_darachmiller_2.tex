@@ -1,28 +1,27 @@
 \chapter{Modeling transcript dynamics upon a nitrogen upshift}
 
-This
-chapter was published as part of the article “Steady-state and dynamic
-gene expression programs in Saccharomyces cerevisiae in response to
-variation in environmental nitrogen” in Molecular Biology of the Cell
-vol. 27 no. 8 1383-1396. April 15, 2016. doi: 10.1091/mbc.E14-05-1013 
-
+This chapter was published as part of the article 
+\textit{"Steady-state and dynamic gene expression programs in 
+Saccharomyces cerevisiae in response to variation in 
+environmental nitrogen”} in \textit{Molecular Biology of the Cell}
+(vol. 27 no. 8 1383-1396. April 15, 2016.
+\url{doi.org/10.1091/mbc.E14-05-1013}).
 
 Authorship of this article was: Edoardo M. Airoldi, Darach Miller,
 Rodoniki Athanasiadou, Nathan Brandt, Farah Abdul-Rahman, Benjamin
 Neymotin, Tatsu Hashimoto, Tayebeh Bahmani, and David Gresham. 
 
-
-Below is reprinted the abstract, the sections of the results, and the
-sections of the conclusion relevant to this dissertation. The text has
-been edited for clarity, primarily of acronyms. Supplemental tables,
+Below is reprinted the abstract, then excerpts of the introduction,
+results, and conclusion to which I contributed. 
+The text has been edited for clarity. Supplemental tables,
 figures, and files are available on the MBoC article website (
-doi.org/10.1091/mbc.E14-05-1013 ).  
+\url{doi.org/10.1091/mbc.E14-05-1013} ).  
 
 \section{Abstract} 
 
 Cell growth rate is
 regulated in response to the abundance and molecular form of essential
-nutrients. In Saccharomyces cerevisiae (budding yeast), the molecular
+nutrients. In \textit{Saccharomyces cerevisiae} (budding yeast), the molecular
 form of environmental nitrogen is a major determinant of cell growth
 rate, supporting growth rates that vary at least threefold.
 Transcriptional control of nitrogen use is mediated in large part by
@@ -50,7 +49,8 @@ results in the transient overproduction of transcripts required for
 protein translation. Simultaneously, we find that that accelerated
 mRNA degradation underlies the rapid clearing of a subset of
 transcripts, which is most pronounced for the highly expressed
-NCR-regulated permease genes GAP1, MEP2, DAL5, PUT4, and DIP5. Our
+NCR-regulated permease genes \textit{GAP1}, \textit{MEP2}, 
+\textit{DAL5}, \textit{PUT4}, and \textit{DIP5}. Our
 results reveal novel aspects of nitrogen-regulated gene expression and
 highlight the need for a quantitative approach to study how the cell
 coordinates protein translation and nitrogen assimilation to optimize
@@ -58,18 +58,59 @@ cell growth in different environments.
 
 \section{Introduction}
 
-To study the effect on mRNA expression of environmental
-nitrogen source variation in nitrogen-limited, growth rate–controlled
-conditions, we studied cells growing in chemostats using six different
-nitrogen sources at four different dilution rates. We show that
-differential expression of the NCR (Nitrogen Catabolite Repression)
-and SPS (SSY1-PTR3-SSY5) regulons is primarily a function of growth in
-a nitrogen-limited environment, with the molecular form of nitrogen
-having minimal effect on differential gene expression when cells are
-limited for nitrogen. By contrast, the GAAC (General Amino Acid
-Control) and UPR (Unfolded Protein Response) regulons do not respond
-specifically to nitrogen limitation compared with other
-nutrient-limited conditions. To study the dynamics of
+The rate at which budding yeast cells grow is sensitive to the
+molecular form of nitrogen in the environment. Yeast cells are able to
+use and discriminate between different nitrogen sources 
+\parencite{cooper1982nitrogen,magasanik2002nitrogen}. 
+When a variety of nitrogen sources are
+available, a yeast cell will preferentially transport and metabolize
+particular nitrogen-containing compounds by decreasing levels of
+transcripts and proteins required for use of nonpreferred nitrogen
+sources 
+\parencite{cooper1982nitrogen,magasanik2002nitrogen}. 
+A study of yeast
+cells growing in the presence of different individual nitrogen sources
+provided a genome-wide view of nitrogen-regulated gene expression and
+suggested that >500 genes are differentially expressed as a function
+of environmental nitrogen source 
+\parencite{godard2007effect}. On the basis
+of differential gene expression, promoter sequence elements, and
+published literature, \cite{godard2007effect} assigned membership of many
+of these transcripts to five regulons that are responsive to
+environmental nitrogen: the nitrogen catabolite repression A (NCR-A)
+regulon, which includes bona fide NCR targets; the potential NCR
+target (NCR-P) regulon; the general amino acid control (GAAC) regulon;
+the unfolded protein response (UPR) regulon; and the \textit{SSY1}-PTR3-SSY5
+(SPS) regulon.
+
+Transcriptional control of the NCR regulon (i.e., both NCR-A and NCR-P
+regulons) is mediated by the transcription factors 
+\textit{GLN3}, \textit{GAT1}, \textit{DAL8}0,
+and \textit{GZF3}, which bind to the 5′-GATAA-3′ consensus sequence in target
+gene promoter regions 
+\parencite{cooper1982nitrogen,magasanik2002nitrogen}. 
+Whereas \textit{DAL8}0 and \textit{GZF3} act as repressors of 
+NCR transcription, \textit{GLN3}
+and \textit{GAT1} activate the transcription of NCR genes in a nitrogen
+source–dependent manner. The evolutionarily conserved TOR complex 1
+(TORC1) is believed to be an upstream regulator of NCR expression, as
+it promotes the nuclear exclusion of \textit{GLN3} by physical association with
+\textit{URE2} in a phosphorylation-dependent manner
+\parencite{beck1999tor}.
+
+%To study the effect on mRNA expression of environmental
+%nitrogen source variation in nitrogen-limited, growth rate–controlled
+%conditions, we studied cells growing in chemostats using six different
+%nitrogen sources at four different dilution rates. We show that
+%differential expression of the NCR (Nitrogen Catabolite Repression)
+%and SPS (SSY1-PTR3-SSY5) regulons is primarily a function of growth in
+%a nitrogen-limited environment, with the molecular form of nitrogen
+%having minimal effect on differential gene expression when cells are
+%limited for nitrogen. By contrast, the GAAC (General Amino Acid
+%Control) and UPR (Unfolded Protein Response) regulons do not respond
+%specifically to nitrogen limitation compared with other
+%nutrient-limited conditions. 
+To study the dynamics of
 nitrogen-responsive gene expression, we performed transient
 perturbation experiments in which different quantities and sources of
 nitrogen were added to cells growing in nitrogen-limited chemostats.
@@ -83,8 +124,9 @@ between activation of the transcriptional growth program and its
 manifestation in an increased rate of cell growth. To compare global
 gene expression in dynamic conditions with mRNA expression in
 steady-state conditions, we used computational estimation of
-instantaneous growth rate from gene expression profiles (Brauer et al.
-2008; Airoldi et al. 2009) and defined gene expression responses to
+instantaneous growth rate from gene expression profiles 
+\parencite{brauer2008coordination,airoldi2009predicting} 
+and defined gene expression responses to
 growth rate in both steady-state and dynamic conditions using linear
 regression. We find that the response of transcripts required for
 protein translation (RP and RiBi) in cells provided with an increase
@@ -100,18 +142,20 @@ nitrogen-responsive gene expression.
 
 To obtain a high-resolution view of mRNA abundance
 changes during the first 10 min after addition of nitrogen, when
-changes in gene expression are maximal (Figure 4), we repeated the
+changes in gene expression are maximal, we repeated the
 pulse experiments (addition of nitrogen source to yeast grown in
 steady-state nitrogen-limited chemostat cultures) and assayed global
-gene expression at 1–2 min intervals after the addition of 40 $\mu$M
+gene expression at 1-2 min intervals after the addition of 40 $\mu$M
 glutamine or 80 $\mu$M proline. We observed a rapid increase in expression
 of the RiBi and RP regulons in response to a pulse of glutamine, with
 a concomitant rapid decrease in expression of the NCR-A and NCR-P
 regulons. Consistent with our initial observation, we observed a
 similar response to a pulse of proline. 
 
-Accelerated degradation of
-mRNAs contributes to remodeling of the transcriptome The majority of
+\subsection{Accelerated degradation of
+mRNAs contributes to remodeling of the transcriptome }
+
+The majority of
 NCR transcripts are strongly repressed in response to a nitrogen
 pulse. If gene expression is repressed at the promoters of these genes
 and mRNA synthesis ceases, the decrease in mRNA abundance is expected
@@ -126,42 +170,23 @@ Supplemental Table S4), whereas 458 transcripts fit a first-order
 exponential decay model in response to the proline pulse (Supplemental
 Table S4).  
 
-We compared the half-lives of rapidly degraded transcripts
-after the glutamine pulse with half-life estimates in steady-state
-conditions determined using RATE-seq (Neymotin et al. 2014). We found
-that some transcripts decay significantly faster than expected,
-suggesting that their degradation rate is accelerated in response to
-the glutamine pulse (Figure 6A). Batch culture growth in proline also
-results in derepression of the NCR regulon (Godard et al. 2007). To
-test whether accelerated mRNA decay is specifically a response to the
-nitrogen-limited conditions of a chemostat, we added a pulse of
-glutamine to cells growing in batch cultures containing proline as a
-sole nitrogen source and measured genome-wide gene expression
-(Supplemental Table S7). The half-lives of transcripts that exhibit an
-exponential decrease is similar in chemostat and batch cultures
-(Supplemental Figure S7B), and many of the same transcripts show
-evidence of accelerated degradation rates in batch cultures (Figure 6B
-and Supplemental Table S4). Strikingly, the five nitrogen permease
-genes GAP1, DIP5, MEP2, PUT4, and DAL5 are the most rapidly cleared
-mRNAs in both the chemostat and batch culture experiments.  
+\newpage
 
-To verify
-that the addition of glutamine stimulates accelerated degradation of
-specific NCR transcripts, we performed pulse-chase experiments using
-the metabolic label 4-thiouracil (4-tU). After several generations of
-batch culture growth in proline medium in the presence of 4-tU to
-allow complete labeling of mRNAs, we added unlabeled uracil to the
-culture. We allowed the chase to occur for 13 min and then added
-either glutamine or water (mock) to the cells. We purified labeled
-transcripts and analyzed GAP1 and DIP5 mRNAs using quantitative PCR
-(qPCR) and normalization to external spike-ins. Consistent with our
-genome-wide assay, the addition of glutamine results in a clear
-accelerated degradation of both GAP1 mRNA (Figure 6C) and DIP5 mRNA
-(Figure 6D), confirming that the transition from NCR-derepressed to
-NCR-repressed conditions results in the accelerated degradation of
-some transcripts.  
-
-FIGURE 6: Accelerated mRNA degradation contributes
+{
+\begin{figure}[h!]
+  \vspace{0pt}
+  \SingleSpacing
+  \includegraphics[width=\textwidth,bb=0 0 310 300]{img/airoldi2016_F6.large.jpg}
+  \vspace{0pt}
+  \textcolor{white}{
+    \caption{\label{fig:airoldi2016f6}}
+  }
+  \vspace{-50pt}
+\end{figure}
+\begin{framed}
+\noindent
+\autoref{fig:airoldi2016f6} ---
+Accelerated mRNA degradation contributes
 to gene expression remodeling. Upon addition of glutamine to
 NCR-derepressed cells, a subset of transcripts degrade more rapidly
 than their steady-state degradation rate both (A) in cells grown in
@@ -174,17 +199,63 @@ that show significantly accelerated degradation, and gray points are
 genes that are neither accelerated nor NCR. The dashed line denotes
 equal degradation rates in both conditions (i.e., slope equal to 1).
 Names of nitrogen transporter genes are displayed. We measured the
-transient changes in the degradation rates of (C) GAP1 and (D) DIP5
+transient changes in the degradation rates of (C) \textit{GAP1} and (D) \textit{DIP5}
 mRNA using a pulse-chase experiment. Cells were grown for 24 h in the
 presence of 4-thiouracil, which was chased at t = 0 min by the
 addition of excess uracil. At t = 13 min, we added either glutamine in
 water (orange) or equal volume of water (blue). We extracted and
 quantified the abundance of 4-thiouracil–labeled mRNA relative to a
 thiolated external spike-in using qPCR. We found significant
-acceleration of degradation for both GAP1 and DIP5 mRNAs (p < 0.001).
+acceleration of degradation for both \textit{GAP1} and \textit{DIP5} mRNAs (p < 0.001).
 Points are the mean of triplicate qPCR measurements, error bars are
 the propagated SD of transcript and spike-in measurements, and dotted
 lines are the log-linear model fit.  
+\end{framed}
+}
+
+
+We compared the half-lives of rapidly degraded transcripts
+after the glutamine pulse with half-life estimates in steady-state
+conditions determined using RATE-seq 
+\parencite{neymotin2014determination}. We found
+that some transcripts decay significantly faster than expected,
+suggesting that their degradation rate is accelerated in response to
+the glutamine pulse (\autoref{fig:airoldi2016f6}a). 
+Batch culture growth in proline also
+results in derepression of the NCR regulon 
+\parencite{godard2007effect}. To
+test whether accelerated mRNA decay is specifically a response to the
+nitrogen-limited conditions of a chemostat, we added a pulse of
+glutamine to cells growing in batch cultures containing proline as a
+sole nitrogen source and measured genome-wide gene expression
+(Supplemental Table S7). The half-lives of transcripts that exhibit an
+exponential decrease is similar in chemostat and batch cultures
+(Supplemental Figure S7B), and many of the same transcripts show
+evidence of accelerated degradation rates in batch cultures 
+(\autoref{fig:airoldi2016f6}B)
+and Supplemental Table S4). Strikingly, the five nitrogen permease
+genes \textit{GAP1}, \textit{DIP5}, \textit{MEP2}, 
+\textit{PUT4}, and \textit{DAL5} are the most rapidly cleared
+mRNAs in both the chemostat and batch culture experiments.  
+
+To verify
+that the addition of glutamine stimulates accelerated degradation of
+specific NCR transcripts, we performed pulse-chase experiments using
+the metabolic label 4-thiouracil (4-tU). After several generations of
+batch culture growth in proline medium in the presence of 4-tU to
+allow complete labeling of mRNAs, we added unlabeled uracil to the
+culture. We allowed the chase to occur for 13 min and then added
+either glutamine or water (mock) to the cells. We purified labeled
+transcripts and analyzed \textit{GAP1} and \textit{DIP5} 
+mRNAs using quantitative PCR
+(qPCR) and normalization to external spike-ins. Consistent with our
+genome-wide assay, the addition of glutamine results in a clear
+accelerated degradation of both \textit{GAP1} mRNA 
+(\autoref{fig:airoldi2016f6}C)
+and \textit{DIP5} mRNA (\autoref{fig:airoldi2016f6}D), 
+confirming that the transition from NCR-derepressed to
+NCR-repressed conditions results in the accelerated degradation of
+some transcripts.  
 
 \section{Discussion} 
 
@@ -197,21 +268,27 @@ additional evidence that the addition of glutamine to nitrogen-limited
 cells accelerates the degradation of specific transcripts. A previous
 study of the transcriptional response to glucose addition in
 carbon-limited chemostats suggested a role for accelerated degradation
-of mRNAs (Kresnowati et al., 2006), and there is increasing evidence
+of mRNAs 
+\parencite{kresnowati2006}
+, and there is increasing evidence
 that mRNA stability plays an important role in regulating gene
-expression programs (Puig et al., 2005; Bennett et al., 2008;
-Baumgartner et al., 2011). Consistent with a posttranscriptional
+expression programs 
+\parencite{puig2005coordinate,bennett2008metabolic,baumgartner2011antagonistic}. 
+Consistent with a posttranscriptional
 mechanism underlying the rapid clearing of some NCR transcripts,
-previous work showed that GAP1 mRNA transiently decreases in abundance
-during a nitrogen up-shift in the absence of URE2 (ter Schure et al.,
-1998), which is required for NCR repression by sequestering GLN3 in
-the cytoplasm. Several studies have shown that TORC1 can affect
-transcript stability (Albig and Decker, 2001; Munchel et al., 2011).
+previous work showed that \textit{GAP1} mRNA transiently decreases in abundance
+during a nitrogen up-shift in the absence of \textit{URE2} 
+\parencite{ter1998repression}, 
+which is required for NCR repression by sequestering \textit{GLN3} in
+the cytoplasm. Several studies have shown that T\textit{ORC1} can affect
+transcript stability 
+\parencite{albig2001target,munchel2011dynamic}.
 Our results suggest that posttranscriptional regulation of mRNA
 stability may play an important role in remodeling gene expression in
 response to changes in environmental nitrogen. Transient stabilization
 of the RP and RiBi regulons also could contribute to their rapid
-increase in expression (Yin et al., 2003). Defining the role of
+increase in expression 
+\parencite{yin2003glucose}. Defining the role of
 regulated changes in mRNA stability in dynamic conditions is an
 important area for further study. 
 
@@ -220,17 +297,18 @@ for rapid induction of RP/RiBi transcripts occurring in parallel with
 accelerated degradation of NCR transcripts? We propose that
 accelerated degradation of NCR transcripts may allow for reallocation
 of ribosomes to transcripts required for growth and proliferation
-(Kief and Warner, 1981; Lee et al., 2011). Our observations are
+\parencite{kief1981coordinate,lee2011dynamic}. Our observations are
 consistent with a model in which TORC1 orchestrates the balance
 between transcripts required for protein production and transcripts
 required for the acquisition and assimilation of nitrogen. When
 nitrogen is abundant, TORC1 activates the expression of the RP and
 RiBi regulons while actively repressing the NCR-A and NCR-P regulons.
 Conversely, when nitrogen levels are in growth-limiting
-concentrations, TORC1 activity decreases, leading to reduced
+concentrations, T\textit{ORC1} activity decreases, leading to reduced
 activation of the RP and RiBi regulons and derepression of the NCR-A
 and NCR-P regulons. In NCR-derepressing conditions, NCR transcripts,
-including GAP1, MEP2, and PUT4, are the most abundant transcripts
+including \textit{GAP1}, \textit{MEP2}, and \textit{PUT4}, 
+are the most abundant transcripts
 (Supplemental Table S5). When a cell encounters a sudden increase in
 environmental nitrogen, some highly expressed transcripts may be
 targeted for accelerated degradation to increase the pool of free
@@ -245,13 +323,14 @@ cell for rapid growth.
 We used the prototrophic haploid strain FY4 (MATa), which
 is isogenic to the S288c reference strain, for all experiments. We
 used minimal defined media for all experiments, using a common base
-medium for nitrogen limitation, as described previously (Brauer et
-al., 2008; Boer et al., 2010). The appropriate concentrations of
+medium for nitrogen limitation, as described previously 
+\parencite{brauer2008coordination,boer2010growth}. The appropriate concentrations of
 allantoin, glutamine, glutamate, urea, ammonium sulfate, proline, and
 arginine were added from 100 mM stock. Batch culture experiments were
 performed in 30$^{\circ}$C shaking incubators using 100-ml cultures. Continuous
 culturing in chemostats using Sixfors bioreactors (Infors, Laurel, MD)
-was performed as described (Brauer et al., 2008; Boer et al., 2010)
+was performed as described 
+\parencite{brauer2008coordination,boer2010growth}
 using a 300-ml working volume. Culture parameters were determined
 using either a Klett colorimeter or a Coulter counter after
 sonication. For perturbation studies, a single bolus of proline,
@@ -266,29 +345,30 @@ using liquid nitrogen. We isolated total RNA using hot acid–phenol
 extraction and subsequently purified RNA samples using RNeasy columns.
 We performed gene expression profiling using Agilent (Santa Clara, CA)
 60-mer DNA microarrays and Cy3 and Cy5 incorporation as previously
-described (Brauer et al., 2008). We used a common reference obtained
+described 
+\parencite{brauer2008coordination}. We used a common reference obtained
 from a sample growing in an ammonium sulfate–limited chemostat at a
 dilution rate of 0.12 hours$^1$ for all hybridization experiments and
 hybridized labeled cRNA to Agilent Yeast DNA microarrays for 20 h at
 65$^{\circ}$C. We washed arrays and scanned microarrays using an Agilent
 two-color scanner and extracted hybridization signals using Agilent
 Feature Extractor Software. Supplemental Table S6 gives the entire
-data set of processed log2 ratios.  
+data set of processed log$_2$ ratios.  
 
 \subsection{Pulse chase} 
 
 Cells were grown in
 600 ml of minimal medium containing 800 $\mu$M proline, 500 $\mu$M uracil, and
 500 $\mu$M 4-thiouracil at 30$^{\circ}$C for 24 h. The culture was divided into two
-300-ml cultures, and uracil was added to a final concentration of 2
-mM. We acquired 20-ml samples after the chase using rapid filtration
+300-ml cultures, and uracil was added to a final concentration of 2mM. 
+We acquired 20-ml samples after the chase using rapid filtration
 and flash freezing in liquid nitrogen. At 13 min after starting the
 chase, we added either glutamine to a final concentration of 400 $\mu$M or
 an equal volume of water and acquired additional samples.  
 
 After RNA
 extraction, samples were mixed with an in vitro–transcribed thiolated
-spike-in (BAC1200) at a ratio of 1 ng of spike-in to 25 $\mu$g of total
+spike-in (\textit{BAC1}200) at a ratio of 1 ng of spike-in to 25 $\mu$g of total
 RNA and reacted with EZ-Link HPDP-Biotin (ThermoFisher Scientific,
 Waltham, MA) at 2 mg/ml for 200 min. Reactions were cleaned up by
 centrifugation and ethanol precipitation and then conjugated with 180
@@ -299,30 +379,46 @@ Samples were reverse
 transcribed with Moloney murine leukemia virus reverse transcriptase
 (NEB) and random hexamer priming. We performed qPCR in technical
 triplicate on a LightCycler 480 (Roche, Branchburg, NJ) using the
-following primers: 5'-ACGGTATCAAGGGTTTGCCAAG-3' and
-5'-GCATAAATGGCAGAGTTAC-3' for GAP1, 5'-TGGCGTACATGAATGTGTCTTCA-3' and
-5'-GGTGATCCAACTCAAGATTC-3' for DIP5, and 5'-CTGGACGACTTCGACTACGG-3'
-and 5'-ATCAGCCTTTCCTTTCGTCA-3' for the BAC1200 spike-in. Cp values
+following primers: \\[1em]
+\begin{tabular}{l | p{15em} p{15em}}
+%  \toprule
+%  mRNA & Forward & Reverse \\                                                
+%  \midrule
+  \textit{GAP1} & 5'-\texttt{ACGGTATCAAGGGTTTGCCAAG}-3' &
+    5'-\texttt{GCATAAATGGCAGAGTTAC}-3' \\
+  \textit{DIP5} & 5'-\texttt{TGGCGTACATGAATGTGTCTTCA}-3' &
+    5'-\texttt{GGTGATCCAACTCAAGATTC}-3' \\
+  BAC1200 & 5'-\texttt{CTGGACGACTTCGACTACGG}-3' & 
+    5'-\texttt{ATCAGCCTTTCCTTTCGTCA}-3' \\
+\end{tabular} \\[1em]
+$C_p$ values
 were calculated for each sample and the spike-in and log-linear
-regression performed using the ratio of either GAP1 mRNA or DIP5 mRNA
+regression performed using the ratio of either \textit{GAP1} mRNA or \textit{DIP5} mRNA
 to the spike-in in R.  
 
 \subsection{mRNA decay estimation}
 
 We estimated rates of
 mRNA decay for all transcripts using high–temporal resolution data. We
-used ratios (yt) of hybridization intensities for each transcript
-obtained from two-color DNA microarrays cohybridized with a common
-reference. Data were normalized to the initial data point (y0) and
-then log-transformed. We modeled the degradation rate kdeg of each
-gene: Formula where t is the sampling time in minutes. Transcript
-half-lives were computed as ln(2)/kdeg. Accelerated degradation was
-assessed by fitting the model Formula where ksteady-state deg is the
-specific degradation rate for transcript i as reported in Neymotin et
-al. (2014). For all linear modeling, we assessed statistical
-significance of coefficients using a t statistic and determined
-empirical p values by permuting data for each gene 1000 times. The
-false discovery rate was determined using the qvalue package in R.
+used ratios ($y_t$) of hybridization intensities for each transcript
+obtained from two-color DNA microarrays co-hybridized with a common
+reference. Data were normalized to the initial data point ($y_0$) and
+then log-transformed. We modeled the degradation rate $k_deg$ of each
+gene:
+$$ ln\left(\frac{y_t}{y_0}\right)=k_{\text{deg}}\times t$$
+where $t$ is the sampling time in minutes. Transcript
+half-lives were computed as $\frac{ln(2)}{k_{deg}}$. 
+Accelerated degradation was
+assessed by fitting the model 
+$$ ln\left(\frac{y_t}{y_0}\right)=(k_{\text{transient
+deg}}+k_{\text{steady-state deg}})\times t$$
+where $k_{steady-state deg}$ 
+is the specific degradation rate for transcript $i$ as reported in 
+\cite{neymotin2014determination}.
+For all linear modeling, we assessed statistical
+significance of coefficients using a t-statistic and determined
+empirical p-values by permuting data for each gene 1000 times. The
+false discovery rate was determined using the \texttt{qvalue} package in R.
 Data availability DNA microarray data are available through gene
 expression omnibus (GEO) GSE57293.
 
