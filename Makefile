@@ -28,15 +28,6 @@ dissertation_darachmiller_all.pdf \
 	xelatex dissertation_darachmiller_all.tex 
 	xelatex dissertation_darachmiller_all.tex 
 
-#	biber dissertation_darachmiller_all || true
-#	biber dissertation_darachmiller_all1-blx || true
-#	biber dissertation_darachmiller_all2-blx || true
-#	biber dissertation_darachmiller_all3-blx || true
-#	biber dissertation_darachmiller_all4-blx || true
-#	biber dissertation_darachmiller_all5-blx || true
-
-
 draft:
 	xelatex dissertation_darachmiller_all.tex 
-
-#	bibtex8 dissertation_darachmiller_all-blx || true
+	bibtex8 dissertation_darachmiller_all || true

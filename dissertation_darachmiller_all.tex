@@ -10,7 +10,22 @@
 \usepackage{wrapfig}
 \usepackage{framed}
 
+\usepackage{pdfpages}
+
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+  \expandafter\origfigure\expandafter[H]
+  } { \endorigfigure }
+
 \usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{pgfmath}
+%\usepackage{pgffor}
+\usetikzlibrary{arrows,positioning,shapes,patterns,decorations} 
+\tikzstyle{every picture}+=[remember picture]
 
 \usepackage[backend=bibtex8%biber%bibtex8
   ,backref=true,hyperref=true
@@ -67,7 +82,12 @@ destabilization upon the glutamine upshift in budding yeast.}
 %
 %
 
-\includeonly{dissertation_darachmiller_1,dissertation_darachmiller_2}
+\includeonly{%dissertation_darachmiller_1,dissertation_darachmiller_2,
+dissertation_darachmiller_3}
+\hfuzz=20pt
+\vfuzz=20pt
+\hbadness=2000
+\vbadness=\maxdimen
 
 \setsecnumdepth{subsection}
 \settocdepth{subsection}
@@ -215,4 +235,21 @@ may in fact be the release of a stabilization effect.
 
 \end{document}
 
+\section{Acknowledgments}
+We would like to acknowledge the funding source of 
+NIH grant 5R01GM107466.
+We would also like to thank
+Andreas Hochwagen and Viji Subramanian for microscope access, 
+Ken Birnbaum for helpful conversations and equipment usage, 
+Michi Pedraza,
+Andres Mansisidor, and Matt Paul for helpful reading and comments,
+Evelina Tutucci for demonstrating FISH,
+staff at 
+eBioscience/Affymetrix/ThermoFisher for support with
+the Quantigene/FlowRNA probe set, 
+the Cold Spring Harbor Yeast Course,
+the NYU Genomics Core facility for sequencing, flow cytometry,
+and support,
+and past and present members of the Gresham and Vogel labs for 
+discussions and support.
 
