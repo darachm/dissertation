@@ -1,12 +1,220 @@
-
 \chapter{Miscellaneous experiments}
 
- polyA probes - a control to an
-orthogonal perspective on transcriptome scaling Rationale and prior
-work Development Application to changes in growth rate, steady-state
-and upshift Address limitations, possible future controls Stephen’s
+%
+%
+%
+\section{Changes in poly-adenylated transcripts per cell upon changes
+in growth rates}
+%
+%
+%
+
+Part of this work in a pre-print.
+
+%
+%
+%
+\subsection{Introduction}
+%
+%
+%
+
+Brauer 2008, Regenberg, Castrillo.
+Changes upon growth rates.
+We know that RNA changes in a bundance (Kief or whatever, benjy's
+figure)
+
+waldron?
+carter?
+nitrogen upshift stuff?
+more warner?
+slator?
+henrici?
+
+Relative normalization versus absolute,
+myc example.
+Used ERCC spike-ins 
+
+This has been po-poohed before (that one), but it worked.
+If you don't use enough spike-in, that can be super noisy
+\autoref{section:4tuMethod}.
+
+To orthogonally estimate the size of the whole yeast transcriptome,
+I sought to adapt the screening strategy of \cite{amberg1992???}
+to work with flow cytometry. 
+
+Another motivation of this was to serve as a fixation-digestion
+control for methods involving single-gene mRNA FISH.
+We had patterns of mRNA FISH hybridization signal that appeared
+bimodal. This could be a technical issue, or a biological phenomenon.
+To distinguish the two would take two-color FISH, with a positive
+control \parencite{regenbergtwocolor???}.
+Since nitrogen-limitation causes a severe restriction of the total
+transcriptome content, we don't have an obvious pick for a uniformly
+expressed positive control. 
+However, most of the mRNA should be poly-adenylated, so FISH against
+that sequence should be present in all cells, and in high-copy.
+While I did not integrate this into the single gene mRNA FISH, I did
+use it to optimize fixation/permeabilization conditions.
+
+%
+%
+%
+\subsection{The assay}
+%
+%
+%
+
+The assay uses a similar fixation permeabilization methods as the
+single-gene mRNA FISH assay.
+
+I optimized this assay using RNAseA digested cells
+
+
+dme148
+
+- On 151111, backed a 5ml O/N of FY4, 1ml onto 50ml NlimPro(800uM),
+  @1408, put at 30C shaker.
+- Started collecting at 0940 in the morning. At each time, sampled 
+  8ml onto a filter and flash froze in liquid nitrogen.
+  The first sample (-37min) was 10ml, different.
+  (~1min procedure).
+- @0942, sonicated 0.5ml of the culture and counted on a 
+  hemacytometer as 11.4e6 cells per ml, which is late exponential.
+- @1017, at the sample time as filtering the 0min sample, 
+  added 128ul 100mM glutamine to the culture.
+- By last sample @1419, cells were approximately 24.4 e6 cells per ml.
+- Every sample was frozen in liquid nitrogen, then put into -80C.
+
+For each sample, on 151117.
+
+- @~1130, R/S sample with vortexing into 4% fresh PFA 0.75x PBS.
+  Immediately discarded filter, fixed on bench RT for 3 hours.
+- Added 200ul 2.5M glycine to quench, then spun 6000g RT 1min.
+- Aspirated, washed and spun twice with 1ml 1x PBS.
+- R/S with 898ul of Buffer B (100mM potassium phosphate buffer, 1.2M
+  sorbitol, pH ~7.4), plus 100ul 200mM vanadyl ribonucleoside complex,
+  0.2% beta-mercaptoethanol, and 100 units lyticase 
+  (sigma, R/S in 1x PBS and stored at -20C in aliquots). 
+  Incubated this at 37C for an hour. 
+- Spun 3min 1200g, washed with cold Buffer B, spun and washed twice.
+- R/S with 1ml 70% etOH, into 4C.
+
+On 151118:
+
+- In afternoon, took two 400ul of each sample. First aliquot spun
+  and R/S in 1x TE with 200ug/ml RNAseA, incubated 42C for 30min.
+  For the second, ommited this step.
+- Spun all, aspirated, R/S in 1ml 2x SSC.
+- Spun all, aspirated, R/S in 100ul of hybridization buffer with
+  RNAsed as mastermixed for all samples
+  (10% dextran sulfate w/v, 2x SSC final, 100ug/ml ecoli tRNA, 
+  250mg/ml salmon sperm DNA) plus 100nM of an oligo, (dT)50+V 
+  5'-labeled with with Alexa 488, as ordered from IDT. 
+- Incubated ~14.5 hours on a 37C roller drum.
+
+On 151119:
+
+- Added 1ml 2x SSC and spun 10min 800g. 
+- Aspirated, R/S 1ml 2x SSC and incubated 37C 15min.
+- Spun 5min, aspirated, R/S 2x SSC 1ml.
+- Spun 5min, aspirated, R/S in 200ul filtered 1x PBS. Sonicated as for
+  the coulter counter. Kept on ice.
+- Flowed on a BD Accuri, one at a time, with flicking before the run.
+
+
+
+
+\# Poly(A) content determination
+
+Purpose: to measure the polyA content of cells grown in different
+conditions, in order to validate some of Niki's measurements.
+
+Chemostat cultures were established under carbon and 
+nitrogen source limitation at three dilution rates. When stable, 
+5ml of cultures were filtered and flash-frozen 
+with liquid $N_2$. Samples were re-suspended in 1ml 4% 
+paraformaldehyde (EMS) buffered in 0.75x PBS and incubated at 
+RT for 2 hours before quenching with 1/5th volume 2.5M glycine. 
+After washing with Buffer B (1.2M sorbitol 100mM $KHPO_4$ pH 7.5),
+samples were digested with 100U lyticase (Sigma), in 1ml of 
+Buffer B with 20mM VRC (NEB) and 28.6mM Beta-mercaptoethanol, 
+for one hour at 37C before centrifuging at 1200g and washing 
+with Buffer B.
+Cells were resuspended in 70% ethanol at 4C overnight to 
+permeabilize. Cells were centrifuged at 1200g, washed with 2x SSC,
+and resuspended in hybridization buffer (4x SSC, 
+100mg/ml dextran sulfate (Sigma), 100ug/ml E. coli tRNA (Roche), 
+250ug/ml salmon sperm DNA) with 100nM (dT)$_{50}$V oligos labeled 
+singly on the 5' with Alexa488 (IDT), 
+and incubated overnight (~16hr) at 37C.
+Cells were washed thrice with 2x SSC, resuspended in filtered 1x PBS,
+and sonicated before being run on a BD Accuri flow cytometer.
+Events were analyzed in R 
+to gate against doublets on forward-scatter area vs. 
+height, gated for size with forward-scatter area 
+threshold for each growth rate, and
+poly(A) content signal was determined by the signal area on the
+514/20nm detector.
+
+(see below)
+
+%%%%% PUT A CONTROL FIG HERE.
+
+%
+%
+%
+\subsection{Nutrient limitation and transcriptome size}
+%
+%
+%
+
+We see differences between batch growth conditions of YPD and NlimPro.
+
+\afig{
+  \includegraphics[width=\textwidth]{img/polya_ypdnlim.png}
+  }{
+  The distributions have different means by KS or Wilcoxon tests, with
+  unreasonably small p-values.
+  \label{fig:ypdnlim}
+  }
+
+
+
+\afig{
+  \includegraphics[width=\textwidth]{img/polya_upshift.png}
+  }{
+  \label{fig:upshift}
+  }
+
+\afig{
+  \includegraphics[width=\textwidth]{img/polya_niki_box.png}
+  \includegraphics[width=\textwidth]{img/polya_niki_summary.png}
+  }{
+  The two measures are well correlated (Pearson's r=0.95,
+  \texttt{cor.test} p-value = 0.003684).
+  \label{fig:nikis}
+  }
+
+
+
+orthogonal perspective on transcriptome scaling 
+Rationale and prior work 
+Development 
+Application to changes in growth rate, steady-state
+and upshift 
+Address limitations, possible future controls 
+
+\section{Screening for genes important for remodeling physiology for
+growth}
+
+Stephen’s
 heat shock screen Rationale and prior work Development The actual
-experiment and results Interpretation Apparent cell-cycle halt upon
+experiment and results Interpretation 
+
+\section{Apparent cell-cycle halt upon nitrogen-upshift}
+
+Apparent cell-cycle halt upon
 glutamine addition Previous work on cell cycle halt, basically just
 alberghina, PKA and CLN1 This phenomenon has been previously seen.
 Upshift ecoli, they get bigger.  This is thought to be because the
@@ -14,6 +222,8 @@ critical cell size threshold has been reset by growth signalling
 pathways to a larger size. However, this result might argue that
 instead it could be regulated by CLN1 transcript abundance.
 Alberghina’s demonstrated that depends on Swi4?p, so there you go
+
+
 Experiment, results Conclusion ( anything that didn’t get into chapter
 3 )
 

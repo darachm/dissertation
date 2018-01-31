@@ -1,3 +1,103 @@
+---
+title: "polyAprobe analysis and figure generation"
+author: "darach"
+date: "`r Sys.Date()`"
+---
+
+```{r}
+library(flowCore)
+library(tidyverse)
+```
+
+
+```{r}
+
+bdf <- read.csv("polyeh/bdf160608.csv")
+udf <- read.csv("polyeh/exp148160608.csv")
+
+head(bdf)
+
+head(udf)
+
+
+g<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
+  aes(x=media,y=log10(FL1.A))+
+  ylab("log10( polyA signal, per cell )")+xlab("")+
+  scale_x_discrete(labels=c("N-limited (Proline)","Rich media (YPD)"))+
+  geom_boxplot(outlier.size=0.1,width=0.3)#+coord_cartesian(ylim=c(0.1,7.0))
+g
+ggsave("../img/polya_ypdnlim.png",g,width=5,height=5)
+
+
+g<-ggplot(subset(bdf,fix==120))+theme_bw()+
+  aes(x=factor(media):factor(probe),y=(FL1.A/FSC.A))+
+  ylab("polyA signal / FSC, per cell")+xlab("")+
+  scale_x_discrete(labels=c("RNAsed Proline-grown","N-limited (Proline)",
+    "RNAsed YPD-grown","Rich media (YPD)"))+
+  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(0.0,.75))
+g
+ggsave("../img/polya_ypdnlim_controls.png",g,width=5,height=5)
+
+g<-ggplot(subset(bdf,fix==120))+theme_bw()+
+  aes(x=factor(media):factor(probe),y=log10(FL1.A))+
+  ylab("log10( polyA signal, per cell )")+xlab("")+
+  scale_x_discrete(labels=c("RNAsed Proline-grown","N-limited (Proline)",
+    "RNAsed YPD-grown","Rich media (YPD)"))+
+  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(1.0,6.0))
+g
+
+subset(bdf,fix==120&probe==T)%>%group_by(media)%>%summarize(fl1a=list(FL1.A))%>%{ks.test(unlist(.[1,2][[1]]),unlist(.[2,2][[1]]))}
+
+subset(bdf,fix==120&probe==T)%>%group_by(media)%>%summarize(fl1a=list(FL1.A))%>%{wilcox.test(unlist(.[1,2][[1]]),unlist(.[2,2][[1]]))}
+
+subset(bdf,fix==120&probe==T)%>%group_by(media)%>%summarize(fl1a=mean(FL1.A))%>%{.[2,2]/.[1,2]}
+subset(bdf,fix==120&probe==T)%>%group_by(media)%>%summarize(fl1a=median(FL1.A))%>%{.[2,2]/.[1,2]}
+
+
+u<-ggplot(subset(udf,probe==T))+theme_bw()+
+  aes(x=as.numeric(sample),group=sample,y=log10(FL1.A))+
+  ylab("log10( polyA signal, per cell )")+
+  xlab("Minutes after upshift")+geom_boxplot(outlier.size=0.1,width=10)+
+  coord_cartesian(ylim=c(3.7,5.25),xlim=c(-10,250))+
+  annotate(geom="text",x=-9,y=4.60,angle=90,label="Nlim Proline, +400uM Q")
+u
+ggsave("../img/polya_upshift.png",u,width=7,height=5)
+
+
+subset(udf,sample%in%c(0,123))%>%group_by(sample)%>%summarize(fl1a=mean(FL1.A))%>%{.[2,2]/.[1,2]}
+subset(udf,sample%in%c(0,123))%>%group_by(sample)%>%summarize(fl1a=median(FL1.A))%>%{.[2,2]/.[1,2]}
+
+
+
+g<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
+  aes(x=media,y=(FL1.A/FSC.A))+
+  ylab("polyA signal / FSC , per cell")+xlab("")+
+  scale_x_discrete(labels=c("N-limited (Proline)","Rich media (YPD)"))+
+  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(0,.75))
+g
+
+g<-ggplot(subset(bdf,fix==120))+theme_bw()+
+  aes(x=factor(media):factor(probe),y=(FL1.A/FSC.A))+
+  ylab("polyA signal / FSC, per cell")+xlab("")+
+  scale_x_discrete(labels=c("RNAsed Proline-grown","N-limited (Proline)",
+    "RNAsed YPD-grown","Rich media (YPD)"))+
+  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(0.0,.75))
+g
+
+u<-ggplot(subset(udf,probe==T))+theme_bw()+
+  aes(x=as.numeric(sample),group=sample,y=(FL1.A/FSC.A))+
+  ylab("polyA signal / FSC, per cell")+xlab("")+
+  xlab("Minutes after upshift")+geom_boxplot(outlier.size=0.1,width=10)+
+  coord_cartesian(ylim=c(0.0,.75),xlim=c(-10,150))+
+  annotate(geom="text",x=-8,y=4.60,angle=90,label="Nlim Proline, +400uM Q")
+u
+
+
+
+```
+
+
+
 ```{r,eval=F,echo=F}
 #load("../tmp/polyAupshift.RData")
 #g<-ggplot(polyAdata)+theme_classic()+
@@ -31,3 +131,338 @@
 #g
 #ggsave("../supplement/figures/Figure1_S_allThree.png",g)
 ```
+
+dme148
+
+- On 151111, backed a 5ml O/N of FY4, 1ml onto 50ml NlimPro(800uM),
+  @1408, put at 30C shaker.
+- Started collecting at 0940 in the morning. At each time, sampled 
+  8ml onto a filter and flash froze in liquid nitrogen.
+  The first sample (-37min) was 10ml, different.
+  (~1min procedure).
+- @0942, sonicated 0.5ml of the culture and counted on a 
+  hemacytometer as 11.4e6 cells per ml, which is late exponential.
+- @1017, at the sample time as filtering the 0min sample, 
+  added 128ul 100mM glutamine to the culture.
+- By last sample @1419, cells were approximately 24.4 e6 cells per ml.
+- Every sample was frozen in liquid nitrogen, then put into -80C.
+
+For each sample, on 151117.
+
+- @~1130, R/S sample with vortexing into 4% fresh PFA 0.75x PBS.
+  Immediately discarded filter, fixed on bench RT for 3 hours.
+- Added 200ul 2.5M glycine to quench, then spun 6000g RT 1min.
+- Aspirated, washed and spun twice with 1ml 1x PBS.
+- R/S with 898ul of Buffer B (100mM potassium phosphate buffer, 1.2M
+  sorbitol, pH ~7.4), plus 100ul 200mM vanadyl ribonucleoside complex,
+  0.2% beta-mercaptoethanol, and 100 units lyticase 
+  (sigma, R/S in 1x PBS and stored at -20C in aliquots). 
+  Incubated this at 37C for an hour. 
+- Spun 3min 1200g, washed with cold Buffer B, spun and washed twice.
+- R/S with 1ml 70% etOH, into 4C.
+
+On 151118:
+
+- In afternoon, took two 400ul of each sample. First aliquot spun
+  and R/S in 1x TE with 200ug/ml RNAseA, incubated 42C for 30min.
+  For the second, ommited this step.
+- Spun all, aspirated, R/S in 1ml 2x SSC.
+- Spun all, aspirated, R/S in 100ul of hybridization buffer with
+  RNAsed as mastermixed for all samples
+  (10% dextran sulfate w/v, 2x SSC final, 100ug/ml ecoli tRNA, 
+  250mg/ml salmon sperm DNA) plus 100nM of an oligo, (dT)50+V 
+  5'-labeled with with Alexa 488, as ordered from IDT. 
+- Incubated ~14.5 hours on a 37C roller drum.
+
+On 151119:
+
+- Added 1ml 2x SSC and spun 10min 800g. 
+- Aspirated, R/S 1ml 2x SSC and incubated 37C 15min.
+- Spun 5min, aspirated, R/S 2x SSC 1ml.
+- Spun 5min, aspirated, R/S in 200ul filtered 1x PBS. Sonicated as for
+  the coulter counter. Kept on ice.
+- Flowed on a BD Accuri, one at a time, with flicking before the run.
+
+
+
+
+# Poly(A) content determination
+
+Purpose: to measure the polyA content of cells grown in different
+conditions, in order to validate some of Niki's measurements.
+
+Chemostat cultures were established under carbon and 
+nitrogen source limitation at three dilution rates. When stable, 
+5ml of cultures were filtered and flash-frozen 
+with liquid $N_2$. Samples were re-suspended in 1ml 4% 
+paraformaldehyde (EMS) buffered in 0.75x PBS and incubated at 
+RT for 2 hours before quenching with 1/5th volume 2.5M glycine. 
+After washing with Buffer B (1.2M sorbitol 100mM $KHPO_4$ pH 7.5),
+samples were digested with 100U lyticase (Sigma), in 1ml of 
+Buffer B with 20mM VRC (NEB) and 28.6mM Beta-mercaptoethanol, 
+for one hour at 37C before centrifuging at 1200g and washing 
+with Buffer B.
+Cells were resuspended in 70% ethanol at 4C overnight to 
+permeabilize. Cells were centrifuged at 1200g, washed with 2x SSC,
+and resuspended in hybridization buffer (4x SSC, 
+100mg/ml dextran sulfate (Sigma), 100ug/ml E. coli tRNA (Roche), 
+250ug/ml salmon sperm DNA) with 100nM (dT)$_{50}$V oligos labeled 
+singly on the 5' with Alexa488 (IDT), 
+and incubated overnight (~16hr) at 37C.
+Cells were washed thrice with 2x SSC, resuspended in filtered 1x PBS,
+and sonicated before being run on a BD Accuri flow cytometer.
+Events were analyzed in R 
+to gate against doublets on forward-scatter area vs. 
+height, gated for size with forward-scatter area 
+threshold for each growth rate, and
+poly(A) content signal was determined by the signal area on the
+514/20nm detector.
+
+(see below)
+
+
+```{r,warning=F,cache=T}
+
+if (length(dir("polyeh/exp154polyA/"))) {
+  directories <- c(
+    exp154polyA="polyeh/exp154polyA/")
+}
+datz <- list()
+for (expr in names(directories)) {
+  dirz <- directories[expr]
+  for (fz in dir(dirz)[grep("fcs",dir(dirz))]) {
+    if (grepl("(water)|(h2o)|(decon)|(pbs)",fz)) {next}
+    print(paste0("doing ",dirz,"",fz))
+    datz[[paste0(expr, warning=F,"_",sub(".fcs","",fz))]] <- data.frame(
+      exprs(read.FCS(paste0(dirz,fz),transformation=FALSE)))
+  }
+}
+if (exists("lrgdf")) {rm(lrgdf)}
+for (fz in names(datz)) {
+  relevantBit <- gsub(".+?\\s(.+?)$","\\1",fz)
+  if (!exists("lrgdf")) {
+    lrgdf <- data.frame(datz[[as.character(fz)]],
+      reshape2::colsplit(relevantBit,"_",
+        names=c("sample","polydTProbe")))
+  } else {
+    lrgdf <- rbind(lrgdf,data.frame(datz[[as.character(fz)]],
+      reshape2::colsplit(relevantBit,"_",
+        names=c("sample","polydTProbe")))
+    )
+  }
+}
+dim(lrgdf)
+
+lrgdf$nutrientLimitation <- factor(ifelse(
+  grepl("[g1][123]",lrgdf$sample),
+    "NitrogenLimitation","CarbonLimitation"))
+lrgdf$dilutionRate[grepl("[g1][14]",lrgdf$sample)] <- "0.12"
+lrgdf$dilutionRate[grepl("[g1][25]",lrgdf$sample)] <- "0.20"
+lrgdf$dilutionRate[grepl("[g1][36]",lrgdf$sample)] <- "0.30"
+lrgdf$dilutionRate <- factor(lrgdf$dilutionRate)
+lrgdf$chemostat <- factor(ifelse(
+  grepl("g[1-6]",lrgdf$sample),"Gseries","1series"))
+
+```
+
+Here we take out the negatives until gating is resolved.
+
+First downsample everything to help with the gating, 
+with a downsampled data.frame.
+
+```{r,warning=F,cache=T}
+negdf <- subset(lrgdf,polydTProbe=="-")
+lrgdf <- subset(lrgdf,polydTProbe=="+")
+
+for (samz in unique(lrgdf$sample)) {
+  if (!exists("dsdf")) {
+    dsdf <- data.frame(subset(lrgdf,sample==samz)[
+      sample(1:sum(lrgdf$sample==samz),1e4),])
+  } else {
+    dsdf <- rbind(dsdf,data.frame(subset(lrgdf,sample==samz)[
+      sample(1:sum(lrgdf$sample==samz),1e4),]))
+  }
+}
+```
+
+First, cut out doublets:
+
+```{r,warning=F,cache=T}
+ggplot(dsdf)+theme_bw()+
+  aes(x=log(FSC.A),y=log(FSC.H))+
+  facet_grid(dilutionRate~nutrientLimitation+chemostat)+
+  geom_point(size=.1,alpha=.01)+
+  geom_abline(slope=0.9,intercept=1.55,linetype="dotted")
+dsdf <- subset(dsdf,log(FSC.H)>(log(FSC.A)*.9+1.55))
+```
+
+Then let's look at FSC and SSC. Sizes look a little odd, there's a
+trend of expansion in the G456 and 1123, but not the others.
+Reminescent of the split in the sytoxgreen.
+
+```{r,warning=F,cache=T}
+ggplot(dsdf)+theme_bw()+
+  aes(x=log(FSC.A),y=log(SSC.A))+
+  facet_grid(dilutionRate~nutrientLimitation+chemostat)+
+  geom_point(size=.1,alpha=.01)+
+  geom_vline(xintercept=log(c(6e4,4e4,2e4)),linetype="dotted")
+dsdf <- subset(dsdf,
+  (dilutionRate=="0.30"&(FSC.A)>6e4)|
+  (dilutionRate=="0.20"&(FSC.A)>4e4)|
+  (dilutionRate=="0.12"&(FSC.A)>2e4)
+)
+```
+
+```{r,warning=F,cache=T}
+subdf <- subset(lrgdf,
+  log(FSC.H)>(log(FSC.A)*.9+1.55)&
+  ((dilutionRate=="0.30"&(FSC.A)>6e4)|
+  (dilutionRate=="0.20"&(FSC.A)>4e4)|
+  (dilutionRate=="0.12"&(FSC.A)>2e4))
+)
+snegdf <- subset(negdf,
+  log(FSC.H)>(log(FSC.A)*.9+1.55)&
+  ((dilutionRate=="0.30"&(FSC.A)>6e4)|
+  (dilutionRate=="0.20"&(FSC.A)>4e4)|
+  (dilutionRate=="0.12"&(FSC.A)>2e4))
+)
+alldf <- rbind(subdf,snegdf)
+```
+
+Below, we subset out the chemostat series that didn't look
+contaminated in the sytoxgreen DNA content measures, then look
+at their distributions and statistics.
+
+First, the positives and negatives (no probe).
+
+```{r,warning=F,cache=T}
+g2<-ggplot(subset(alldf,sample%in%c("g4","g5","g6","11","12","13")))+
+  theme_bw()+
+  aes(x=log10(FL1.A),col=polydTProbe)+
+  facet_grid(dilutionRate~nutrientLimitation)+
+  stat_bin(aes(y = ..density..),binwidth=0.010,geom="line",
+    position="identity",cex=.5)+
+  stat_bin(aes(y = ..density..),binwidth=0.010,geom="point",
+    position="identity",cex=.2)+
+  theme(legend.position="bottom")+
+  coord_cartesian(xlim=c(2.0,5.5))+
+  ylab("Density")+theme(axis.text.y=element_blank())+
+  xlab("log10( poly-dT probe Alexa488 signal )")
+g2
+```
+
+Okay, clear difference, below is just the positives.
+
+Here's a boxplot.
+
+```{r,warning=F,cache=T}
+g3<-ggplot(subset(alldf,sample%in%c("g4","g5","g6","11","12","13")&
+    polydTProbe=="+"))+theme_bw()+
+  aes(x=as.numeric(as.character(dilutionRate)),group=dilutionRate,
+    y=log10(FL1.A))+
+  facet_wrap(~nutrientLimitation)+
+  geom_boxplot(width=0.075,outlier.size=0.0001)+
+  theme(axis.text.x=element_text(angle=90))+
+  coord_cartesian(ylim=c(3.25,5.25))+
+  xlab("Dilution Rate, volumes per hour")+
+  ylab("log10( poly-dT probe Alexa488 signal )")
+g3
+
+ggsave("../img/polya_niki_box.png",g3,width=5,height=5)
+```
+
+But just the descriptive stats would be nice.
+
+```{r,warning=F,cache=T}
+descStatz <- plyr::ddply(alldf,
+  c("polydTProbe","nutrientLimitation","dilutionRate","chemostat"),
+  function(x){
+    return(c(mean=mean(x[["FL1.A"]]),median=median(x[["FL1.A"]]),
+      quantile(x[["FL1.A"]],probs=c(0.25,0.75)))
+    )
+  })
+```
+
+So here's that, plotted:
+
+```{r,warning=F,cache=T}
+g6 <- ggplot(reshape2::melt(subset(descStatz,polydTProbe%in%c("+")&
+     ((chemostat=="1series"&nutrientLimitation=="NitrogenLimitation")|
+     (chemostat=="Gseries"&nutrientLimitation=="CarbonLimitation"))),
+    measure.vars=c("mean","median","25%","75%"),
+    id.vars=c("nutrientLimitation",
+      "dilutionRate","chemostat")))+
+  theme_bw()+
+  aes(x=as.numeric(as.character(dilutionRate)),y=log10(value),
+    linetype=variable)+
+  scale_linetype_manual("Summary statistic",
+    values=c("dashed","solid","dotted","dotted"),
+    labels=c("Mean","Median","25% quantile","75% quantile"))+
+  facet_wrap(~nutrientLimitation)+
+  theme(legend.position="bottom")+
+  geom_point(size=0.5)+geom_line()+
+  xlab("Dilution rate, volumes per hour")+
+  ylab("log10( poly-dT Alexa488 probe signal )")
+g6
+```
+
+Here's the actual numbers, for all measured, negatives too.
+
+```{r,warning=F,cache=F}
+descStatz
+```
+
+And for the subset of ones actually used:
+
+```{r,warning=F,cache=F}
+tmp <- subset(descStatz,polydTProbe%in%c("+")&
+  ((chemostat=="1series"&nutrientLimitation=="NitrogenLimitation")|
+  (chemostat=="Gseries"&nutrientLimitation=="CarbonLimitation")))
+tmp[,-1]
+```
+
+And how the mean polyA content signal compares to the totals
+of the mean columns in Tables S2 and S3, the line is a `lm()` call
+for linear dependence.
+
+Note that the slow growing carbon outlier is G4, 
+and take a look at G4 in the sytoxgreen data. It's contaminated.
+Just saying.
+
+```{r,warning=F,cache=T,echo=F}
+compdat <- data.frame(
+  tmp[,c("nutrientLimitation","dilutionRate","mean")],
+  sparqTotalMoleculesPerCell=c(3866.90,6334.23,8506.86,
+    995.526,2987.95,9587.64))
+g10 <- ggplot(compdat)+theme_bw()+
+  aes(x=sparqTotalMoleculesPerCell,y=mean)+
+  geom_point(aes(col=nutrientLimitation))+
+  xlab("Mean mRNA per cell,\nby SPARQ")+
+  ylab("Mean mRNA per cell,\nby poly-dT hybridization")+
+  stat_smooth(method="lm",se=F,col="black",linetype="dashed",
+    lwd=0.1,fullrange=T)+
+  coord_cartesian(xlim=c(0,1e4),ylim=c(0,5e4))
+g10
+ggsave("../img/polya_niki_summary.png",g10,
+  width=5,height=5)
+
+summary(lm(compdat$sparqTotalMoleculesPerCell~compdat$mean))
+cor.test(compdat$sparqTotalMoleculesPerCell,compdat$mean)
+```
+
+Without the contaminated G4 sample?
+
+```{r,warning=F,cache=T,echo=F}
+ggplot(compdat[-1,])+theme_bw()+
+  aes(x=sparqTotalMoleculesPerCell,y=mean)+
+  geom_point(aes(col=nutrientLimitation))+
+  xlab("Mean mRNA per cell,\nby SPARQ")+
+  ylab("Mean mRNA per cell,\nby poly-dT hybridization")+
+  stat_smooth(method="lm",se=F,col="black",linetype="dashed",
+    lwd=0.1,fullrange=T)+
+  coord_cartesian(xlim=c(0,1e4),ylim=c(0,5e4))
+summary(lm(compdat$sparqTotalMoleculesPerCell[-1]~compdat$mean[-1]))
+```
+
+Oh well.
+
