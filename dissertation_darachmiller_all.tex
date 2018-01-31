@@ -82,12 +82,61 @@ destabilization upon the glutamine upshift in budding yeast.}
 %
 %
 
-\includeonly{%dissertation_darachmiller_1,dissertation_darachmiller_2,
+% Memoir layout options
+\setulmargins{1.0in}{*}{*}
+\setheadfoot{15pt}{0.75in}
+\settypeblocksize{8.25in}{*}{*}
+\setlrmarginsandblock{1.0in}{1.0in}{*}
+%
+\openright
+\chapterstyle{dash} %dash, dowding, ntglike, thatcher
+\setlength\beforechapskip{0pt}%-\baselineskip}
+\aliaspagestyle{cleared}{plain}
+\aliaspagestyle{chapter}{plain}
+%
+\setbeforesecskip{-1.0em plus -1em minus -0em}
+\setbeforesubsecskip{-1.0em plus -1em minus -0em}
+\setbeforesubsubsecskip{-1.0em plus -1em minus -0em}
+\setaftersecskip{1em}
+\setaftersubsecskip{1em}
+\setaftersubsubsecskip{1em}
+\setsecheadstyle{\large\bfseries\raggedright}
+\setsubsecheadstyle{\normalsize\bfseries\raggedright}
+\setsubsubsecheadstyle{\normalsize\bfseries\raggedright}
+%
+\checkandfixthelayout
+
+%\newcommand{\openrule}{
+%  \par\noindent\rule{.5\textwidth}{1pt}\par\vskip-0.2em
+%  \noindent\rule[\baselineskip]{1pt}{\baselineskip}}
+%
+%\newcommand{\closerule}{
+%  \par\hfill\rule[-\baselineskip]{1pt}{\baselineskip}
+%  \par\vskip-0.2em\hfill\rule{.5\textwidth}{1pt}\par}
+
+\newcommand{\afig}[2]{
+  \begin{figure}[h]
+    \vspace{-10pt}
+    \begin{center}
+    #1
+    \end{center}
+    \vspace{-10pt}
+    \caption{#2}
+    \vspace{-10pt}
+  \end{figure}
+}
+
+%
+\includeonly{%dissertation_darachmiller_1,dissertation_darachmiller_2}%, 
 dissertation_darachmiller_3}
-\hfuzz=20pt
-\vfuzz=20pt
-\hbadness=2000
+%}
+
+% hax to get the compiler to shut up, ripped from SO
+\hfuzz=40pt
+\vfuzz=40pt
+\hbadness=5000
 \vbadness=\maxdimen
+
 
 \setsecnumdepth{subsection}
 \settocdepth{subsection}
@@ -165,6 +214,22 @@ so that happened
 %Especially Niki, Steff, Nathan, and Benjy; Naomi, Farah, Siyu,
 %Pieter.
 %
+%We would like to acknowledge the funding source of 
+%NIH grant 5R01GM107466.
+%We would also like to thank
+%Andreas Hochwagen and Viji Subramanian for microscope access, 
+%Ken Birnbaum for helpful conversations and equipment usage, 
+%Michi Pedraza,
+%Andres Mansisidor, and Matt Paul for helpful reading and comments,
+%Evelina Tutucci for demonstrating FISH,
+%staff at 
+%eBioscience/Affymetrix/ThermoFisher for support with
+%the Quantigene/FlowRNA probe set, 
+%the Cold Spring Harbor Yeast Course,
+%the NYU Genomics Core facility for sequencing, flow cytometry,
+%and support,
+%and past and present members of the Gresham and Vogel labs for 
+%discussions and support.
 
 \newpage
 \pagestyle{plain}
@@ -235,21 +300,4 @@ may in fact be the release of a stabilization effect.
 
 \end{document}
 
-\section{Acknowledgments}
-We would like to acknowledge the funding source of 
-NIH grant 5R01GM107466.
-We would also like to thank
-Andreas Hochwagen and Viji Subramanian for microscope access, 
-Ken Birnbaum for helpful conversations and equipment usage, 
-Michi Pedraza,
-Andres Mansisidor, and Matt Paul for helpful reading and comments,
-Evelina Tutucci for demonstrating FISH,
-staff at 
-eBioscience/Affymetrix/ThermoFisher for support with
-the Quantigene/FlowRNA probe set, 
-the Cold Spring Harbor Yeast Course,
-the NYU Genomics Core facility for sequencing, flow cytometry,
-and support,
-and past and present members of the Gresham and Vogel labs for 
-discussions and support.
 
