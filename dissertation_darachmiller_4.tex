@@ -19,34 +19,82 @@ Part of this work in a pre-print.
 %
 %
 
-Brauer 2008, Regenberg, Castrillo.
-Changes upon growth rates.
-We know that RNA changes in a bundance (Kief or whatever, benjy's
-figure)
-
+The study of microbial physiology is a long standing area of
+investigation, and changes in physiological composition is still the
+subject of quantitative and conceptual advances 
+\parencite{henrici1928
+malooe
 waldron?
 carter?
 nitrogen upshift stuff?
 more warner?
-slator?
-henrici?
+scott2010
+hwarecent stuff
+}.
 
-Relative normalization versus absolute,
-myc example.
-Used ERCC spike-ins 
+In recent years, the study of changes in abundance of specific mRNA
+factors in the budding yeast has characterized a phenomenon in which
+approximately one quarter of the yeast transcriptome scales with
+growth rate
+\parencite{ Brauer 2008, Regenberg, Castrillo,  Airoldi2009
+airoldi2016}
+This phenomenon is characterized at the level of molecular species,
+and thus can be compared to changes that occur in response to
+stressors, summarized as the Environmental Stress Response 
+\parencite{gasch2000genomic}.
+Interestingly, overlap?
+In addition, a shared signature of knockout mutants, commonly used to
+probe gene function, is that associated with changes in cell-cycle
+progression distribution due to growth rate changes
+\parencite{
+cell cycle kemmern thing}.
+Thus the appreciation of the systematic physiological changes that
+occur in response to genetic perturbations holds light to many
+biological problems, even if only to identify the domineering and 
+confounding factor of growth-associated physiological changes.
 
-This has been po-poohed before (that one), but it worked.
-If you don't use enough spike-in, that can be super noisy
-\autoref{section:4tuMethod}.
+We know that the total RNA content of a cell changes upon changes in
+growth rates (Kief or whatever, benjy's figure, warner changes).
+We know that specific mRNA, a small component of the cell's total RNA
+also change in relative abundance. A less-characterized question is if
+the whole mRNA transcriptome changes, if this is relevant in changing
+the concentration of mRNA species, or if these relative changes have a
+significant regulatory role (as opposed to a regime of saturated
+translation machinery \parencite{shah2013??}.
+Transcriptomic measurements are usually normalized to the relative,
+and is based on the assumption that the total transcriptome does not
+change in abundance.
+However, we now know of cases of where this assumption is violated.
+\parencite{myc example}.
 
-To orthogonally estimate the size of the whole yeast transcriptome,
-I sought to adapt the screening strategy of \cite{amberg1992???}
-to work with flow cytometry. 
+Spike-in normalized RNA sequencing can estimate absolute mRNA
+abundance per cell, but has been criticized before for
+being "too noisy" and instead computational methods of "removing
+unwanted variation" were used \parencite{}. 
+Led by Rodoniki Athansidou, our group pursued a more thorough approach
+to this design by normalizing RNA sequencing data using the ERCC
+spike-in set \parencite{ERCC group}, using preliminary sequencing runs
+to first determine the appropriate amount of spike-ins necessary for
+accurate sequencing. Then, yeast were grown in systematically varied
+nutrient limitations of growth, then RNA sequencing using a known
+quantity of the exogenous spike-ins was used to normalize the
+measurements to absolute mRNA per cell.
+
+I sought to complement this work by orthogonally estimating the size 
+of the whole yeast transcriptome. To do this, I adapted the screening 
+strategy of \cite{amberg1992???} to work with flow cytometry. 
+Essentially, this utilized a poly-deoxythymidine oligo singly labeled
+with a fluorophore. This was hybridized in with the fixed and
+permeabilized yeast cell, and the resulting fluorescence after washing
+is taking to be a proxy for the number of hybridized poly-dT probes,
+presumably hybridized to a poly-adenosine sequence, and thus mRNA.
 
 Another motivation of this was to serve as a fixation-digestion
 control for methods involving single-gene mRNA FISH.
 We had patterns of mRNA FISH hybridization signal that appeared
-bimodal. This could be a technical issue, or a biological phenomenon.
+bimodal \autoref{gap1Delete}. 
+This could be a technical issue of incomplete permeabilization due to
+over-fixing, or a biological phenomenon.
 To distinguish the two would take two-color FISH, with a positive
 control \parencite{regenbergtwocolor???}.
 Since nitrogen-limitation causes a severe restriction of the total
@@ -54,110 +102,59 @@ transcriptome content, we don't have an obvious pick for a uniformly
 expressed positive control. 
 However, most of the mRNA should be poly-adenylated, so FISH against
 that sequence should be present in all cells, and in high-copy.
-While I did not integrate this into the single gene mRNA FISH, I did
-use it to optimize fixation/permeabilization conditions.
+While I did not integrate this into the single gene mRNA FISH as an
+internal control, I did use it to optimize fixation/permeabilization 
+conditions.
 
 %
 %
 %
-\subsection{The assay}
+\subsection{The assay design}
 %
 %
 %
 
 The assay uses a similar fixation permeabilization methods as the
-single-gene mRNA FISH assay.
+single-gene mRNA FISH assay, then an overnight hybridization using
+dextran sulfate against a poly-dT probe, the flow cytometry.
 
-I optimized this assay using RNAseA digested cells
-
-
-dme148
-
-- On 151111, backed a 5ml O/N of FY4, 1ml onto 50ml NlimPro(800uM),
-  @1408, put at 30C shaker.
-- Started collecting at 0940 in the morning. At each time, sampled 
-  8ml onto a filter and flash froze in liquid nitrogen.
-  The first sample (-37min) was 10ml, different.
-  (~1min procedure).
-- @0942, sonicated 0.5ml of the culture and counted on a 
-  hemacytometer as 11.4e6 cells per ml, which is late exponential.
-- @1017, at the sample time as filtering the 0min sample, 
-  added 128ul 100mM glutamine to the culture.
-- By last sample @1419, cells were approximately 24.4 e6 cells per ml.
-- Every sample was frozen in liquid nitrogen, then put into -80C.
-
-For each sample, on 151117.
-
-- @~1130, R/S sample with vortexing into 4% fresh PFA 0.75x PBS.
-  Immediately discarded filter, fixed on bench RT for 3 hours.
-- Added 200ul 2.5M glycine to quench, then spun 6000g RT 1min.
-- Aspirated, washed and spun twice with 1ml 1x PBS.
-- R/S with 898ul of Buffer B (100mM potassium phosphate buffer, 1.2M
-  sorbitol, pH ~7.4), plus 100ul 200mM vanadyl ribonucleoside complex,
-  0.2% beta-mercaptoethanol, and 100 units lyticase 
-  (sigma, R/S in 1x PBS and stored at -20C in aliquots). 
-  Incubated this at 37C for an hour. 
-- Spun 3min 1200g, washed with cold Buffer B, spun and washed twice.
-- R/S with 1ml 70% etOH, into 4C.
-
-On 151118:
-
-- In afternoon, took two 400ul of each sample. First aliquot spun
-  and R/S in 1x TE with 200ug/ml RNAseA, incubated 42C for 30min.
-  For the second, ommited this step.
-- Spun all, aspirated, R/S in 1ml 2x SSC.
-- Spun all, aspirated, R/S in 100ul of hybridization buffer with
-  RNAsed as mastermixed for all samples
-  (10% dextran sulfate w/v, 2x SSC final, 100ug/ml ecoli tRNA, 
-  250mg/ml salmon sperm DNA) plus 100nM of an oligo, (dT)50+V 
-  5'-labeled with with Alexa 488, as ordered from IDT. 
-- Incubated ~14.5 hours on a 37C roller drum.
-
-On 151119:
-
-- Added 1ml 2x SSC and spun 10min 800g. 
-- Aspirated, R/S 1ml 2x SSC and incubated 37C 15min.
-- Spun 5min, aspirated, R/S 2x SSC 1ml.
-- Spun 5min, aspirated, R/S in 200ul filtered 1x PBS. Sonicated as for
-  the coulter counter. Kept on ice.
-- Flowed on a BD Accuri, one at a time, with flicking before the run.
-
-
-
-
-\# Poly(A) content determination
-
-Purpose: to measure the polyA content of cells grown in different
-conditions, in order to validate some of Niki's measurements.
-
-Chemostat cultures were established under carbon and 
-nitrogen source limitation at three dilution rates. When stable, 
-5ml of cultures were filtered and flash-frozen 
-with liquid $N_2$. Samples were re-suspended in 1ml 4% 
-paraformaldehyde (EMS) buffered in 0.75x PBS and incubated at 
-RT for 2 hours before quenching with 1/5th volume 2.5M glycine. 
-After washing with Buffer B (1.2M sorbitol 100mM $KHPO_4$ pH 7.5),
-samples were digested with 100U lyticase (Sigma), in 1ml of 
-Buffer B with 20mM VRC (NEB) and 28.6mM Beta-mercaptoethanol, 
-for one hour at 37C before centrifuging at 1200g and washing 
-with Buffer B.
-Cells were resuspended in 70% ethanol at 4C overnight to 
-permeabilize. Cells were centrifuged at 1200g, washed with 2x SSC,
-and resuspended in hybridization buffer (4x SSC, 
-100mg/ml dextran sulfate (Sigma), 100ug/ml E. coli tRNA (Roche), 
-250ug/ml salmon sperm DNA) with 100nM (dT)$_{50}$V oligos labeled 
-singly on the 5' with Alexa488 (IDT), 
-and incubated overnight (~16hr) at 37C.
-Cells were washed thrice with 2x SSC, resuspended in filtered 1x PBS,
-and sonicated before being run on a BD Accuri flow cytometer.
-Events were analyzed in R 
-to gate against doublets on forward-scatter area vs. 
-height, gated for size with forward-scatter area 
-threshold for each growth rate, and
-poly(A) content signal was determined by the signal area on the
+The yeast cells are sampled via vacuum filtration onto nylon
+filters, then the filters are quickly flash-frozen in liquid nitrogen.
+These are resuspended in 0.75x PBS buffered 4\% PFA (from ampules from
+EMS), the cells vortexed off the filter, then the filter discarded.
+The cell suspension in the fixative is incubated for hours at RT to
+complete fixation, with the assumption that rapid fixation halts
+RNA metabolism in the cell and long-term fixation stabilizes the fixed
+components into a configuration that can survive digestion and 
+permeabilization. The fix is critically quenched using 2.5M glycine,
+then collected by centrifugation and washed with PBS. The cells are
+digested for one hour at 37C using lyticase and beta-mercaptoethanol
+in 1.2M sorbitol buffered
+by potassium phosphate at about 7.4 pH, with 20mM vanadyl
+ribonucleoside complex to inhibit RNAses. 
+This is washed and further permeabilized with 70\% ethanol overnight,
+then is resuspened using hybridization buffer
+(10\% dextran sulfate w/v, 2x SSC final, 100ug/ml ecoli tRNA, 
+250mg/ml salmon sperm DNA) plus 100nM of a (dT)50+V oligo 5'-labeled
+with with Alexa 488, as ordered from IDT. 
+This is incubated for 14+ hours on a 37C roller drum, then washed with
+2x SSC several times before resuspending in PBS and flowing through an
+Accurri flow cytometer.
+Poly(A) content signal was determined by the signal area on the
 514/20nm detector.
 
-(see below)
+To test this procedure, I used RNAseA treated cells as a negative
+control.
+\autoref{fig:ypdnlim} shows the RNAseA-treated controls for two
+samples, where in the treatment abrogates the signal for the vast
+majority of the cells in the sample.
+
+To optimize this design, I varied formamide from 0\% to 50\%, and
+probe concentrations from 10nM to 1$\mu$M. I found that 100nM and 0\%
+formamide saturated the signal of YPD-grown cells without largely
+increasing the signal on the RNAseA-treated cells.
+This assay takes approximately 8 hours of work spread over 3 days.
+More detailed protocol is maintained by the Gresham laboratory.
 
 %%%%% PUT A CONTROL FIG HERE.
 
@@ -169,48 +166,160 @@ poly(A) content signal was determined by the signal area on the
 %
 %
 
-We see differences between batch growth conditions of YPD and NlimPro.
+Yeast growing in
+YPD complete a division approximately every 1.5 hours (0.45 specific
+growth rate), while 
+proline-limited media (NLimPro) only supports division approximately
+every 4.5 hours (.15 specific growth rate). 
+Using this poly-dT FISH method, we see differences in the total 
+poly-adenylated mRNA signal between the different media conditions. 
+The distributions are broad, but the distributions are significantly
+different (KS test and Wilcoxon, p-value < $2.2 \times 10^{-16}$).
+We know that fast growing cells (YPD) have more RNA per cell, so it
+appears that part of this difference is contributed by a global
+scaling of the mRNA as well.
+The fold-changes in the mean and median of the YPD-grown cells versus
+the proline-limited-grown cells were 3.34 and 3.68, respectively.
 
 \afig{
-  \includegraphics[width=\textwidth]{img/polya_ypdnlim.png}
+  \includegraphics[width=.7\textwidth]{img/polya_ypdnlim_controls.png}
   }{
-  The distributions have different means by KS or Wilcoxon tests, with
-  unreasonably small p-values.
+  Wild-type yeast grown in proline-limited media (left) or YPD rich
+  media (right) were assayed in exponential growth for poly-A content.
+  Included are RNAsed controls treated with RNAseA, to show negative
+  samples.
+  The plot is cropped from 0 to $10^5$ arbitrary units of polyA
+  signal to show the center of the distributions.
+  The distributions from different media have different means by 
+  KS or Wilcoxon tests, with unreasonably small p-values.
   \label{fig:ypdnlim}
   }
 
-
+To investigate the dynamics of changes in poly-A abundance between 
+different growth conditions, I grew cells in proline-limited media
+overnight to reach a steady-state of growth, then collected samples
+during a nitrogen-upshift.
+I assayed the poly-A content of the cells using the above assay.
+I found that the total poly-A content took about two hours to increase
+to the new steady-state of a larger transcriptome, a similar timescale
+as the changes in cell size and lag in population growth rate
+(\autoref{fig:figure1a}).
+The final steady-state differences were of a fold-change of 2.16 and
+1.93 for the mean and median poly-A content, consistent with the
+change between a specific growth rate of 0.15 and 0.35 (lower than the
+0.45 rate in YPD). 
 
 \afig{
   \includegraphics[width=\textwidth]{img/polya_upshift.png}
   }{
+  Wild-type yeast were grown in proline-limited media, then glutamine
+  was added at time 0 minutes. Samples were assayed for polyA content
+  using the poly-dT assay.
   \label{fig:upshift}
   }
 
+Previously, others in the lab has used ERCC-normalized RNA sequencing
+to assay the absolute abundance of mRNA in yeast grown at
+systematically varied growth rates (0.12,0.2,0.3 specific growth rate)
+in chemostats. In a repeat experiment of this, I took samples from
+chemostats limited by nitrogen or carbon at these growth rates, and
+processed them to assay the distribution of poly-A content of the 
+cells. \autoref{fig:nikis} shows the distributions and the
+relationship between the distribution means and the estimates from
+SPARQ (the spike-in normalized RNAseq method).
+
 \afig{
-  \includegraphics[width=\textwidth]{img/polya_niki_box.png}
-  \includegraphics[width=\textwidth]{img/polya_niki_summary.png}
+  \includegraphics[width=.49\textwidth]{img/polya_niki_box.png}
+  \includegraphics[width=.49\textwidth]{img/polya_niki_summary.png}
   }{
-  The two measures are well correlated (Pearson's r=0.95,
-  \texttt{cor.test} p-value = 0.003684).
+  (Left) PolyA content was estimated for cultures grown in two nutrient
+  limitations at three different dilution (growth) rates.
+  (Right) Comparing these measurements to SPARQ (the spike-in 
+  normalized RNAseq method) shows that two methods are well 
+  correlated (Pearson's r=0.95, \texttt{cor.test} p-value = 0.003684),
+  although the poly-dT method remains uncalibrated.
   \label{fig:nikis}
   }
 
+\subsection{Conclusion and future directions}
 
+This assay appears to detect changes in the scaling of the yeast
+transcriptome between different growth rates. As a flow cytometry 
+assay this has the potential to be used as a marker for
+high-throughput investigations of the genetics of transcriptome size
+changes (or regulation), using methods as described in
+\autoref{subsection:bff}. 
 
-orthogonal perspective on transcriptome scaling 
-Rationale and prior work 
-Development 
-Application to changes in growth rate, steady-state
-and upshift 
-Address limitations, possible future controls 
+However, more work remains to use the assay to reliably inform on
+these changes without incorporating an orthogonal measure.
+Changes in polyA tail length could hypothetically affect
+hybridization, and a distribution shifting such that more of the
+functional mRNA have a tail length less than minimum tail length
+requisite for hybridization would produce a similar graded effect.
+Hybridization of this probe to synthetic mRNA cross-linked to a nylon
+substrate would allow quantitative testing of this in similar
+conditions as the hybridization occurs, provided a method for
+manufacturing accurately generated poly-A tail lengths exists.
+
+This method offers a conveniently high-throughput assay for total
+transcriptome size, and as such is one more tool that microbial
+physiologists can use to probe the functional changes that occur as
+organisms systemically adapt to their environments and growth
+programs.
 
 \section{Screening for genes important for remodeling physiology for
 growth}
 
-Stephen’s
-heat shock screen Rationale and prior work Development The actual
-experiment and results Interpretation 
+With changing physiology in response to growth rate changes, many
+molecular and functional phenotypes change. One of these is the
+resistance to stress. 
+It has been long known that slow growing cells are more resistant to
+stressors \parencite{??}.
+Yeast appears to have adapted to its ecological niche by adopting a
+boom/bust, feast or famine (yeast or famine) approach to quickly
+growing during favorable conditions to the expense of stress
+resistance. 
+Resistance to stress seems to offer "cross-protection", and the
+anti-correlation of growth rate and stress resistance suggests that
+the two processes might be opposed in objectives and mechanisms to
+achieve these objectives.
+
+I am interested in understanding how a yeast cell remodels its
+cellular physiology and transcriptional program to effect a rapid
+growth rate. 
+One approach is to study the changes that the cell effects, and infer
+that since the most logical response to a stress is to express this
+adaptation, then the gene expression increasing upon a stress is
+adaptive. This has been shown not to be the case for heatshocks, as
+the genes whose expression increases do not overlap well with the
+genes important for resistance \parencite{lee li botstein}.
+The later genetic measurement is possible to do in high-throughput, as
+the yeast community has access to a yeast deletion collection and
+high-throughput means of assaying genetic effects on the quantitative
+phenotype of continued existence. 
+
+Upon consultation with advisors \autoref{section:acknow}, and given
+the opportunity to work with a talented young scientist named Stephen
+Nyarko, we decided to pursue this question by using the correlated
+phenotypes of growth and susceptibility to stress.
+
+The logic is that if we are interested in isolating mutants that are
+defective in increasing their growth rate upon a nitrogen upshift, and
+an increase in growth is associated with a susceptibility to stress,
+then a somewhat-lethal stress should enrich for mutants defective in
+susceptibility to the stress --- ie defective in rapidly increasing 
+growth rate.
+
+Thus we devised a screen, wherein a pooled yeast deletion collection
+was grown in conditions of nitrogen-limitation (proline-only, 4.5 hour
+doubling time). This was subject to an upshift of adding glutamine.
+Samples were taking before or after the glutamine upshift,
+heatshocked, then outgrown to enrich for living mutants.
+These libraries were sequenced using an amplicon-sequencing procedure
+to quantify the mutants in the resulting library.
+
+%%% resultz?
+
 
 \section{Apparent cell-cycle halt upon nitrogen-upshift}
 

@@ -10,7 +10,7 @@ library(tidyverse)
 ```
 
 
-```{r}
+```{r,cache=T}
 
 bdf <- read.csv("polyeh/bdf160608.csv")
 udf <- read.csv("polyeh/exp148160608.csv")
@@ -18,25 +18,37 @@ udf <- read.csv("polyeh/exp148160608.csv")
 head(bdf)
 
 head(udf)
+```
 
 
+```{r,cache=T}
 g<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
   aes(x=media,y=log10(FL1.A))+
   ylab("log10( polyA signal, per cell )")+xlab("")+
   scale_x_discrete(labels=c("N-limited (Proline)","Rich media (YPD)"))+
-  geom_boxplot(outlier.size=0.1,width=0.3)#+coord_cartesian(ylim=c(0.1,7.0))
+  geom_boxplot(outlier.size=0.1,width=0.3)+#+coord_cartesian(ylim=c(0.1,7.0))
+  theme(axis.text.x=element_text(angle=90))
 g
-ggsave("../img/polya_ypdnlim.png",g,width=5,height=5)
+```
+```{r,cache=F}
+ggsave("../img/polya_ypdnlim.png",g,width=4,height=4)
+```
+```{r,cache=T}
 
 
 g<-ggplot(subset(bdf,fix==120))+theme_bw()+
-  aes(x=factor(media):factor(probe),y=(FL1.A/FSC.A))+
-  ylab("polyA signal / FSC, per cell")+xlab("")+
+  aes(x=factor(media):factor(probe),y=(FL1.A))+#/FSC.A))+
+  ylab("polyA signal, per cell")+xlab("")+
   scale_x_discrete(labels=c("RNAsed Proline-grown","N-limited (Proline)",
     "RNAsed YPD-grown","Rich media (YPD)"))+
-  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(0.0,.75))
+  geom_boxplot(outlier.size=0.1,width=0.3)+coord_cartesian(ylim=c(0.0,1e5))+
+  theme(axis.text.x=element_text(angle=90))
 g
-ggsave("../img/polya_ypdnlim_controls.png",g,width=5,height=5)
+```
+```{r,cache=F}
+ggsave("../img/polya_ypdnlim_controls.png",g,width=4,height=4)
+```
+```{r,cache=T}
 
 g<-ggplot(subset(bdf,fix==120))+theme_bw()+
   aes(x=factor(media):factor(probe),y=log10(FL1.A))+
@@ -59,9 +71,13 @@ u<-ggplot(subset(udf,probe==T))+theme_bw()+
   ylab("log10( polyA signal, per cell )")+
   xlab("Minutes after upshift")+geom_boxplot(outlier.size=0.1,width=10)+
   coord_cartesian(ylim=c(3.7,5.25),xlim=c(-10,250))+
-  annotate(geom="text",x=-9,y=4.60,angle=90,label="Nlim Proline, +400uM Q")
+  annotate(geom="text",x=-13,y=4.60,angle=90,label="Nlim Proline, +400uM Q")
 u
-ggsave("../img/polya_upshift.png",u,width=7,height=5)
+```
+```{r,cache=F}
+ggsave("../img/polya_upshift.png",u,width=5,height=3)
+```
+```{r,cache=T}
 
 
 subset(udf,sample%in%c(0,123))%>%group_by(sample)%>%summarize(fl1a=mean(FL1.A))%>%{.[2,2]/.[1,2]}
@@ -367,8 +383,9 @@ g3<-ggplot(subset(alldf,sample%in%c("g4","g5","g6","11","12","13")&
   xlab("Dilution Rate, volumes per hour")+
   ylab("log10( poly-dT probe Alexa488 signal )")
 g3
-
-ggsave("../img/polya_niki_box.png",g3,width=5,height=5)
+```
+```{r,cache=F}
+ggsave("../img/polya_niki_box.png",g3,width=4,height=4)
 ```
 
 But just the descriptive stats would be nice.
@@ -437,14 +454,19 @@ compdat <- data.frame(
 g10 <- ggplot(compdat)+theme_bw()+
   aes(x=sparqTotalMoleculesPerCell,y=mean)+
   geom_point(aes(col=nutrientLimitation))+
-  xlab("Mean mRNA per cell,\nby SPARQ")+
-  ylab("Mean mRNA per cell,\nby poly-dT hybridization")+
+  xlab("Mean mRNA per cell,\nabsolute measurement,\nby SPARQ")+
+  ylab("Mean mRNA signal per cell,\nrelative measurement,\nby poly-dT hybridization")+
   stat_smooth(method="lm",se=F,col="black",linetype="dashed",
     lwd=0.1,fullrange=T)+
-  coord_cartesian(xlim=c(0,1e4),ylim=c(0,5e4))
+  coord_cartesian(xlim=c(0,1e4),ylim=c(0,5e4))+
+  theme(legend.position="bottom")
 g10
+```
+```{r,cache=F}
 ggsave("../img/polya_niki_summary.png",g10,
-  width=5,height=5)
+  width=4,height=4)
+```
+```{r,cache=T}
 
 summary(lm(compdat$sparqTotalMoleculesPerCell~compdat$mean))
 cor.test(compdat$sparqTotalMoleculesPerCell,compdat$mean)

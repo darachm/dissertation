@@ -8,6 +8,8 @@ all: dissertation_darachmiller_all.pdf
 img/%.pdf: img/%.jpg
 	convert -density 300 $< $@
 
+polya= img/polya_niki_box.png img/polya_niki_summary.png img/polya_upshift.png img/polya_ypdnlim_controls.png img/polya_ypdnlim.png
+
 #dissertation_DarachMiller_Feb2018.pdf: dissertation_DarachMiller_Feb2018.txt 
 dissertation_darachmiller_all.pdf \
   : \
@@ -16,6 +18,7 @@ dissertation_darachmiller_all.pdf \
   dissertation_darachmiller_3.tex \
   dissertation_darachmiller_4.tex \
   dissertation_darachmiller_5.tex \
+  $(polya) \
   img/airoldi2016_F6.large.pdf \
   dissertation_darachmiller_all.tex 
 	xelatex dissertation_darachmiller_all.tex 
@@ -31,3 +34,6 @@ dissertation_darachmiller_all.pdf \
 draft:
 	xelatex dissertation_darachmiller_all.tex 
 	bibtex8 dissertation_darachmiller_all || true
+
+$(polya): finalAnalyses/polyAanalysis.Rmd
+	Rscript -e "rmarkdown::render('$<')"

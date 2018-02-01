@@ -1335,7 +1335,7 @@ low transcript numbers in yeast cells compared to mammalian cells
 \parencite{klemm2014transcriptional}. Therefore, we used branched DNA probes
 (Quantigene), which serve to amplify the FISH signal
 \parencite{hanley2013detection}. We developed a fixation and permeabilization
-protocol (\autoref{section:writeup4}) that enabled detection of the
+protocol (\autoref{section:bff}) that enabled detection of the
 distribution of  \textit{GAP1} mRNA in steady-state nitrogen-limited conditions
 and its repression following the  upshift (\autoref{fig:figure3b}). In control
 experiments, we found that the signal is eliminated in a \textit{GAP1} deletion
@@ -1404,10 +1404,10 @@ to generate sufficient material for
 Barseq \parencite{sliva2016barcode}. However, formaldehyde fixation precludes
 outgrowth. We found that below approximately $10^6$ templates, the
 Barseq reaction produces primer dimers
-that outcompete the intended PCR product (\autoref{section:writeup4}). 
+that outcompete the intended PCR product (\autoref{section:bff}). 
 Therefore, we re-designed the
 PCR reaction \parencite{robinson2014design,smith2009quantitative} to be robust for
-very low sample inputs (\autoref{section:writeup4}). Our protocol
+very low sample inputs (\autoref{section:bff}). Our protocol
 incorporates a 6-bp unique molecular identifier (UMI) into the first
 round of extension to identify PCR duplicates, 
 and uses 3’-phosphorylated oligonucleotides and a
@@ -1425,7 +1425,7 @@ using pairwise alignment to invariant flanking sequences.
 Based on \textit{in silico} benchmarks, this
 approach was robust to systematic and simulated random errors 
 that can confound analysis of the yeast deletion barcodes 
-(\autoref{codeanddata}, \autoref{section:writeup4}). 
+(\autoref{codeanddata}, \autoref{section:bff}). 
 
 We refer to this experimental approach as BFF (Barseq after FACS after FISH). 
 We used BFF to estimate \textit{GAP1} mRNA abundance for every mutant in the
@@ -1518,7 +1518,7 @@ recapitulates the overall
 distribution of flow cytometry signal (\autoref{fig:figure4a}). 
 %Specifically, replicate A had a consistently lower estimate of
 %\textit{GAP1} FISH fluoresence in both flow cytometry and modeling.
-%Replicate C had fewer mutants sorted (\autoref{section:writeup4}), 
+%Replicate C had fewer mutants sorted (\autoref{section:bff}), 
 %reflected in the wider distribution of estimated means.
 %To estimate \textit{GAP1}
 %mRNA per strain, we used all replicate measurement to perform model
@@ -1938,7 +1938,7 @@ microscopy zip archive (\autoref{codeanddata}).
 \subsection{Methods, materials, and motivation for Barseq after 
 FACS after FISH experiment and its design}
 
-\label{section:writeup4}
+\label{subsection:bff}
 
 \subsubsection{Culturing and sampling}
 
