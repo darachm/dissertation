@@ -1,0 +1,100 @@
+
+```{r readingIn,cache=T}
+library(tidyverse)
+library(stringr)
+
+coulterZ2df <- function(x) { 
+  binunits<-as.numeric(x[(grep("Bindiam",x)+1):(grep("Binunits",x)-1)])
+  binheight<-as.numeric(x[(grep("Binheight",x)+1):(grep("\\[end\\]",x)-1)])
+  return(tibble(Units=binunits,Height=binheight))
+}
+
+z <- tibble(Filename=list.files("dme244",pattern="Z2$",full.names=T))%>%
+  mutate(RawLines=map(Filename,readLines))%>%
+  mutate(df=map(RawLines,coulterZ2df)) %>%
+  select(-RawLines)%>%
+  mutate(Filename=str_replace(basename(Filename),".=$Z2",""))%>%
+  separate(Filename,into=c("Date","Time","Exp","Flask","Sampling"))%>%
+  mutate(Time=str_replace(Time,"(\\d\\d)$","_\\1"))%>%
+  separate(Time,into=c("Hours","Minutes"))%>%
+  mutate(DayMinutes=as.numeric(Hours)*60+as.numeric(Minutes))%>%
+  mutate(Treatment=c(a="Q",b="Q",c="QY",d="QY")[Flask])%>%
+  mutate(Time=(DayMinutes-(10*60+27.5))/60)%>%
+  unnest()
+
+z%>%filter(!(Flask%in%c("mk9","blank")))%>%
+  ggplot()+aes(x=Units,y=Height,col=Treatment
+    ,group=factor(Flask):factor(DayMinutes))+geom_line()+
+  geom_vline(xintercept=2.5)
+
+countsData <- z%>%
+  filter(!(Flask%in%c("mk9","blank")),Units>2.5)%>%
+  group_by(Flask,Sampling,Time,Treatment)%>%
+  summarize(cells=sum(Height,na.rm=T)) %>%
+  mutate(cells=cells*200)
+
+# So the machine was set to sample 0.1 ml until around 1548 in the
+# afternoon, when Nathan showed me you could do 0.5ml samples.
+# Obvious choice to switch! More sampling! So that's 5x volume,
+# so 1/5th multiplier. The last sample of flask a2 was giving me
+# trouble because it was so dense (lots of double counts),
+# so I re-ran it with a 1:200 dilution instead, hence the 2x. 
+
+g <- countsData %>% 
+  ggplot()+aes(x=Time,y=cells,col=Treatment,group=Treatment)+
+  theme_bw()+
+  scale_y_log10(breaks=c(seq(0.6,02,0.2)*1e6,2.5e6,seq(3,20,1)*1e6))+
+  geom_vline(xintercept=0)+
+  scale_x_continuous(breaks=seq(-10,10,1))+
+  geom_point()
+g
+
+g2 <- g+stat_smooth(data=countsData
+    ,method="lm",se=F,formula="y~x",fullrange=T,size=0.3)+
+#  stat_smooth(data=countsData
+#    ,method="lm",se=F,formula="y~x",fullrange=T,size=0.3,)+
+  scale_y_log10(breaks=c(seq(1.0,04,1.0)*1e6)
+    ,lim=range(countsData$cells))+
+  ylab("Cell density per mL")+
+  xlab("Hours after adding glutamine")+
+  scale_color_discrete("Treatment at 0min",labels=c("Glutamine","Glutamine plus pyruvate"))
+g2
+ggsave("../img/dme244.png",g2,width=6,height=3)
+#ggsave("171205dme244_gc.png",g2,width=7,height=4)
+
+aMaud <- countsData %>% mutate(AfterLag=Time>2.2) %>%ungroup%>%
+  mutate(IsAfterPyruvate=Treatment=="QY"&AfterLag)%>%
+  mutate(Treatment=relevel(factor(Treatment),"Q")
+    ,AfterLag=relevel(factor(AfterLag),"FALSE")) %>%
+  lm(data=.,formula=log(cells)~0+Flask+Time+
+                                 Time:AfterLag+
+                                 Time:Treatment+
+                                 Time:AfterLag:Treatment+
+                                 AfterLag+IsAfterPyruvate
+    )
+aMaud %>% summary 
+
+
+mCountsData <- countsData%>%ungroup()%>%mutate(Fitted=exp(aMaud$fitted.values))
+
+mCountsData %>% ggplot()+
+  aes(x=Time,y=Fitted,col=Treatment,group=Flask)+
+  scale_y_log10()+
+  stat_smooth(data=mCountsData%>%filter(Time<2.5),method="lm",fullrange=T)+
+  stat_smooth(data=mCountsData%>%filter(Time>2.5),method="lm")
+
+sizeData <- z%>%
+  filter(!(Flask%in%c("mk9","blank")),Units>2.25)%>%
+  group_by(Flask,Sampling,Time,Treatment)%>%
+  summarize(Distribution=list(unlist(map2(Units,Height,rep))))%>%
+  mutate(Median=median(unlist(Distribution),na.rm=T)
+    ,Mean=mean(unlist(Distribution),na.rm=T))
+
+sizeData %>% 
+  ggplot()+aes(x=Time,y=Mean,col=Treatment,group=Flask)+
+  theme_bw()+
+  geom_point()+
+  geom_vline(xintercept=0)
+
+```
+
