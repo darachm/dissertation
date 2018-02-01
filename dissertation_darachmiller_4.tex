@@ -1,15 +1,33 @@
-\chapter{Miscellaneous experiments}
+\chapter{Investigations of physiological remodeling upon a nitrogen 
+upshift}
+
+This chapter describes three lines of investigation that were not
+pursued deeply, but may inform future investigations of the
+physiological remodeling that occurs as yeast remodels to resume rapid
+growth.
 
 %
 %
 %
-\section{Changes in poly-adenylated transcripts per cell upon changes
-in growth rates}
+\section{Changes in poly-adenylated transcript content per cell 
+upon changes in growth rates}
 %
 %
 %
 
-Part of this work in a pre-print.
+This section describes work that contributed to an article that 
+has been submitted, rejected, and is currently undergoing revision 
+of the text to address a particular biological question with more
+focus.
+The article was titled:
+\textit{"Growth Rate-Dependent Global Amplification of Gene Expression."}
+Authorship of this article is: 
+Niki Athanasiadou, Benjamin Neymotin, Nathan Brandt, 
+\textbf{Darach Miller}, Daniel Tranchina, and David Gresham.
+The \textit{biorxiv} draft is at \url{doi.org/10.1101/044735}
+
+The writing and figures of this chapter are entirely original to this 
+document.
 
 %
 %
@@ -172,12 +190,13 @@ growth rate), while
 proline-limited media (NLimPro) only supports division approximately
 every 4.5 hours (.15 specific growth rate). 
 Using this poly-dT FISH method, we see differences in the total 
-poly-adenylated mRNA signal between the different media conditions. 
+poly-adenylated mRNA signal between the different media conditions
+\autoref{fig:ypdnlim}. 
 The distributions are broad, but the distributions are significantly
 different (KS test and Wilcoxon, p-value < $2.2 \times 10^{-16}$).
 We know that fast growing cells (YPD) have more RNA per cell, so it
 appears that part of this difference is contributed by a global
-scaling of the mRNA as well.
+scaling of the mRNA content as well.
 The fold-changes in the mean and median of the YPD-grown cells versus
 the proline-limited-grown cells were 3.34 and 3.68, respectively.
 
@@ -199,15 +218,16 @@ To investigate the dynamics of changes in poly-A abundance between
 different growth conditions, I grew cells in proline-limited media
 overnight to reach a steady-state of growth, then collected samples
 during a nitrogen-upshift.
-I assayed the poly-A content of the cells using the above assay.
+I assayed the poly-A content of the cells using the above assay
+\autoref{fig:upshift}.
 I found that the total poly-A content took about two hours to increase
 to the new steady-state of a larger transcriptome, a similar timescale
 as the changes in cell size and lag in population growth rate
 (\autoref{fig:figure1a}).
 The final steady-state differences were of a fold-change of 2.16 and
 1.93 for the mean and median poly-A content, consistent with the
-change between a specific growth rate of 0.15 and 0.35 (lower than the
-0.45 rate in YPD). 
+change between specific growth rate s of 0.15 and 0.35 being lower
+than the difference with YPD (0.45 specific growth rate). 
 
 \afig{
   \includegraphics[width=\textwidth]{img/polya_upshift.png}
@@ -218,25 +238,30 @@ change between a specific growth rate of 0.15 and 0.35 (lower than the
   \label{fig:upshift}
   }
 
-Previously, others in the lab has used ERCC-normalized RNA sequencing
+Previously, others in the lab (as described at the beginning of this
+section) had used ERCC-normalized RNA sequencing
 to assay the absolute abundance of mRNA in yeast grown at
-systematically varied growth rates (0.12,0.2,0.3 specific growth rate)
-in chemostats. In a repeat experiment of this, I took samples from
-chemostats limited by nitrogen or carbon at these growth rates, and
-processed them to assay the distribution of poly-A content of the 
+systematically varied growth rates (0.12, 0.2, 0.3 specific growth 
+rate) in chemostats. In a repeat experiment of this, I took samples 
+from chemostats limited by nitrogen or carbon at these growth rates, 
+and processed them to assay the distribution of poly-A content of the 
 cells. \autoref{fig:nikis} shows the distributions and the
 relationship between the distribution means and the estimates from
-SPARQ (the spike-in normalized RNAseq method).
+SPARQ (the spike-in normalized RNAseq method). We see that the poly-dT
+method also captures the scaling of the whole yeast transcriptome
+across different growth rates, and correlates well with the spike-in
+normalized method.
 
 \afig{
-  \includegraphics[width=.49\textwidth]{img/polya_niki_box.png}
-  \includegraphics[width=.49\textwidth]{img/polya_niki_summary.png}
+  \includegraphics[width=.48\textwidth]{img/polya_niki_box.png}
+  \includegraphics[width=.48\textwidth]{img/polya_niki_summary.png}
   }{
   (Left) PolyA content was estimated for cultures grown in two nutrient
   limitations at three different dilution (growth) rates.
   (Right) Comparing these measurements to SPARQ (the spike-in 
   normalized RNAseq method) shows that two methods are well 
-  correlated (Pearson's r=0.95, \texttt{cor.test} p-value = 0.003684),
+  correlated (Pearson's r=0.95, \texttt{cor.test} p-value = 0.003684,
+  dashed-line shows linear regression through all points),
   although the poly-dT method remains uncalibrated.
   \label{fig:nikis}
   }
@@ -244,11 +269,19 @@ SPARQ (the spike-in normalized RNAseq method).
 \subsection{Conclusion and future directions}
 
 This assay appears to detect changes in the scaling of the yeast
-transcriptome between different growth rates. As a flow cytometry 
+mRNA content between different growth rates. 
+It is consistent with spike-in normalized RNAseq (random 
+hexamer-primed) estimates of the total mRNA content.
+As a flow cytometry 
 assay this has the potential to be used as a marker for
 high-throughput investigations of the genetics of transcriptome size
 changes (or regulation), using methods as described in
 \autoref{subsection:bff}. 
+This method offers a conveniently high-throughput assay for total
+transcriptome size, and as such is one more tool that microbial
+physiologists can use to probe the functional changes that occur as
+organisms systemically adapt to their environments and growth
+programs.
 
 However, more work remains to use the assay to reliably inform on
 these changes without incorporating an orthogonal measure.
@@ -261,14 +294,16 @@ substrate would allow quantitative testing of this in similar
 conditions as the hybridization occurs, provided a method for
 manufacturing accurately generated poly-A tail lengths exists.
 
-This method offers a conveniently high-throughput assay for total
-transcriptome size, and as such is one more tool that microbial
-physiologists can use to probe the functional changes that occur as
-organisms systemically adapt to their environments and growth
-programs.
+Future investigations of mRNA content per cell will illuminate
+the role or significance of total mRNA abundance 
+versus relative mRNA abundance in gene regulation and physiological
+adjustments to changing environments. Adjustment is apparent during a 
+nitrogen upshift, what causes it, and is it adaptive?
 
 \section{Screening for genes important for remodeling physiology for
 growth}
+
+\subsection{Introduction}
 
 With changing physiology in response to growth rate changes, many
 molecular and functional phenotypes change. One of these is the
@@ -283,45 +318,272 @@ Resistance to stress seems to offer "cross-protection", and the
 anti-correlation of growth rate and stress resistance suggests that
 the two processes might be opposed in objectives and mechanisms to
 achieve these objectives.
+The dimension of coordinated cellular growth may be a simple axis that
+explains much of the variation in gene expression and phenotypic
+differences in budding yeast \parencite{kemmeren, brauer, libotstein}.
 
-I am interested in understanding how a yeast cell remodels its
-cellular physiology and transcriptional program to effect a rapid
-growth rate. 
-One approach is to study the changes that the cell effects, and infer
+One approach to identify the characteristics required for yeast to 
+achieve a faster growth rate is to monitor the regulated changes that
+occur upon the upshift. We could infer
 that since the most logical response to a stress is to express this
-adaptation, then the gene expression increasing upon a stress is
-adaptive. This has been shown not to be the case for heatshocks, as
-the genes whose expression increases do not overlap well with the
+adaptation, then the gene expression increasing upon a stress must be
+adaptive \parencite{gould}. 
+This has been demonstrated to be a false assumption, at least for the
+case of heatshocks, as the genes whose expression increases do not 
+overlap well with the
 genes important for resistance \parencite{lee li botstein}.
-The later genetic measurement is possible to do in high-throughput, as
+The later functional genetic measurement is possible to do in 
+high-throughput, as
 the yeast community has access to a yeast deletion collection and
 high-throughput means of assaying genetic effects on the quantitative
 phenotype of continued existence. 
+Thus, direct probing of the genetic requirements is a more direct
+approach to understand these processes.
 
-Upon consultation with advisors \autoref{section:acknow}, and given
+The nitrogen upshift offers an obvious process to enrich for
+differences in growth rate increase (measure the growth rate
+increase). Subtle effects can be magnified by growth, for example a
+1\% growth rate defect over 7 hours would be magnified to an abundance
+change of at least 20\%. However, the phenotype I am interested in is
+in the completion of remodeling for rapid growth, so I am most
+interested in the duration of the lag between nitrogen addition and
+increased growth. Thus, the compounding of growth rate effect does not 
+apply. One approach would be to repeat the upshift many times on the
+same batch of cells, but this greatly confounds the fitness between 
+various growth stages and does not offer the reproducibility of cells
+being in a particular physiological status --- nitrogen-limitation can
+take hours to reach a steady-state of signalling
+\parencite{tate2013five}, and the life history of an individual cell
+could have physiological consequences.
+
+After practising the Feynmen method with a scientific advisor
+(\nameref{section:acknow}), and given
 the opportunity to work with a talented young scientist named Stephen
 Nyarko, we decided to pursue this question by using the correlated
 phenotypes of growth and susceptibility to stress.
-
 The logic is that if we are interested in isolating mutants that are
 defective in increasing their growth rate upon a nitrogen upshift, and
 an increase in growth is associated with a susceptibility to stress,
 then a somewhat-lethal stress should enrich for mutants defective in
 susceptibility to the stress --- ie defective in rapidly increasing 
 growth rate.
+Upon further reading, we found that the group of Johan Theiveilen had
+used a similar approach to isolate mutants defective for increasing
+growth upon repletion of glucose, and had identified new critical
+components of the PKA pathway, \textit{CYR1} and \textit{GPR1}
+\parencite{vandjick2000}.
 
-Thus we devised a screen, wherein a pooled yeast deletion collection
-was grown in conditions of nitrogen-limitation (proline-only, 4.5 hour
+Thus encouraged, we devised a screen, wherein a barcoded and pooled 
+yeast deletion collection
+is grown in conditions of nitrogen-limitation (proline-only, 4.5 hour
 doubling time). This was subject to an upshift of adding glutamine.
 Samples were taking before or after the glutamine upshift,
 heatshocked, then outgrown to enrich for living mutants.
 These libraries were sequenced using an amplicon-sequencing procedure
 to quantify the mutants in the resulting library.
 
-%%% resultz?
+\subsection{Results}
+
+Direct measurement of mutant abundance is preferred, but we used
+outgrowth of the heatshocked population, counting on the severe
+selection of a heatshock to appropriately select.
+We did this in six biological replicates in order to generate robust
+signal.
+These were extracted with standard Hoffman-Winston DNA preparations,
+then amplified using the same primers and protocol as described in
+\parencite{robinson2013design}. These were sequenced along with other
+samples on an Illumina MiSeq run.
+
+Barcode sequencing, like other molecule-counting applications of
+sequencing like RNAseq, is presented to the researcher as a relative 
+measurement in integer quantities. 
+One of the first steps in reading this data in is to look at the
+distribution of counts per strain barcode identified
+\autoref{fig:sneDist}.
+We see that our heatshock and outgrowth has a much more profound
+distribution of effects.
+For which genes is this significant?
 
 
+Numerous statistical approaches
+exist to normalize the data for accurate detection of differential
+abundance. One flexible and robust method is using the \texttt{voom}
+statistical pre-processing step with \texttt{limma}. 
+This calculates
+the expected noise contributed by low integer count observation, but
+has the advantage of converting the measurement to a "counts per
+million" relative metric for normalization. 
+It also has useful plots for characterizing the distribution of counts
+across complex experimental designs, like this one.
+
+One other observation in \autoref{fig:sneDist} is that the histograms
+show a log-normal distribution of high counts, then a long tail
+downwards. 
+Then, there appears to be a low distribution of single digit counts
+which enter the distribution from around zero \autoref{fig:sneDistSum}.
+These are believed to occur from spurious amplicon products or
+software misalignment counting barcodes that do not exist.
+To characterize this further, I used \texttt{limma/voom} to generate
+plots of variance against abundance for different thresholds of
+cutoffs based on total counts across the entire library
+\autoref{fig:vooming}.
+I found that a threshold of 30 counts in total across the library
+was sufficient to remove these effects.
+
+\afig{
+  \includegraphics[width=.6\textwidth]{img/sne_histogram.png}
+  }{
+  Histograms of counts, for each mutant in each sample. Three
+  histograms show the occurrences of these observations for the
+  library before the upshift (top), 2 hours after adding glutamine
+  (middle), and after the heatshock and outgrowth (bottom). The wider
+  spreading is a good indication of complex selection of large
+  effects occurring in the library.
+  \label{fig:sneDist}
+  }
+
+\afig{
+  \includegraphics[width=.6\textwidth]{img/sne_histogram_sum.png}
+  }{
+  Histograms of counts, for each mutant, summed across all samples
+  in the three treatments: before the upshift (top), 2 hours after 
+  adding glutamine (middle), and after the heatshock and outgrowth 
+  (bottom). We see that most features are log normally distributed,
+  but some appear to be noisy counts near zero, due to unknown
+  factors. 
+  \label{fig:sneDistSum}
+  }
+
+\afig{
+  \includegraphics[width=\textwidth]{img/sne_voomer.png}
+  }{
+  Each plot shows each gene average abundance (x-axis) against its
+  residual variation (y-axis), with a line smoothing the relationship
+  as expected by \texttt{limma} modeling. The threshold of minimum
+  total counts per feature is shown for each plot in the grey bar.
+  We see that thresholding above 30 counts (bottom row) gives us the 
+  expected relationship, while not thresholding (top left)
+  demonstrates how lowly abundance counts behave aberrantly with
+  artificially reduced variance that may confound statistical
+  analyses of barcode sequencing data (\texttt{limma} uses the model 
+  fit as the line). 
+  \label{fig:vooming}
+  }
+
+I used this tool's
+flexible general linear modeling interface to ask how our treatment
+enriched for particular mutants.
+We no significant effects from a glutamine upshift, 
+confirming the intuition that this
+is such a subtle effect of momentary fitness that it becomes hard to 
+detect without amplification. 
+Testing for the effect of changes in abundance based on a
+glutamine treatment before the heatshock, we find that four deletion 
+strains significantly
+(multiple-hypothesis adjusted p-values < 0.05) increase in abundance 
+specifically after glutamine treatment, and 41 are decreased in
+abundance.
+
+Of the four genes increased in abundance (suggesting a failure to
+resume rapid growth), \textit{SLA1} and
+\textit{CAP2} are involved in actin binding and dynamics.
+\textit{SLA1} is required for the assembly of the cortical actin
+cytoskeleton \parencite{}, while \textit{CAP2} is an actin barbed-end
+capping protein that localizes to cortical actin patches \parencite{}. 
+This suggests that these mutants specifically are involved in
+remodeling the cortical exoskeleton in a way that makes cells more
+susceptible to heatshock, or that these mutants are defective in
+increases in stress-resistance associated with slow growth rates.
+\textit{SXM1} over-expression rescues mutants defective in mRNA export 
+from the nucleus \parencite{seedorf1999importin}, suggesting that it
+may play a role in mRNA export itself and that mRNA export may
+regulate some important downstream factor associated with increasing
+growth.
+\textit{MAE1} encodes a malate dehydrogenase. This reaction takes
+malate, a citric-acid cycle metabolite, and converts it to pyruvate
+\parencite{boles1998identification}.
+Pyruvate is an essential substrate for the
+biogenesis of the carbon structures of alanine, valine, and other 
+amino-acids.
+Carbon-skeletons of glutamine can enter the citric-acid cycle from a
+point between the entry of pyruvate and shunt from malate to pyruvate
+via \textit{MAE1}.
+Considering the enrichment of pyruvate metabolism mRNA identified as 
+destabilized in the 4tU label-chase work in 
+\autoref{subsection:stabilityChanges}, and that the same experiment 
+showed either a stabilization or dramatic synthesis up-regulation of 
+\textit{MAE1} mRNA upon the nitrogen upshift, one prediction might 
+be that Mae1p provides a shunt by which yeast re-directs the excess of
+carbon skeletons from glutamine deamination through the citric-acid
+cycle to provide substrates for alanine biosynthesis. This may be
+adaptive.
+
+To explore this, I regenerated a \textit{mae1}$\Delta$ mutant using
+a KanMX knockout cassette amplified from the yeast deletion
+collection, confirming incorporation by PCR. I subjected this mutnant
+to a glutamine upshift, and saw an increase in the lag-phase duration
+(\autoref{fig:mae1})
+compared to wild-type (\autoref{fig:figure1a}). I sought to test if this
+was specifically due to disruption of the malate to pyruvate shunt for
+the effect of alanine metabolism, and so repeated the experiment but
+added 200$\mu$M alanine, 200$\mu$M pyruvate, or water (mock) to the 
+cell culture at the same time as glutamine.
+I did not see a significant effect on the growth rate increase
+(\autoref{fig:mae1}).
+Thus, disruption of this gene may not result in slower upshift in
+growth by virtue of blocking this metabolic pathway, but instead the
+metabolic state of the cell before the upshift may not be well 
+prepared to resume rapid growth.
+
+\afig{
+  \includegraphics[width=.7\textwidth]{img/dme231.png}
+  \includegraphics[width=.7\textwidth]{img/dme242.png}
+  \includegraphics[width=.7\textwidth]{img/dme244.png}
+  }{
+  A \textit{mae1}$\Delta$ strain was subject to a glutamine upshift.
+  (Top) The mutant alone appears to show a slight defect in the lag 
+  phase (approximately 3 hours compared to approximately 2 hours
+  \autoref{fig:figure1a}), but the proper replication to directly
+  and authoritatively compare these was not done.
+  Breakpoint modeling of the bottom two panels was not used to explore
+  this, either.
+  (Middle and bottom) The mutant had glutamine or glutamine and either
+  alanine (middle) or pyruvate (bottom) added, with two cultures per
+  treatment. Neither showed a significant effect in reducing lag phase
+  or increasing growth rate.
+  \label{fig:mae1}
+  }
+
+\subsection{Conclusion}
+
+We found mutants knocked out for several non-essential genes changed
+their relative susceptibility upon heatshock treatment, suggesting
+that their resistance does not decrease as much as wild-type upon the
+re-addition of a nitrogen source with adding glutamine.
+We did not validate any of these hits for effects of slowed growth
+rate increases.
+
+These mutants could be involved in either the increase in stress
+resistance upon slow growth conditions, or the decrease in stress
+resistance upon increase in growth. 
+For the factors of the actin cytoskeleton, this points towards a
+hypothesis that the increase in stress resistance results from
+specifically the cortical actin network, and would be testable by
+determining when these mutants are more or less resistant to stress
+than the wild-type. For \textit{MAE1}, I found that there appears to
+be a longer lag phase, but this is not rescued by addition of pyruvate
+or alanine. This suggests that the deletion of this gene puts the cell
+in a metabolic configuration less capable of rapidly increasing growth
+rate upon glutamine addition.
+
+\iffalse
+%
+%
+%
 \section{Apparent cell-cycle halt upon nitrogen-upshift}
+%
+%
+%
 
 Apparent cell-cycle halt upon
 glutamine addition Previous work on cell cycle halt, basically just
@@ -335,4 +597,4 @@ Alberghina’s demonstrated that depends on Swi4?p, so there you go
 
 Experiment, results Conclusion ( anything that didn’t get into chapter
 3 )
-
+\fi

@@ -1,0 +1,419 @@
+
+```{r}
+library(tidyverse)
+library(limma)
+library(reshape2)
+```
+
+```{r,cache=T}
+#datadir <- "~/lab/chunks/heatshockStephensProject/data/"
+#mdatar <- read.csv(paste0(datadir,"countedDataForAnalysissne26.csv"))
+mdatar <- read.csv("sne26barseqHeatshockStephen/countedDataForAnalysissne26.csv")
+datar <- dcast(subset(mdatar,Tag=="UP"),Strain~SampleNum+whichRun+Q+time+replicate,value.var="Counts")
+rownames(datar) <- datar[,1]
+datar <- datar[,-1]
+```
+
+That read in the data. If you are not Darach and you're running this,
+you'll have to get your data in somewhere else.
+
+
+How do the counts look? So we're looking across each row of genes,
+and we're asking how many counts do we have?
+
+```{r}
+library(tidyverse)
+plot(density(apply(datar,1,function(x){sum(x)}),0.1))
+
+g <- datar %>% as.tibble() %>% gather(Variable,Value) %>% 
+  separate(Variable,into=c("Sample","Run","Shifted","Shock","Rep"))%>%
+  mutate(Shock=factor(Shock,levels=c("preShift","preShock","postShock")))%>%
+  arrange(Shock)%>%
+  mutate(Shock=c(`preShift`="Before upshift",`preShock`="After shift\nbefore shock",`postShock`="After shock\nand outgrowth")[Shock])%>%
+  mutate(Shock=factor(Shock,levels=unique(Shock)))%>%
+  ggplot()+theme_bw()+aes(x=Value)+
+  facet_grid(Shock~.)+
+  geom_histogram(bins=50)+
+  scale_x_log10(limits=c(0.5,1e3))+
+  ylab("Occurrences")+
+  xlab("Counts per mutant per sample")
+g
+ggsave("../img/sne_histogram.png",g,width=5,height=3)
+
+g <- datar %>% as.tibble() %>% mutate(Gene=rownames(datar)) %>%
+  gather(Variable,Value,-Gene) %>% 
+  separate(Variable,into=c("Sample","Run","Shifted","Shock","Rep")) %>%
+  mutate(Shock=factor(Shock,levels=c("preShift","preShock","postShock")))%>%
+  arrange(Shock)%>%
+  mutate(Shock=c(`preShift`="Before upshift",`preShock`="After shift\nbefore shock",`postShock`="After shock\nand outgrowth")[Shock])%>%
+  mutate(Shock=factor(Shock,levels=unique(Shock)))%>%
+  group_by(Shock,Gene)%>%summarize(Value=sum(Value),na.rm=T)%>%
+  ggplot()+theme_bw()+aes(x=Value)+
+  facet_grid(Shock~.)+
+  geom_histogram(bins=50)+
+  scale_x_log10(limits=c(0.5,1e4))+
+  ylab("Occurrences")+
+  xlab("Counts per mutant, across samples")
+g
+ggsave("../img/sne_histogram_sum.png",g,width=5,height=3)
+
+```
+
+Basically, I looped between this and looking at the mean vs var
+plot from limma, and picked this cut off
+
+```{r,cache=T}
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>1],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>5],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>15],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>30],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>50],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>70],0.1))
+plot(density(apply(datar,1,function(x){sum(x)})[apply(datar,1,function(x){sum(x)})>100],0.1))
+sdatar <- list()
+sdatar[["0"]] <- datar[apply(datar,1,function(x){sum(x)})>0,]
+sdatar[["15"]] <- datar[apply(datar,1,function(x){sum(x)})>15,]
+sdatar[["30"]] <- datar[apply(datar,1,function(x){sum(x)})>30,]
+sdatar[["70"]] <- datar[apply(datar,1,function(x){sum(x)})>70,]
+```
+
+Here we build the design matrix.
+
+```{r,cache=T}
+d <- dcast(subset(mdatar,Tag=="UP"),
+  SampleNum+whichRun+Q+time+replicate~.,value.var="Counts")
+shifted <- relevel(factor(!grepl("preShift",d$time)),"FALSE")
+shocked <- relevel(factor(grepl("postShock",d$time)),"FALSE")
+whichRun <- factor(d$whichRun)
+Q <- relevel(factor(d$Q),"FALSE")
+design <- model.matrix(~0+whichRun+shifted+shifted:Q+shocked+shocked:Q)
+```
+
+```{r,cache=T}
+
+voomer <- function(x,name) {
+  vdatar <- voom(x,design=design,plot=T,save.plot=T)
+  fit <- lmFit(vdatar,design)
+  return(list(name,vdatar,fit))
+}
+
+z<-imap(sdatar,voomer) %>%tibble(RawOut=.) %>% 
+  mutate(Threshold=map(RawOut,~.x[[1]]))%>%
+  mutate(VoomDatar=map(RawOut,~.x[[2]]))%>%
+  mutate(VoomFit=map(RawOut,~.x[[3]]))%>%
+  unnest(Threshold)%>%
+  dplyr::select(-RawOut)
+
+```
+
+```{r,cache=T}
+
+pdat <- z%>%
+  mutate(pointz_x=map(VoomDatar,~.x[["voom.xy"]][[1]]))%>%
+  mutate(pointz_y=map(VoomDatar,~.x[["voom.xy"]][[2]]))%>%
+  mutate(linez_x=map(VoomDatar,~.x[["voom.line"]][[1]]))%>%
+  mutate(linez_y=map(VoomDatar,~.x[["voom.line"]][[2]]))%>%
+  dplyr::select(Threshold,ends_with("_x"),ends_with("_y"))%>% unnest() %>%
+  gather(Variable,Value,ends_with("_x"),ends_with("_y"))%>%
+  separate(Variable,into=c("Type","Axis"),sep="_") %>%
+  nest(Value) %>% spread(Axis,data) %>%unnest(x,y)%>%
+  dplyr::rename(x=Value,y=Value1)%>%
+  arrange(Threshold,x)
+
+g <- ggplot()+theme_bw()+
+  facet_wrap(~Threshold)+
+  geom_point(data=pdat%>%filter(Type=="pointz")
+    ,aes(x=x,y=y),size=0.1,alpha=0.5)+
+  geom_line(data=pdat%>%filter(Type=="linez")
+    ,aes(x=x,y=y,col=Threshold))+
+  xlab("Abundance")+ylab("Variance")
+g
+ggsave("../img/sne_voomer.png",g,width=5,height=5)
+
+```
+
+Then pick contrasts to look at, basically that's a vector of values
+that show which weights we're testing for difference associated.
+
+```{r}
+data.frame(colnames(design))
+```
+
+Which are increased in the second run?
+
+Just gonna use the cutoff of more than 30 counts total to filter.
+
+```{r}
+fit <- z%>%filter(Threshold=="30")%>%pull(VoomFit)%>%{.[[1]]}
+runDiff <- eBayes(contrasts.fit(fit,c(-1,1,0,0,0,0,0)))
+runDiffTable <- topTable(runDiff,sort.by="logFC",number=10000)
+runDiffTable[order(runDiffTable$logFC,decreasing=T),][1:20,]
+```
+Which are statistically significantly increased in the second run?
+```{r}
+subset(runDiffTable[order(runDiffTable$logFC,decreasing=T),],adj.P.Val<0.05)
+```
+
+
+Which are increased in the glutamine flasks regardless of treatment?
+```{r}
+flaskDiff <- eBayes(contrasts.fit(fit,c(0,0,0,0,1,0,0)))
+flaskDiffTable <- topTable(flaskDiff,sort.by="logFC",number=10000)
+flaskDiffTable[order(flaskDiffTable$logFC,decreasing=T),][1:20,]
+```
+Which are statistically significantly increased in the glutamine flasks regardless of treatment?
+```{r}
+subset(flaskDiffTable[order(flaskDiffTable$logFC,decreasing=T),],adj.P.Val < 0.05)
+```
+
+Which are increased in shifting? 
+```{r}
+shiftDiff <- eBayes(contrasts.fit(fit,c(0,0,1,0,0,0,0)))
+shiftDiffTable <- topTable(shiftDiff,sort.by="logFC",number=10000)
+shiftDiffTable[order(shiftDiffTable$logFC,decreasing=T),][1:20,]
+```
+Which are statistically significantly increased in shifting?
+```{r}
+subset(shiftDiffTable[order(shiftDiffTable$logFC,decreasing=T),],adj.P.Val < 0.05)
+```
+
+
+Which are increased in glutamine shifting? 
+```{r}
+qshiftDiff <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,1,0)))
+qshiftDiffTable <- topTable(qshiftDiff,sort.by="logFC",number=10000)
+qshiftDiffTable[order(qshiftDiffTable$logFC,decreasing=T),][1:20,]
+```
+Which are statistically significantly increased in glutamine shifting?
+```{r}
+subset(qshiftDiffTable[order(qshiftDiffTable$logFC,decreasing=T),],adj.P.Val < 0.05)
+```
+
+Which are increased in shocking? 
+```{r}
+shockDiff <- eBayes(contrasts.fit(fit,c(0,0,0,1,0,0,0)))
+shockDiffTable <- topTable(shockDiff,sort.by="logFC",number=10000)
+subset(shockDiffTable[order(shockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05)
+dim(subset(shockDiffTable[order(shockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05))
+dim(subset(shockDiffTable[order(shockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05&logFC>0))
+```
+
+Which are increased in shocked glutamine flasks? 
+```{r}
+qshockDiff <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,0,1)))
+qshockDiffTable <- topTable(qshockDiff,sort.by="logFC",number=10000)
+subset(qshockDiffTable[order(qshockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05)
+dim(subset(qshockDiffTable[order(qshockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05))
+dim(subset(qshockDiffTable[order(qshockDiffTable$logFC,decreasing=T),],adj.P.Val<0.05&logFC>0))
+
+load("NameIDList.RData")
+zisone <- qshockDiffTable%>%as.tibble()%>%
+  mutate(Systematic=rownames(qshockDiffTable))%>%
+  mutate(Common=renameSystematicToCommon[Systematic])%>%
+  dplyr::select(Systematic,Common,logFC,t,adj.P.Val)%>%
+  arrange(-t)
+```
+
+How robust to thresholds?
+
+```{r}
+fit <- z%>%filter(Threshold=="0")%>%pull(VoomFit)%>%{.[[1]]}
+qshockDiff00 <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,0,1)))
+qshockDiff00Table <- topTable(qshockDiff00,sort.by="logFC",number=10000)
+subset(qshockDiff00Table[order(qshockDiff00Table$logFC,decreasing=T),],adj.P.Val<0.05)
+```
+
+```{r}
+fit <- z%>%filter(Threshold=="15")%>%pull(VoomFit)%>%{.[[1]]}
+qshockDiff15 <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,0,1)))
+qshockDiff15Table <- topTable(qshockDiff15,sort.by="logFC",number=10000)
+subset(qshockDiff15Table[order(qshockDiff15Table$logFC,decreasing=T),],adj.P.Val<0.05)
+```
+
+```{r}
+fit <- z%>%filter(Threshold=="30")%>%pull(VoomFit)%>%{.[[1]]}
+qshockDiff30 <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,0,1)))
+qshockDiff30Table <- topTable(qshockDiff30,sort.by="logFC",number=10000)
+subset(qshockDiff30Table[order(qshockDiff30Table$logFC,decreasing=T),],adj.P.Val<0.05)
+```
+
+```{r}
+fit <- z%>%filter(Threshold=="70")%>%pull(VoomFit)%>%{.[[1]]}
+qshockDiff70 <- eBayes(contrasts.fit(fit,c(0,0,0,0,0,0,1)))
+qshockDiff70Table <- topTable(qshockDiff70,sort.by="logFC",number=10000)
+subset(qshockDiff70Table[order(qshockDiff70Table$logFC,decreasing=T),],adj.P.Val<0.05)
+```
+
+
+```{r,clusterProfilerSetup,cache=T}
+library(clusterProfiler)
+library(org.Sc.sgd.db)
+
+QueryHighEntrezIDs <- zisone%>%filter(logFC>0&adj.P.Val<0.05)%>%
+  mutate(SGD=renameSystematicToSGDID[Systematic])%>%pull(SGD)%>%
+  bitr(.,fromType="SGD",toType="ENTREZID"
+    ,OrgDb=org.Sc.sgd.db,drop=T) %>%
+  pull(ENTREZID)
+
+QueryLowEntrezIDs <- zisone%>%filter(logFC>0&adj.P.Val<0.05)%>%
+  mutate(SGD=renameSystematicToSGDID[Systematic])%>%pull(SGD)%>%
+  bitr(.,fromType="SGD",toType="ENTREZID"
+    ,OrgDb=org.Sc.sgd.db,drop=T) %>%
+  pull(ENTREZID)
+
+BackgroundEntrezIDs <- zisone%>%filter(adj.P.Val>0.05)%>%
+  mutate(SGD=renameSystematicToSGDID[Systematic])%>%pull(SGD)%>%
+  bitr(.,fromType="SGD",toType="ENTREZID"
+    ,OrgDb=org.Sc.sgd.db,drop=T) %>%
+  pull(ENTREZID)
+
+read_tsv("sgd_go_full_171013.txt",col_names=F
+  ,comment="!") -> SGDGOFull
+
+read_tsv("sgd_go_terms_171013.txt",col_names=F
+  ,comment="!") %>%
+  mutate(GOID=str_c("GO:"
+    ,str_pad(string=X1,width=7,side="left",pad="0"))
+    ) -> SGDGOTerms
+
+sysToSGD <- function(x) renameSystematicToSGDID[x]
+sgdToCommon <- function(x) renameSystematicToCommon[
+  names(renameSystematicToSGDID[which(renameSystematicToSGDID==x)])]
+zisone <- zisone %>% 
+  mutate(SGD=unlist(map(Systematic,sysToSGD)))
+
+nPermutations <- 1e7
+```
+
+```{r,cache=T}
+
+CategoricalGO_High_MF <- enrichGO(gene=QueryHighEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="MF"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_High_MF@result
+
+CategoricalGO_High_BP <- enrichGO(gene=QueryHighEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="BP"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_High_BP@result
+
+CategoricalGO_High_CC <- enrichGO(gene=QueryHighEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="CC"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_High_CC@result
+
+CategoricalKEGG_High <- zisone%>%filter(logFC>0&adj.P.Val<0.05)%>%
+  pull(Systematic)%>%
+  enrichKEGG(gene=.
+    ,organism="sce"
+    ,pvalueCutoff=0.05
+    ,pAdjustMethod="fdr"
+    )
+CategoricalKEGG_High@result
+
+CategoricalGO_Low_MF <- enrichGO(gene=QueryLowEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="MF"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_Low_MF@result
+
+CategoricalGO_Low_BP <- enrichGO(gene=QueryLowEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="BP"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_Low_BP@result
+
+CategoricalGO_Low_CC <- enrichGO(gene=QueryLowEntrezIDs
+  ,universe=BackgroundEntrezIDs
+  ,OrgDb=org.Sc.sgd.db
+  ,ont="CC"#MF BP CC all
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.05
+  ,qvalueCutoff=0.05
+  ,minGSSize=2,maxGSSize=500)
+CategoricalGO_Low_CC@result
+
+CategoricalKEGG_Low <- zisone%>%filter(logFC<0&adj.P.Val<0.05)%>%
+  pull(Systematic)%>%
+  enrichKEGG(gene=.
+    ,organism="sce"
+    ,pvalueCutoff=0.05
+    ,pAdjustMethod="fdr"
+    )
+CategoricalKEGG_Low@result
+
+```
+
+
+
+```{r,moreSurival,dependson="clusterProfilerSetup",cache=T}
+The_Input <- zisone %>% 
+  mutate(SortMetric=t)%>%
+  arrange(-SortMetric) %>% filter(!is.na(SortMetric)) %>%
+  {setNames(.$SortMetric,nm=.$SGD)} 
+The_Results <- list()
+
+system.time(
+The_Results[["BP"]] <- GSEA(
+  gene=The_Input
+  ,TERM2GENE=SGDGOFull%>%filter(X9=="P")%>%dplyr::select(X5,X2)
+  ,TERM2NAME=SGDGOTerms%>%dplyr::select(GOID,X2)
+  ,minGSSize=2,maxGSSize=50
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.2,seed=180201
+  ,nPerm=nPermutations
+  )
+)
+
+system.time(
+The_Results[["CC"]] <- GSEA(
+  gene=The_Input
+  ,TERM2GENE=SGDGOFull%>%filter(X9=="C")%>%dplyr::select(X5,X2)
+  ,TERM2NAME=SGDGOTerms%>%dplyr::select(GOID,X2)
+  ,minGSSize=2,maxGSSize=50
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.2,seed=180201
+  ,nPerm=nPermutations
+  )
+)
+
+system.time(
+The_Results[["MF"]] <- GSEA(
+  gene=The_Input
+  ,TERM2GENE=SGDGOFull%>%filter(X9=="F")%>%dplyr::select(X5,X2)
+  ,TERM2NAME=SGDGOTerms%>%dplyr::select(GOID,X2)
+  ,minGSSize=2,maxGSSize=50
+  ,pAdjustMethod="fdr"
+  ,pvalueCutoff=0.2,seed=180201
+  ,nPerm=nPermutations
+  )
+)
+
+```
+
+```{r,dependson="moreSurvival",cache=T}
+map(The_Results,~.x@result%>%arrange(-enrichmentScore))
+```

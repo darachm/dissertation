@@ -1,0 +1,143 @@
+---
+title: ""
+author: ""
+date: "`r Sys.Date()`"
+---
+
+# HPC work
+
+Previously, the fastq file was copied into `/scratch` on 
+the NYU HPC mercer cluster, on dhm267's account. dhm267 went ahead
+and ran BarNone with one mismatch.
+
+# Local work
+
+## Reading
+
+```{r,cache=F}
+datadir <- "~/lab/data/heatshockStephensProject/"
+dir(datadir)
+```
+
+### Index
+
+```{r index_read,cache=F}
+index <- read.csv(paste0(datadir,"sne26index.csv"),as.is=T)
+row.names(index) <- index$indexNumber
+head(index)
+strainBarcodes <- read.delim(paste0(datadir,"../../aref/data/","strainBarcodesNislowRevision.txt"))
+sampleBarcodes <- read.delim(paste0(datadir,"../../aref/data/","sampleBarcodesRobinson2014.txt"))
+```
+
+### Counts
+
+```{r counts_read, cache=T}
+allFileNames <-  dir(datadir)[grepl("dme203counts.*txt",
+  dir(datadir))]
+rawCountsList <- list()
+for (fz in allFileNames) {
+  numberMismatches <- sub(".*(\\dMM).*","\\1",fz)
+  rawCountsList[[numberMismatches]] <-
+    read.table(paste0(datadir,fz),header=T)
+}
+rawCountsList[[1]][1:5,1:10]
+dim(rawCountsList[[1]])
+```
+
+```{r counts_melt,cache=F}
+datar <- list()
+for (MM in names(rawCountsList)) {
+  mcounts <- melt(rawCountsList[[MM]],
+    id.vars="Strain",value.name="Counts")
+  mcounts[,ncol(mcounts)+1:2] <- colsplit(mcounts$variable,"_",
+    c("SampleNum","Tag"))
+  sampleTotalCounts <- aggregate(Counts~variable,data=mcounts,sum)
+  rownames(sampleTotalCounts) <- sampleTotalCounts$variable
+  mcounts$TotalCounts <- sampleTotalCounts[mcounts$variable,"Counts"]
+  mcounts$RelativeCounts <- mcounts$Counts / mcounts$TotalCounts
+  sampleCounts <- dcast(mcounts,Strain~variable,value.var="Counts")
+  sampleRanks <- apply(sampleCounts[,-1],2,rank)
+  sampleRanks <- apply(sampleRanks,2,function(x){ return(max(x)-x) })
+  rownames(sampleRanks) <- sampleCounts[,1]
+  tmp <- melt(sampleRanks)
+  sampleRanks <- tmp$value
+  names(sampleRanks) <- paste0(tmp$Var1,tmp$Var2)
+  mcounts$Rank <- sampleRanks[paste0(mcounts$Strain,mcounts$variable)]
+  mcounts$SampleNum <- sub("Sample","",mcounts$SampleNum)
+  mcounts[,ncol(mcounts)+1:6] <- index[mcounts$SampleNum,
+    c("Q","time","replicate","whichRun")]
+  datar[[MM]] <- mcounts[,c("Strain","SampleNum","Tag",
+      "Q","time","replicate","Counts","RelativeCounts",
+      "whichRun","Rank")]
+}
+```
+
+```{r write_MM_outputs,cache=F}
+for (MM in names(datar)) {
+  write.csv(file=paste0(datadir,"sne26Counts",MM,"Melted.csv"),
+    x=subset(datar[[MM]],replicate!=""))
+}
+for (MM in names(datar)) {
+  write.csv(file=paste0(datadir,"sne26Counts",MM,".csv"),
+    x=dcast(subset(datar[[MM]],replicate!=""),
+      Strain+Tag~SampleNum+Q+time+whichRun,
+      value.var="Counts"))
+}
+```
+
+```{r pick_one,cache=F}
+useMM <- "0MM"
+sdat <- subset(datar[[useMM]],replicate!="")
+sdat[,-c((-1:0)+ncol(sdat))] <- lapply(sdat[,-c((-1:0)+ncol(sdat))],
+  factor)
+```
+
+To check.
+
+```{r checking_you_out_again,cache=F}
+apply(sdat[,2:(ncol(datar[[1]])-2)],2,table,exclude="")
+```
+```{r total_counts,cache=T}
+ggplot(sdat)+
+  aes(x=SampleNum:Tag,
+    col=SampleNum,weight=Counts)+
+  geom_point(stat="count")+
+  facet_grid(time~Q,scales="free_x",space="free")+
+  theme(axis.text.x=element_text(angle=90),legend.position="bottom")+
+  scale_y_log10()
+```
+
+How diverse are they?
+
+```{r shannon_of_samples,cache=T,eval=F}
+ggplot(dcast(SampleNum+Q+time+replicate+Tag+whichRun~.,
+    data=sdat,fun.aggregate=function(x){
+      tmp<-x*log(x)
+      return(-sum(tmp[!is.na(tmp)&!is.infinite(tmp)]))
+    },value.var="RelativeCounts"))+
+  aes(x=SampleNum:Tag,y=.)+
+  geom_point()+
+  facet_grid(time~Q,scales="free_x",space="free")+
+  ylab("Shannon entropy, x is relative counts,\nthen is -sum(x*log(x))")+
+  theme(axis.text.x=element_text(angle=90))
+```
+
+
+```{r subsetting_analysisData,cache=F}
+sdatPostTotalPlots <- subset(sdat,
+  !( (SampleNum%in%c(12,111,98)&Tag=="DOWN") |
+     (SampleNum%in%c(12,90,109,85,97,98,95)&Tag=="UP")))
+```
+
+
+```{r postPCA}
+analysisData <- sdatPostTotalPlots
+```
+
+```{r output_qcd_counts}
+dim(analysisData)
+unique(analysisData$SampleNum)
+write.csv(x=analysisData,
+  file=paste0(datadir,"countedDataForAnalysissne26.csv"))
+```
+
