@@ -3,36 +3,37 @@
 Organisms adapt to
 their environment by expressing different phenotypes as environments
 change. We expect this to be an advantageous strategy, depending on
-the various parameters of fitness advantages of each phenotype in each
+the fitness consequences of each phenotype in each
 environment balanced against the costs of innovating and maintaining
 the machinery for adaptive differential gene expression
 \parencite{kussell2005phenotypic}. 
-If different mechanisms have different properties of
-efficacy and energetic costs, and if the phenotype to fitness
-relationship varies, then different conditions may select
+If different mechanisms of gene expression act on different properties
+of gene expression or have different costs of energy or complexity, 
+then different conditions may select
 for the use of different mechanisms of achieving appropriately
 regulated gene expression.
-Thus, understanding the adaptive basis of the diversity of 
-regulatory mechanisms may inform our understanding of selection 
-on complex systems.
-
-\section{Regulated gene expression} 
+Thus, understanding examples where different mechanisms are used to
+regulate one level of gene expression may inform our understanding 
+of these mechanisms and multiple levels of selection balance to cause
+an adaptive outcome.
 
 Expression of a protein-coding gene
 product involves many complex steps, each with their own opportunities
 for a variety of regulatory mechanisms. At the outset, DNA sequences
 that encode genetic elements are transcribed into corresponding chains
 of messenger RNA (mRNA). The rate of this transcription is helped by
-factors that facilitate recruitment of RNA polymerase II (RNA Pol II)
+factors that facilitate recruitment of RNA polymerase II (PolII)
 and is hindered by factors that block this process by physical
 occlusion or changes in the accessibility to the chromatin 
 \parencite{hahn2011transcriptional}. 
 The translation of mRNA into a protein product by
-ribosomes occurs at different rate for different genes and different
-environments, regulated by a complex interplay between ribosomes and
+ribosomes occurs at different rates for different genes and different
+environments, and this approximately 15-fold variation 
+\parencite{weinberg2016improved} is thought to be 
+regulated by a complex interplay between ribosomes and
 associated translation factors, RNA binding proteins (RBPs), and
 intrinsic factors of the mRNA like length or codon-usage 
-\parencite{dever2016mechanism}. 
+\parencite{dever2016mechanism}.
 For both the mRNA and its protein product, stability is also
 important 
 \textbf{(cite something about protein stability)} 
@@ -44,19 +45,40 @@ basis for particular regulatory mechanisms, if they are indeed
 adaptive, would help us better understand the diversity of gene
 regulatory mechanisms.
 
-Functional transcriptome reprogramming during a
-nitrogen upshift The budding yeast \textit{Saccharomyces cerevisiae}
+\section{Functional transcriptome reprogramming during a
+nitrogen upshift}
+
+The budding yeast \textit{Saccharomyces cerevisiae}
 is a
 classically studied model system for many fields, including gene
 expression regulation. In response to different nutrient
 availabilities, yeast will change gene expression programs on the
-whole transcriptome and adopt different rates of growth. The
-particular nutrient environment is described in terms of the quality
-and quantity of the nutrient provided. Quantity refers to just that,
+whole transcriptome and adopt different rates of growth
+\parencite{cooper1982nitrogen}. 
+This is thought to be similar to how other nutrients limit or enable
+cellular growth, and that there exists multiple hierarchies of 
+control that regulate the response to different particular 
+types of nutrients as well as the
+general availability of any nitrogen (or nutrient) source.
+Changing the suitability of the environment for supporting rapid
+growth results in a changed rate of proliferation \parencite{}, 
+cell size \parencite{}, distribution of cell-cycles \parencite{},
+RNA content \parencite{}, protein content \parencite{},
+and resistance to stressors \parencite{}.
+Thus, the study of nitrogen limitations to growth, especially with 
+an eye towards discerning particular molecular mechanisms 
+\parencite{olivieria2015,tate2017,torc12015hallpaper,lst4} and how these may overlap
+\parencite{conway} may shed shed light on key, well conserved growth 
+signalling pathways of eukaryotic cells, like TORC1 or PKA.
+
+The
+particular nitrogen availability is described in terms of the quality
+and quantity of the source provided. Quantity refers 
 the molar availability of the nutrient that the yeast can take up,
-while quality is more of a empirical reference to how rapidly budding
+while quality is an empirical reference to how rapidly budding
 yeast can biochemically incorporate the nutrient into their metabolism
---- ie rate of growth. One prediction from this understanding is that
+--- in essence the resulting rate of population growth. 
+One prediction from this understanding is that
 altering the quantity of the nutrient availability to vary growth
 rates in a range below which the quality limits growth rates will
 elicit a common response between various nutrient limitations.
@@ -64,7 +86,9 @@ Indeed, studies systematically varying nutrient environments have
 shown that about a quarter of the transcriptome is differentially
 expressed at different steady-state nutrient-limited growth states,
 regardless of nutrient used to limit growth 
-\parencite{brauer2008coordination,regenberg2006growth}. 
+\parencite{brauer2008coordination,regenberg2006growth}, and that a
+small subset of transcripts were regulated particular to the specific
+limitation. 
 Statistical modeling of this process
 determined that the molecular signature of this growth-rate signalling
 could be capture in a small number of “calibrator” genes whose
@@ -83,7 +107,8 @@ Environmental Stress Response (ESR) --- a shared in co-regulation of
 \parencite{gasch2000genomic}. 
 Together, this shows how yeast has a common response that
 largely corresponds to the suitability of the sensed sensed
-environment. A better environment transduces to faster growth with
+environment and how that results in growth. 
+A better environment translates to faster growth, with
 more growth associated mRNA and less stress response mRNA, and this
 holds true in steady-state differences and dynamic transitions.  
 
@@ -93,24 +118,25 @@ upshift. Yeast grows quickly when provided with nitrogen sources like
 glutamine or ammonium sulfate, but can make use of various
 less-preferred nitrogen sources like proline or urea by expressing
 overlapping sets of specific and general nitrogen-source permeases
-that concentrate these sources inside the cell for use.  
-
+that concentrate these sources inside the cell for use
+\parencite{greson1992amino}.
 Various
 nitrogen sources are then catabolized to eventually make glutamate and
 glutamine, with an estimated ~85\% of macromolecular nitrogen coming
-from the amino nitrogen in glutamate and the rest from the amide group
+from the amino nitrogen in glutamate and the rest from the side-chain
 of glutamine 
 \parencite{magasanik2002nitrogen}. The addition of glutamine to
 a nitrogen-limited culture, for example grown with only the
 non-preferred proline as a nitrogen source, is called an upshift
 because it is the change from a slow growing condition to one of rapid
-growth. Through the use of a temperature-sensitive glutamine synthase
-allele or treatment with methionine sulfoximine, it has been shown
-that NCR is a response to intracellular glutamine availability
-\textbf{(cites)}
-. Upon an upshift, a regulatory phenomenon called nitrogen
+growth. 
+Upon an upshift, a regulatory phenomenon called nitrogen
 catabolite repression (NCR) ensures that the set of NCR transporters,
 metabolic enzymes, and regulatory factors are repressed.  
+Through the use of a temperature-sensitive glutamine synthase
+allele or treatment with methionine sulfoximine, it has been shown
+that NCR is largely a response to intracellular glutamine 
+availability \textbf{(cites,and that one recently found)} . 
 
 One layer of
 the repression occurs at the level of transcript synthesis. Four of
@@ -133,21 +159,21 @@ localization of these transcription factors, via Ure2p for Gln3p
 and unknown mechanisms for Gat1p
 \textbf{(citez, also classic ure2 papz)}
 . However, careful genetics over the last two decades in
-Terrance Cooper’s laboratory has identified that the genetic
+Terrance Cooper's laboratory has identified that the genetic
 requirements for phenotypes differ in different environments, with
 comparisons of nitrogen “starvation” (8+ hours) versus “limitation”
-(<3 hours, or proline) showing that a large part of NCR regulation was
-still unexplained by TORC1 signalling 
+(<3 hours, or proline) showing that about half of the
+Gln3-localization regulation (resulting in transcriptional regulation
+of NCR) was still unexplained by TORC1 signalling alone
 \parencite{tate2013five}. By way
 of a temperature-sensitive tRNA allele, they have since identified
 that Gcn2p impinges in a parallel pathway through the 14-3-3 proteins
 Bmh1/2 to promote the export of Gln3p and Gat1p 
 \parencite{tate2015gata,tate2017general}. 
 Additionally, others have suggested that the
-amino-acid permease Gap1p may directly signal to PKA, but more has to
-be done 
-(theivelen eh)
-. Thus, multiple signalling pathways converge to
+amino-acid permease Gap1p may directly signal to PKA, although this is
+still a developing claim (theivelen eh).
+Thus, multiple growth signalling pathways converge to
 affect the import and export of NCR GATA factors to effect multiply
 redundant layers of NCR transcript synthesis control.  
 
@@ -178,7 +204,8 @@ from magasanik?)}
 the NCR-regulated Gap1p.  
 
 In Chapters 2 and 3, I show how mRNA
-degradation also plays a role in this repression.  
+degradation also plays a role in this repression, inactivating some
+NCR mRNA as well as mRNA for other processes.
 
 \section{mRNA degradation and its regulation}
 
@@ -666,7 +693,7 @@ growth rate
 TORC1 pathway in this process has identified that its effect is
 specified to differentially regulate the stability of certain
 transcript sets 
-\parencite{albig2001target,talarek2010initation}.
+\parencite{albig2001target,talarek2010initiation}.
 Recently, a phosphoproteomics approach to studying signallng of the
 AMPK homolog Snf1p during a carbon upshift identified a role in Xrn1p
 phosphorylation in the specification by this factor 
@@ -681,8 +708,7 @@ protein subunit regulon
 \parencite{yin2003glucose}
 and destabilization of
 gluconeogenic transcripts 
-\parencite{de2002role,mercado1994levels,scheffler1998control
-  ,lombardo1992control}. 
+\parencite{de2002role,mercado1994levels,scheffler1998control,lombardo1992control}. 
 Mapping the
 determinants of this effect has been met with mixed success. The
 destabilization of SDH2 and GAL1 mRNA have been mapped to elements in
