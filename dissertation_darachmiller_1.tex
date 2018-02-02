@@ -1,21 +1,24 @@
 \chapter{Introduction}
 
-Organisms adapt to
-their environment by expressing different phenotypes as environments
-change. We expect this to be an advantageous strategy, depending on
-the fitness consequences of each phenotype in each
-environment balanced against the costs of innovating and maintaining
+Organisms adapt to their environment 
+by expressing different phenotypes 
+as environments change. 
+We expect this to be an advantageous strategy, 
+depending on the fitness consequences of 
+each phenotype in each environment 
+balanced against the costs of innovating and maintaining
 the machinery for adaptive differential gene expression
 \parencite{kussell2005phenotypic}. 
 If different mechanisms of gene expression act on different properties
-of gene expression or have different costs of energy or complexity, 
-then different conditions may select
-for the use of different mechanisms of achieving appropriately
-regulated gene expression.
-Thus, understanding examples where different mechanisms are used to
-regulate one level of gene expression may inform our understanding 
-of these mechanisms and multiple levels of selection balance to cause
-an adaptive outcome.
+of gene expression, or have different costs of energy or complexity, 
+then we expect that as the environment selects for the use of 
+gene expression patterns that advantageously model the environment
+\parencite{tagkopoulos2008predictive}, we may see the use of different
+mechanisms used to achieve different regulatory demands.
+Thus, understanding how different mechanisms can be used to
+regulate one particular level of gene expression may inform our 
+understanding of these mechanisms and how multiple levels of selection 
+balance in causing an adaptive outcome.
 
 Expression of a protein-coding gene
 product involves many complex steps, each with their own opportunities
@@ -35,9 +38,7 @@ associated translation factors, RNA binding proteins (RBPs), and
 intrinsic factors of the mRNA like length or codon-usage 
 \parencite{dever2016mechanism}.
 For both the mRNA and its protein product, stability is also
-important 
-\textbf{(cite something about protein stability)} 
-\parencite{perez2013eukaryotic}. 
+important \parencite{perez2013eukaryotic,mcmanus2015next}. 
 Additionally, localization or allosteric regulation can change
 the activity of a gene product. Myriad factors contribute to the
 expression of a gene product, and determining the functional adaptive
@@ -45,32 +46,38 @@ basis for particular regulatory mechanisms, if they are indeed
 adaptive, would help us better understand the diversity of gene
 regulatory mechanisms.
 
-The budding yeast \textit{Saccharomyces cerevisiae}
-is a
+The budding yeast \textit{Saccharomyces cerevisiae} is a
 classically studied model system for many fields, including gene
-expression regulation. In response to different nutrient
-availabilities, yeast will change gene expression programs on the
-whole transcriptome and adopt different rates of growth
-\parencite{cooper1982nitrogen}. 
-This is thought to be similar to how other nutrients limit or enable
-cellular growth, and that there exists multiple hierarchies of 
-control that regulate the response to different particular 
-types of nutrients as well as the
-general availability of any nitrogen (or nutrient) source.
-Changing the suitability of the environment for supporting rapid
-growth results in a changed rate of proliferation \parencite{}, 
-cell size \parencite{}, distribution of cell-cycles \parencite{},
-RNA content \parencite{}, protein content \parencite{},
+expression regulation. In response to different nutrient 
+availabilities yeast changes its rate of growth, and
+this is accompanied by large changes in gene expression 
+\parencite{brauer2008coordination,conway2012glucose}
+and changes in physiology 
+\parencite{waldron1977synthesis,carter1978protein}.
+including changed rate of proliferation \parencite{slator1918some}, 
+cell size \parencite{}, 
+distribution of cell-cycles \parencite{},
+RNA content \parencite{waldron1975effect}, 
+protein content \parencite{kief1981coordinate},
 and resistance to stressors \parencite{}.
-Thus, the study of nitrogen limitations to growth, especially with 
+This integration of diverse metabolic signals into a coordinated 
+program of growth is thought take place with multiple hierarchies of 
+control, with regulated responses to different particular 
+types of nutrients as well as the general availability of any 
+nutrient source 
+\parencite{winderickx2003feast,broach2012nutritional,cooper1982nitrogen},
+integrated into a similar systemic output by well conserved growth 
+signalling pathways of eukaryotic cells, like TORC1, Snf1p/AMPK, 
+or PKA \parencite{conrad2014nutrient,thevelein1994signal}.
+Thus, the study of nutrient limitations to growth, especially with 
 an eye towards discerning particular molecular mechanisms 
-\parencite{olivieria2015,tate2017,torc12015hallpaper,lst4} and how these may overlap
-\parencite{conway} may shed shed light on key, well conserved growth 
-signalling pathways of eukaryotic cells, like TORC1 or PKA.
+\parencite{oliveira2015dynamic,oliveira2015inferring,tate2017general,stracka2014nitrogen,peli2015amino} 
+and how these may overlap would shed light on our understanding of
+how a eukaryotic cell regulates its most essential goal in the face of
+diverse limitations.
 
-The
-particular nitrogen availability is described in terms of the quality
-and quantity of the source provided. Quantity refers 
+The particular nutrient availability is described in terms of the 
+quality and quantity of the source provided. Quantity refers 
 the molar availability of the nutrient that the yeast can take up,
 while quality is an empirical reference to how rapidly budding
 yeast can biochemically incorporate the nutrient into their metabolism
@@ -113,13 +120,12 @@ transitions between steady-states.
 \section{Functional transcriptome reprogramming during a
 nitrogen upshift}
 
-One
-classically studied transition between growth rates is the nitrogen
-upshift. Yeast grows quickly when provided with nitrogen sources like
-glutamine or ammonium sulfate, but can make use of various
-less-preferred nitrogen sources like proline or urea by expressing
-overlapping sets of specific and general nitrogen-source permeases
-that concentrate these sources inside the cell for use
+One classically studied transition between growth rates is the 
+nitrogen upshift. Yeast grows quickly when provided with nitrogen 
+sources like glutamine or ammonium sulfate, but can make use of 
+various less-preferred nitrogen sources like proline or urea by 
+expressing overlapping sets of specific and general nitrogen-source 
+permeases that concentrate these sources inside the cell for use
 \parencite{grenson1992amino}.
 Various
 nitrogen sources are then catabolized to eventually make glutamate and
@@ -130,20 +136,22 @@ of glutamine
 a nitrogen-limited culture, for example grown with only the
 non-preferred proline as a nitrogen source, is called an upshift
 because it is the change from a slow growing condition to one of rapid
-growth. 
+growth \parencite{waldron1977synthesis}. 
 Upon an upshift, a regulatory phenomenon called nitrogen
 catabolite repression (NCR) ensures that the set of NCR transporters,
-metabolic enzymes, and regulatory factors are repressed.  
+metabolic enzymes, and regulatory factors are repressed
+\parencite{cooper1982nitrogen,cooper2002transmitting}. 
 Through the use of a temperature-sensitive glutamine synthase
 allele or treatment with methionine sulfoximine, it has been shown
 that NCR is largely a response to intracellular glutamine 
-availability \textbf{(cites,and that one recently found)},
+availability 
+\parencite{grenson1983inactivation,stracka2014nitrogen}
+\textbf{(cites,and that one recently found)},
 although this has been challenged with the observation that changes
 in intracellular glutamine levels do not correspond with the signally
 \parencite{fayyar2016}. This suggests an alternative mechanism,
 perhaps something more directly related to the processes of
 translation.
-
 % How about ammonia and nitrogen metaoblism, what's the singal?  \parencite{ter2000role}
 %This lag in population growth rate upon an upshift has been 
 %described before \parencite{Carter1978}.
@@ -157,12 +165,12 @@ while two (Gzf3p and Dal80p) repress transcription
 \parencite{hahn2011transcriptional,stanbrough1995transcriptional}. 
 These factors are also subject to NCR
 control to different extents, with the activators increasing the
-expression of the repressive factors. This is thought to be an
+expression of the repressive factors 
+\parencite{cunningham2000nitrogen}. 
+This is thought to be an
 adaptation to enable quick repression upon a nitrogen upshift, as may
 be encountered when yeast is introduced to a new abundant nutrient
-environment of grape or wort 
-\textbf{(cite)}
-. It has been long known that the
+environment of grape or wort. It has been long known that the
 eukaryotic growth signalling pathway TORC1 largely regulates these
 factors by controlling the activity of phosphatases and thus
 localization of these transcription factors, via Ure2p for Gln3p 
@@ -183,7 +191,8 @@ Bmh1/2 to promote the export of Gln3p and Gat1p
 \parencite{tate2015gata,tate2017general}. 
 Additionally, others have suggested that the
 amino-acid permease Gap1p may directly signal to PKA, although this is
-still a developing claim (theivelen eh).
+still a developing line of research
+\parencite{donaton2003gap1,van2009transport}.
 Thus, multiple growth signalling pathways converge to
 affect the import and export of NCR GATA factors to effect multiply
 redundant layers of NCR transcript synthesis control.  
@@ -198,8 +207,7 @@ caused by a shut-off of synthesis
 classical NCR-regulated gene is the general amino-acid permease GAP1.
 GAP1 mRNA is repressed much faster than the repression of the
 protein-product 
-\parencite{stanbrough1995transcriptional}
-, and we know that this
+\parencite{stanbrough1995transcriptional}, and we know that this
 Gap1p shut-off is adaptive \parencite{risinger2006activity}, 
 perhaps due to an
 excess of amino-acid transport causing ammonia toxicity 
@@ -209,96 +217,90 @@ Pma1p proton-export activity. This growth phenotype allowed the early
 identification of mutants in this process, and this indicates that it
 is mediated by a uniquitinyation mark that inactivates the permease
 and leads to relocalization and degradation 
-\textbf{(more risinger? (Risinger and Kaiser 2008) earlier? smething
-from magasanik?)}
-. Thus multiple layers redundantly repress
-the NCR-regulated Gap1p.  
+\parencite{grenson1983inactivation,risinger2008different,merhi2012internal}. 
+Thus multiple layers redundantly repress the NCR-regulated Gap1p.  
 
 In Chapters 2 and 3, I show how mRNA
 degradation also plays a role in this repression, inactivating some
 NCR mRNA as well as mRNA associated with other metabolic processes.
 
-\section{What is the function of rapid transcriptome reprogramming
+\section{What is the function of rapid transcriptional repression
 during an increase in growth rate?}
+
+A landmark integrative study of proteome and transcriptome dynamics 
+from the Gasch laboratory \parencite{lee2011dynamic} showed that
+for most cases of mRNA repression during the stress, there was not
+a correlated downregulation of protein products, 
+on the timescales measured.
+This asymmetry makes sense, as with protein approximately 30-50 times
+more stable than the mRNA they derive from 
+\parencite{christiano2014global}. 
+Given the assumption that adaptation implies function, what purpose
+might this repression fulfill?
 
 An increase in growth rate is associated with a rapid
 up-regulation of the ribosomal protein (RP)
 and ribosome biogenesis (RiBi) regulons
-\parencite{jorgensen2004dynamic}. 
-\parencite{griffioen1996}. 
-These are responsible for the protein subunits and biogenesis factors
-responsible for ribosome biogenesis, and are well-correlated with 
+\parencite{griffioen1996ribosomal,jorgensen2004dynamic}. 
+These regulons comprise the protein subunits and biogenesis factors
+responsible for ribosome biogenesis, and their relative abudnance 
+is well-correlated with 
 growth rate in both dynamic and steady-state conditions 
-\textbf{(does brauer or airoldi show this?)}. 
-While some of the more numerous macro-molecules in the cell, ribosomes
-are not infinite and are likely to be largely engaged in gene
-expression \parencite{shah2013,recent?}.
-During restrictions in growth conditions, 
-ribosomes are less abundant in slow growing conditions. 
-\textbf{(von der Haar estimates, Tu, Hwa) (Estimated this is probably
-from 50k to about 200k.) }
-The relative allocation of gene expression resources in the cell is a
-fundamentally important decision cells must make. Modeling of this
-phenomenon across various conditions, mainly in E. coli as a model
-system, as identified that a simple “pie-chart” model explains the
-up-regulation of ribosome biogenesis relative to the rest of the
-cellular investments well during steady-state.  
+\parencite{brauer2008coordination,airoldi2009predicting}.
+While some of the more numerous macro-molecules in the cell, 
+ribosomes are not infinite and the majority are likely engaged in 
+peptide elongation
+\parencite{shah2013rate,von2008quantitative,boehlke1975cellular},
+and are less abundant 
+\parencite{kief1981coordinate,powers1999regulation}
+and with a lower rate of overall translation
+\parencite{waldron1977evidence}
+in slow-growth conditions.
 
+The relative allocation of gene expression resources in the cell is a
+fundamentally important decision cells must make, and modeling
+of this phenomenon across various conditions in \textit{E. coli} has
+lead to a simple partitioning model in which the proteome can be
+divided into functional sectors
+\parencite{scott2010interdependence,scott2014emergence}.
 While these simple models might explain the balance during
 steady-state growth, how does the relative allocation of gene
 expression machinery change during transitions?
 In particular, what is the best approach to re-balancing this
-allocation upon the resumption of rapid growth?
-A recent study has
-explored the theoretically best strategy during an increase in growth
-rates, and found that a “bang-bang singular” strategy of complete
-focus on generating gene expression machinery at the neglect of
-metabolism machinery would be the optimal strategy for resuming growth
-most rapidly 
-\parencite{giordano2016dynamical}. With that, transcripts that are
-stress responsive or important for metabolism in the old environment
-are repressed upon a nutrient upshift.  
-A phenomenon that would be adaptive in this model has been seen in 
-yeast before \parencite{griffioen1996} and recently by our lab
-\parencite{arioldi2016steady}, wherein a transient 
-relative-overproduction of ribosomal machinery is evident upon an
-upshift in growth.
+allocation upon the resumption of rapid growth
+\parencite{erikson2017global}?
+%\parencite{metzl2017?}?
 
-A prediction of this model is that mis-expression of an un-adaptive 
-mRNA should have a larger cost during increases in growth rate than
-during steady-state growth.  
+Recent work has explored this to identify that an optimal strategy
+would be to focus gene expression machinery on expressing more gene 
+expression machinery, at the neglect of an investment in metabolic
+enzymes \parencite{giordano2016dynamical}. 
+This phenomenon, a transient burst of ribosomal over production or a
+"bang-bang singular" strategy appears to have been observed in
+yeast before in glucose upshifts \parencite{griffioen1996ribosomal} 
+and recently by our lab in nitrogen upshifts 
+\parencite{arioldi2016steady}.
+Thus, concordant repression of stress-response and
+metabolism gene expression is theoretically expected to allow more
+focus of gene expression machinery on this pulse of production.
+While the cost of mis-expressing one gene is slight but significant
+\parencite{kafri2016cost}, it may have more of a cost during this
+period of advantageous focus on producing gene expression machinery.
 There is evidence for this in \textit{E. coli}, where
-\cite{shachari2010} induced the expression of a fluorphore at
+\cite{shachrai2010cost} induced the expression of a fluorphore at
 different growth stages to show that induction during lag phase 
 had a significant impact on lag duration, while induction during
 exponential phase did not have a significant effect on growth.
-% Shachari 20?? upshift uri alon?
-% also mention my experiment where I didn't see increased growth upon
-% inhibition?
-Thus, we might expect that a rapid repression of unnecessary mRNA may
-have a functional role by virtue of freeing up gene expression
-machinery for the expression of gene expression machinery.
-Some support for this occurring in native gene regulation comes from
-an integrative study of proteome and transcriptome dynamics from
-the Gasch laboratory 
-\parencite{lee2011dynamic}, wherein the authors found that the 
-repression of mRNA did not correlate with a downregulation of 
-protein products on the timescales measured.
-This asymmetry makes sense, as with protein approximately 20 times
-more stable than the mRNA they derive from 
-\textbf{(one of those reviews)}, and might suggests that rapid
-mRNA repression may serve a role to reallocate the 
-extant translational
+Thus, the repression of newly unneeded mRNA in yeast may serve a 
+role to reallocate the extant translational
 capacity of the cell to enact a growth-optimal program 
-\parencite{kief1981coordinate,giordano2016dynamical,shachrai2010cost}. 
-However, others have suggested other theories that might explain some
-adaptive benefit for rapid repression, particularly through
-accelerated mRNA degradation. One thought is that degradation can 
-help to recycle nucleotides 
-\parencite{kresnowati2006transcriptome}.
-Identifying
-the genetic factors responsible for the degradation would allow us to
-test if one particular destabilization event is indeed adaptive.
+\parencite{kief1981coordinate}. 
+Others have suggested that swift repression may instead
+help to recycle nucleotides \parencite{kresnowati2006transcriptome},
+so identifying the genetic factors responsible for the repression 
+would allow us to test if a particular regulatory event,
+perhaps a destabilization of mRNA, is indeed adaptive and by which
+mechanism.
 
 \section{mRNA degradation and its regulation}
 
@@ -461,15 +463,13 @@ Scd6p inhibits the formation of the 48S pre-initation complex
 (when the 40S subunit associates with eIF4E cap-dependent initiation
 factors and begins to scan the 5' UTR) via forming its own cap-binding
 complex with eIF4G subunit eIF4G1 in an arginine-methylation-dependent
-manner 
-\parencite{rajyaguru2012scd6,poornima2016arginine}. 
+manner \parencite{rajyaguru2012scd6,poornima2016arginine}. 
 This is thought
 to physically occlude the normal initiation complex from binding.
 Scd6p also binds to several other factors in the Lsm1-7p/Pat1p
-deadenylation-promoting complex 
-\parencite{nissan2010decapping}, and thus may
-play an indirect role in preventing the pre-initiation complex from
-binding and stabilizing the mRNA through translation.  
+deadenylation-promoting complex \parencite{nissan2010decapping}, 
+and thus may play an indirect role in preventing the pre-initiation 
+complex from binding and stabilizing the mRNA through translation.  
 
 \subsection{Alternative pathways of mRNA degradation ---
 3' to 5' and quality control}
@@ -479,14 +479,12 @@ of mRNA degradation exist. If the poly-A tail is completely removed,
 the cytoplasmic exosome complex can degrade the mRNA from 3' to 5'.
 This redundant mechanism allows a xrn1$\Delta$ mutant to grow, although
 slowly, as the 5' to 3' pathway is throught to effect the bulk of mRNA
-degradation 
-\parencite{parker2012rna}. 
+degradation \parencite{parker2012rna}. 
 The balance between the two may be because
 of the enzymatic rate of digestion, but more likely because the
 binding of the Lsm1-7 complex to the shortened poly-A tail protects
-the mRNA from further deadenylation and thus represses this 3' pathway
-\textbf{(cite Tharun on this)}
-.
+the mRNA from further deadenylation and thus inhibit this 3' pathway
+\parencite{tharun2009lsm1}.
 
 Three other pathways are known to act as a
 co-translational layer of quality control, where errors detected by
@@ -507,8 +505,7 @@ towards the 3' end of the transcript
 Non-Stop Decay refers to the inverse of
 NMD, no stop codon. Ribosomes that over-run into the poly-A tail
 recruit degradation by the 3' exonuclease 
-\textbf{(exo review)}
-. No-go Decay is
+\parencite{schmid2008exosome}. No-go Decay is
 named after the phenomenon that triggers it, when ribosomes no go.
 Difficult to translate sequences (such as lysine repeats) trigger the
 endonucleolytic cleavage of the offending mRNA, which is then degraded
@@ -526,6 +523,8 @@ plays a role in signalling this
 sensing ribosome collisions offers an elegant mechanism to sense
 locally-stalled ribsomes, although this idea is still beginning to be
 explored.
+
+%@shoemaker2012translation
 
 Together
 these pathways surveil translating mRNAs for defects, but it is likely
@@ -814,21 +813,25 @@ gluconeogenic transcripts
 \parencite{de2002role,mercado1994levels,scheffler1998control,lombardo1992control}. 
 Mapping the
 determinants of this effect has been met with mixed success. The
-destabilization of SDH2 and GAL1 mRNA have been mapped to elements in
-the 5' UTR 
-\parencite{bennett2008metabolic}
+destabilization of \textit{SDH2} and \textit{GAL1} mRNA have been 
+mapped to elements in the 5' UTR 
+\parencite{scheffler1998control,bennett2008metabolic}
 with destabilization of GAL1 being
 associated with a growth advantage in switching carbon-source
-environments 
-\parencite{baumgartner2011antagonistic}. 
-JEN1 has been demonstrated to
+environments \parencite{baumgartner2011antagonistic}. 
+\textit{JEN1} encodes a pyruvate transporter has been demonstrated to
 be destabilized upon glucose addition, and this has been mapped to cis
 elements of different transcription start sites which can act in trans
-to regulate other co-expressed engineered alleles of JEN1 through
+to regulate other co-expressed engineered alleles of \textit{JEN1} through
+%%%%%
+%%%%%
+%%%%%REVIEW THIS
+%%%%%
+%%%%%
 unknown mechanisms 
 \parencite{andrade2005multiple}
 although subsequent work has
-identified DHH1 as being a genetic factor of the destabilization 
+identified \textit{DHH1} as being a genetic factor of the destabilization 
 \parencite{mota2014role}. 
 Some transcripts respond at different levels of glucose
 addition and differently in different genetically-perturbed metabolic
@@ -842,7 +845,6 @@ would be useful for making progress at untangling the regulation of
 mRNA stability in response to the increase in growth rate upon a
 nutrient upshift.  
 
-
 \section{Measuring mRNA dynamics}
 
 It is easier to measure the abundance of a mRNA than it is to 
@@ -852,8 +854,7 @@ determining the rates that underlie this molecular phenotype has
 lagged. Synthesis rate control has largely been assayed by techniques
 like Genome Run On (GRO) sequencing (discussed below) to measure
 transcription rates or measuring intron-exon ratios 
-\textbf{(pick one, NET seq?)}
-as a proxy for synthesis rates 
+\parencite{gray2014snapshot} as a proxy for synthesis rates 
 \parencite{perez2013eukaryotic}.
 Degradation rate measurements have used a variety of methods, but are
 now applied to the whole transcriptome with enough accuracy to enable
@@ -862,8 +863,7 @@ systematic modeling of the determinants of mRNA degradation rates
 
 Pioneering studies used pulse-chase experiments with radioactive
 nucleotides to study turnover of the whole transcriptome 
-\textbf{(that one that
-David sent me, and the one that Leon Chan sent me)}.
+\parencite{petersen1976half}.
 Single gene measurements allowed the characterization of individual
 gene rates of turnover, but required the use of other methods for
 tracking the dynamics.
@@ -876,8 +876,8 @@ Upon addition of glucose, transcription of the \textit{GAL1} mRNA is
 immediately halted. This property has been exploited to study mRNA 
 stability in a technically simple manner and has formed the basis of 
 much of what we understand about the pathways of mRNA degradation
-\parencite{parker2012,coller2004?}.
-While the GAL1 system is a convenient system for studying 
+\parencite{parker2012rna,coller2004eukaryotic}.
+While the \textit{GAL1} system is a convenient system for studying 
 degradation intermediates, its use for studying the native stability 
 of different mRNA in different environments is uncertain.  
 
@@ -908,18 +908,18 @@ heat-shock. Shutting off transcription has complex and difficult to
 predict effects on transcript abundance as the cells die over the
 course of the experiment.  
 
-Orthogonal to these approaches is GRO-seq
-(Genomic Run On)
-\parencite{garcia2004genomic}. This method uses a sarkosyl treatment 
-\textbf{(and salt?)} to fix RNA PolII complexes onto genomic DNA by 
-freezing their elongation. Extraction and a defined in-vitro polymerase
-extension, by reversing the fixation, before profiling the resulting
-mRNA with microarrays or RNAseq allows for an estimate of the
-instantaneous transcription rate status for each gene in a population
-of cells. Interpretation of these numbers must be considered in the
-context of the in-vitro environment of the elongation step, but this
-method serves as an valuable orthogonal measure of transcript dynamics
---- and an instantaneous one.  
+Orthogonal to these approaches is Genomic Run On approaches
+\parencite{garcia2004genomic}, including microarray or sequencing
+based assays \parencite{pelechano2010complete}. 
+This method uses a cold sarkosyl treatment to fix RNA PolII 
+complexes onto genomic DNA by freezing their elongation, then
+extraction and a defined in-vitro polymerase extension and profiling 
+the resulting mRNA with microarrays or RNAseq allows for an estimate 
+of the instantaneous transcription rate status for each gene in a 
+population of cells. Interpretation of these numbers must be 
+considered in the context of the in-vitro environment of the 
+elongation step, but this method serves as an valuable orthogonal 
+measure of transcript dynamics --- and an instantaneous one.  
 
 The development of 4-thiouracil metabolic labeling of RNA 
 \parencite{dolken2008high}
@@ -927,11 +927,10 @@ has enabled a return to the pulse-chase methodology in the
 development of genome-wide assays of mRNA dynamics. 
 A thiol-containing analog of uracil, 4-thiouracil is readily
 incorporated by yeast into their nucleotide metabolism and thus into
-the mRNA. At low concentrations (< 50$\mu$M), the label does not
-perturb growth \parencite{?}, and supports normal growth.
-Fundamentally, these assays work by changing the
-labelling frequency of mRNA at a time and tracking the dynamics as 
-the labeled
+the mRNA. The label does not perturb growth at low concentrations 
+(< 50$\mu$M) \parencite{burger20134}, and supports normal growth.
+Fundamentally, these assays work by changing the labelling frequency 
+of mRNA at a time and tracking the dynamics as the labeled
 mRNA abundance relaxes towards a new equilibrium of labeling. 
 Below I review the basic model of these assays, 
 then focus on their applications and where
@@ -945,8 +944,7 @@ degradation is a multi-step process (above) and more complex models
 may identify nuances in the rates of progression through these
 intermediates \parencite{deneke2013complex}, at steady-state the rate of
 degradation of mRNA in a population should be well modeled by a single
-first order rate 
-\textbf{( ?can I find the cite for that? ).}
+first order rate \parencite{thattai2016universal}.
 $$\frac{dM_t}{dt} = k_s - M_t*k_d$$ Introducing a term $L$ that
 denotes the fraction of newly synthesized mRNA that are labeled and
 measured after purifying mRNA for the labeled mRNA (thus $M_t$ is just

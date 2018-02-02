@@ -32,6 +32,7 @@
 \usepackage[backend=bibtex8%biber%bibtex8
   ,backref=true,hyperref=true
   ,refsection=none %  ,refsection=chapter
+  ,maxcitenames=2
   ,style=authoryear-comp]{biblatex}
 \addbibresource{references_dissertation_darachmiller.bib}
 
@@ -136,11 +137,11 @@ upon a nitrogen upshift.
 
 %
 \includeonly{
-  dissertation_darachmiller_1,
-  dissertation_darachmiller_2,
+  dissertation_darachmiller_1%,
+%  dissertation_darachmiller_2,
 %  dissertation_darachmiller_3,
 %  dissertation_darachmiller_4,
-  dissertation_darachmiller_5
+%  dissertation_darachmiller_5
 }
 
 
@@ -162,23 +163,23 @@ upon a nitrogen upshift.
 
 \makemytitle
 
-\iftrue
+\iffalse
 \begin{quote}
 \SingleSpace
 "Science is a match that a person has just got alight. 
 They thought they were in a room --- 
-in moments of devotion, a temple --- and 
-that this light would be reflected from and display walls inscribed 
-with wonderful secrets and pillars carved with philosophical 
-systems wrought into harmony. 
+in moments of devotion, a temple --- 
+and that this light would be reflected from and display walls 
+inscribed with wonderful secrets and pillars carved with 
+philosophical systems wrought into harmony. 
 \vfill
 It is a curious sensation, now that the preliminary splutter is 
 over and the flame burns up clear, to see lit just their hands and 
 just a glimpse of themselves and the patch they stand on visible, and 
 around them, in place of all that comfort and beauty they
-anticipated, darkness still."
+anticipated, \vspace{0.5em} darkness still."
 
-\hfill - H.G. Wells, 1891, adapted slightly for 2018
+\hfill - H.G. Wells, 1891, \\\vspace{1em}\hfill adapted for 2018
 \end{quote}
 \fi
 
@@ -189,7 +190,7 @@ anticipated, darkness still."
 
 \label{section:acknow}
 
-\iftrue
+\iffalse
 
 A sailboat is means of transit. 
 The aim of the method is to use lines and fabric and structure to
