@@ -4,6 +4,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{DejaVuSansCondensed}
+%\usepackage{helvet}
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
 
@@ -35,7 +36,8 @@
 \addbibresource{references_dissertation_darachmiller.bib}
 
 \usepackage{hyperref}
-\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black }
+\hypersetup{colorlinks, citecolor=blue
+  , filecolor=black, linkcolor=blue, urlcolor=black }
 
 \makeatletter 
 \def\makemytitle{
@@ -108,6 +110,8 @@ upon a nitrogen upshift.
 \setsubsecheadstyle{\normalsize\bfseries\raggedright}
 \setsubsubsecheadstyle{\normalsize\bfseries\raggedright}
 %
+\abnormalparskip{0em}
+%
 \checkandfixthelayout
 
 %\newcommand{\openrule}{
@@ -118,14 +122,14 @@ upon a nitrogen upshift.
 %  \par\hfill\rule[-\baselineskip]{1pt}{\baselineskip}
 %  \par\vskip-0.2em\hfill\rule{.5\textwidth}{1pt}\par}
 
-\newcommand{\afig}[2]{
+\newcommand{\afig}[3]{
   \begin{figure}[h]
     \vspace{-10pt}
     \begin{center}
     #1
     \end{center}
     \vspace{-10pt}
-    \caption{#2}
+    \caption[#3]{#2}
     \vspace{-10pt}
   \end{figure}
   }
@@ -133,7 +137,7 @@ upon a nitrogen upshift.
 %
 \includeonly{
   dissertation_darachmiller_1,
-%  dissertation_darachmiller_2,
+  dissertation_darachmiller_2,
 %  dissertation_darachmiller_3,
 %  dissertation_darachmiller_4,
   dissertation_darachmiller_5
@@ -158,23 +162,24 @@ upon a nitrogen upshift.
 
 \makemytitle
 
-\iffalse
-%\begin{quote}
-%\SingleSpace
-%"Science is a match that man has just got alight. He thought he 
-%was in a room --- in moments of devotion, a temple --- and 
-%that his light would be reflected from and display walls inscribed 
-%with wonderful secrets and pillars carved with philosophical 
-%systems wrought into harmony. 
-%\vfill
-%It is a curious sensation, now that the preliminary splutter is 
-%over and the flame burns up clear, to see his hands lit and just 
-%a glimpse of himself and the patch he stands on visible, and 
-%around him, in place of all that human comfort and beauty he 
-%anticipated, darkness still."
-%
-%\hfill - H.G. Wells, 1891
-%\end{quote}
+\iftrue
+\begin{quote}
+\SingleSpace
+"Science is a match that a person has just got alight. 
+They thought they were in a room --- 
+in moments of devotion, a temple --- and 
+that this light would be reflected from and display walls inscribed 
+with wonderful secrets and pillars carved with philosophical 
+systems wrought into harmony. 
+\vfill
+It is a curious sensation, now that the preliminary splutter is 
+over and the flame burns up clear, to see lit just their hands and 
+just a glimpse of themselves and the patch they stand on visible, and 
+around them, in place of all that comfort and beauty they
+anticipated, darkness still."
+
+\hfill - H.G. Wells, 1891, adapted slightly for 2018
+\end{quote}
 \fi
 
 \newpage
@@ -184,14 +189,14 @@ upon a nitrogen upshift.
 
 \label{section:acknow}
 
-something
+\iftrue
 
-\iffalse
-
-A sailboat is an effective means of transiting the ocean. The
-aim of the method is to use lines and fabric and structure to
-place gradients against each other and give them the only option of
-causing progress. 
+A sailboat is means of transit. 
+The aim of the method is to use lines and fabric and structure to
+juxtapose a variety of forces against each other, 
+and thus give them the only option of causing progress. 
+Without the right constraints and re-direction, 
+the system is a mess, destined for the rocks.
 A sailboat needs the wind as much as it needs the water,
 for without a good keel there's little for the winds to push off of.
 Without wind there's little action, and a tiller's important for
@@ -200,19 +205,23 @@ Many human endeavors can be described with
 this metaphor --- a variety of forces, pressures, opportunities, 
 all swirling around to make something flow in a particular
 direction. When all the components align with and against each
-other in harmony, then all the components make the effect.
+other harmoniously, then the effect is made. Just a rope does not make
+much progress upwind, and it depends on the cleats and pulleys and
+sails and so forth to give it purpose and allow it to play any role in
+effecting progress.
  
-I would like to acknowledge the general environment that has been
-built over these many years at NYU Biology. It is a unique moment of
-growth where it's easy for most people to know most people and what
-most people are up to. These informal linkages underline a surprising
+I would like to first acknowledge the general academic environment 
+that has made progress possible for me over these years.
+The culture built over these many years at NYU Biology is a unique 
+moment of growth, where it's easy for most people to know most people 
+and what most people are up to. 
+These informal linkages underlie a surprising
 amount of progress, opportunities, and growth. As Benjy Neymotin 
-pointed out several years ago: "it takes a village", and lo there is a
-village.
-This particular moment of particular parameters will fade as the 
-department grows, but I am confident that institutionalization of 
-these collaborative and supportive networks will ensure continued 
-success.
+pointed out several years ago: "it takes a village", 
+and lo this is a village.
+This particular moment will fade as the department grows, 
+but I am confident that institutionalization of these 
+collaborative and supportive networks will ensure continued success.
 
 Specifically,
 I would like to thank the kind folks on the 4th floor of CGSB, namely
@@ -345,6 +354,8 @@ may in fact be the release of a stabilization effect.
 
 \tableofcontents*
 
+\listoffigures
+
 \mainmatter
 
 \include{dissertation_darachmiller_1}
@@ -352,6 +363,8 @@ may in fact be the release of a stabilization effect.
 \include{dissertation_darachmiller_3}
 \include{dissertation_darachmiller_4}
 \include{dissertation_darachmiller_5}
+
+\SingleSpacing
 
 \printbibliography[heading=bibintoc,title={References}]
 
