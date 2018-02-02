@@ -212,7 +212,7 @@ the proline-limited-grown cells were 3.34 and 3.68, respectively.
   The distributions from different media have different means by 
   KS or Wilcoxon tests, with unreasonably small p-values.
   \label{fig:ypdnlim}
-  }
+  }{Changes in whole cell polyA content in YPD or nitrogen-limitation.}
 
 To investigate the dynamics of changes in poly-A abundance between 
 different growth conditions, I grew cells in proline-limited media
@@ -236,7 +236,7 @@ than the difference with YPD (0.45 specific growth rate).
   was added at time 0 minutes. Samples were assayed for polyA content
   using the poly-dT assay.
   \label{fig:upshift}
-  }
+  }{Changes in polyA content upon a nitrogen upshift.}
 
 Previously, others in the lab (as described at the beginning of this
 section) had used ERCC-normalized RNA sequencing
@@ -264,7 +264,9 @@ normalized method.
   dashed-line shows linear regression through all points),
   although the poly-dT method remains uncalibrated.
   \label{fig:nikis}
-  }
+  }{Measuring polyA content across systematically varied growth rates
+    in chemostats, and comparison to a spike-in normalized RNA 
+    sequencing method.}
 
 \subsection{Conclusion and future directions}
 
@@ -476,9 +478,8 @@ was sufficient to remove these effects.
   library before the upshift (top), 2 hours after adding glutamine
   (middle), and after the heatshock and outgrowth (bottom). The wider
   spreading is a good indication of complex selection of large
-  effects occurring in the library.
-  \label{fig:sneDist}
-  }
+  effects occurring in the library.  \label{fig:sneDist}
+  }{Histogram of mutant counts, within each sample.}
 
 \afig{
   \includegraphics[width=.6\textwidth]{img/sne_histogram_sum.png}
@@ -490,7 +491,7 @@ was sufficient to remove these effects.
   but some appear to be noisy counts near zero, due to unknown
   factors. 
   \label{fig:sneDistSum}
-  }
+  }{Histogram of mutant counts, summed across samples.}
 
 \afig{
   \includegraphics[width=\textwidth]{img/sne_voomer.png}
@@ -506,7 +507,8 @@ was sufficient to remove these effects.
   analyses of barcode sequencing data (\texttt{limma} uses the model 
   fit as the line). 
   \label{fig:vooming}
-  }
+  }{Diagnostic \texttt{limma/voom} plots show the effects of 
+    low-count barcodes in confounding the noise model.}
 
 I used this tool's
 flexible general linear modeling interface to ask how our treatment
@@ -590,7 +592,9 @@ prepared to resume rapid growth.
   treatment. Neither showed a significant effect in reducing lag phase
   or increasing growth rate.
   \label{fig:mae1}
-  }
+  }{A \textit{mae1}$\Delta$ mutant is slower in a glutamine upshift,
+    but this is not rescued by supplementation with alanine or
+    pyruvate.}
 
 \subsection{Conclusion}
 
