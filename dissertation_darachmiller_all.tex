@@ -101,9 +101,16 @@ upon a nitrogen upshift.
 \aliaspagestyle{cleared}{plain}
 \aliaspagestyle{chapter}{plain}
 %
-\setbeforesecskip{-1.0em plus -1em minus -0em}
-\setbeforesubsecskip{-1.0em plus -1em minus -0em}
-\setbeforesubsubsecskip{-1.0em plus -1em minus -0em}
+\setlength\floatsep{0em}
+\setlength\textfloatsep{0em}
+\setlength\intextsep{0em}
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.10}
+%
+\setbeforesecskip{-1.0em plus -0em minus -0em}
+\setbeforesubsecskip{-1.0em plus -0em minus -0em}
+\setbeforesubsubsecskip{-1.0em plus -0em minus -0em}
 \setaftersecskip{1em}
 \setaftersubsecskip{1em}
 \setaftersubsubsecskip{1em}
@@ -124,14 +131,14 @@ upon a nitrogen upshift.
 %  \par\vskip-0.2em\hfill\rule{.5\textwidth}{1pt}\par}
 
 \newcommand{\afig}[3]{
-  \begin{figure}[h]
-    \vspace{-10pt}
+  \begin{figure}[t]
+%    \vspace{-10pt}
     \begin{center}
     #1
     \end{center}
     \vspace{-10pt}
-    \caption[#3]{\textbf{#3}\\#2}
-    \vspace{-10pt}
+    \caption[#3]{\textbf{#3} #2}
+%    \vspace{-10pt}
   \end{figure}
   }
 
@@ -151,19 +158,18 @@ upon a nitrogen upshift.
 \hbadness=5000
 \vbadness=\maxdimen
 
-
-\setsecnumdepth{subsection}
+\setsecnumdepth{subsubsection}
 \settocdepth{subsection}
 
 \begin{document}
-\DoubleSpacing
+%\DoubleSpacing
 \frontmatter
 \pagestyle{empty}
 %\renewcommand{\thefigure}{\arabic{figure}}
 
 \makemytitle
 
-\iffalse
+\iftrue
 \begin{quote}
 \SingleSpace
 "Science is a match that a person has just got alight. 
@@ -211,90 +217,79 @@ much progress upwind, and it depends on the cleats and pulleys and
 sails and so forth to give it purpose and allow it to play any role in
 effecting progress.
  
-I would like to first acknowledge the general academic environment 
-that has made progress possible for me over these years.
+I would like to acknowledge the system of people that has made 
+progress possible.
+
 The culture built over these many years at NYU Biology is a unique 
-moment of growth, where it's easy for most people to know most people 
-and what most people are up to. 
-These informal linkages underlie a surprising
-amount of progress, opportunities, and growth. As Benjy Neymotin 
-pointed out several years ago: "it takes a village", 
-and lo this is a village.
-This particular moment will fade as the department grows, 
-but I am confident that institutionalization of these 
-collaborative and supportive networks will ensure continued success.
+moment of growth, and these informal linkages play a surprisingly
+important role in facilitating the collaboration and support
+necessary.As Benjy Neymotin 
+pointed out several years ago: "it takes a village".
 
 Specifically,
-I would like to thank the kind folks on the 4th floor of CGSB, namely
-the research group led by Christine Vogel, ?, 
+I thank the kind folks on the 4th floor of CGSB, namely
+the research group led by Christine Vogel. I am glad we moved to share
+space and scientific discussions.
+I also thank Ken Birnbaum and his group for helpful conversations and
+access to the lucky FISH incubator.
+Across the street, I thank Viji Subramanian, Andreas Hochwagen, 
+and his research group for microscope access and tolerating my
+questions.
+I thank Andres Mansisidor and Matt Paul for helpful reading and 
+comments on the paper, and otherwise.
 
-I would like to 
-% the collaborative environment at NYU CGSB, 
-%
-% Viji Subramanian, Andreas Hochwagen and his group for microscope
-% access and tolerating me playing with the Deltavision.
-%
-% Ken Birnbaum and his group for helpful conversations and
-% access to the lucky FISH incubator.
-%
-% Evelina Tutucci for demonstrating the fiddly FISH method.
-% Megan McClean for openly sharing a FISH protocol.
-%
-% Carole Hom, Ian Korf, Patrice Kohel, Nitin Baliga, Aaron Brooks,
-% but most importantly Marc Facciotti for giving me a chance when
-% I had given mine up.
-%
-% Sarah Nguyen. For keeping me together, like 
-%
-% Michi, Henri(ci), and Tai for making me get up and come home on time.
-%
-%Harry Miller, Bruce Sterling, William Gibson for inspiring
-%me to wander this way.
-%Sue Miller for devising a clever genetic screen for yeast
-%strains that fail to re-initiate growth programs.
-%My sister Kendra Miller for egging me on.
-%
-%Staff at eBioscience/Affymetrix/ThermoFisher for support with
-%the Quantigene/FlowRNA probe set and patience through the years.
-%
-%The Cold Spring Harbor Yeast Course, especially the instructors
-%Maitreya Dunham, Marc Gartenberg, and Grant Brown for introducing
-%me to the community and (re)-lighting a fire.
-%
-%Past students including Daniel, Alex, and Stephen.
-%
-%My committee for the most fun three hours I had each year.
-%
-%Past and present members of the Gresham and Vogel labs for 
-%discussions and support.
-%Especially Niki, Steff, Nathan, and Benjy; Naomi, Farah, Siyu,
-%Pieter.
-%
-% To Rodoniki Athansidou for steeling me against the alluring
-% and corrupting temptation of Kits, and Terrance Cooper for sharing
-% with me the wisdom of when Kits are necessary for a field to
-% progress. Threading the gradient between these two extremes seems to
-% contain some degree of powerful wisdom, something about life and
-% practice and cargo cults and the very nature of scientific
-% investigations and Darwinian versus Lamarkian biology, but I have 
-% not yet had the time to condense it into a sharable form, or a Kit.
-%
-%We would like to acknowledge the funding source of 
-%NIH grant 5R01GM107466.
-%We would also like to thank
-%Andreas Hochwagen and Viji Subramanian for microscope access, 
-%Ken Birnbaum for helpful conversations and equipment usage, 
-%Michi Pedraza,
-%Andres Mansisidor, and Matt Paul for helpful reading and comments,
-%Evelina Tutucci for demonstrating FISH,
-%staff at 
-%eBioscience/Affymetrix/ThermoFisher for support with
-%the Quantigene/FlowRNA probe set, 
-%the Cold Spring Harbor Yeast Course,
-%the NYU Genomics Core facility for sequencing, flow cytometry,
-%and support,
-%and past and present members of the Gresham and Vogel labs for 
-%discussions and support.
+Away from NYU, I thank
+Evelina Tutucci for demonstrating the mRNA FISH method to me,
+helping me understand just how finicky it can be.
+I thank Megan McClean for openly sharing a FISH protocol on
+OpenWetWare (although we've never talked).
+On the west coast (and now elsewhere) I thank Carole Hom, Ian Korf, 
+and Patrice Kohel at UC Davis, Nitin Baliga Aaron Brooks at ISB
+Seattle, but most importantly Marc Facciotti at UC Davis for 
+giving me a chance at getting into science late.
+
+I want to thank Sarah Nguyen for keeping me together, like 
+
+I thank Michi, Henri(ci), and Tai for making me get up and come 
+home on time.
+
+
+I thank Sue Miller for devising a clever genetic screen for yeast
+strains that fail to re-initiate growth programs, as well as for
+being so supportive through the years.
+I also thank my Kendra Miller for inspiring and egging me on, 
+a knowingly efficacious combination of support for folks like me.
+I thank Harry Miller for support and inspiring me to wander this way,
+and to never stop learning new things.
+
+I thank staff at eBioscience/Affymetrix/ThermoFisher for support with
+the Quantigene/FlowRNA probe set and patience through the years.
+
+I thank the Cold Spring Harbor Yeast Course, especially the instructors
+Maitreya Dunham, Marc Gartenberg, and Grant Brown for introducing
+me to the community and (re)-lighting a fire to help me finish.
+That course is the reason I'm staying in science as long as I can.
+
+I thank past students including Daniel, Alex, and Stephen.
+
+My committee for the most fun three hours I had each year.
+
+Past and present members of the Gresham and Vogel labs for 
+discussions and support.
+Especially Niki, Steff, Nathan, and Benjy; Naomi, Farah, Siyu,
+Pieter.
+
+To Rodoniki Athansidou for steeling me against the alluring
+and corrupting temptation of Kits, and Terrance Cooper for sharing
+with me the wisdom of when Kits are necessary for a field to
+progress. Threading the gradient between these two extremes seems to
+contain some degree of powerful wisdom, something about life and
+practice and cargo cults and the very nature of scientific
+investigations and Darwinian versus Lamarkian biology, but I have 
+not yet had the time to condense it into a sharable form (or a Kit).
+
+
+the NYU Genomics Core facility for sequencing, flow cytometry,
 
 \fi
 
@@ -353,7 +348,8 @@ may in fact be the release of a stabilization effect.
 
 \newpage
 
-\tableofcontents*
+{\SingleSpacing
+\tableofcontents}
 
 \listoffigures
 

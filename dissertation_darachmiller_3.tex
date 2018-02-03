@@ -9,8 +9,8 @@ required for accelerated mRNA degradation"}.
 Authorship of this article is: Darach Miller, Nathan Brandt, 
 and David Gresham.
 Darach Miller did most of the benchwork, analysis, and writing.
-Nathan Brandt collected the qPCR data of mutants in
-\autoref{fig:figure5b,fig:figure5c,fig:figure5d,fig:figure5e}.
+Nathan Brandt did all benchwork to generate mutants and collect qPCR 
+for \ref{fig:figure5qpcr}.
 David Gresham helped with discussions and co-writing the article.
 The \textit{biorxiv} version is at \url{doi.org/10.1101/254920}.
 
@@ -156,8 +156,8 @@ improvements in environmental nitrogen availability.
 
 Multiple pathways mediate the degradation of mRNAs. The main pathway
 of mRNA degradation occurs by deadenylation and decapping
-prior to 5’ to 3’ exonucleolytic degradation by Xrn1p; however,
-transcripts are also degraded 3’ to 5’ via the exosome, or via
+prior to 5' to 3' exonucleolytic degradation by Xrn1p; however,
+transcripts are also degraded 3' to 5' via the exosome, or via
 activation of co-translational quality control mechanisms
 \parencite{parker2012rna}. Deadenylation of mRNAs by the Ccr4-Not complex
 allows the mRNA to be bound at the 3' end by the 
@@ -228,9 +228,7 @@ dynamics.
 
 \section{Characterizing transcriptome dynamics upon a nitrogen upshift}
 
-\subsection{Results}
-
-\subsubsection{Transcriptional reprogramming precedes physiological remodeling}
+\subsection{Transcriptional reprogramming precedes physiological remodeling}
 
 Cellular responses to environmental signals entail coordinated changes
 in both gene expression and cellular physiology.  Previously, we
@@ -360,7 +358,7 @@ upshift (\autoref{fig:figure1c}). As batch cultures are a technically
 simpler experimental system, we performed all subsequent experiments
 using batch culture nitrogen upshifts. 
 
-\subsubsection{Global analysis of mRNA stability changes during the
+\subsection{Global analysis of mRNA stability changes during the
 nitrogen upshift}
 
 Previously, we found that \textit{GAP1} and \textit{DIP5} mRNAs 
@@ -376,7 +374,7 @@ that following complete 4tU labeling and metabolism to nucleotides
 the chase was initiated prior to addition of glutamine or water (mock).
 We normalized data using \textit{in vitro} synthesized thiolated 
 spike-ins by fitting a log-linear model to spike-in counts
-across time (\autoref{section:writeup2}), which reduced noise and increased
+across time (\autoref{subsection:bff}), which reduced noise and increased
 our power to detect stability changes (
 \autoref{itm:dme211raw},
 \autoref{itm:dme211filterDirect},
@@ -393,7 +391,7 @@ degradation rate and 38 that decreased (FDR < 0.01, using
 \cite{storey2003statistical}). 
 We generated a model of nucleotide
 labeling kinetics to assess the effect of an incomplete label 
-chase on our experimental design ( \autoref{section:writeup2} ),
+chase on our experimental design ( \autoref{subsection:bff} ),
  and found that complete transcriptional inhibition alone could 
 theoretically result in a 17\% increase in the apparent 
 degradation rate. In order to eliminate the possibility that
@@ -583,15 +581,15 @@ Functional coordination of mRNA stability changes suggests  a possible
 role for \textit{cis}-element regulation. We analyzed UTRs and coding
 sequence for enrichment of new motifs or known RNA binding protein
 (RBP) motifs.
-3’ UTRs of destabilized transcripts are
+3' UTRs of destabilized transcripts are
 depleted of Puf3p binding sites, and we found no enriched sequence
 motif in the 3' UTRs.
-5’ UTRs are enriched for a GGGG motif, which
+5' UTRs are enriched for a GGGG motif, which
 may be explained by convergence between mRNA stability changes and
 transcriptional control by Msn2/4 on the ESR “up” genes
 (\autoref{fig:comparisonESR},
 \cite{gasch2000genomic,canadell2015impact}). 
-5’ UTRs are also enriched for binding motifs reported for Hrp1p 
+5' UTRs are also enriched for binding motifs reported for Hrp1p 
 (\autoref{fig:hrp1}),
 a canonical member of the nuclear cleavage factor I complex
 \parencite{chen1998specific}.
@@ -602,7 +600,7 @@ On average,
 destabilized mRNAs are longer and contain more optimal codons
 (\autoref{fig:lengthAndCodons}, \cite{khong2017stress}). 
 Together, this analysis suggests that the
-mechanism of destabilization may act through cis elements in the 5’
+mechanism of destabilization may act through cis elements in the 5'
 UTR and or biased codon usage.
 
 
@@ -640,10 +638,9 @@ UTR and or biased codon usage.
   }{The destabilized set is longer and has a higher frequency
     of optimal codons than the rest of the transcriptome.}
 
-\subsection{Methods, materials, and supplementary tables}
+\subsection{Methods and materials}
 
-
-\subsection{Measurement of growth during upshift}
+\subsubsection{Measurement of growth during upshift}
 
 A single colony of FY4 was inoculated in 5mL NLimPro 
 media and grown to exponential phase, then back diluted in NLimPro media
@@ -652,9 +649,9 @@ Samples were collected into an eppendorf, sonicated,
 diluted in isoton solution, and analyzed with a Coulter Counter Z2
 (Beckman Coulter).
 
-\subsection{Re-analysis of microarray data} 
+\subsubsection{Re-analysis of microarray data} 
 
-Supplemental files from \cite{Airoldi2016} were 
+Supplemental files from \cite{airoldi2016steady} were 
 downloaded, read
 into \texttt{localc} (an open-source spreadsheet software), 
 a small Excel-generated auto-correction error was 
@@ -662,167 +659,42 @@ fixed ("Oct-1" -> "OCT1"), and the file saved as a CSV. Microarray
 intensity ratios were processed with 
 \texttt{pcaMethods} to perform a SVD PCA on scaled data. 
 
-\subsection{4tU label-chase and RNA sequencing}
-
-The methods and analysis are detailed in \autoref{section:writeup2},
-including design rationale, protocols, and manufacturer information,
-and all data and code are available according to instructions in
-\autoref{codeanddata}.
-
-FY4 was grown in nitrogen-limitation conditions overnight 
-with a 50$\mu$M:50$\mu$M mixture of 4-thiouracil:uracil.
-This culture was split, then 4mM uracil was added to chase the
-4-thiouracil label (a 41-fold excess of uracil).
-30mL samples of the culture were taken by filtration onto 25mm
-nylon filters and flash-frozen in eppendorfs. 
-After letting the chase proceed for 12.5 minutes, 
-we added glutamine from 
-a 100mM stock (dissolved in water) to a final concentration 
-of 400$\mu$M to one flask, or an equal amounts of water to the 
-control flask. 
-Samples were extracted using a hot acid-phenol method,
-with equal volume of synthetic spike-ins  added to each RNA 
-extraction reaction.
-4tU-containing spike-ins (polyadenylated coding sequences from
-\textit{B. subtilus} and \textit{C. elegans}) were synthesized
-\textit{in-vitro} as previously described
-\parencite{neymotin2014determination}. 
-RNA was reacted with 
-MTSEA-biotin to conjugate biotin to the 4-thiouracil-containing
-RNA, then purified using streptavidin beads.
-Fractionated RNA was depleted of rRNA using a RiboZero kit.
-RNA samples were converted into Illumina sequencing libraries using
-a strand-specific (UNG) protocol, ligating adapters that contain
-UMI's \parencite{hong2017method}.
-These libraries were pooled and sequenced by the NYU Genomics
-Core sequencing facility on an Illumina NextSeq.
-Following base-calling and sample demultiplexing by NYU GenCore,
-the sequencing reads were trimmed using 
-\texttt{cutadapt} \parencite{martin2011cutadapt}
-aligned using \texttt{tophat2} \parencite{kim2013tophat2} to a reference genome
-that included the yeast reference genome (assembly R64) and
-spike-ins, filtered for mapping-quality and length using
-\texttt{samtools} \parencite{li2009sequence}, deduplicated 
-with \texttt{umi\_tools} \parencite{smith2017umi}
-and feature counting was performed using 
-\texttt{htseq-count} \parencite{anders2015htseq}.
-Feature counts for yeast mRNAs were normalized to synthetic spike-ins, 
-using the fitted values from a log-linear model of spike-in abundance
-increase (see Results, and \autoref{section:writeup2}).
-The rate of mRNA degradation and changes in this rate
-was quantified to assume an exponential model 
-\autoref{section:writeup2}, fit as a linear model to log 
-transformed data.
-Significant changes in mRNA degradation rates were quantified from
-the coefficient method of the linear model using a cut-off of a FDR 
-\parencite{storey2015qvalue} less than 0.01 and a doubling in degradation
-rate (based on modeling detailed in \autoref{section:writeup2}).
-
-\subsection{Label-chase RNA sequencing \textit{cis} element analysis}
-
-To detect if \textit{de novo} or known \textit{cis} elements were 
-associated with destabilization upon a nitrogen upshift,
-we used 
-DECOD \parencite{huggins2011decod}, FIRE
-\parencite{elemento2007universal},
-TEISER \parencite{goodarzi2012systematic}, and the \#ATS pipeline
-\parencite{li2010predicting}. 
-We also scanned for association with
-RBP binding sites from the CISBP-RNA database
-\parencite{ray2013compendium} using AME from the MEME suite
-\parencite{mcleay2010motif}. 
-Final plots in the supplement were made using motif scans with 
-GRanges \parencite{lawrence2013software}.
-Analysis was done using coding sequence and 
-four different definitions of untranslated regions 
-(200bp upstream of the start codon or downstream of the stop codon, 
-the largest detected isoform in TIF-seq data
-\parencite{pelechano2014genome},
-or the most distal detected gPAR-CliP sites in exponential-phase 
-or nitrogen-limited growth \parencite{freeberg2013pervasive}).
-
-
-
-
-
-This experiment was conducted with methods similar to as previously
-described for RATEseq\footnote{Neymotin, Athansidou, Gresham \emph{RNA}
-  2014}, but with an experimental design similar to Munchel et.
-al.\footnote{Munchel et. al. 2011 Molecular Biology of the Cell.}. Below
-details the benchwork methods up through submission to a DNA sequencing
-core facility.
-
 \subsubsection{Synthetic RNA spike-in generation}
 
+\label{subsubsection:spikeins}
+
 Poly-adenylated RNA molecules were synthesized \emph{in vitro} using a
-Promega Riboprobe SP6 kit (P1420), with 4-thiouridine, to serve as
+Promega Riboprobe SP6 kit (P1420) with 4-thiouridine, as previously
+described \parencite{neymotin2014determination}, to serve as
 spike-in calibrators for RNAseq normalization across samples.
+Ampure XP beads were used to clean up the reaction.
+Products were quantified using the Qubit HS RNA assay, and 
+equivalent mass amounts of spike-ins were pooled to create a 
+8ng/\(\mu\)L stock containing all four 4-thiouridine-labeled 
+spike-ins.
 
-\emph{In-vitro} spike-ins were generated as previously
-described\footnote{Neymotin, Athansidou, Gresham \emph{RNA} 2014}. Four
-plasmids containing sequence cloned from \emph{B. subtilus} and \emph{C.
-elegans} with a SP6 promoter and poly-adenosine sequence were used. For
-each transcription reaction, using reagents from the Promega Riboprobe
-kit (P1420), approximately 625ng of linearized template was combined in
-20\(\mu\)L reaction volume with 4\(\mu\)L 5x transcription-optimized
-reaction buffer, 2\(\mu\)L 100mM DTT, 0.75\(\mu\)L RNasin, 1\(\mu\)L
-each of 10mM rATP, rUTP, rCTP, rGTP, 2\(\mu\)L of 10mM 4-thio-rUTP (Jena
-Biosciences \#NU-1156S), and 1\(\mu\)L SP6 RNA polymerase. These
-reactions were incubated 2 hours in a 37\(^{\circ}\)C waterbath, then
-1\(\mu\)L of RQ1 DNAse was added and tubes returned to incubation at
-37\(^{\circ}\)C for 15 minutes. To each 20\(\mu\)L reaction, 40\(\mu\)L
-of Ampure XP beads (APG3881) were added and mixed. These were incubated
-at room temperature for 5 minutes, then beads were collected on a
-magnetic rack. The supernatant was removed and beads washed with 80\%
-ethanol for 30 seconds, twice. Beads were dried 10 minutes at room
-temperature, with open lids. The beads were resuspended in 20\(\mu\)l of
-hyclone water, then pulled down and supernatant collected and quantified
-using the Qubit HS RNA assay (Invitrogen Q32855). Equivalent mass
-amounts of spike-ins were pooled to create a 8ng/\(\mu\)L stock
-containing all four 4-thiouridine-labeled spike-ins.
+We also prepared total 4-thiouracil labeled \emph{E. coli} RNA to 
+use as another spike-in. We grew strain MG1655 (a gift of Edo Kussell)
+overnight in 5mL of LB with 20\(\mu\)M of 4-thiouracil, then outgrew
+this for 2.5 hours in the presence of 4-thiouracil, then extracted
+by boiling the pellet with 1\% SDS, 100mM NaCl, and 8mM EDTA for 5
+minutes with intermittent vortexing, before cleaning up with a phenol
+chloroform extraction. The product was quantified using qubit and 
+diluted to a 5ng/\(\mu\)L solution of thiolated total \emph{E. coli} 
+RNA.
 
-We also prepared total 4-thiouracil labeled \emph{E. coli} RNA to use as
-another spike-in. We grew strain MG1655 (a gift of Edo Kussell)
-overnight in 5mL of LB with 20\(\mu\)M of 4-thiouracil. We pelleted
-410\(\mu\)L of the culture and resuspended in 5mL of LB with 20\(\mu\)M
-4-thiouracil and let it grow at 37\(^{\circ}\)C for 2.5 hours. This
-culture was spun to pellets, and froze at -80\(^{\circ}\)C. To extract,
-the pellet was resuspended in 400\(\mu\)L of 1\% SDS + 100mM NaCl + 8mM
-EDTA, then put on a 100\(^{\circ}\)C heatblock. This was vortexed every
-minute for 5 minutes, then 800\(\mu\)L of acid-phenol:chloroform
-(pre-warmed to 65\(^{\circ}\)C) was added. This was vortexed and
-incubated at 65\(^{\circ}\)C for 10 minutes, then spun at max speed 1
-minute. The supernatant was taken to a new tube and we added 300\(\mu\)L
-acid-phenol and 300\(\mu\)L chloroform. This was extracted again with
-acid-phenol, then aqueous fraction was extracted with chloroform in a
-phase-lock gel tube (5Prime \#2302830), then ethanol precipitated. The
-final solution was quantified using qubit and diluted to a 5ng/\(\mu\)L
-solution of thiolated total \emph{E. coli} RNA.
+\subsubsection{Culturing and sampling}
 
-\subsubsection{Culturing and sampling}\label{culturing-and-sampling}
-
-FY4 was grown in nitrogen-limitation conditions overnight with a mixture
-of 50\(\mu\)M:50\(\mu\)M of 4-thiouracil:uracil. This culture was split,
-then 4mM uracil was added to chase the 4-thiouracil label with a 41-fold
-excess of uracil. Samples were taken by filtration and flash-freezing.
-
-We isolated a single colony of wild-type haploid protrophic (FY4) yeast
-in 50mL proline-limited minimal media (``NLimPro'', with 800\(\mu\)M
-L-proline, as described in the ``Media and upshifts of media'' section)
-supplemented with 50uM uracil (``NLimProUra''). This culture was back
-diluted from mid-exponential phase growth to a density of
-1.18\(\times 10^5\) cells per mL in 1L of NLimPro, at which point
-125\(\mu\)L 400mM uracil (vendor) and 250\(\mu\)L 200mM 4-thiouracil
-(vendor), both dissolved in DMSO, were added to reach 50\(\mu\)M of both
-4-thiouracil and uracil. This culture was grown for 26 hours to label
-all RNA. The culture was split into two 450ml cultures 5 hours before
-the label chase began. During exponential phase ( \(\sim\) 5
+FY4 was grown in nitrogen-limitation conditions overnight (26 hours) 
+with a mixture of 50\(\mu\)M:50\(\mu\)M of 4-thiouracil:uracil. 
+The culture was split into two 450ml cultures 5 hours before
+the label chase began. During exponential phase growth ( \(\sim\) 5
 \(\times 10^6\) cells per mL), uracil from a 400mM DMSO stock was added
 to a final concentration of 4mM (41-fold excess) to chase the label.
-30mL samples from the culture were filtered onto 25 millimeter nylon
-filters, then flash-frozen in eppendorf tubes in liquid nitrogen within
-a minute of removal from culture. Sampling time is recorded as the time
-of flash-freezing. After letting the chase proceed, we added glutamine
+30mL samples from the culture were collected by filtration and
+flash-freezing within a minute of removal from the flask, and 
+sampling time is recorded as the time of flash-freezing. 
+After letting the chase proceed for 12.5 minutes, I added glutamine
 from 100mM stock (dissolved in water) to a final concentration of
 400\(\mu\)M to one flask, or an equal volume of water to the control
 flask.
@@ -830,119 +702,61 @@ flask.
 Timepoints were chosen to sample five times before the intervention,
 but timepoints actually used are the times that the sample was dropped
 into liquid nitrogen for fixation.
+For mock treatment (water at 13 minutes), this was 
+3.85, 6.02, 7.92, 9.90, 11.8, 15.1, 17.0, 18.8, 20.8, 22.9, 26.1, 
+and 50.5 minutes. 
+For nitrogen upshift (glutamine at 12.5 minutes), this was
+3.30, 5.32, 7.65, 9.47, 11.3, 14.4, 16.4, 18.2, 20.0, 23.8, 28.8, 
+and 49.1 minutes.
 
 \subsubsection{RNA Extraction}
 
 Since equal volume (30mL) of culture was taken for each sample, an equal
 volume of synthetic spike-ins was added to each RNA extraction reaction
 (hot acid-phenol method).
-
-Total RNA was extracted by addition of 400\(\mu\)L of fresh
-TES\footnote{10mM Tris (\textasciitilde{}7.5), 10mM EDTA, 0.5\% SDS}
-quickly followed by 400\(\mu\)L acid phenol (Fisher). Each tube was
-vortexed vigorously and put at 65\(^{\circ}\)C on a heatblock for 5
-minutes. Each tube was lightly spun to pull solution down from the lid,
-then 5\(\mu\)L of 8ng/\(\mu\)L \emph{in-vitro} synthetic spike-ins
-(above) and 5\(\mu\)L of 5ng/\(\mu\)L thiolated ``ecoli'' total RNA
-(above) were added to each sample. Samples were then vortexed very well,
-incubated for 20 minutes at 65\(^{\circ}\)C, vortexed vigorously,
-incubated for 20 minutes at 65\(^{\circ}\)C, vortexed vigorously, and
-incubated for 20 minutes at 65\(^{\circ}\)C. All tubes were placed on
-ice 5 minutes, then spun at maximum speed in a room-temperature
-centrifuge 5 minutes. The top phase was aspirated to a new eppendorf,
-and 400\(\mu\)L of 50:50 acid-phenol:chloroform solution was added.
-Tubes were vigorously vortexed, then spun 1 minutes full speed. The
-aqueous phase was carefully aspirated to a prespun phase-lock gel tube,
-and 400\(\mu\)L chloroform was added and mixed by inversion. These were
-spun 5 minutes 15000rcf room-temperature. The aqueous phase was
-aspirated and added to new tubes with a pre-mixed 2\(\mu\)L gylcogen and
-35\(\mu\)L 3M NaAcetate. 875\(\mu\)L 100\% ethanol was added, and
-samples were put on ice 40 minutes. Tubes were spun at 15 minutes
-maximum speed at 4\(^{\circ}\)C. The supernatant was aspirated, and
-pellet washed once with 500\(\mu\)L 70\% ethanol. This was spun at max
-speed and aspirated twice, then dried for 10 minutes at room temperature
-with open lids. Pellet was re-suspended in 50\(\mu\)L hyclone water. The
-extraction yielded at least 3.3 \(\mu\)g of RNA per \(10^7\) cells.
+The extraction yielded at least 3.3 \(\mu\)g of RNA per \(10^7\) cells.
 
 \subsubsection{Biotinlyation and fractionation}
 
-The total RNA (yeast and spike-ins, mixed) was reacted with MTSEA-biotin
-to conjugate biotin to the 4-thiouracil-containing RNA, then purified.
-The biotin-conjugated RNA was purified using streptavidin beads.
-
-To each RNA sample of 48\(\mu\)L, we added a master mix of 149\(\mu\)L
-hyclone + 2.5\(\mu\)L 1M HEPES + 0.5\(\mu\)L 0.5M EDTA. Samples were
-vortexed and spun, then 50\(\mu\)L of MTSEA-Biotin (biotin-XX, Biotium
-\#90066) 1mg/10ml stock prepared in DMF was added to sample, and mixed
-well with pipette until visibly mixed. Samples were incubated in the
-dark at room temperature for 2 hours, then 250\(\mu\)L 24:1 chloroform
-isoamyl alcohol was added. Samples were vigorously vortexed in multiple
-axes, then pipetted on top of a pre-spun phase-lock gel tube (5Prime
-\#2302830). These were spun 5 minutes at 15000 rcf room temperature,
-then top layer aspirated on top onto 25\(\mu\)L 3M Na Acetate +
-2\(\mu\)L glycogen (Thermo R0561), and 625\(\mu\)L 100\% ethanol was
-added. These were incubated on ice for 30 minutes, then spun 15 minutes
-maximum speed 4\(^{\circ}\)C. Pellets were washed with 70\% ethanol,
-centrifuged maximum speed room temperature and aspirated twice, then
-dried 10 minutes room temperature with open lids.
-
-Biotinylated total RNA was fractionated with streptavidin bead pulldown.
-200\(\mu\)L of streptavidin beads (NEB S1420S) were put into new 1.5mL
-eppendorf tubes. Beads were pulled down with a magnetic rack, and washed
-once with 200\(\mu\)L bead buffer\footnote{1M NaCl, 10mM EDTA, 100mM
-  Tris pH 7.4} with vortexing. This was pulled down and aspirated again.
-150\(\mu\)L of bead buffer was mixed with the thawed total RNA sample,
-then mixed with the beads by pipette. This mixture of RNA sample and
-beads was vortexed 5 minutes room temperature, then spun and lightly
-vortexed, then incubated 15 minutes room temperature on bench. This was
-pulled down, buffer was aspirated, then 100\(\mu\)L of bead buffer was
-added and vortexed to resuspend. This mixture was incubated 5 minutes,
-spun, pulled down, aspirated to eppendorfs. 100\(\mu\)L bead buffer was
-added, vortexed to resuspend, let sit 1 minutes, then spun, pulled down,
-and aspirated to waste. Beads were resuspended in 65\(^{\circ}\)C bead
-buffer, 65\(^{\circ}\)C 1 minutes, then pulled down \textasciitilde{}1
-minutes, aspirated to waste, and washed again with room temperature bead
-buffer. Beads were then resuspended in 5\% beta-mercaptoethanol,
-20\(\mu\)L, and incubated room temperature 10 minutes, then pulled down
-and supernatant aspirated to new eppendorf. Beads were resuspended in
-another 20\(\mu\)L of 5\% beta-mercaptoethanol at 65\(^{\circ}\)C for 10
-minutes, pulled down and put in that same eppendorf for precipitation.
-4\(\mu\)L of 3M sodium acetate and 2\(\mu\)L glycogen was added, then
-100\(\mu\)L 100\% etOH. This was chilled 1 hour, spun 15 minutes
-4\(^{\circ}\)C maximum, supernatant aspirated to waste, pellet washed
-with 70\% etOH, then spun twice with aspiration of supernatant to waste.
-The pellet was dried 10 minutes, then resuspended 10\(\mu\)L hyclone.
+The total RNA (yeast and spike-ins, mixed) was reacted by adding
+a total of 20$\mu$g MTSEA-biotin diluted in DMF to
+200$\mu$L of HEPES buffered total RNA solution, 
+and incubating for 2 hours.
+Biotinylated total RNA was fractionated with streptavidin bead
+pulldown, using 200\(\mu\)L of NEB (S1420S) streptavidin beads. 
+These were bound for 20 minute incubation, then pulled down and
+solution discarded, then washed four times with bead buffer, three
+times at room-temperature and once at 65C. Labeled mRNA was eluted
+using beta-mercaptoethanol, twice, then precipitated.
 
 \subsubsection{rRNA depletion}
 
 Fractionated RNA was depleted of rRNA using the RiboZero kit (Illumina
-RZY1324) according to manufacturer instructions, except that the input
-we used 2\(\mu\)g input RNA with half-reactions (ie half of every
-reagent). Final RNA was ethanol precipitated, as above. Agilent
+RZY1324) according to manufacturer instructions, except that for
+every reaction of 2\(\mu\)g input RNA, we used half-reactions 
+(half of every supplied reagent). 
+Final RNA was ethanol precipitated, as above. Agilent
 Tapestation measurements of the RNA size histograms confirmed that
-virtually all of the rRNA was removed.
+virtually all of the rRNA was removed, and later computation analysis
+found very few rRNA reads in the sequencing results.
 
 \subsubsection{Preparing sequencing libraries}
 
 RNA samples were converted into Illumina sequencing libraries using a
-strand-specific (UNG) protocol.
-
-Briefly, 1st strand cDNA was synthesized using a SuperScript III kit
+strand-specific (UNG) protocol.  Briefly, 1st strand cDNA was 
+synthesized using a SuperScript III kit
 (Invitrogen), primed with random hexamers. RNA was fragmented by
 98C hybridization for 1 minute in 4.17mM MgCl$_2$, then actinomycin
 and the SuperScriptIII enzyme were added after annealing.  
 This was incubated to extend first strand in a series of increasing
 temperature steps over the course of an hour.
-
 This reaction was ethanol precipitated
 and resuspended for a second-strand reaction that incorporated dUTP
 in the place of dTTP, using a cocktail of DNA PolI, Ecoli ligase, and
 RNAseH. This was reacted at 16C for 2 hours, then cleaned up on
 MinElute nucleic acid purification columns (Qiagen 28004).
-
 This product was eluted, end-repaired using T4 DNA polymerase and PNK,
 then cleaned up on MinElute columns.
-
 This product was eluted, A-tailed with Klenow (exo-), 
 then cleaned up on MinElute columns.
 
@@ -960,20 +774,18 @@ molecules that appear to be PCR duplicates (false double-counting
 by virtue of the amplification scheme) are actually considered
 to be duplicates in the analysis. For a more in-depth discussion of
 UMIs, please see
-\autoref{rarefractionDiscussion}.
+\autoref{subsubsection:rarefractionDiscussion}.
 
 These ligations were all of the A-tailed product with 20nM annealed
 adapter, each reaction with a different sample index. These were
 reacted using Quick Ligase (NEB), reacted at 22C for 15 minutes
 before immediate clean-up with Ampure XP beads (BeckmanCoulter).
 These were selected twice on beads to remove small adapters.
-
-To amplify libraries and select the strand-specificity, we prepared a
+To amplify libraries and select the strand-specificity, I prepared a
 master-mix of NEB Phusion buffer with primers DGO366 and DGO367,
 reacted this with UNG (Thermo EN0361) to digest the dUTP containing
 strand, then added NEB Phusion polymerase and PCR amplified for
 18 cycles.
-
 These reactions were cleaned up using a MinElute column, then diluted
 and concentration estimated using qPCR on a Roche 480 (using KAPA
 Library Quant Kit Illumina REF 07960281001), and submitted as a 1nM pool
@@ -988,11 +800,9 @@ Following base-calling and demultiplexing by NYU GenCore, the sequencing
 reads were quantified using the following pipeline:
 
 \begin{enumerate}
-  \setlength\itemsep{1em}
-  \item Raw reads were trimmed using \texttt{cutadapt}
-    \url{https://cutadapt.readthedocs.io/}
-  \item Trimmed reads were aligned using \texttt{tophat2}
-    \url{http://ccb.jhu.edu/software/tophat/manual.shtml}
+  \setlength\itemsep{0em}
+  \item Raw reads were trimmed using \texttt{cutadapt} \parencite{martin2011cutadapt}
+  \item Trimmed reads were aligned using \texttt{tophat2} \parencite{kim2013tophat2}
     to a reference genome that included the yeast reference 
      genome (assembly R64), the Ecoli genome (assembly 
      GCF\_000005845.2), and the four synthetic in-vitro transcribed 
@@ -1003,11 +813,13 @@ reads were quantified using the following pipeline:
      \url{http://sammeth.net/confluence/display/SIM/Home} from this 
      reference genome, in replicates.
   \item Reads with mapping quality above 20 and with at least 50 
-     matched bases were processed with \texttt{umi\_tools}
-     \url{https://github.com/CGATOxford/UMI-tools} in ``dir'' mode to
+    matched bases with 
+    \texttt{samtools} \parencite{li2009sequence}
+    were processed with \texttt{umi\_tools} \parencite{smith2017umi}
+    in ``dir'' mode to
     de-duplicate possible PCR duplicates.
   \item The demultiplexed \texttt{.bam} file was processed with the
-    \texttt{htseq-count}\url{http://htseq.readthedocs.io/}
+    \texttt{htseq-count} \parencite{anders2015htseq}
     script to generate counts files per gene feature (according to 
     the GFF file in the \texttt{data/BES} directory).
 \end{enumerate}
@@ -1041,21 +853,19 @@ that are the spike-ins increases with time.
 We modeled this increase using the \texttt{lm} function to linearly
 regress this in natural-log-space. We see that
 the residuals are randomly distributed around the fit across time 
-for both treatments \autoref{fig:propRediuals}.
+for both treatments \autoref{fig:propIncrease}.
 Using an ANCOVA (\texttt{aov}/\texttt{lm}), I found the effect of 
-treatment was associated with a p-value \(<\)
-
-and the p-value
+treatment was associated with a p-value < 0.301 and the p-value
 associated with time estimated as ``1'', so it does not appear that the
-residuals depend on time or treatment.
+residuals particularly depend on time or treatment.
 
 \afig{
   \includegraphics[width=.49\textwidth]{img/fig2s_increase_props.png}
   \includegraphics[width=.49\textwidth]{img/fig2s_increase_residuals.png}
   }{
-  z
+  The observed proportion of the reads is on the left, and the
+  residuals against this fit model is on the right. 
   \label{fig:propIncrease}
-  \label{fig:propResiduals}
   }{The proportion of spike-in counts increase over the course of the
     experiment.}
 
@@ -1066,27 +876,41 @@ How do the normalizations compare on a per-gene basis?
 \afig{
   \includegraphics[height=7in]{img/fig2s_norm_example.png}
   }{
-shows the normalized data for several genes, on the
-left is the direct, within sample normalization and on the right is this
-smoothing between samples using a log-linear model.
-  z
+  The results of the two strategies are shown on the left (direct
+  normalization) and on the right (model-based). For several example
+  genes, we see that the model-based smoothing reduces the noise.
   \label{fig:normgenes}
   }{Several examples of alternative normalization strategies.}
 
+The direct normalization of each gene in each timepoint combines the 
+noise of both the measured gene and the measured spike-ins. 
+By smoothing across timepoints, 
+given our expectation of whole-transcriptome exponential
+decay dynamics, we can deliver a more reliable estimate for each gene
+feature. Thus more observations can be reliably analyzed
+without single sample spike-in errors systematically skewing the fits.
+
 We also tried to spike-in labeled ecoli total RNA; however, we found
-that those counts were low, noisy, and did not behave as expected. We
-hypothesize that this was due to lower addition of ecoli total RNA than
-synthetic spike-ins, combined with noise associated with amplifying a
-random sub-sample of a more complex spike-in pool of total ecoli RNA.
+that those counts were low, noisy, and did not behave as expected
+from previous work \parencite{neymotin2014determination}. We
+hypothesize that this was due to lower addition of \textit{E. coli} 
+total RNA than synthetic spike-ins, 
+combined with noise associated with amplifying a
+random sub-sample of a more complex spike-in pool of total \textit{E.
+coli} RNA. Each sub-sample may have very different GC-content, and
+thus may be amplified to a different degree.
 Thus, we normalized all yeast mRNA to the synthetic spike-ins previously
 demonstrated.
+Sampling from a complex spike-in library may be an important
+consideration for their use in normalization, and may warrant further
+technical experimentation.
 
 \subsubsection{Model of transcript dynamics as a function of 
 dynamics and labeling parameters}
 
-To analyze this data, we fit a model of 
+To analyze this data, I fit a model of 
 labeled transcript dynamics.
-We used this to analyze the dataset for expected label-chase
+I used this to analyze the dataset for expected label-chase
 dynamics, and also to exclude effects that may result from a
 confounding of new synthesis with changes in degradation rates.
 
@@ -1096,33 +920,33 @@ fraction of new mRNA that is labeled and pulled down, \(k_s\) is the
 rate of synthesis, and \(k_d\) is the rate of degradation. Our
 experimental design is to change \(L\) from an initial fraction of
 transcripts that are pulled down by a 4tU-incorporation-dependent
-mechanism of \(L^o\) (old) to a new fraction \(L^n\) (new). Note that we
-use the notation as a superscript, so that we can also share that
+mechanism of \(L^o\) (old) to a new fraction \(L^n\) (new). Note that
+I use the notation as a superscript, so that I can also share that
 notation with the synthesis rates as \(k_s^o\) and degradation rates as
 \(k_d^o\).
 
-We assume that the culture begins at a steady state of
+I assume that the culture begins at a steady state of
 \(L^{o}\frac{k_s^{o}}{k_d^{o}}\), from solving the above equation.
-We assume this because we grow the cells for 24 hours in conditions
+I assume this because I grow the cells for 24 hours in conditions
 of labeling, and they are well below saturating conditions.
 Solving the above differential equations with the assumption that
 everything changes once, which is a simplifying assumption but supported
 by previous studies of transcript stability changes during shifts
-(Perez-Ortin et. al. 2013 review), we expect that \(m_t\) should behave
+\parencite{perez2013eukaryotic}, I expect that \(m_t\) should behave
 as, \[ m_t = L^o \frac{k_s^o}{k_d^o} e^{-k_d^n t} + 
   L^n\frac{k_s^n}{k_d^n}(1-e^{-k_d^n t}) \] Nicely, the solution is
-similar to what we would expect intuitively - extant transcripts decay
+similar to what I would expect intuitively - extant transcripts decay
 (left), and nascent transcripts approach the new equilibrium (right).
 The equilibriums are set by all parameters, but the change between them
 is dictated by the new degradation rate operative during the transition.
 
 In the case were either \(L^o\) or \(L^n\) is 0, then the transcript
-behaves just as one side of the equation. With the label-chase, we are
+behaves just as one side of the equation. With the label-chase, I are
 trying to get \(L^n\) as low as is possible without perturbing the
 system being measured by killing the cell.
 To analyze this dataset for potential changes in transcript stability,
-we approximated this by fitting a linear regression model to the
-normalized signal. We explore the sufficiency of this model later in
+I approximated this by fitting a linear regression model to the
+normalized signal. I explore the sufficiency of this model later in
 this document using simulations. This model was fit using the
 \texttt{lm} function in R, with the formula
 
@@ -1137,22 +961,21 @@ minutes relative to the glutamine (or water) addition,
 after glutamine addition, and ``\texttt{+\ 1}'' denotes to fit a single
 intercept for the model (data are centered around the moment of 
 treatment, $t_0$ is the addition of glutamine or water). 
-From this fit, we took the p-values associated
+From this fit, I took the p-values associated
 with the t-statistic of the additional slope fit to the glutamine
 treated samples, then adjusted the p-values using the \texttt{qvalue}
-package from BioConductor using default settings. We chose to use a FDR
+package from BioConductor using default settings. I chose to use a FDR
 cut-off of less than 0.01 for this analysis.
 
-\subsubsection{Estimating possible effects of synthesis changes on
-labeled
-abundance}\label{estimating-possible-effects-of-synthesis-changes-on-labeled-abundance}
+\subsubsection{Estimating possible effects of synthesis changes on 
+labeled abundance}
 
-In our experimental design we initially grow the cells in a
-50\(\mu M\):50\(\mu M\) mix of uracil and 4-thiouracil, so we will set
-as a labeling ratio \(L^o\) of 1 for simplicity. We add 4,000 \(\mu M\)
+In our experimental design I initially grow the cells in a
+50\(\mu M\):50\(\mu M\) mix of uracil and 4-thiouracil, so I will set
+as a labeling ratio \(L^o\) of 1 for simplicity. I add 4,000 \(\mu M\)
 uracil to begin the chase, so this is a shift to a \(L^n\) of
 \(\frac{50 \mu M}{4100 \mu M} / \frac{50 \mu M}{100 \mu M}\) , or
-\(\frac{1}{41}\). Since we are not reducing this number to zero, there
+\(\frac{1}{41}\). Since I am not reducing this number to zero, there
 is still residual labeling incorporated into nascent transcription.
 \(\frac{1}{41}\) is a small number, but is still not zero and should
 not be neglected.
@@ -1171,7 +994,7 @@ preferable for precision, and the drawbacks described here are
 unavoidable with current technology (although progress is being made
 \cite{chan2017non}).
 
-Therefore, we used simulations to investigate how varying the labelling
+Therefore, I used simulations to investigate how varying the labelling
 parameter changes the expected dynamics if we also vary the synthesis
 parameter. \autoref{fig:modelingNoChange} (left) shows a plot of the modeled
 labeled transcript abundance, with no change in synthesis parameter.
@@ -1188,19 +1011,19 @@ and an instantaneous shutoff of transcript synthesis.
   \includegraphics[width=.49\textwidth]{img/fig2s_no_change_synth.png}
   \includegraphics[width=.49\textwidth]{img/fig2s_shutoff_synth.png}
   }{
-  z
+  \textbf{(Left)} is with no change in synthesis.
+  \textbf{(Right)} is with a complete halt in synthesis. 
   \label{fig:modelingNoChange}
   \label{fig:modelingChange}
   }{Modeling of labeled transcript dynamics assuming an incomplete 
     chase and synthesis rate changes.}
 
-As synthesis reduces to zero, we approach the case where the effect of
-reduced synthesis on apparent slope change of the labeled RNA is going
-to be a \texttt{r\ signif(c(zeroMod{[}3{]})/c(zeroMod{[}2{]})*100,3)}\%
-increase in the rate.
-We conclude that there's a slight effect.
-This affects the call of destabilized.
-For stabilized, the effect is much larger. 60\%???
+The effect of reduced synthesis on apparent slope change of the 
+labeled RNA here is a 13.3\% increase in the rate.
+I conclude that there's a slight effect from synthesis rate changes.
+For transcripts that are putatively stabilized, the effect is 
+much larger ($\sim$60\%), likely because of the delay in pertubation
+until 13 minutes after the label chase begins.
 
 What does this mean for our estimates of destabilization? What effect
 sizes are estimated, and how do they compare to this effect size?
@@ -1208,51 +1031,52 @@ sizes are estimated, and how do they compare to this effect size?
 stability:
 
 \afig{
-  \includegraphics[width=\textwidth]{img/fig2s_distribution_of_rates.png}
+  \includegraphics[width=.7\textwidth]{img/fig2s_distribution_of_rates.png}
   }{
-  z
+  Histogram of the fold-changes in rate of labeled transcript
+  clearance upon glutamine treatment, determined as significant by 
+  adjusting the parametric (t-statistic of slope) with a
+  multiple-hypothesis correction (\texttt{qvalue} package
+  \cite{storey2015qvalue}). The blue line denotes a 13.3\%
+  increase in the rate of clearance, the red line denotes a doubling
+  of the rate. Some transcripts appear stabilized (left of 0), most
+  are destabilized, many are destabilized more than the red cutoff.
   \label{fig:changeRateDist}
   }{Distribution of all fit changed rates versus effect size 
     thresholds from modeling.}
 
-We see that all of the significant changes are in great excess to that
-blue line. To be careful, we choose to use a cut off of a 100\%
+I see that all of the significant changes are in great excess to that
+blue line. To be careful, I choose to use a cut off of a 100\%
 increase, a doubling, of apparent degradation rate to call a feature
-destabilized (right of the red line). Since we cannot place an upper
-bound on the synthesis rates after a glutamine upshift, we cannot
+destabilized (right of the red line). Since I cannot place an upper
+bound on the synthesis rates after a glutamine upshift, I cannot
 definitively say that the potentially stabilized transcripts (left of 0)
 are stabilized without additional experiments.
-
 Could these fits just be on the right side of the blue line by chance?
-Given that the t-statistics for the fits of ones over this line are a
-median of
-%%%%
-then we're not going to have fits within several standard errors of
+Given that the t-statistics (ratio of effect size over standard error)
+for the fits of ones over this line are a median of -5.66,
+I'm not going to have fits within several standard errors of
 crossing that threshold by a reasonably expected error.
 
-We conclude that the RNA from 78 gene
+I conclude that the RNA from 78 gene
 features appear to be degraded much more quickly than can be reasonably
 explained by labelling carry-over, and are thus accelerated in
 degradation upon the nitrogen upshift.
-
-We encourage the interested reader to go to
+I encourage the interested reader to go to
 \url{http://shiny.biology.nyu.edu/users/dhm267} to explore examples of
 the data under both normalizations and for a range of features.
 
 \subsubsection{\textit{Cis} element analysis}
 
-We used a variety of bioinformatic methods to detect if \emph{de novo}
-or known \emph{cis} elements were associated with the phenotype of
-destabilization upon a glutamine upshift.
-
-For each transcript, we used a GFF file to extract the coding sequence
+To detect if \textit{de novo} or known \textit{cis} elements were 
+associated with destabilization upon a nitrogen upshift,
+I used a variety of bioinformatic methods.  
+For each transcript, I used a GFF file to extract the coding sequence
 of each annotated mRNA and four different definitions of it's
 untranslated regions. This is an ambiguous definition, and a more
 rigorous definition using 5' and 3' end sequencing methods in this
 particular condition would be necessary for best exploring this with
-certainty. However, these could also be combined with metabolic
-labeling experiments \parencite{gupta2014alternative} to directly
-assay this. 
+certainty. 
 
 Here, I used four definitions --- 
 200bp upstream of the start codon or downstream
@@ -1261,15 +1085,21 @@ of the stop codon, the largest detected isoform in TIF-seq from
 or the most distal detected gPAR-CliP sites in
 exponential-phase or nitrogen-limited growth in 
 \parencite{freeberg2013pervasive}.
-
 To find putative cis-elements, 
 I used DECOD \parencite{huggins2011decod}, 
 FIRE \parencite{elemento2007universal},
 TEISER \parencite{goodarzi2012systematic},
 and the \#ATS pipeline \parencite{li2010predicting},
-We also scanned for RBP binding sites from
+I also scanned for RBP binding sites from
 CISBP-RNA \parencite{ray2013compendium}
 using AME from the MEME suite \parencite{mcleay2010motif}.
+
+The enrichment for the Hrp1p motif is described in \autoref{fig:hrp1}.
+It is worth noting that this is the core-element of Hrp1p (also known
+as Nab4p) described in \cite{guisbert2005functional,chen1998specific}, 
+but is mistakenly recorded in the CISBP-RNA database as being the 
+motif for Npl3p. 
+\cite{guisbert2005functional} did not find a motif for Npl3p.
 
 %%%%%
 %%%%%
@@ -1279,9 +1109,7 @@ using AME from the MEME suite \parencite{mcleay2010motif}.
 
 \section{Estimating \textit{GAP1} mRNA for every mutant in a pool}
 
-\subsection{Results}
-
-\subsubsection{A genome-wide screen for \textit{trans}-factors 
+\subsection{A genome-wide screen for \textit{trans}-factors 
   regulating \textit{GAP1} mRNA repression}
 
 We sought to identify \textit{trans}-factors mediating accelerated mRNA
@@ -1305,14 +1133,15 @@ we aimed to quantify and model the distribution of \textit{GAP1} mRNA
 in each mutant \parencite{kinney2010using,peterman2016sort}.
 
 \afig{
-  \includegraphics[width=.5\textwidth]{img/Figure3a.png}
+  \includegraphics[width=.6\textwidth]{img/Figure3a.png}
   }{
-  \textbf{a)} 
-  GAP1 mRNA following upshift measured using RT-qPCR, relative
-  to an external spike-in mRNA standard. The dashed line is fit
-  to points after 2 minutes. 
+  \textit{GAP1} mRNA following upshift measured using RT-qPCR, 
+  relative to an external spike-in mRNA standard. The dashed line 
+  is fit to points after 2 minutes. This shows that the rapid
+  clearance of \textit{GAP1} mRNA is not an artifact of normalization
+  to an increasing internal reference.
   \label{fig:figure3a}
-  }{\textit{GAP1} mRNA dynamics measured by flow cytometry.}
+  }{\textit{GAP1} mRNA dynamics by spike-in normalized qPCR.}
 
 %Development of our screen required that we could detect and
 %sort cells using \textit{GAP1} mRNA signal. 
@@ -1325,7 +1154,7 @@ low transcript numbers in yeast cells compared to mammalian cells
 \parencite{klemm2014transcriptional}. Therefore, we used branched DNA probes
 (Quantigene), which serve to amplify the FISH signal
 \parencite{hanley2013detection}. We developed a fixation and permeabilization
-protocol (\autoref{section:bff}) that enabled detection of the
+protocol (\autoref{subsection:bff}) that enabled detection of the
 distribution of  \textit{GAP1} mRNA in steady-state nitrogen-limited conditions
 and its repression following the  upshift (\autoref{fig:figure3b}). In control
 experiments, we found that the signal is eliminated in a \textit{GAP1} deletion
@@ -1339,13 +1168,14 @@ increase in the number of foci in the cells (\autoref{fig:figure3}d, $R^2$ = 0.6
 p < $10^{-11}$ ). 
 
 \afig{
-  \includegraphics[width=.8\textwidth]{img/Figure3_S_gap1deleteControl.png}
+  \includegraphics[width=.7\textwidth]{img/Figure3_S_gap1deleteControl.png}
   }{
-  Wild-type or \textit{GAP1}$\Delta$ cells were grown in 
-  proline-media, which induces expression
-  of \textit{GAP1}. As seen in the positive control, there is heterogeneity in the
-  induction. This is likely due to technical issues, namely fixation
-  time. 
+  Wild-type or \textit{gap1}$\Delta$ cells were grown in 
+  proline-media, which induces expression of \textit{GAP1}. 
+  As seen in the positive control, there is heterogeneity in the
+  induction. This is likely due to technical issues, namely over
+  fixation. Importantly, a \textit{gap1}$\Delta$ does not have any
+  positive signal.
   \label{fig:gap1Delete}
   }{\textit{GAP1} delete or omission of the targeting probe removes
     signal of GAP1 FISH.}
@@ -1353,27 +1183,28 @@ p < $10^{-11}$ ).
 \afig{
   \includegraphics[width=.7\textwidth]{img/Figure3b.png}
   }{
-  \textbf{b)} Flow
-  cytometry of wild-type yeast in nitrogen-limited conditions and
-  following an upshift. The vertical grey lines indicate FACS gate
-  boundaries used for cell sorting. 
+  Flow cytometry of wild-type yeast in nitrogen-limited conditions 
+  and following an upshift. The vertical grey lines indicate FACS 
+  gate boundaries used for cell sorting, for \autoref{fig:figure3c}
+  microscopy.
   \label{fig:figure3b}
   }{\textit{GAP1} mRNA dynamics measured by flow cytometry.}
 
 \afig{
   \includegraphics[width=.7\textwidth]{img/Figure3c.png}
   }{
-  \textbf{c)} Representative cells from each bin sorted from the
-  experiment in \autoref{fig:figure3b}. 
+  Representative cells from each bin sorted from the experiment in 
+  \autoref{fig:figure3b}. Alexa647 signal is imaged with a Cy5
+  filter set.
   \label{fig:figure3}
   }{Example microscopy of cells sorted by \textit{GAP1} mRNA.}
 
 \afig{
   \includegraphics[width=.7\textwidth]{img/Figure3d.png}
   }{
-  \textbf{d)} Quantification of microscopy data, cells sorted from
-  \autoref{fig:figure3b}.
-  Each black dot represents a single cell. 
+  Cells sorted from \autoref{fig:figure3b} were manually scored in
+  z-stacks for Alexa647 foci.
+  Each black dot represents the total for a single cell. 
   The mean number of foci per cell in each bin is displayed as a red point.
   \label{fig:figure3d}
   }{Quantification of microscopy of cells sorted by \textit{GAP1} mRNA.}
@@ -1384,13 +1215,13 @@ to generate sufficient material for
 Barseq \parencite{sliva2016barcode}. However, formaldehyde fixation precludes
 outgrowth. We found that below approximately $10^6$ templates, the
 Barseq reaction produces primer dimers
-that outcompete the intended PCR product (\autoref{section:bff}). 
+that outcompete the intended PCR product (\autoref{subsection:bff}). 
 Therefore, we re-designed the
 PCR reaction \parencite{robinson2014design,smith2009quantitative} to be robust for
-very low sample inputs (\autoref{section:bff}). Our protocol
+very low sample inputs (\autoref{subsection:bff}). Our protocol
 incorporates a 6-bp unique molecular identifier (UMI) into the first
 round of extension to identify PCR duplicates, 
-and uses 3’-phosphorylated oligonucleotides and a
+and uses 3'-phosphorylated oligonucleotides and a
 strand-displacing polymerase (Vent exo-) to block primer dimer formation and 
 off-target amplification. 
 %We developed a bioinformatics pipeline 
@@ -1405,7 +1236,7 @@ using pairwise alignment to invariant flanking sequences.
 Based on \textit{in silico} benchmarks, this
 approach was robust to systematic and simulated random errors 
 that can confound analysis of the yeast deletion barcodes 
-(\autoref{codeanddata}, \autoref{section:bff}). 
+(\autoref{codeanddata}, \autoref{subsection:bff}). 
 
 We refer to this experimental approach as BFF (Barseq after FACS after FISH). 
 We used BFF to estimate \textit{GAP1} mRNA abundance for every mutant in the
@@ -1437,29 +1268,15 @@ cytometry signal across the library (\autoref{fig:pca}).
 \afig{
   \includegraphics[width=\linewidth]{img/Figure4a.png}
   }{
-    \textbf{a)} Flow cytometry analysis of \textit{GAP1} mRNA 
+    Flow cytometry analysis of \textit{GAP1} mRNA 
     abundance in the prototrophic
-    deletion collection before and after the upshift. The vertical gray
+    deletion collection before and after the upshift. 
+    The vertical gray
     lines denote FACS gates. Biological replicates are
     indicated by color. 
     \label{fig:figure4a}
   }{BFF estimates of \textit{GAP1} mRNA abundance.}
 
-\afig{
-  \includegraphics[width=.7\textwidth]{img/Figure4_S_umiSaturationCurve.png}
-  }{
-    The solid-line curve denotes the theoretical expectation of total 
-    observations per UMI in a sample (x-axis) and the number of 
-    unique UMIs (y-axis). This curve shows how we
-    expect UMI-collisions to depress the number of unique UMIs. Each 
-    point is from real data, with these
-    two numbers tabulated for each combination of a sample and strain barcode. We
-    see that these largely follow the curve of saturation of UMI-collisions, but
-    that it falls well below the expectation of independent UMI-collision, thus
-    we believe that there is an additional contribution of PCR-amplification noise
-    (PCR duplicates). 
-    \label{fig:rarefaction}
-  }{Rarefaction curve of UMI saturation.}
 
 \afig{
   \includegraphics[width=\textwidth]{img/Figure4_S_PCAonFilteredQCdData.png}
@@ -1477,20 +1294,36 @@ cytometry signal across the library (\autoref{fig:pca}).
   }{Principal components analysis of the abundance estimates for
     samples.}
 
-\subsubsection{Estimating \textit{GAP1} mRNA abundance for individual mutants}
+\subsection{Estimating \textit{GAP1} mRNA abundance for individual mutants}
 
 We estimated the distribution of \textit{GAP1} mRNA for each mutant by
 modeling pseudo-events in each quartile as a
 log-normal distribution using likelihood maximization  
 (\autoref{fig:figure4b}). 
+\afig{
+  \includegraphics[width=.8\textwidth]{img/Figure4b.png}
+  }{
+    Measurements for individual genes before and
+    after the upshift. Black dashed lines indicate maximum-likelihood 
+    fits of a log-normal to pseudo-events for each mutant. 
+    Colors and axes as in panel a. 
+    \label{fig:figure4b}
+  }{Data and models for several individual sample genes from the BFF
+    modeling.}
 From model fits we estimated the mean expression value for each
 mutant and found that the distribution of means estimated for
 3,230 strains (\autoref{itm:dme209pooledFits}, \autoref{fig:figure4c}) 
 recapitulates the overall
 distribution of flow cytometry signal (\autoref{fig:figure4a}). 
+\afig{
+  \includegraphics[width=\textwidth]{img/Figure4c.png}
+  }{
+    Distribution of mean modeled GAP1 mRNA levels for each mutant.
+    \label{fig:figure4c}
+  }{Global distribution of BFF estimates of \textit{GAP1} mRNA abundance.}
 %Specifically, replicate A had a consistently lower estimate of
 %\textit{GAP1} FISH fluoresence in both flow cytometry and modeling.
-%Replicate C had fewer mutants sorted (\autoref{section:bff}), 
+%Replicate C had fewer mutants sorted (\autoref{subsection:bff}), 
 %reflected in the wider distribution of estimated means.
 %To estimate \textit{GAP1}
 %mRNA per strain, we used all replicate measurement to perform model
@@ -1502,7 +1335,20 @@ distribution of flow cytometry signal (\autoref{fig:figure4a}).
 To validate our approach we first examined
 strains for which we expected to have a specific phenotype and
 compared their mean expression level to the distribution of expression
-for the entire population (\autoref{fig:figure4d}). We found that the wildtype
+for the entire population (\autoref{fig:figure4d}). 
+\afig{
+  \includegraphics[width=.8\linewidth]{img/Figure4d.png}
+  }{
+    The mean \textit{GAP1} mRNA expression levels for 
+    individual mutants before and after
+    the upshift are shown as points connected by a line, colored
+    according to the type of gene. 
+    For reference, the background violin plot shows the distribution 
+    of all 3,230 mutants fit.
+    \label{fig:figure4d}
+  }{Individual BFF estimates of \textit{GAP1} mRNA abundance for
+    mutants known to play a role in \textit{GAP1} regulation.}
+We found that the wildtype
 genotype (\textit{his3}$\Delta$, complemented by the spHis5 in
 library construction) has an expression level that is centrally
 located in the distribution both before and following the upshift. The
@@ -1523,95 +1369,15 @@ result from the complex interplay of NCR transcription factors on
 their own expression levels. 
 Data and models for each mutant strain can be visualized in browser
 using a Shiny appplication (see
-\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{shiny} ). 
-
-\afig{
-  \includegraphics[width=\linewidth]{img/Figure4b.png}
-  }{
-    \textbf{b)} Measurements for individual genes before and
-    after the upshift. Black dashed lines indicate maximum-likelihood 
-    fits of a log-normal to pseudo-events for each mutant. 
-    Colors and axes as in panel a. 
-    \label{fig:figure4b}
-  }{Data and models for several individual sample genes from the BFF
-    modeling.}
-
-\afig{
-  \includegraphics[width=\linewidth]{img/Figure4c.png}
-  }{
-    \textbf{c)} Distribution of mean modeled GAP1 mRNA levels
-    for each mutant.
-    \label{fig:figure4c}
-  }{Individual BFF estimates of \textit{GAP1} mRNA abundance for
-    mutants known to play a role in \textit{GAP1} regulation.}
-
-\afig{
-  \includegraphics[width=\linewidth]{img/Figure4d.png}
-  }{
-    \textbf{d)} The mean \textit{GAP1} mRNA expression levels for 
-    individual mutants before and after
-    the upshift are shown as points connected by a line, colored
-    according to the type of gene. 
-    For reference, the background violin plot shows the distribution 
-    of all 3,230 mutants fit.
-    \label{fig:figure4d}
-  }{Global distribution of BFF estimates of \textit{GAP1} mRNA abundance.}
+\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{shiny}). 
 
 To identify new cellular processes that regulate \textit{GAP1} mRNA abundance, we
 used gene-set enrichment analysis (\autoref{itm:dme209gsea}).
-Following the upshift we found mutants that
+Following the upshift we found mutants that have high \textit{GAP1}
+expression before the upshift are enriched for mutants in sulfate
+assimilation, and mutants that 
 maintain high \textit{GAP1} mRNA expression are enriched for negative
-regulation of gluconeogenesis (\autoref{fig:gluco}) and the
-Lsm1-7p/Pat1p complex (\autoref{fig:figure5a}). Mutants in the TORC1 signalling
-pathway were not enriched; 
-however, we found that a \textit{tco89}$\Delta$ mutant has
-greatly increased \textit{GAP1} mRNA expression before and after the upshift
-(\autoref{fig:tco89}), consistent with the repressive role of TORC1
-on the NCR regulon.
-To compare expression before and after the upshift for each mutant,
-we regressed the post-upshift mean expression against the pre-upshift 
-mean expression for each genotype (\autoref{fig:prePredictPost}). 
-We used the residuals for each
-strain to identify mutants that clear \textit{GAP1} mRNA with kinetics slower
-than expected by this model.
-We found that the Lsm1-7p/Pat1p complex is again strongly 
-enriched for slower than
-expected \textit{GAP1} mRNA clearance (\autoref{itm:dme209pooledFits}). 
-Specifically
-the \textit{lsm1}$\Delta$, \textit{lsm6}$\Delta$, and 
-\textit{pat1}$\Delta$ strains are highly elevated in \textit{GAP1}
-expression before the upshift and strongly impaired in the 
-repression of \textit{GAP1} mRNA after the upshift
-(\autoref{fig:figure5a}). 
-
-\afig{
-  \includegraphics[width=\textwidth]{img/Figure4_S_poorlyQuantifiedStrains.png}
-  }{
-    Data and fits for several mutants. \textit{xrn1}$\Delta$ 
-    mutant (left) is lowly abundant in
-    the library and is only observed in the highest bin of \textit{GAP1} signal, consistent
-    with the role of Xrn1p as a global exonuclease. 
-    \textit{tco89}$\Delta$ is the only detected member that would abrogate TORC1 activity.
-    This mutant (right) has elevated \textit{GAP1} mRNA before and after the upshift,
-    consistent with the role of TORC1 in repressing the NCR regulon. 
-    \label{fig:tco89}
-  }{\textit{tco89}$\Delta$ and \textit{xrn1}$\Delta$ show
-    defects in \textit{GAP1} mRNA regulation in the BFF assay.}
-
-\afig{
-  \includegraphics[width=.8\textwidth]{img/Figure4_S_PreShiftPredictingPostShiftLM.png}
-  }{
-    The relationship between the estimated mean before the upshift and after the
-    upshift. Scatter plot of the estimated means, with marginal histograms along
-    top and right. Red vertical line on top histogram is a cut-off of
-    \textit{GAP1} mRNA induction for this analysis,
-    and is the mean of the fit to wild-type minus the standard deviation of that
-    distribution. The red linear regression line is fit to all points above this
-    threshold, in which expression was detected before the upshift.
-    \label{fig:prePredictPost}
-  }{The relationship between the estimated mean before the 
-    shift and after the upshift.}
-
+regulation of gluconeogenesis (\autoref{fig:gluco}).
 \afig{
   \includegraphics[width=.49\textwidth]{img/Figure5_S_negGluconeogenesis.png}
   \includegraphics[width=.49\textwidth]{img/Figure5_S_sulfateAssimilation.png}
@@ -1626,17 +1392,68 @@ repression of \textit{GAP1} mRNA after the upshift
   }{Mutants of negative regulators of gluconeogenesis or sulfate 
     assimilation are associated with defects in \textit{GAP1} 
     expression.}
+However, the strongest enrichment for high \textit{GAP1} expression 
+was components Lsm1-7p/Pat1p complex (\autoref{fig:figure5a}). 
+Mutants in the TORC1 signalling pathway were not enriched,
+but, I did find that a \textit{tco89}$\Delta$ mutant has
+greatly increased \textit{GAP1} mRNA expression before and after the 
+upshift (\autoref{fig:tco89}), consistent with the repressive role 
+of TORC1 on the NCR regulon.
+\afig{
+  \includegraphics[width=.7\textwidth]{img/Figure4_S_poorlyQuantifiedStrains.png}
+  }{
+    Data and fits for several mutants. \textit{xrn1}$\Delta$ 
+    mutant (left) is lowly abundant in
+    the library and is only observed in the highest bin of \textit{GAP1} signal, consistent
+    with the role of Xrn1p as a global exonuclease. 
+    \textit{tco89}$\Delta$ is the only detected member that would abrogate TORC1 activity.
+    This mutant (right) has elevated \textit{GAP1} mRNA before and after the upshift,
+    consistent with the role of TORC1 in repressing the NCR regulon. 
+    \label{fig:tco89}
+  }{\textit{tco89}$\Delta$ and \textit{xrn1}$\Delta$ show
+    defects in \textit{GAP1} mRNA regulation in the BFF assay.}
+To compare expression before and after the upshift for each mutant,
+we regressed the post-upshift mean expression against the pre-upshift 
+mean expression for each genotype (\autoref{fig:prePredictPost}). 
+\afig{
+  \includegraphics[width=.8\textwidth]{img/Figure4_S_PreShiftPredictingPostShiftLM.png}
+  }{
+    The relationship between the estimated mean before the upshift and after the
+    upshift. Scatter plot of the estimated means, with marginal histograms along
+    top and right. Red vertical line on top histogram is a cut-off of
+    \textit{GAP1} mRNA induction for this analysis,
+    and is the mean of the fit to wild-type minus the standard deviation of that
+    distribution. The red linear regression line is fit to all points above this
+    threshold, in which expression was detected before the upshift.
+    \label{fig:prePredictPost}
+  }{The relationship between the estimated mean before the 
+    shift and after the upshift.}
+We used the residuals for each
+strain to identify mutants that clear \textit{GAP1} mRNA with kinetics slower
+than expected by this model.
+We found that the Lsm1-7p/Pat1p complex is again strongly 
+enriched for slower than
+expected \textit{GAP1} mRNA clearance (\autoref{itm:dme209pooledFits}). 
+Specifically
+the \textit{lsm1}$\Delta$, \textit{lsm6}$\Delta$, and 
+\textit{pat1}$\Delta$ strains are highly elevated in \textit{GAP1}
+expression before the upshift and strongly impaired in the 
+repression of \textit{GAP1} mRNA after the upshift
+(\autoref{fig:figure5a}). 
 
 \afig{
   \includegraphics[width=\linewidth]{img/Figure5a.png}
   }{
-    \textbf{a)} In the background is the distribution of 
+    In the background is the distribution of 
     fit \textit{GAP1} mRNA mean expression levels for all mutants
     in the pool. Indicated by colored points and lines are the means for
     individual knockout strains, as labeled.
   \label{fig:figure5a}
   }{Disrupting the Lsm1-7p/Pat1p complex impairs
     clearance of \textit{GAP1} mRNA.}
+
+\subsection{Testing the roles of decapping modulators and associated
+components}
 
 As these factors are associated with processing-body dynamics, 
 we tested if microscopically-observable processing-bodies form or
@@ -1655,12 +1472,13 @@ result from their roles in decapping or associated processes.
   \includegraphics[width=\textwidth]{img/Figure5_S_pbodyMicroscopy.png}
   }{
   A strain harboring a copy of Dcp2p-GFP expressed from a plasmid
-  was 
-  grown in conditions of exponential phase in YPD or 10 minutes of
-  starvation in water (first row). This is a common condition known to
-  result in the formation of processing-body foci of Dcp2-GFP.
-  We do not see either formation or dissolution of Dcp2-GFP foci during
-  the nitrogen upshift.
+  was grown in conditions of exponential phase in YPD or 10 minutes of
+  starvation in water (first row). Starvation in water is a common 
+  condition known to result in the strong formation of processing-body 
+  foci of Dcp2-GFP, and is thus a positive control.
+  The bottom row shows microscopy during the upshift.
+  We do not see either formation or dissolution of Dcp2-GFP foci 
+  resembling p-bodies during the nitrogen upshift.
   \label{fig:pbodyScope}
   }{Processing-body dynamics are not associated with the
     nitrogen upshift, by Dcp2p-GFP microscopy.}
@@ -1669,24 +1487,24 @@ To confirm the role of the Lsm1-7p/Pat1p  complex in clearing \textit{GAP1}
 mRNA during the nitrogen upshift we measured \textit{GAP1} mRNA
 repression using qPCR normalized to
 \textit{HTA1}, which is not subject to destabilization upon the upshift
-(\autoref{fig:figure2}a). We also tested mutants that were not detected using BFF,
+(\autoref{fig:figure2a}). We also tested mutants that were not detected using BFF,
 or were only detected in the highest \textit{GAP1} bin and therefore
 not suitable for modeling
 (e.g. \textit{xrn1}$\Delta$ \autoref{fig:tco89}). 
-Using this assay we found that the main 5’-3’ 
+Using this assay we found that the main 5'-3' 
 exonuclease \textit{xrn1}$\Delta$ 
 and mRNA deadenylase complex (\textit{ccr4}$\Delta$ and
 \textit{pop2}$\Delta$) are impaired in \textit{GAP1} repression 
-(\autoref{fig:figure5b}).
+(\autoref{fig:figure5qpcr}).
 We found that qPCR confirms results from BFF.
 We confirmed that the accelerated degradation of \textit{GAP1} mRNA is impaired
 in \textit{lsm1}$\Delta$ and \textit{lsm6}$\Delta$ 
-(\autoref{fig:figure5c}). 
+(\autoref{fig:figure5qpcr}). 
 We also tested
 \textit{scd6}$\Delta$ and \textit{edc3}$\Delta$, two modifiers of the
 decapping or processing-body
 assembly functions associated with this complex, and found two
-distinct phenotypes (\autoref{fig:figure5d}). \textit{edc3}$\Delta$ has similar expression 
+distinct phenotypes (\autoref{fig:figure5qpcr}). \textit{edc3}$\Delta$ has similar expression 
 as wild-type before the upshift, but is cleared much more slowly.
 \textit{scd6}$\Delta$ has a greatly reduced \textit{GAP1} expression
 before the upshift but is impaired in \textit{GAP1} clearance. 
@@ -1696,79 +1514,58 @@ has a similar phenotype.
 
 \afig{
   \includegraphics[width=.49\textwidth]{img/Figure5b.png}
+  \hfill
   \includegraphics[width=.49\textwidth]{img/Figure5c.png}
+  \includegraphics[width=.49\textwidth]{img/Figure5d.png}
+  \hfill
+  \includegraphics[width=.49\textwidth]{img/Figure5_S_bothutr.png}
   }{
-    \textbf{b-e)}, \textit{GAP1} mRNA relative to
-    \textit{HTA1} mRNA before and 10 minutes after a glutamine upshift, 
-    in biological triplicates. Lines are a log-linear regression fit. 
-    Points are dodged horizontally for clarity, but timepoints for
-    modeling and for drawn lines are 0 and 10 minutes exactly.
-    Wild-type is FY4.
-    \textbf{b)} \textit{xrn1}$\Delta$, \textit{ccr4}$\Delta$,
-    \textit{pop2}$\Delta$ are all slowed in clearance (p-values < 0.004).
-    \textbf{b-e)}, \textit{GAP1} mRNA relative to
-    \textit{HTA1} mRNA before and 10 minutes after a glutamine upshift, 
-    in biological triplicates. Lines are a log-linear regression fit. 
-    Points are dodged horizontally for clarity, but timepoints for
-    modeling and for drawn lines are 0 and 10 minutes exactly.
-    Wild-type is FY4.
-    \textbf{c)} \textit{lsm1}$\Delta$ and \textit{lsm6}$\Delta$ are 
-    slowed in clearance (p-values < 0.0132 and 0.0299, respectively).
-    \label{fig:figure5bc}
-  }{Disrupting core pathways of mRNA degradation impairs the
-    clearance of \textit{GAP1} mRNA, by qPCR}
-
-\afig{
-  \includegraphics[width=.4\textwidth]{img/Figure5d.png}
-  \includegraphics[width=.4\textwidth]{img/Figure5_S_bothutr.png}
-  }{
-    \textbf{b-e)}, \textit{GAP1} mRNA relative to
-    \textit{HTA1} mRNA before and 10 minutes after a glutamine upshift, 
-    in biological triplicates. Lines are a log-linear regression fit. 
-    Points are dodged horizontally for clarity, but timepoints for
-    modeling and for drawn lines are 0 and 10 minutes exactly.
-    Wild-type is FY4.
-    Points are dodged horizontally for clarity, but timepoints for
-    modeling and for drawn lines are 0 and 10 minutes exactly.
-    Wild-type is FY4.
-    \textbf{d)} \textit{edc3}$\Delta$ is slowed in clearance 
-    (p-value < $10^{-4}$).
-    \textit{scd6}$\Delta$ and \textit{tif4632}$\Delta$ are slowed in
-    clearance (p-values < $10^{-5}$) and have lower levels of expression
+    Points are the ratio of \textit{GAP1} mRNA to \textit{HTA1} mRNA 
+    before and 10 minutes after a glutamine upshift, in biological 
+    triplicates. Lines are a log-linear regression fit. 
+    Points are dodged horizontally for clarity, but this is not used
+    for modeling. Wild-type is FY4.
+    \textbf{(Top Left)} \textit{xrn1}$\Delta$, \textit{ccr4}$\Delta$,
+    \textit{pop2}$\Delta$ are all slowed in clearance 
+    (p-values < 0.004).
+    \textbf{(Top Right)} \textit{lsm1}$\Delta$ and \textit{lsm6}$\Delta$ 
+    are slowed in clearance (p-values < 0.0132 and 0.0299, 
+    respectively).
+    \textbf{(To Left)} \textit{edc3}$\Delta$ is slowed in clearance 
+    (p-value < $10^{-4}$). \textit{scd6}$\Delta$ and 
+    \textit{tif4632}$\Delta$ are slowed in clearance 
+    (p-values < $10^{-5}$) and have lower levels of expression
     before the upshift (p-values < 0.003).
-    \textbf{e)} A deletion of 150bp 3' of \textit{GAP1} stop codon has
-    no significant effect, but a deletion of 100bp 5' of the start
-    codon has slower clearance 
-    (p-value < $10^{-4}$) and lower level of expression before the upshift
-    (p-value < 0.0015).
+    \textbf{(Top Right)} A deletion of 150bp 3' of \textit{GAP1} stop 
+    codon has no significant effect, but a deletion of 100bp 5' of 
+    the start codon has slower clearance (p-value < $10^{-4}$) and 
+    lower level of expression before the upshift (p-value < 0.0015).
     During strain construction, a deletion of 152bp 5' of the start
-    codon was also generated. We tested \textit{GAP1} dynamics in this
-    strain as well, and found that it shares the same phenotype as a
-    100bp deletion. Methods are the same as in \autoref{fig:figure5e},
-    both 5' deletes are slowed in clearance, ANCOVA p < 0.05 .
-    \label{fig:figure5de}
-  }{Disrupting modulators of decapping activity have defects in
-    \textit{GAP1} mRNA regulation, by qPCR}
-
-
+    codon was also generated, and see a similar phenotype with this
+    strain ( p-value < $10^{-5}$ clearance defect, 
+    p-value < $0.0061$ ).
+    \label{fig:figure5qpcr}
+  }{Disrupting core pathways of mRNA degradation, decapping
+    modulators, or the 5' UTR impairs the clearance of \textit{GAP1} 
+    mRNA, by qPCR}
 
 Identification of an initiation factor subunit with defects in
 \textit{GAP1} mRNA clearance suggests that translation control may
-impact stability changes. Therefore we deleted the 5' UTR
-and 3' UTR of \textit{GAP1}. 
-%100bp and 152bp upstream of the start codon (approximate 5’ UTR) or the
-%100bp downstream of the stop codon (approximate 3’ UTR), 
-Whereas the 3’ UTR deletion does not have an effect the 5’ UTR deletion
+impact stability changes. Therefore we deleted sequence of 
+the 5' UTR and 3' UTR of \textit{GAP1}, specifically 100bp and 152bp 
+upstream of the start codon (approximate 5' UTR) or the
+100bp downstream of the stop codon (approximate 3' UTR), 
+Whereas the 3' UTR deletion does not have an effect the 5' UTR deletion
 exhibit the phenotype of reduced \textit{GAP1} mRNA before the upshift
 and a reduced rate of transcript clearance following the upshift
-(\autoref{fig:figure5e}). 
+(\autoref{fig:figure5qpcr}). 
 We observed a similar phenotype with a different deletion of 152bp upstream
-of the \textit{GAP1} start codon (\autoref{fig:bothutr}). 
+of the \textit{GAP1} start codon (\autoref{fig:figure5qcpr}). 
 %These measurements suggest altered mRNP composition of the
 %Lsm1-7p/Pat1p complex and associated decapping factors are associated
 %with defects in \textit{GAP1} mRNA expression dynamics upon a 
 %nitrogen upshift. Importantly the phenotype of the \textit{scd6}$\Delta$, 
-%\textit{tif4632}$\Delta$, or 5’ sequence deletions preceed the 
+%\textit{tif4632}$\Delta$, or 5' sequence deletions preceed the 
 %addition of glutamine, suggesting that the observed destabilization
 %of \textit{GAP1} may be the halt of a stabilization effect, perhaps
 %due to changes in translational status of \textit{GAP1}.
@@ -1797,53 +1594,35 @@ within the data zip archive (\autoref{codeanddata}).
 
 Each strain was grown from single colonies.
 Samples were collected before, during the first ten minutes of
-the nitrogen upshift (\autoref{fig:figure3}),
+the nitrogen upshift (\autoref{fig:figure3a}),
 or at ten minutes after the upshift (\autoref{fig:figure3}).
 For the experiments described in
-\autoref{fig:figure5b,fig:figure5c,fig:figure5d,fig:figure5e}, all work
+\autoref{fig:figure5qpcr}, all work
 was done in biological replicates.
-Each 10mL sample was collected by vacuum onto a 25mm nylon filter
-and frozen in an eppendorf in liquid nitrogen.
-RNA was extracted by adding 400$\mu$L of TES buffer
-(10mM Tris (7.5pH), 10mM EDTA, 0.5\% SDS)
-and 400$\mu$L of acid-phenol, vortexing vigorously and incubating at 
-65$^{\circ}$C for an hour with vortexing every 20 minutes. 
-For \autoref{fig:figure3} only, at the beginning of this extraction incubation
-we added 10$\mu$L of a 0.1ng/$\mu$L in-vitro synthesized spike-in 
-mRNA BAC1200 (as generated
-for the label-chase RNAseq (\autoref{section:writeup2}), 
+Each 10mL sample was collected by vacuum filtration, and RNA extracted
+using the hot-acid phenol technique .
+For \autoref{fig:figure3a} only, at the beginning of this extraction 
+incubation I added 10$\mu$L of a 0.1ng/$\mu$L in-vitro synthesized 
+spike-in mRNA BAC1200 (as generated
+for the label-chase RNAseq (\autoref{subsubsection:spikeins},
 but without 4-thiouridine). 
-All samples were separated by centrifugation and extracted again 
-with chloroform on a 2mL phase-lock gel tube (5Prime \#2302830). 
-After ethanol precipitation of the aqueous layer, 
-RNA was treated DNAse RQ1 (Promega M610A) according to manufacturer
-instructions, then the reaction heat-killed at 65$^{\circ}$C for 
-10 minutes after adding a mix of 1:1 0.5M EDTA and RQ1 stop-solution.
-The resulting RNA was
-cleaned with a phenol-chloroform extraction and ethanol 
-precipitated.
-All samples were hybridized with RT primers by incubating the mixture at 80$^{\circ}$ for 
-5 minutes then on ice for 5 minutes.
-For \autoref{fig:figure3} 2$\mu$g RNA was primed with 2.08ng/$\mu$L
-random hexamers (Invitrogen 51709) and 
-2.5mM total dNTPs (Promega U1511),
-while for \autoref{fig:figure5} 1$\mu$g RNA was primed with 
-5.6mM Oligo(dT)18 primers (Fermentas FERSO132) and
-0.56mM total dNTPs (Promega U1511).
-These mixtures were combined with 1/10th 10x M-MulvRT buffer (NEB M0253L), 
-1/20th volume RNAse-OUT (Invitrogen 51535), and 1/20th volume M-MulvRT (NEB M0253L). 
-A negative control with no reverse-transcriptase enzyme was also prepared
-and analyzed in the qPCR reaction.
-The reaction proceeded for 1 hour at 42$^{\circ}$C, 
-then was heat-killed at 90$^{\circ}$C
-before diluting 1/8 with hyclone water (GE SH30538). 
-This dilution was used as direct
-template in 10$\mu$L reactions with SybrGreen I Roche qPCR master-mix
-(Roche 04 707 516 001) for measurement on a Roche Lightcycler 480. 
-For \autoref{fig:figure3}, we used primers 
+RNA was treated DNAse RQ1 (Promega) according to manufacturer
+instructions, cleaned and precipitated.
+All samples were reverse transcribed. 
+For \autoref{fig:figure3a} 2$\mu$g RNA was primed with 2.08ng/$\mu$L
+random hexamers (Invitrogen) and 2.5mM total dNTPs (Promega),
+while for \autoref{fig:figure5qpcr} 1$\mu$g RNA was primed with 
+5.6mM Oligo(dT)18 primers (Fermentas) and
+0.56mM total dNTPs (Promega).
+These mixtures were reverse transcribed with M-MulvRT (NEB) according
+to manufacturer's instructions, then diluted 1/8 with hyclone water 
+and used as direct template in 10$\mu$L reactions with SybrGreen I 
+Roche qPCR master-mix (Roche). These were measured
+on a Roche Lightcycler 480. 
+For \autoref{fig:figure3a}, I used primers 
 DGO230,DGO232 to quantify \textit{GAP1} and 
 DGO605,DGO606 to quantify the synthetic spike-in BAC1200.
-For \autoref{fig:figure5}, we used primers
+For \autoref{fig:figure5qpcr}, Nathan Brandt used primers
 DGO229, DGO231 to quantify \textit{GAP1} and
 DGO233, DGO236 to quantify \textit{HTA1}.  
 See \autoref{tab:primerTable} for sequence.
@@ -1856,31 +1635,29 @@ Linear regression of the log-transformed values was used to quantify
 the dynamics and assess significance of changes in expression
 levels or rates of change.
 
-\subsection{Microscopy of Dcp2-GFP}
+\subsubsection{Microscopy of Dcp2-GFP}
 
 To look for processing-body dynamics in response to
-a nitrogen upshift, we used strain DGY525, which is FY3
+a nitrogen upshift, I used strain DGY525, which is FY3
 containing plasmid pRP1315 (gift from Roy Parker).
-Samples were collected before and following a nitrogen upshift,
-from exponential growth in YPD, or 10 minutes after resuspending
-YPD-grown cells in DI water.
-All samples were collected by centrifugation at 10,000g for 30 seconds, 
+Samples were collected before and following a nitrogen upshift
+(4, 10, 12, 19, or 25 minutes later),
+from exponential growth in YPD, 
+or 10 minutes after resuspending YPD-grown cells in DI water.
+All samples were collected by brief centrifugation (1 minute)
+then resuspension in PBS buffered 4\% PFA for 
 aspirating most supernatant, then centrifugation for 20 seconds
 and aspirating all media. Each pellet was 
 immediately resuspended in 4\% PFA 
 (diluted from EMS 16\% PFA ampule RT15710) 
-with 1x PBS ( NaCl 8g/L, KCl 0.2g/L, Na$_2$HPO$_4$ 1.42g/L, 
-KH$_2$PO$_4$ 0.24g/L) for 4, 10, 12, 19, or 25
-minutes on bench, then spun at 10,000g for 1 minute, aspirated, 
+with 1x PBS for 15 minutes on bench, 
+then spun at 10,000g for 1 minute, aspirated, 
 then washed once and resuspended with 1x PBS. 
 Samples were kept on ice, then put onto a coverslip
 for imaging on a DeltaVision scope. Raw images available in the
 microscopy zip archive (\autoref{codeanddata}).
 
-\subsection{Methods, materials, and motivation for Barseq after 
-FACS after FISH experiment and its design}
-
-\label{subsection:bff}
+\subsection{Methods and materials of Barseq after FACS after FISH experiment}
 
 \subsubsection{Culturing and sampling}
 
@@ -1890,20 +1667,16 @@ approximately 78 million cells added to 500mL of NLimPro media
 in a 1L baffled flask. This was shaken at 30$^{\circ}$C overnight, 
 then split into three flasks (A, B, and C). 
 After three hours (at mid-exponential)
-we collected samples of 30mL culture filtered onto a 25mm filter and
-flash-frozen in an eppendorf in liquid nitrogen. 
-For the samples reported in this paper, the
-post-upshift time of freeze-fixation was at 10 minutes and 38 seconds
-for replicate A, 10 minutes and 12 seconds for replicate B, and 10
-minutes and 17 seconds for replicate C. All samples (filters in
-eppendorfs) were stored at -80\(^{\circ}\)C until processing.
+we collected samples of 30mL culture by filtration and flash-freezing.
+The collection times for each
+sample were A: 10 minutes and 38 seconds, B: 10 minutes and 12 seconds
+C: 10 minutes and 17 seconds.
 
 \subsubsection{Fixation and permeabilization}
 
 Frozen samples of the pool were fixed with formaldehyde
-(4\% PFA diluted in PBS from 10mL aliquot, 
-buffered, 2 hours room-temperature) and digested
-with lyticase (in BufferB with VRC 37$^{\circ}$ 1 hour).
+(4\% PFA diluted in PBS, 2 hours room-temperature) and digested
+with lyticase (in BufferB with VRC 37C 1 hour).
 Microscopy monitoring of the reaction showed the classic
 greying of the cells under phase contrast microscopy to a dark grey, 
 but did not digest to ghosts and fragments. 
@@ -1914,9 +1687,9 @@ take place resulted in smaller fixed cells that were less accessible
 to the FISH hybridization.
 After washing three times with Buffer B (from Pringle's
 immunofluoresence method) these were permeabilized with ethanol at
-4$^{\circ}$ overnight.
+4C overnight.
 
-\subsubsection{Hybridization}\label{hybridization}
+\subsubsection{Hybridization}
 
 The samples were processed with a Quantigene Flow RNA kit purchased in
 March of 2015 (product code 15710), and designed for GAP1 mRNA in
@@ -1951,7 +1724,7 @@ These were sorted using PBS sheath fluid at room-temperature, into
 poly-propylene FACS tubes, then stored at -20$^{\circ}$C.
 
 Note that we later in analysis add a fixed number to all observations
-and gates in linear space in order to get into positive values.
+and gates in linear scale in order to get into positive values.
 
 \subsubsection{Cell collection and DNA extraction}
 
@@ -1971,7 +1744,60 @@ trying to obtain genomic DNA.
 gDNA was amplified in technical triplicates in a heavily modified 
 BarSeq protocol
 
-\paragraph{Motivation}
+A master mix of buffer, BSA, dNTPs, MgSO$_4$, and Vent (exo-)
+polymerase (NEB) is made containing three oligos DGO1562, DGO1588, 
+and DGO1589.
+This is combined with about 1/3rd of the genomic DNA extracted
+from the sample, and the reaction is loaded into individual PCR
+tubes (the optimization was in individual PCR tubes and 96 well 
+plates did not work, likely due to particularities of the sealing
+mechanism).
+30 reactions were run in each batch of preparation. All 30 reactions
+were put into a BioRad T100 thermocycler set for a 30\(\mu\)L
+reaction.
+
+This was cycled through 4 minutes at 95C to denature, then a single
+annealing and extension step. This was then cooled to 37C and
+immediately ExoI (Thermo) was added and incubated (with periodic
+mixing) for twenty minutes. This exonuclease proceeds from
+un-annealed 3' ends. 
+
+
+The exonuclease was then inactivated with a 80C incubation, 5 minutes,
+then DGO1576, DGO1567, and DGO1519 were added in a master mix
+containing glycerol to bring the whole reaction to about 5\% glycerol
+content. This became essential for keeping the forward primer
+effective at lower primer concentrations, presumably due to the
+computationally predicted hairpin in the 3' end.
+
+This reaction was cycled 40 times to anneal and extend the product.
+I do not expect all the cycles to be productive. 
+Rather, the lower concentrations used
+(10nM forward DGO1567) limit the product generation.
+
+To this generated intermediate product, I then added more primers,
+more buffer, and indexed forward primers. These incorporate a 5bp
+sample index. This is of insufficient complexity for error-correction
+bioinformatically, but should be sufficient to demultiplex most
+samples. This was cycled 12 times to extend the product.
+
+All reactions were then frozen, then thawed on ice and pooled into
+four pools. These were purified, then one last reaction used the
+same polymerase to do three rounds of extension to add on the final
+Illumina P5 adapter onto the molecule. This was resolved on a 3\%
+agarose gel, then the only visible bands were purified, quantified
+using qPCR, and submitted for sequencing on an Illumina NextSeq.
+
+Based on previous runs, the Genomics Core spiked-in 5\% PhiX onto
+the run, to help maintain diversity. However, during the run there was
+a massive failure in Illumina software to discern clusters given
+low base-diversity.  This run only yielded approximately 127 million
+reads (out of 400 million listed yield). Thus, 5\% PhiX is too low,
+and I would recommend trying $\sim$25\% in future runs. 
+
+\subsection{Design and analysis of Barseq after FACS after FISH experiment}
+
+\label{subsection:bff}
 
 First, we motivate this development, as it departs from previous procedures
 in a few ways.  
@@ -1982,23 +1808,15 @@ that shows dimer formation in the sample lanes (on right). In the right
 five samples, there's a balance of the expected product (top bands) and
 the dimer (lower bands).
 
-\vspace{2em}
+\vspace{3em}
 
-\begin{figure}[h!]
-  \centering
+\afig{
   \includegraphics[width=.5\textwidth]{img/exampleDimers.png}
-  \caption{This is a 3\% TAE agarose gel, stained with Sybr Safe dye.
-    The left-most lane is a NEB 100bp ladder, with the bottom 
-    two bands as 100bp and 200bp. The red is due to overexposure.
-    The right five bands are from samples prepared with an earlier
-    version of this protocol. The band approximately 190bp is
-    throught to be the library product, and the band approximately
-    160bp is thought to be the inhibitory and unwanted 
-    barcode-less dimer. Lane 3 clearly shows both bands, while lane
-    6 is all dimer.}
+  }{
 \begin{tikzpicture}[overlay
     ,font=\small,%font=\ttfamily
     ,inner sep=0pt,outer sep=0pt
+    ,shift={(0.7,-3)}]
     ]
   \node[align=left] at (-5.8,5) (ladder200) {200bp};
   \node[align=left,below=0.6cm of ladder200] (ladder100) {100bp};
@@ -2015,8 +1833,17 @@ the dimer (lower bands).
   \node[align=left,anchor=south] at (2.1,5.6) {Lane 5};
   \node[align=left,anchor=south] at (3.4,5.6) {Lane 6};
 \end{tikzpicture}
+    This is a 3\% TAE agarose gel, stained with Sybr Safe dye.
+    The left-most lane is a NEB 100bp ladder, with the bottom 
+    two bands as 100bp and 200bp. The red is due to overexposure.
+    The right five bands are from samples prepared with an earlier
+    version of this protocol. The band approximately 190bp is
+    throught to be the library product, and the band approximately
+    160bp is thought to be the inhibitory and unwanted 
+    barcode-less dimer. Lane 3 clearly shows both bands, while lane
+    6 is all dimer.
   \label{fig:dimer}
-\end{figure}
+  }{An example of a dimer.}
 
 Below a critical threshold, this dimer greatly out-competes the desired
 product and can result in a loss of amplicon before the amplicon is
@@ -2036,13 +1863,36 @@ degenerate sequence spaced with fixed bases, in the design of
 \texttt{NCNCNCNTNCN} because we estimated this would best block
 annealing to any 3' ends of the primers used. In future work, we would
 strongly recommend using more degenerate bases for such a low-complexity
-library \parencite{fu2011count}. In order to digest the
+library \parencite{fu2011counting}. 
+
+In order to digest the
 excess un-incorporated UMI primers it requires the addition of a
 exonuclease. ExoI is characterized to be maximally effective at
 37\(^{\circ}\)C, and although it can have activity at 42\(^{\circ}\)C
 for a some time \parencite{fei2015structural} it
 will be inactivated. This low temperature requirement likely exacerbates
 dimer and off-target product formation.
+The common, but incorrect, one-UMI-one-molecule assumption is based on
+the belief that each UMI and each genomic template is used once in the
+first round. The exonuclease step must therefore digest all
+un-extended UMI-containing primers for this to be true. One control
+for this is to monitor the primer concentrations using a technology
+like HPLC to measure abundance, but a small number is, again, not
+necessarily negligable. The proper control is to not use the
+polymerase to extend the first round, and instead immediately digest
+the UMI-containing primers. This is a crucial control, and on the
+basis of experiments I did using this setup using dilutions of
+template, I estimate that the effect of the exonuclease, in the 
+absence of the first round of extension, reduced product formation 
+by about 20 fold. However, it was not absent. Thus, I suspect that 
+the exonuclease digestion only ensures that $\approx$20/21 UMIs are
+from the first round of incorporation. While small, this is not
+negigable, especially in conditions where template number changes
+dramatically (as here it does not, given similar inputs to extractions).
+Optimization of this step did not improve upon this efficacy, and in
+the lack of commercially available thermostable (and active) 
+exonucleases \parencite{fei2015structural}, this background noise 
+must be accepted and understood.
 
 To address this, we optimized the reactions on a dilution series of gDNA
 from a different experiment with the same knockout library. By balancing
@@ -2083,12 +1933,16 @@ and small product size, we do not expect formation of chimeras on the
 flow cell \footnote{http://dnatech.genomecenter.ucdavis.edu/2017/04/11/update-on-barcode-mis-assignment-issue/}.
 
 \autoref{fig:cartoon} shows a cartoon of
-the amplicon library-making procedure:
+the amplicon library-making procedure, up to the generation of the
+product before the Illumina P5 addition \autoref{fig:amplicon}. 
+Given the simplicity of this
+last reaction (simply adding sequence on the 5' end), it is omitted.
 
 \afig{
-  \includegraphics[height=9in]{img/sobaseqPCRschematic-1.png}
+  \vspace{-4em}
+  \includegraphics[height=10.0in]{img/sobaseqPCRschematic-1.png}
+  \vspace{-7em}
   }{
-  A cartoon diagram of the concepts used.
   \label{fig:cartoon}
   }{A schematic of the barcode sequencing strategy.}
 
@@ -2098,75 +1952,13 @@ the amplicon library-making procedure:
 %  \end{minipage}
 %  \includepdf[pages={2},scale=0.8]{img/sobaseqPCRschematic.pdf}
 
-\paragraph{In practice}
 
-A master mix of buffer, BSA, dNTPs, MgSO$_4$, and Vent (exo-)
-polymerase (NEB) is made containing three oligos DGO1562, DGO1588, 
-and DGO1589.
-This is combined with about 1/3rd of the genomic DNA extracted
-from the sample, and the reaction is loaded into individual PCR
-tubes (the optimization was in individual PCR tubes and 96 well 
-plates did not work, likely due to particularities of the sealing
-mechanism).
-30 reactions were run in each batch of preparation. All 30 reactions
-were put into a BioRad T100 thermocycler set for a 30\(\mu\)L
-reaction.
-
-This was cycled through 4 minutes at 95C to denature, then a single
-annealing and extension step. This was then cooled to 37C and
-immediately ExoI (Thermo) was added and incubated (with periodic
-mixing) for twenty minutes. This exonuclease proceeds from
-un-annealed 3' ends. 
-
-The common, but incorrect, one-UMI-one-molecule assumption is based on
-the belief that each UMI and each genomic template is used once in the
-first round. The exonuclease step must therefore digest all
-un-extended UMI-containing primers for this to be true. One control
-for this is to monitor the primer concentrations using a technology
-like HPLC to measure abundance, but a small number is, again, not
-necessarily negligable. The proper control is to not use the
-polymerase to extend the first round, and instead immediately digest
-the UMI-containing primers. This is a crucial control, and on the
-basis of experiments I did using this setup using dilutions of
-template, I estimate that the effect of the exonuclease, in the 
-absence of the first round of extension, reduced product formation 
-by about 20 fold. However, it was not absent. Thus, I suspect that 
-the exonuclease digestion only ensures that $\approx$20/21 UMIs are
-from the first round of incorporation. While small, this is not
-negigable, especially in conditions where template number changes
-dramatically (as here it does not, given similar inputs to extractions).
-Optimization of this step did not improve upon this efficacy, and in
-the lack of commercially available thermostable (and active) 
-exonucleases \parencite{fei2015structural}, this background noise 
-must be accepted and understood.
-
-The exonuclease was then inactivated with a 80C incubation, 5 minutes,
-then DGO1576, DGO1567, and DGO1519 were added in a master mix
-containing glycerol to bring the whole reaction to about 5\% glycerol
-content. This became essential for keeping the forward primer
-effective at lower primer concentrations, presumably due to the
-computationally predicted hairpin in the 3' end.
-
-This reaction was cycled 40 times to anneal and extend the product.
-This may seem like a very high number of cycles, but I do not expect
-all the cycles to be productive. Rather, the lower concentrations used
-(10nM forward DGO1567) limit the product generation.
-
-To this generated intermediate product, I then added more primers,
-more buffer, and indexed forward primers. These incorporate a 5bp
-sample index. This is of insufficient complexity for error-correction
-bioinformatically, but should be sufficient to demultiplex most
-samples. This was cycled 12 times to extend the product.
-
-We expect the libraries at this stage to be these sequences:
-
-\begin{figure}[h!]
-  \caption{}
-\vspace{4em}
+\afig{
 \begin{tikzpicture}[overlay
     ,font=\small,font=\ttfamily
     ,inner sep=0pt,outer sep=0pt
-    ,scale=0.7, every node/.style={scale=0.7}
+    ,scale=0.8, every node/.style={scale=0.7}
+    ,shift={(-9.25,-3)}
     ]
   \node[fill=orange!50,align=left,anchor=west] at (-1,0) (1) 
     {\scriptsize ACGCTCTTCCGATCT};
@@ -2203,7 +1995,10 @@ We expect the libraries at this stage to be these sequences:
   \draw[->] (7l) -- (7);
   \draw[->] (8l) -- (8);
 \end{tikzpicture}
-\end{figure}
+\\\vspace{9em}
+  }{
+  \label{fig:amplicon}
+  }{The expected amplicon, before adding P5 sequences at the 5' end.}
 
 These were checked with sanger sequencing, for pools 1 and 3, using
 primers DGO 276 or DGO 1519, with Genewiz sequencing. Representative
@@ -2212,12 +2007,10 @@ Sanger sequencing image of library pool 1, sequenced forward (with DGO
 
 Trace colors: red is T, green is A, blue is C, black is G.
 
-\begin{figure}[h!]
-  \caption{}
+\afig{
 \includegraphics[trim={0cm 1.6cm 0cm 3cm},clip,width=\textwidth]
   {img/represtativeSangerImage.png}
-
-\begin{tikzpicture}[overlay]
+\begin{tikzpicture}[overlay,shift={(-8.25,0)}]
   \node[rotate=90,anchor=west] at (3,5) (sample) {5bp sample barcode};
   \draw[->] (sample) to (2.7,3.5);
   \draw[->] (sample) to (3.3,3.5);
@@ -2233,22 +2026,9 @@ Trace colors: red is T, green is A, blue is C, black is G.
   \draw[->,bend left=16] (umi) to (13.40,2.5);
   \draw[->,bend left=20] (umi) to (13.75,2.5);
 \end{tikzpicture}
-  \label{fig:sanger}
-\end{figure}
-
-All reactions were then frozen, then thawed on ice and pooled into
-four pools. These were purified, then one last reaction used the
-sample polymerase to do three rounds of extension to add on the final
-Illumina P5 adapter onto the molecule. This was resolved on a 3\%
-agarose gel, then the only visible bands were purified, quantified
-using qPCR, and submitted for sequencing on an Illumina NextSeq.
-
-Based on previous runs, the Genomics Core spiked-in 5\% PhiX onto
-the run, to help maintain diversity. However, during the run there was
-a massive failure in Illumina software to discern clusters given
-low base-diversity.  This run only yielded approximately 127 million
-reads (out of 400 million listed yield). Thus, 5\% PhiX is too low,
-and I would recommend trying $\sim$25\% in future runs. 
+  }{\label{fig:sanger}}
+  {Sanger sequencing of the produced library shows the expected
+  degenerate positions.}
 
 \subsubsection{Designing an analysis pipeline to filter dimers and 
 extract UMIs from indeterminate locations}
@@ -2286,7 +2066,7 @@ information along the pipeline to assist in debugging and benchmarking.
   length of 26bp, from the demultiplexed FASTQ files are aligned using
   \texttt{bwa\ mem} \parencite{li2013aligning}
   to the
-  expected barcodes as re-annotated by \cite{smith2009quantiative}.
+  expected barcodes as re-annotated by \cite{smith2009quantitative}.
   \item
   From the resulting \texttt{bam} alignment files, we extract the strain
   identification and UMI. Using the UMI-collision / label-saturation
@@ -2303,66 +2083,96 @@ against the barcode of \emph{ymr258c}\(\Delta\), a barcode re-annotated
 with striking similarity to the fixed priming sequence
 \cite{smith2009quantitative}.
 
-There are several different ways to use UMI information to estimate
+There are several different ways to use the UMI information to estimate
 unique input molecules from a sequencing assay. The naive approach is to
 assume that every combination of strain barcode with a certain UMI
 sequence in a sample is a unique event, and any repetitions of this are
-duplicates. Error-correcting algorithms 
-exist that use graph information to improve accuracy of this method, but
-these require that the space of all usable UMIs is sparse. Here, we only
-have \(4^6=4096\) possible UMIs for \(\sim4500\) possible strain
+only PCR duplicates. 
+The molecular biology caveats for this assumption are addressed 
+earlier.
+However, we only have \(4^6=4096\) possible UMIs for \(\sim4500\) 
+possible strain
 barcodes, with approximately a million reads per sample. Thus, due to a
 short length of UMI we cannot make this assumption, and instead are
 confronted with a space of UMIs with a fairly high chance of two
-UMI-strain combinations being generated by random chance alone. We refer
+UMI-strain combinations being generated by random chance alone. 
+
+We refer
 to this as a UMI-collision (similar concept to a hash collision) or the
-phenomenon of label saturation. The best solution for this appears to be
-the label saturation correction of \cite{fu2011counting}. This depends
+phenomenon of label saturation. 
+There are multiple ways to deal with this.
+The simplest is to simple take each unique UMI, but errors in library
+amplification could diversify spuriously duplicated UMIs.
+Error-correcting algorithms 
+exist that use graph information to improve accuracy of this method, but
+these require that the space of all usable UMIs is sparse. 
+Another solution is the label saturation correction of 
+\cite{fu2011counting}. This depends
 on treating the chance that any UMI-collisions are a random and rare
-event, thus modeled as a Poisson distribution. If we have 4096 possible
+event, thus modeled as a Poisson distribution, similar to the classic
+Luria-Delbruck method of mutation rate estimation. 
+If we have 4096 possible
 UMIs, and for one strain in one sample we observe \(x\) different UMIs
 associated, then we estimate that there were \(z\) different original
 molecules in the sample, where
 
+\label{subsubsection:rarefractionDiscussion}
+
 \[z=4096 (1-e^{-\frac{x}{4096}})\]
 
-Figure \ref{fig:umi} is another figure that explores this idea, and
-comes from the actual sequencing data from the experiment.
+Figure \ref{fig:umi} plots this function, and compares it to
+actual sequencing data from the experiment.
+I also attempted to use the error-correcting approach of UMI-tools
+\parencite{smith2017umi}, but found that the results of this
+tool did not conform to this expectation \autoref{fig:umi}. 
 
 \afig{
   \includegraphics[width=.49\textwidth]{img/Figure4_S_umiSaturationCurve.png}
   \includegraphics[width=.49\textwidth]{img/Figure4_S_totalInputReadsVsUMItoolsCounts.png}
   }{
-  For each sample, 
-    each combination of UMIs and strain barcodes was
-    collected. For each point, the y-axis denotes the unique UMIs
-    observed for that combination of strain and sample.
-    On the x-axis is the raw counts of observing that strain barcode
-    in that sample.
-    The line denotes the curve expected just from label saturation
-    with increased re-sampling of a limited pool as it approaches 4096. 
-    Right is UMI tools.
-    \label{fig:umi}
+  For each sample, each combination of UMIs and strain barcodes was
+  collected. For each point, the y-axis denotes the unique UMIs
+  observed for that combination of strain and sample.
+  On the x-axis is the raw counts of observing that strain barcode
+  in that sample, without error-correction
+  \textbf{(Left)} and with \texttt{umi-tools} error-correction
+  algorithim on the right \textbf{(Right)}.
+  The line denotes the curve expected just from label saturation
+  with increased re-sampling of a limited pool as it approaches 4096. 
+  \label{fig:umi}
   }{A comparison of the unique UMIs versus input UMIs for un-corrected
     and error-corrected UMIs.}
 
 We see that the actual observations (the points) follow a similar
 pattern as the expectation, saturation towards the higher end of counts.
-However, they are greatly depressed below this line. Therefore, we
-believe that this shows that both label saturation and PCR duplication
+However, they are greatly depressed below this line. As shown in
+\autoref{fig:umihistz}, we see that for some UMI-strain barcode
+combinations, we see much more counts per UMI label than expected by a
+Poisson distribution. 
+
+\afig{
+  \includegraphics[width=.8\textwidth]{img/umi_histograms.png}
+  }{
+  In black is the observed data, in red is the expected distribution
+  if Poisson.
+  We see that there is a long-tail of UMIs with more reads than 
+  observed for that combination of strain and sample.
+  \label{fig:umihistz}
+  }{Histograms of UMI observations associated with the YOR202W barcode
+    in three samples.}
+
+Both label saturation and PCR duplication
 are at play to distort the mapping between either raw counts or unique
 labels and the actual underlying estimate of input genome targets per
-strain in each sample.
-
-I attempted to use the error-correcting approach of UMI-tools
-\parencite{smith2017umi}, but found that the curve of input to 
-resulting labels was much shorter. Based on manual inspection of the
-distribution of members per label, for particular strain barcodes,
-it appears that UMI-tools scavenges the poisson distribution of
+strain in each sample
+It appears that UMI-tools scavenges the poisson distribution of
 "counts per UMI" into a small number of real clusters. This is not
-suprising given that we are using this tool in a labeling regime that
+surprising given that we are using this tool in a labeling regime that
 is wholy inappropriate for what it is trying to do. Thus, I do not use
-this tool an instead used the correction of \cite{fu2011counting}.
+this tool an instead used the more conservative 
+correction of \cite{fu2011counting}.
+An appropriately diverse UMI pool would allow a future user to make
+use of error-correcting algorithims in this method.
 
 \subsubsection{Benchmarking this pipeline}
 
@@ -2375,7 +2185,7 @@ python script \texttt{makingFakeReads.py} to generate several datasets
 with the following parameters:
 
 \begin{itemize}
-  \setlength\itemsep{1em}
+  \setlength\itemsep{0em}
   \item
   16 million reads per FASTQ, split amongst 32 samples
   \item
@@ -2411,40 +2221,54 @@ dangerous for misaligning and can cause large rank changes.
   \includegraphics[width=\textwidth]{img/fig4s_whole_sample_pearson.png}
   \includegraphics[width=\textwidth]{img/fig4s_whole_sample_spearman.png}
   }{
-    something
-    \label{fig:wholeSampleDme234}
+  Tool quantification was compared to the \textit{in silico} ground
+  truth using correlations of Pearson \textbf{(top)} or Spearman
+  \textbf{(bottom)}.
+  \label{fig:wholeSampleDme234}
   }{Optimization of mutant quantification methods, looking at
     simulated data on a whole-lane comparison.}
 
-How about UMI de-duplication methods?
-
+How does the UMI-collision correction perform?
 We see that on the whole, un-demultiplexed datasets (16 million reads
 across \textasciitilde{}4000 strains and 4096 possible UMIs) that the
-performance is best with the UMI-collision correction. We see that just
+performance is best with the UMI-collision correction 
+\autoref{fig:dedupSampleDme234whole}. We see that just
 using unique UMI counts in this regime leads to a good reconstruction of
 the rank order (Spearman), but inaccurate of the magnitude (Pearson)
 against ground truth.
-
-Does this change with lower read density? How does our demultiplexing
-do? Each point is one of 32 demultiplexed samples of three whole-library
-replicates.
+Does this change with lower read density? 
+Each point is one of 32 demultiplexed samples of three whole-library
+replicates, and we see that in this lower read regime, we get similar
+performance from both methods \autoref{fig:dedupSampleDme234per}.
+To avoid biases arising from differences in abundance between strains,
+I keep the UMI-collision correction.
 
 \afig{
   \includegraphics[width=\textwidth]{img/fig4s_whole_sample_dedup_pearson.png}
+  }{
+  On a whole-sample basis, the error of the "number unique" quantifier
+  of UMIs is evident, in this saturated regime.
+  \label{fig:dedupSampleDme234whole}
+  }{Optimization of mutant quantification methods, looking at
+    deduplicating methods on whole comparisons.}
+
+\afig{
   \includegraphics[width=\textwidth]{img/fig4s_demux_dedup_pearson.png}
   }{
-    something
-    \label{fig:dedupSampleDme234}
+  On a per-multiplexed-sample basis with less total counts, 
+  the error of the "number unique" quantifier
+  of UMIs is less evident.
+  \label{fig:dedupSampleDme234per}
   }{Optimization of mutant quantification methods, looking at
-    deduplicating methods on whole and per-sample comparisons.}
+    deduplicating methods on per-sample comparisons.}
 
 BarNone appears to be more robust to mutations, in that it maintains a
 flatter profile in the higher regimes of mutations. However,
 \texttt{bwa} starts out higher. Accounting for duplication, as generated
 by the exponential distribution described above, greatly improves
 performance. At an average coverage here of a half-million reads, the
-difference between the UMI-collision and unique counts is slighter.
-
+difference between the UMI-collision and unique counts is less that
+with large coverage.  
 In conclusion, our pipline for analysis is able to use an early
 filtration step (SLAPCHOP) to improve strain barcode
 identification and to extract UMIs that are useful for de-duplicating
@@ -2482,9 +2306,12 @@ of counts in that sample that are that mutant \(i\).
 \(\frac{ \sum_j \frac{c_{ijk}}{\sum_i c_{ijk}} }{J}\) is simply the
 average of the proportion of counts, across the PCR replicates.
 
-\(\sum_k u_{ik}\) is going to be pretty much the proportion of the
-original library that is the mutant. So then if we divide \(u_{ik}\) by
-this, then we'll have our estimate of the proportion of that mutant that
+Thus, \(u_{ik}\) is essentially the proportion of the
+original library that is the mutant in that bin, and 
+\(\sum_k u_{ik}\) is the total proportion of the library that is
+that mutant.
+So then if we divide \(\frac{u_{ik}}{\sum_k u_{ik}}\),
+we have an estimate of the proportion of that mutant that
 went into each bin, out of all the mutant that was in the experiment.
 
 Once we have this normalized pseudocounts metric within each biological
@@ -2496,7 +2323,7 @@ agreed on ranking of estimated means, but the likelihood was slightly
 higher for the log-normal fits on the whole library, so we used that
 model.
 
-From this model (fit using \texttt{mle()} in R), we used the estimated
+From this model (fit using \texttt{mle()} in R), we used the fit 
 mean as the estimate for the GAP1 abundance for that strain in that
 sample.
 
@@ -2626,20 +2453,20 @@ to the accelerated rate reported by \cite{tesniere2017relief}.
 %localization of mRNA \parencite{Khong2017}. 
 
 %Regulated changes in mRNA stability can be mediated by RBP binding the
-%3’ UTR of specific transcripts.  However, cis element analysis are
+%3' UTR of specific transcripts.  However, cis element analysis are
 %inconsistent with a role for known RBPs in the observed
 %destabilization. In particular, Puf3p motifs are de-enriched from the
-%destabilized set. We failed to detect new 3’ UTR sequence motifs that
+%destabilized set. We failed to detect new 3' UTR sequence motifs that
 %are enriched in destabilized transcripts, but these 
 Destabilized
 transcripts are enriched for a binding motif of Hrp1p in
-the 5’ UTR. This essential component of mRNA cleavage for
+the 5' UTR. This essential component of mRNA cleavage for
 poly-adenylation in the nucleus has been shown to shuttle to the
 cytoplasm and bind to amino-acid metabolism mRNAs
 \parencite{guisbert2005functional} and been shown to interact genetically to
 mediate nonsense-mediated decay (NMD) of a \textit{PGK1} mRNA harboring a
 premature stop-codon \parencite{gonzalez2000yeast} or a \textit{cis}-element spanning
-the 5’ UTR and first 92 coding bp of \textit{PPR1} mRNA
+the 5' UTR and first 92 coding bp of \textit{PPR1} mRNA
 \parencite{kebaara2003upf}.
 A potential role for these Hrp1p sites warrants further investigation. 
 
@@ -2648,12 +2475,12 @@ complex as having elevated \textit{GAP1} mRNA levels both before and after the
 upshift. This is expected given their central role in mRNA 
 metabolism, and experiments using \textit{GAP1} normalized to
 \textit{HTA1} demonstrate that the effect before the upshift is
-likely a global effect (\autoref{fig:figure5c}). 
+likely a global effect (\autoref{fig:figure5qpcr}). 
 However, these mutants still have a
 significant defect in clearance of \textit{GAP1},
 and the assay demonstrates that associated decapping factors 
 \textit{EDC} and \textit{SCD6} have specific effects
-(\autoref{fig:figure5d}).
+(\autoref{fig:figure5qpcr}).
 Given that the \textit{GAP1} mRNA is destabilized during this
 transition we suspect that these mRNA degradation factors are
 directly involved. 
@@ -2664,17 +2491,17 @@ found that \textit{scd6}$\Delta$,
 %expression during nitrogen limitation and reduced rate of \textit{GAP1} mRNA
 %clearance with a 
 \textit{tif4632}$\Delta$, and deletion of the 5' UTR
-of \textit{GAP1} impairs clearance (\autoref{fig:figure5e}). 
+of \textit{GAP1} impairs clearance (\autoref{fig:figure5qpcr}). 
 This deletion does not include the TATA box (ending at -179) or
 GATAA sites (nearest at -237) responsible for NCR GATA-factor
 regulation of \textit{GAP1} \parencite{stanbrough1996two}.
 This suggests that interactions of
-these factors with \textit{cis}-elements in the 5’ UTR might be responsible for
+these factors with \textit{cis}-elements in the 5' UTR might be responsible for
 stabilizing \textit{GAP1} mRNA during limitation, although the 
 truncation of the 5' sequence may be enough to inhibit translation 
 initiation by virtue of the shorter length
 \parencite{arribere2013roles}.
-Elements in the 5’ UTR have
+Elements in the 5' UTR have
 also been demonstrated to modulate \textit{GAL1} mRNA stability
 \parencite{baumgartner2011antagonistic} and destabilize \textit{SDH2} mRNA upon glucose
 addition, perhaps due to the competition between translation
@@ -2694,7 +2521,7 @@ suggests a mechanism of degradation through dynamic changes in
 translation initiation that triggers decapping of \textit{GAP1} 
 and other mRNA. 
 %However, the deletion of \textit{SCD6} would be
-%expected to promote translation of mRNA on the basis of it’s measured
+%expected to promote translation of mRNA on the basis of it's measured
 %repressive activity in cell extracts, suggesting that if Scd6p does play a role
 %that it may be specified by some condition-specific modulation of its
 %activity \parencite{Rajyaguru2012,Poornima2016}. 
@@ -2751,130 +2578,92 @@ post-transcriptional gene expression regulation.
 %of mRNA stability specification at steady-state, possibly in light of
 %the relationship between translation and stability of mRNAs. 
 
-
 \section{General methods and materials}
 
-These are methods applicable to both of the following sections.
+\subsubsection{Availability of data and analysis scripts}
 
-\subsection{Availability of data and analysis scripts}
+\label{codeanddata}
 
 Computer scripts used for all analyses are available as a git repository
-on GitHub
-(\texttt{\url{https://github.com/darachm/millerBrandtGresham2018}})
+on GitHub\\
+(\url{https://github.com/darachm/millerBrandtGresham2018})
 and data is available as zip archives on the Open Science
-Framework (\texttt{\url{https://osf.io/hn357/}}).
-Instructions for obtaining, unpacking, and using these are in
-\autoref{codeanddata}.
+Framework (\url{https://osf.io/7ybsh/}).
 
-  \label{shiny}
-  Visualizing data with a Shiny application
-  
-  A Shiny application is available to explore the two main 
-  datasets in this paper, at
-  \url{http://shiny.bio.nyu.edu/users/dhm267/}. It
-  is also included as a separate zipped archive for local
-  installation and long-term archiving. 
-  To use the Shiny applications from the zipped archive: 
-  
-  \begin{enumerate}
-  \item Download
-  \href{https://osf.io/ecyj9/}{\texttt{independent\_shiny\_archive.zip}}.
-  \item Unzip this archive.
-  \item Open \href{http://cran.r-project.org/}{R}.
-  \item Install the `shiny` and `tidyverse` packages by entering the command
-    \texttt{install.packages(c("shiny","tidyverse"))}
-  \item Enter the command: 
-    \texttt{shiny::runApp("shiny",port=5000)}
-    where "shiny" is the path to the unziped folder and "5000" is 
-    an arbitrarily selected port number.
-  \item Point your web browser at the URL \texttt{\url{127.0.0.1:5000}}
-      and follow the instructions. The application has two tabs,
-      one for the label-chase RNAseq and one for the BFF experiment.
-  \end{enumerate}
+To reproduce the entire analysis, or to access a particular 
+analysis, clone the git repo.  
+Download the `zip` data archives from the above
+OSF link, and put them inside this git repo folder 
+(here, `millerBrandtGresham2018`).
+At minimum, you should have the `data.zip` archive in that directory,
+although records of all R analyses are in `html\_reports.zip`
+and intermediate files are in `tmp.zip`.
+Consult the `README.md` file in the repository for more instructions
+and options, including to unzip intermediate files and HTML
+reports generated for every R script which detail the results.
 
-  \label{codeanddata}
-  Organization and availability of code and data
-  
-  \begin{flushleft}
-  The computer analysis code is available as a git
-  repository on Github: \break
-  \texttt{\url{https://github.com/darachm/millerBrandtGresham2018}} \break
-  The data are available as a set of `zip` format archives on OSF: \break
-  \texttt{\url{https://osf.io/7ybsh/}}
-  \end{flushleft}
-  
-  To reproduce the entire analysis, or to access a particular 
-  analysis, clone the git repo. For example, on a 
-  Linux/Unix/MacOSX system install `git` and run:
-  
-  \texttt{git clone https://github.com/darachm/millerBrandtGresham2018.git}
-  
-  \noindent and change into that directory.
-  Then, download the `zip` data archives from the above
-  OSF link, and put them inside this git repo folder 
-  (here, `millerBrandtGresham2018`).
-  At minimum, you should have the `data.zip` archive in that directory,
-  although records of all R analyses are in `html\_reports.zip`
-  and intermediate files are in `tmp.zip`.
-  
-  Consult the `README.md` file in the repository for more instructions
-  and options, including to unzip intermediate files and HTML
-  reports generated for every R script which detail the results.
+A Shiny application is also available to explore the two main 
+datasets in this paper more easily, at
+\url{http://shiny.bio.nyu.edu/users/dhm267/}. It
+is also included in the OSF as a separate zipped archive for local
+installation and long-term archiving. 
+To use the Shiny applications from the zipped archive, download,
+unzip the archive, and direct R to run the \texttt{runApp} command
+to use the directory as a Shiny app. It can thus be used as an
+interactive tool for visualization.
 
+\subsubsection{Supplementary tables}
 
-
-
-\subsection{Supplementary tables}
-
-These are available on the OSF PUT LINK.
+These are available on the Open Science Framework archive
+\url{https://osf.io/9ct3m/} .
 
 \begin{itemize}
-  \setlength\itemsep{1em}
+  \setlength\itemsep{0em}
   \item Gene set enrichment analysis of loadings on principal 
     components one and two.
-    \texttt{Figure1\_Table\_GSEofGOtermsAgainstPCcorrelation.csv}
+    \\\texttt{Figure1\_Table\_GSEofGOtermsAgainstPCcorrelation.csv}
     \label{microarrayPCAgsea}
   \item Raw counts of labeled mRNA quantified by RNAseq in 
     label-chase experiment.
-    \texttt{Figure2\_Table\_RawCountsTableForPulseChase.csv}
+    \\\texttt{Figure2\_Table\_RawCountsTableForPulseChase.csv}
     \label{itm:dme211raw}
   \item Filtered label-chase RNAseq data for modeling, normalized 
     directly within sample.
-    \texttt{Figure2\_Table\_PulseChaseDataNormalizedDirectAndFiltered.csv}
+    \\\texttt{Figure2\_Table\_PulseChaseDataNormalizedDirectAndFiltered.csv}
     \label{itm:dme211filterDirect}
   \item Filtered label-chase RNAseq data for modeling, normalized by
     modeling across samples.
-    \texttt{Figure2\_Table\_PulseChaseDataNormalizedByModel.csv}
+    \\\texttt{Figure2\_Table\_PulseChaseDataNormalizedByModel.csv}
     \label{itm:dme211filterModel}
   \item Degradation rate modeling results, from data normalized 
     within samples.
-    \texttt{output/Figure2\_Table\_PulseChaseModelingResultTable\_DirectNormalization.csv}
+    \\\texttt{Figure2\_Table\_PulseChaseModelingResultTable\_DirectNormalization.csv}
     \label{itm:dme211resultsDirect}
   \item Degradation rate modeling results, from data normalized 
     across samples.
-    \texttt{output/Figure2\_Table\_PulseChaseModelingResultTable\_ModelNormalization.csv}
+    \\\texttt{Figure2\_Table\_PulseChaseModelingResultTable\_ModelNormalization.csv}
     \label{itm:dme211resultsModel}
   \item Enriched GO and KEGG terms within the set of mRNA 
     destabilized upon a nitrogen upshift, across sample normalization.
-    \texttt{output/Figure2\_Table\_AcceleratedDegradationTranscripts\_EnrichedGOandKEGGterms.csv}
+    \\\texttt{Figure2\_Table\_AcceleratedDegradationTranscripts\_EnrichedGOandKEGGterms.csv}
     \label{itm:dme211goAndKegg}
   \item Raw counts of strain barcode quantification within each bin
     in the BFF experiment, and gate settings for the observations.
-    \texttt{Figure4\_Table\_BFFcountsAndGateSettingsFACS.csv}
+    \\\texttt{Figure4\_Table\_BFFcountsAndGateSettingsFACS.csv}
     \label{itm:dme209rawCountsGates}
   \item BFF data filtered for modeling.
-    \texttt{Figure4\_Table\_BFFmodelingData.csv}
+    \\\texttt{Figure4\_Table\_BFFmodelingData.csv}
     \label{itm:dme209modelData}
   \item The parameters of all models fit to the BFF data.
-    \texttt{Figure4\_Table\_BFFallFitModels.csv}
+    \\\texttt{Figure4\_Table\_BFFallFitModels.csv}
     \label{itm:dme209allFits}
   \item All 3230 models used for identifying strains with defective 
     \textit{GAP1} dynamics.
-    \texttt{Figure4\_Table\_BFFfilteredPooledModels.csv}
+    \\\texttt{Figure4\_Table\_BFFfilteredPooledModels.csv}
     \label{itm:dme209pooledFits}
   \item Gene-set enrichment analysis results using \textit{GAP1} 
     estimates.
-    \texttt{Figure4\_Table\_GSEanalysisOfBFFresults.csv}
+    \\\texttt{Figure4\_Table\_GSEanalysisOfBFFresults.csv}
     \label{itm:dme209gsea}
 \end{itemize}
 
@@ -2902,7 +2691,7 @@ a colony was picked from a YPD plate and grown in a 5mL NLimPro
 pre-culture overnight at 30$^{\circ}$C, then innoculated into
 the experimental culture from mid-exponential phase.
 
-\subsection{Strains}
+\subsubsection{Strains}
 
 See \autoref{tab:strainsTable} for details.  
 The wild-type strain used is FY4, a S288C derivative. 
@@ -2984,6 +2773,7 @@ Barseq multiplexing barcode sequences and index numbers available in
 the file 
 \texttt{data/dme209/sampleBarcodesRobinson2014.txt} within the
 data zip archive (\autoref{codeanddata}). \\
+
 
 
 
