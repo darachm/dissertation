@@ -263,14 +263,14 @@ physiological remodeling in response to a nitrogen upshift.
   }{
     \textbf{Dynamics of physiological and transcriptome remodeling
     during a nitrogen upshift.}
-    \textbf{a)} 
+    \textbf{(Top)} 
     400$\mu$M glutamine was added to a
     culture of yeast cells growing in minimal media containing 800$\mu$M
     proline as a sole nitrogen source. Measurements
     of culture density across the upshift are plotted. 
     Dotted lines denote linear regression of the
     natural log of cell density against time before the upshift and 
-    after the 2 hour lag. \textbf{b)} Average cell size.
+    after the 2 hour lag. \textbf{(Bottom)} Average cell size.
     Dotted lines denote the mean cell diameter before the upshift
     and after the 2 hour lag. 
     \label{fig:figure1a}
@@ -282,7 +282,7 @@ physiological remodeling in response to a nitrogen upshift.
   }{
     \textbf{Dynamics of physiological and transcriptome remodeling
     during a nitrogen upshift.}
-    \textbf{c)} PCA analysis of global
+    PCA analysis of global
     mRNA expression in steady-state chemostats and following an upshift
     \parencite{airoldi2016steady}. Steady-state nitrogen-limited chemostat
     cultures maintained at different growth rates (colored circles)
@@ -294,6 +294,20 @@ physiological remodeling in response to a nitrogen upshift.
     \label{fig:figure1c}
   }{Dynamics of transcriptome remodeling during a nitrogen upshift, 
     on a coarse scale.}
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{img/Figure1_S_longTermPCA.png}
+  \caption{
+  The coarse long-term transcriptome dynamics of a glutamine upshift. 
+  Principal components analysis (SVD) of microarray data from 
+  \cite{airoldi2016steady}. 
+  Colored points are from steady-state chemostats grown in
+  limitation for various nitrogen sources, at different growth rates.
+  Time-series experiments are show in grey points, connected by lines,
+  and line-type is the type of upshift (in batch or in chemostat).
+  \label{fig:longTermPCA}
+  }
+\end{figure}
 
 To evaluate concordance in transcriptome remodeling between chemostat
 and batch nitrogen upshifts, and the extent to which they reflect
@@ -316,19 +330,6 @@ the initial steady-state condition as excess nitrogen is
 depleted by consumption and dilution 
 (\autoref{fig:longTermPCA}). 
 
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{img/Figure1_S_longTermPCA.png}
-  \caption{
-  The coarse long-term transcriptome dynamics of a glutamine upshift. 
-  Principal components analysis (SVD) of microarray data from 
-  \cite{airoldi2016steady}. 
-  Colored points are from steady-state chemostats grown in
-  limitation for various nitrogen sources, at different growth rates.
-  Time-series experiments are show in grey points, connected by lines,
-  and line-type is the type of upshift (in batch or in chemostat).
-  \label{fig:longTermPCA}
-  }
-\end{figure}
 
 To investigate the functional basis of gene expression programs
 in the upshift and steady-state conditions, we computed the
@@ -381,7 +382,7 @@ our power to detect stability changes (
 \autoref{itm:dme211filterModel}).
 Data and models for each transcript can be visualized in browser
 using a Shiny appplication (see
-\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{shiny} ). 
+\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{subsubsection:codeanddata} ). 
 
 We modeled the
 log-transformed normalized signal for each mRNA using linear
@@ -491,14 +492,14 @@ metabolic changes in the cell.
 To investigate the extent to which mRNA stability changes contribute
 to transcriptome reprogramming, we compared degradation rates
 to abundance changes following the upshift 
-(\cite{airoldi2016steady}, \autoref{fig:figure2c}). 
+(\cite{airoldi2016steady}, \autoref{fig:figure2bc}). 
 Changes in mRNA degradation rates
 and expression change rates are anti-correlated (Pearson's $r$ = -0.598,
 p-value < $10^{-15}$, \autoref{fig:kkdComparison}),
 consistent with stability changes impacting gene expression dynamics.
 However, they are not entirely co-incident, as some destabilized
 transcripts do not exhibit decreases in abundance (red points in
-\autoref{fig:figure2c}, \autoref{fig:comparisonDestabilized},
+\autoref{fig:figure2bc}, \autoref{fig:comparisonDestabilized},
 and \autoref{fig:compareSix}).
 This analysis shows that increases in degradation rates play a 
 significant role
@@ -572,7 +573,7 @@ increases in mRNA synthesis rates
     t\_0 y-intercepts of fits).
     Destabilization does not necessarily result in a rapid clearance
     of the mRNA.
-    \label{figsupp:compareSix}
+    \label{fig:compareSix}
   }{Six examples of individual mRNA whose regulation is more
     complex than a homo-directional destabilization and synthesis
     repression.}
@@ -1236,7 +1237,7 @@ using pairwise alignment to invariant flanking sequences.
 Based on \textit{in silico} benchmarks, this
 approach was robust to systematic and simulated random errors 
 that can confound analysis of the yeast deletion barcodes 
-(\autoref{codeanddata}, \autoref{subsection:bff}). 
+(\autoref{subsubsection:codeanddata}, \autoref{subsection:bff}). 
 
 We refer to this experimental approach as BFF (Barseq after FACS after FISH). 
 We used BFF to estimate \textit{GAP1} mRNA abundance for every mutant in the
@@ -1254,9 +1255,9 @@ We analyzed the deletion pool in biological triplicate
 (\autoref{fig:figure4a}). We found that UMIs 
 approached saturation at a slower rate than expected for random sampling,
 consistent with PCR amplification bias 
-(\autoref{fig:rarefaction}), and therefore we adopted the 
-correction of \cite{fu2011counting}. After
-filtering, we calculated a
+(\autoref{fig:umi}), and therefore we adopted the 
+correction of \cite{fu2011counting} (dicussed in depth later). 
+After filtering, we calculated a
 pseudo-events metric that approximates the number of each mutant sorted
 into each bin. 
 Principal components analysis shows that the samples are 
@@ -1300,31 +1301,15 @@ We estimated the distribution of \textit{GAP1} mRNA for each mutant by
 modeling pseudo-events in each quartile as a
 log-normal distribution using likelihood maximization  
 (\autoref{fig:figure4b}). 
-\afig{
-  \includegraphics[width=.8\textwidth]{img/Figure4b.png}
-  }{
-    Measurements for individual genes before and
-    after the upshift. Black dashed lines indicate maximum-likelihood 
-    fits of a log-normal to pseudo-events for each mutant. 
-    Colors and axes as in panel a. 
-    \label{fig:figure4b}
-  }{Data and models for several individual sample genes from the BFF
-    modeling.}
+%Specifically, replicate A had a consistently lower estimate of
+%\textit{GAP1} FISH fluoresence in both flow cytometry and modeling.
+%Replicate C had fewer mutants sorted (\autoref{subsection:bff}), 
+%reflected in the wider distribution of estimated means.
 From model fits we estimated the mean expression value for each
 mutant and found that the distribution of means estimated for
 3,230 strains (\autoref{itm:dme209pooledFits}, \autoref{fig:figure4c}) 
 recapitulates the overall
 distribution of flow cytometry signal (\autoref{fig:figure4a}). 
-\afig{
-  \includegraphics[width=\textwidth]{img/Figure4c.png}
-  }{
-    Distribution of mean modeled GAP1 mRNA levels for each mutant.
-    \label{fig:figure4c}
-  }{Global distribution of BFF estimates of \textit{GAP1} mRNA abundance.}
-%Specifically, replicate A had a consistently lower estimate of
-%\textit{GAP1} FISH fluoresence in both flow cytometry and modeling.
-%Replicate C had fewer mutants sorted (\autoref{subsection:bff}), 
-%reflected in the wider distribution of estimated means.
 %To estimate \textit{GAP1}
 %mRNA per strain, we used all replicate measurement to perform model
 %fitting and filtered models for sufficient measurements  (at least two
@@ -1336,6 +1321,23 @@ To validate our approach we first examined
 strains for which we expected to have a specific phenotype and
 compared their mean expression level to the distribution of expression
 for the entire population (\autoref{fig:figure4d}). 
+
+\afig{
+  \includegraphics[width=.8\textwidth]{img/Figure4b.png}
+  }{
+    Measurements for individual genes before and
+    after the upshift. Black dashed lines indicate maximum-likelihood 
+    fits of a log-normal to pseudo-events for each mutant. 
+    Each color is a biological replicate.
+    \label{fig:figure4b}
+  }{Data and models for several individual sample genes from the BFF
+    modeling.}
+\afig{
+  \includegraphics[width=\textwidth]{img/Figure4c.png}
+  }{
+    Distribution of mean modeled GAP1 mRNA levels for each mutant.
+    \label{fig:figure4c}
+  }{Global distribution of BFF estimates of \textit{GAP1} mRNA abundance.}
 \afig{
   \includegraphics[width=.8\linewidth]{img/Figure4d.png}
   }{
@@ -1348,6 +1350,7 @@ for the entire population (\autoref{fig:figure4d}).
     \label{fig:figure4d}
   }{Individual BFF estimates of \textit{GAP1} mRNA abundance for
     mutants known to play a role in \textit{GAP1} regulation.}
+
 We found that the wildtype
 genotype (\textit{his3}$\Delta$, complemented by the spHis5 in
 library construction) has an expression level that is centrally
@@ -1369,7 +1372,7 @@ result from the complex interplay of NCR transcription factors on
 their own expression levels. 
 Data and models for each mutant strain can be visualized in browser
 using a Shiny appplication (see
-\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{shiny}). 
+\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{subsubsection:codeanddata}). 
 
 To identify new cellular processes that regulate \textit{GAP1} mRNA abundance, we
 used gene-set enrichment analysis (\autoref{itm:dme209gsea}).
@@ -1588,7 +1591,7 @@ counter-selecting against the casette with Gal induction of p53
 from within the cassette.
 These strains were generated and confirmed by Sanger sequencing,
 and traces are available in directory \texttt{data/qPCRfollowup/} 
-within the data zip archive (\autoref{codeanddata}).
+within the data zip archive (\autoref{subsubsection:codeanddata}).
 
 \subsubsection{qPCR}
 
@@ -1630,7 +1633,7 @@ These were run on a Roche480 Lightcycler,
 with a max-second derivative estimate
 of the cycles-threshold (the $C_p$ value output by analysis) used 
 for analysis by scripts included in the git repo 
-(\autoref{codeanddata}).
+(\autoref{subsubsection:codeanddata}).
 Linear regression of the log-transformed values was used to quantify
 the dynamics and assess significance of changes in expression
 levels or rates of change.
@@ -1655,7 +1658,7 @@ then spun at 10,000g for 1 minute, aspirated,
 then washed once and resuspended with 1x PBS. 
 Samples were kept on ice, then put onto a coverslip
 for imaging on a DeltaVision scope. Raw images available in the
-microscopy zip archive (\autoref{codeanddata}).
+microscopy zip archive (\autoref{subsubsection:codeanddata}).
 
 \subsection{Methods and materials of Barseq after FACS after FISH experiment}
 
@@ -1796,6 +1799,8 @@ reads (out of 400 million listed yield). Thus, 5\% PhiX is too low,
 and I would recommend trying $\sim$25\% in future runs. 
 
 \subsection{Design and analysis of Barseq after FACS after FISH experiment}
+
+\subsubsection{Design of Barseq after FACS after FISH experiment}
 
 \label{subsection:bff}
 
@@ -2115,10 +2120,9 @@ If we have 4096 possible
 UMIs, and for one strain in one sample we observe \(x\) different UMIs
 associated, then we estimate that there were \(z\) different original
 molecules in the sample, where
+\(z=4096 (1-e^{-\frac{x}{4096}})\) .
 
 \label{subsubsection:rarefractionDiscussion}
-
-\[z=4096 (1-e^{-\frac{x}{4096}})\]
 
 Figure \ref{fig:umi} plots this function, and compares it to
 actual sequencing data from the experiment.
@@ -2582,7 +2586,7 @@ post-transcriptional gene expression regulation.
 
 \subsubsection{Availability of data and analysis scripts}
 
-\label{codeanddata}
+\label{subsubsection:codeanddata}
 
 Computer scripts used for all analyses are available as a git repository
 on GitHub\\
@@ -2772,7 +2776,7 @@ All primers were synthesized by Integrated DNA Technologies (IDT).
 Barseq multiplexing barcode sequences and index numbers available in 
 the file 
 \texttt{data/dme209/sampleBarcodesRobinson2014.txt} within the
-data zip archive (\autoref{codeanddata}). \\
+data zip archive (\autoref{subsubsection:codeanddata}). \\
 
 
 
