@@ -135,33 +135,38 @@ of glutamine
 a nitrogen-limited culture, for example grown with only the
 non-preferred proline as a nitrogen source, is called an upshift
 because it is the change from a slow growing condition to one of rapid
-growth \parencite{waldron1977synthesis}. 
+growth \parencite{kjeldgaard1958transition,waldron1977synthesis}. 
 Upon an upshift, a regulatory phenomenon called nitrogen
-catabolite repression (NCR) ensures that the set of NCR transporters,
+catabolite repression (NCR) ensures that the set of transporters,
 metabolic enzymes, and regulatory factors are repressed
-\parencite{cooper1982nitrogen,cooper2002transmitting}. 
+\parencite{cooper1982nitrogen,cooper2002transmitting,magasanik2002nitrogen}. 
 Through the use of a temperature-sensitive glutamine synthase
 allele or treatment with methionine sulfoximine, it has been shown
-that NCR is largely a response to intracellular glutamine 
-availability 
-\parencite{grenson1983inactivation,stracka2014nitrogen}
-\textbf{(cites,and that one recently found)},
-although this has been challenged with the observation that changes
-in intracellular glutamine levels do not correspond with the signally
-\parencite{fayyar2016}. This suggests an alternative mechanism,
-perhaps something more directly related to the processes of
-translation.
-% How about ammonia and nitrogen metaoblism, what's the singal?  \parencite{ter2000role}
-%This lag in population growth rate upon an upshift has been 
-%described before \parencite{Carter1978}.
-%the upshift. Seriously, people have seen this since Slator 1918.
+that NCR appears to respond to intracellular glutamine availability 
+\parencite{grenson1983inactivation,stracka2014nitrogen,crespo2002tor}.
+However, recent work has specified that while the transient NCR
+correlates with glutamine abundance, persistent NCR appears independent
+\parencite{fayyad2016yeast}. Additionally, the use of a
+\textit{gln1-37} mutant to prevent ammonium from glutamine conversion
+found that ammonium addition triggered swift repression of
+\textit{GAP1} and \textit{PUT4} despite not changing intracellular
+glutamine levels \parencite{ter1998repression}. 
+This suggests that the sensing might not be
+simply glutamine abundance, but rather some sensor of flux through 
+central nitrogen metabolism (like Gdh1p) or some other,
+heretofore uncharacterized signalling mechanism.
+Whatever the exact mechanism, the degree to which nitrogen sources
+can support growth by providing substrates of central nitrogen
+metabolism is sensed by yeast to appropriately and quantitatively
+repress catabolic genes in conditions corresponding to the degree
+to which they are unneeded for growth.
 
 One layer of
 the repression occurs at the level of transcript synthesis. Four of
 the five GATA factors in yeast coordinate to control transcription of
 NCR genes, with two factors (Gln3p and Gat1p) activating transcription
 while two (Gzf3p and Dal80p) repress transcription 
-\parencite{hahn2011transcriptional,stanbrough1995transcriptional}. 
+\parencite{hahn2011transcriptional,stanbrough1995transcriptional,daugherty1993regulatory,scherens2006identification}. 
 These factors are also subject to NCR
 control to different extents, with the activators increasing the
 expression of the repressive factors 
@@ -173,11 +178,10 @@ environment of grape or wort. It has been long known that the
 eukaryotic growth signalling pathway TORC1 largely regulates these
 factors by controlling the activity of phosphatases and thus
 localization of these transcription factors, via Ure2p for Gln3p 
-\parencite{beck1999tor} 
+\parencite{beck1999tor,cox2000saccharomyces} 
 and unknown mechanisms for Gat1p
-\textbf{(citez, also classic ure2 papz)}
-. However, careful genetics over the last two decades in
-Terrance Cooper's laboratory has identified that the genetic
+\textbf{georis2008tor}. 
+However, the careful application of genetics has identified that the
 requirements for phenotypes differ in different environments, with
 comparisons of nitrogen “starvation” (8+ hours) versus “limitation”
 (<3 hours, or proline) showing that about half of the
@@ -276,7 +280,8 @@ expression machinery, at the neglect of an investment in metabolic
 enzymes \parencite{giordano2016dynamical}. 
 This phenomenon, a transient burst of ribosomal over production or a
 "bang-bang singular" strategy appears to have been observed in
-yeast before in glucose upshifts \parencite{griffioen1996ribosomal} 
+yeast before in upshifts 
+\parencite{wehr1969macromolecular,griffioen1996ribosomal} 
 and recently by our lab in nitrogen upshifts 
 \parencite{airoldi2016steady}.
 Thus, concordant repression of stress-response and
@@ -681,14 +686,13 @@ stability \parencite{gilbert2016messenger}.
 The role of these, or other modifications, is still being
 investigated.
 The critical nature of the 5' m7G cap suggests that the
-discovery of NAD+ capped mRNA may also have impacts on
-stability, and the introduction of this modification by
-initiating transcription with NAD+ capped mRNA suggests an
-elegant mechanism to explain how factors regulating synthesis 
-processes can mark mRNA for differential 
-stability \parencite{walters2017identification}.
-Studies using methods to study the m7G caps may need to be revisited
-to understand the contribution of this modification.
+discovery of other capping structures, such as recent identification
+of NAD+ capped mRNA in yeast \parencite{walters2017identification},
+could provide another type of RNA modifications loading during
+transcription to affect processes of translation initiation and 
+transcript degradation.
+Although at a low percentage, these modifications suggest that non-m7G
+caps could contribute to a sizable fraction of euarkyotic mRNA.
 Application of improvements in biochemical assays of modifications as
 well as long-read sequencing technology (both PacBio and 
 Nanopore) may yield a new and informative perspective on the single
@@ -829,20 +833,13 @@ mapped to elements in the 5' UTR
 with destabilization of GAL1 being
 associated with a growth advantage in switching carbon-source
 environments \parencite{baumgartner2011antagonistic}. 
-\textit{JEN1} encodes a pyruvate transporter has been demonstrated to
-be destabilized upon glucose addition, and this has been mapped to cis
-elements of different transcription start sites which can act in trans
-to regulate other co-expressed engineered alleles of \textit{JEN1} through
-%%%%%
-%%%%%
-%%%%%REVIEW THIS
-%%%%%
-%%%%%
-unknown mechanisms 
-\parencite{andrade2005multiple}
-although subsequent work has
-identified \textit{DHH1} as being a genetic factor of the destabilization 
-\parencite{mota2014role}. 
+\textit{JEN1} encodes a lactate/pyruvate transporter that is
+destabilized in rich carbon-sources like glucose, and this has been
+determined to result from transcription from a downstream
+transcription start-state destabilizing the larger isoform, through
+unknown mechanisms \parencite{andrade2005multiple}.
+Subsequent work has identified \textit{DHH1} as being a genetic 
+factor of the \textit{JEN1} destabilization \parencite{mota2014role}. 
 Some transcripts respond at different levels of glucose
 addition and differently in different genetically-perturbed metabolic
 backgrounds 
