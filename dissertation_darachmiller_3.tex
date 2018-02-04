@@ -1301,7 +1301,7 @@ compared their mean expression level to the distribution of expression
 for the entire population (\autoref{fig:figure4d}). 
 
 \afig{
-  \includegraphics[width=.8\textwidth]{img/Figure4b.png}
+  \includegraphics[width=.9\textwidth]{img/Figure4b.png}
   }{
     Measurements for individual genes before and
     after the upshift. Black dashed lines indicate maximum-likelihood 
@@ -1311,7 +1311,7 @@ for the entire population (\autoref{fig:figure4d}).
   }{Data and models for several individual sample genes from the BFF
     modeling.}
 \afig{
-  \includegraphics[width=\linewidth]{img/Figure4a.png}
+  \includegraphics[width=.9\textwidth]{img/Figure4a.png}
   }{
     Flow cytometry analysis of \textit{GAP1} mRNA 
     abundance in the prototrophic
@@ -1323,7 +1323,7 @@ for the entire population (\autoref{fig:figure4d}).
   }{Flow cytometry of the \textit{GAP1} mRNA distribution across all
     mutants.}
 \afig{
-  \includegraphics[width=\textwidth]{img/Figure4c.png}
+  \includegraphics[width=.9\textwidth]{img/Figure4c.png}
   }{
     Distribution of mean modeled GAP1 mRNA levels for each mutant.
     \label{fig:figure4c}
@@ -1364,13 +1364,8 @@ Data and models for each mutant strain can be visualized in browser
 using a Shiny appplication (see
 \url{http://shiny.bio.nyu.edu/users/dhm267/} or \nameref{subsubsection:codeanddata}). 
 
-To identify new cellular processes that regulate \textit{GAP1} mRNA abundance, we
-used gene-set enrichment analysis (\nameref{itm:dme209gsea}).
-Following the upshift we found mutants that have high \textit{GAP1}
-expression before the upshift are enriched for mutants in sulfate
-assimilation, and mutants that 
-maintain high \textit{GAP1} mRNA expression are enriched for negative
-regulation of gluconeogenesis (\autoref{fig:gluco}).
+
+
 \afig{
   \includegraphics[width=.49\textwidth]{img/Figure5_S_negGluconeogenesis.png}
   \includegraphics[width=.49\textwidth]{img/Figure5_S_sulfateAssimilation.png}
@@ -1385,6 +1380,14 @@ regulation of gluconeogenesis (\autoref{fig:gluco}).
   }{Mutants of negative regulators of gluconeogenesis or sulfate 
     assimilation are associated with defects in \textit{GAP1} 
     expression.}
+
+To identify new cellular processes that regulate \textit{GAP1} mRNA abundance, we
+used gene-set enrichment analysis (\nameref{itm:dme209gsea}).
+Following the upshift we found mutants that have high \textit{GAP1}
+expression before the upshift are enriched for mutants in sulfate
+assimilation, and mutants that 
+maintain high \textit{GAP1} mRNA expression are enriched for negative
+regulation of gluconeogenesis (\autoref{fig:gluco}).
 However, the strongest enrichment for high \textit{GAP1} expression 
 was components Lsm1-7p/Pat1p complex (\autoref{fig:figure5a}). 
 Mutants in the TORC1 signalling pathway were not enriched,
@@ -1392,6 +1395,9 @@ but, I did find that a \textit{tco89}$\Delta$ mutant has
 greatly increased \textit{GAP1} mRNA expression before and after the 
 upshift (\autoref{fig:tco89}), consistent with the repressive role 
 of TORC1 on the NCR regulon.
+To compare expression before and after the upshift for each mutant,
+we regressed the post-upshift mean expression against the pre-upshift 
+mean expression for each genotype (\autoref{fig:prePredictPost}). 
 \afig{
   \includegraphics[width=.7\textwidth]{img/Figure4_S_poorlyQuantifiedStrains.png}
   }{
@@ -1405,11 +1411,8 @@ of TORC1 on the NCR regulon.
     \label{fig:tco89}
   }{\textit{tco89}$\Delta$ and \textit{xrn1}$\Delta$ show
     defects in \textit{GAP1} mRNA regulation in the BFF assay.}
-To compare expression before and after the upshift for each mutant,
-we regressed the post-upshift mean expression against the pre-upshift 
-mean expression for each genotype (\autoref{fig:prePredictPost}). 
 \afig{
-  \includegraphics[width=.8\textwidth]{img/Figure4_S_PreShiftPredictingPostShiftLM.png}
+  \includegraphics[width=.7\textwidth]{img/Figure4_S_PreShiftPredictingPostShiftLM.png}
   }{
     The relationship between the estimated mean before the upshift and after the
     upshift. Scatter plot of the estimated means, with marginal histograms along
@@ -1435,7 +1438,7 @@ repression of \textit{GAP1} mRNA after the upshift
 (\autoref{fig:figure5a}). 
 
 \afig{
-  \includegraphics[width=\linewidth]{img/Figure5a.png}
+  \includegraphics[width=.9\textwidth]{img/Figure5a.png}
   }{
     In the background is the distribution of 
     fit \textit{GAP1} mRNA mean expression levels for all mutants
@@ -1458,7 +1461,7 @@ result in a microscopically visible changes in processing-body foci
 as seen in other stresses. This is consistent with previous
 investigations of amino-acid limitation stress
 \parencite{hoyle2007stress} and
-suggests that the defects in \textit{GAP1} mRNA clearance likely 
+suggests that the defects in \textit{GAP1} mRNA clearance  
 result from their roles in decapping or associated processes.
 
 \afig{
@@ -2608,6 +2611,7 @@ These are available on the Open Science Framework archive
 \url{https://osf.io/9ct3m/} .
 
 \begin{itemize}
+  \SingleSpacing
   \setlength\itemsep{0em}
   \item Gene set enrichment analysis of loadings on principal 
     components one and two.
