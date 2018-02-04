@@ -20,6 +20,7 @@ dissertation_darachmiller_all.pdf \
   dissertation_darachmiller_5.tex \
   $(polya) \
   img/airoldi2016_F6.large.pdf \
+  finalAnalyses/sne26limma.html \
   dissertation_darachmiller_all.tex 
 	xelatex dissertation_darachmiller_all.tex 
 	bibtex8 dissertation_darachmiller_all || true
@@ -36,4 +37,6 @@ draft:
 	bibtex8 dissertation_darachmiller_all || true
 
 $(polya): finalAnalyses/polyAanalysis.Rmd
+	Rscript -e "rmarkdown::render('$<')"
+finalAnalyses/sne26limma.html: finalAnalyses/sne26limma.Rmd
 	Rscript -e "rmarkdown::render('$<')"

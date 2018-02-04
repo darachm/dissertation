@@ -118,7 +118,8 @@ pdat <- z%>%
   separate(Variable,into=c("Type","Axis"),sep="_") %>%
   nest(Value) %>% spread(Axis,data) %>%unnest(x,y)%>%
   dplyr::rename(x=Value,y=Value1)%>%
-  arrange(Threshold,x)
+  arrange(Threshold,x)%>%
+  filter(Threshold%in%c("0","30"))
 
 g <- ggplot()+theme_bw()+
   facet_wrap(~Threshold)+
@@ -128,7 +129,7 @@ g <- ggplot()+theme_bw()+
     ,aes(x=x,y=y,col=Threshold))+
   xlab("Abundance")+ylab("Variance")
 g
-ggsave("../img/sne_voomer.png",g,width=5,height=5)
+ggsave("../img/sne_voomer.png",g,width=7,height=3)
 
 ```
 

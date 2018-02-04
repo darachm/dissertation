@@ -406,18 +406,70 @@ Upon further reading, we found that the group of Johan Theiveilen had
 used a similar approach to isolate mutants defective for increasing
 growth upon repletion of glucose, and had identified new critical
 components of the PKA pathway, \textit{CYR1} and \textit{GPR1}
-\parencite{vandjick2000}.
-
-Thus encouraged, we devised a screen, wherein a barcoded and pooled 
-yeast deletion collection
-is grown in conditions of nitrogen-limitation (proline-only, 4.5 hour
-doubling time). This was subject to an upshift of adding glutamine.
-Samples were taking before or after the glutamine upshift,
-heatshocked, then outgrown to enrich for living mutants.
-These libraries were sequenced using an amplicon-sequencing procedure
-to quantify the mutants in the resulting library.
+\parencite{van2000characterization}.
+Thus encouraged, we intended to use the anti-correlation of growth
+and stress resistance to isolate mutants defective in resuming growth
+rapidly.
 
 \subsection{Results}
+
+We first determined if the heatshock resistance of the wild-type
+FY4 yeast changed during a nitrogen upshift.
+I grew cells in proline-limited media (approximately 4.5 hour doubling
+time), then added glutamine to induce the nitrogen upshift.
+For each sample, cells were subject to a 52C heatshock for 30 minutes
+by the addition of pre-warmed media, or for negative control were
+simply kept at room temperature. The processed samples were arrayed 
+in a 96 well plate, then pinned onto YPD, grown at 30C for
+approximately 40 hours, and imaged (\autoref{fig:dme180}).
+
+\afig{
+  \hfill
+  \includegraphics[width=.2\textwidth]{img/160328exp180sample1.png}
+  \includegraphics[width=.2\textwidth]{img/160328exp180sample2.png} 
+  \includegraphics[width=.2\textwidth]{img/160328exp180sample3.png}
+  \includegraphics[width=.2\textwidth]{img/160328exp180sample4.png}
+  \\
+  \begin{tikzpicture}[overlay
+      ,font=\small,%font=\ttfamily
+      ,inner sep=0pt,outer sep=0pt
+      ,shift={(-8,0)}]
+      ]
+    \node[align=left] at (0,0) (o) {};
+%
+    \node[align=left] at ($(o)+(5,0)$) (dil) {Culture dilutions (5-fold)};
+    \draw[->] (dil) to ($(dil)+(10,0)$);
+%
+    \node[align=left,anchor=east] at ($(o)+(2,3.00)$) {\tiny Heatshocked};
+    \node[align=left,anchor=east] at ($(o)+(2,2.65)$) {\tiny Negative};
+    \node[align=left,anchor=east] at ($(o)+(2,2.30)$) {\tiny Heatshocked};
+    \node[align=left,anchor=east] at ($(o)+(2,1.95)$) {\tiny Negative};
+    \node[align=left,anchor=east] at ($(o)+(2,1.60)$) {\tiny Heatshocked};
+    \node[align=left,anchor=east] at ($(o)+(2,1.25)$) {\tiny Negative};
+%
+    \node[align=left] at ($(o)+(4,4.1)$) {Before upshift};
+    \node[align=left] at ($(o)+(7.8,4.4)$) {61 minutes\\after upshift};
+    \node[align=left] at ($(o)+(11.2,4.4)$) {132 minutes\\after upshift};
+    \node[align=left] at ($(o)+(14.6,4.4)$) {204 minutes\\after upshift};
+  \end{tikzpicture}
+  }{
+    Wild-type (FY4) cells were subject to nitrogen-limitation, then
+    a nitrogen upshift with 400$\mu$M glutamine. Cultures were
+    heatshocked at 52C for 30 minutes, or at roomtemperature 
+    (negative). 5-fold dilutions were plated on YPD plates.
+    \label{fig:dme180}
+  }{Glutamine upshift causes a lost in heatshock-resistance.}
+
+Thus, the glutamine upshift triggers a loss in resistance to the
+heatshock.  Encouraged, we devised a screen, wherein a barcoded 
+and pooled yeast deletion collection
+is grown in conditions of nitrogen-limitation then upshifted.
+Samples were taking before or 
+after 120 minutes after the glutamine upshift,
+heatshocked or not (negatives),
+then outgrown to enrich for living mutants.
+These libraries were sequenced using an amplicon-sequencing procedure
+to quantify the mutants in the resulting library.
 
 Direct measurement of mutant abundance is preferred, but we used
 outgrowth of the heatshocked population, counting on the severe
@@ -426,7 +478,7 @@ We did this in six biological replicates in order to generate robust
 signal.
 These were extracted with standard Hoffman-Winston DNA preparations,
 then amplified using the same primers and protocol as described in
-\parencite{robinson2013design}. These were sequenced along with other
+\parencite{robinson2014design}. These were sequenced along with other
 samples on an Illumina MiSeq run.
 
 Barcode sequencing, like other molecule-counting applications of
@@ -475,7 +527,6 @@ was sufficient to remove these effects.
   spreading is a good indication of complex selection of large
   effects occurring in the library.  \label{fig:sneDist}
   }{Histogram of mutant counts, within each sample.}
-
 \afig{
   \includegraphics[width=.6\textwidth]{img/sne_histogram_sum.png}
   }{
@@ -487,16 +538,15 @@ was sufficient to remove these effects.
   factors. 
   \label{fig:sneDistSum}
   }{Histogram of mutant counts, summed across samples.}
-
 \afig{
-  \includegraphics[width=\textwidth]{img/sne_voomer.png}
+  \includegraphics[width=.7\textwidth]{img/sne_voomer.png}
   }{
   Each plot shows each gene average abundance (x-axis) against its
   residual variation (y-axis), with a line smoothing the relationship
   as expected by \texttt{limma} modeling. The threshold of minimum
   total counts per feature is shown for each plot in the grey bar.
-  We see that thresholding above 30 counts (bottom row) gives us the 
-  expected relationship, while not thresholding (top left)
+  We see that thresholding above 30 counts \textbf{(right)} gives us the 
+  expected relationship, while not thresholding \textbf{(left)}
   demonstrates how lowly abundance counts behave aberrantly with
   artificially reduced variance that may confound statistical
   analyses of barcode sequencing data (\texttt{limma} uses the model 
