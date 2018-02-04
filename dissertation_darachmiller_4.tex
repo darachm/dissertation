@@ -3,8 +3,70 @@ upshift}
 
 This chapter describes lines of investigation that were not
 pursued deeply, but may inform future investigations of the
-physiological remodeling that occurs as yeast remodels to resume rapid
+physiological remodeling that occurs as yeast resumes rapid
 growth.
+
+The study of microbial physiology is a long standing area of
+investigation, and with modern systems biology approaches this
+question of how the physiological composition of microbes change in
+order to accomplish the essential project of growth is still the
+subject of advances both quantitative and conceptual 
+\parencite{slator1918some,henrici1928morphologic,schaechter1958dependency,kjeldgaard1958transition,wehr1969macromolecular,waldron1977synthesis,carter1978protein,waldron1975effect,kief1981coordinate,scott2010interdependence,erickson2017global,kafri2016cost,metzl2017principles}.
+In recent years, the study of changes in abundance of specific mRNA
+factors in the budding yeast has characterized a phenomenon in which
+approximately one quarter of the yeast transcriptome scales with
+growth rate \parencite{brauer2008coordination,airoldi2009predicting}.
+This phenomenon is characterized at the level of molecular species,
+and thus can be compared to changes that occur in response to
+stressors, summarized as the Environmental Stress Response 
+\parencite{gasch2000genomic}. 
+In addition, a shared signature of knockout mutants, commonly used to
+probe gene function, is that associated with changes in cell-cycle
+progression distribution due to growth rate changes
+\parencite{o2014cell}.
+Thus the appreciation of the systematic physiological changes that
+occur in response to genetic perturbations holds light to many
+biological problems, even if only to identify the domineering and 
+confounding factor of growth-associated physiological changes.
+
+%
+%These, and other observations, described microbial growth generally as 
+%possessing a kind of "interia" [@henrici1928morphologic], where the
+%growth rate 
+%of the old culture is maintained for a short period after a
+%nutrient-shift.
+%@sherman1924function studied changes in resistance in bacterial
+%salt-stress 
+%during this lag-phase to conclude that old cells would remodel their
+%physiological state prior to initiating growth at the maximal rate
+%possible of the new environment.
+%@kjeldgaard1958transition, @wehr1969macromolecular
+%waldron1977synthesis  found that following a nitrogen-source upshift,
+%a yeast culture will continue its rate of accumulation of optical
+%density
+%for about 2 hours before increasing the rate to that appropriate to
+%the new
+%media.
+%In contrast, the RNA accumulation appeared to lag only 10 minutes
+%before
+%accumulating at a rate temporarily faster than the new steady-state
+%rate.
+%This suggests that rRNA, thus ribosome content, 
+%is a leading feature of this physioloical remodeling.
+%A carbon-source upshift also results in massive regulation 
+%that reprograms the yeast physiology and transcriptome (and other
+%-omes) for 
+%rapid growth \cite{kief1981coordinate}.
+%It was originally observed that yeast paradoxically halts growth
+%upon a glucose up-shift for about 60 minutes before resuming
+%growth and protein-synthesis [@kief1981coordinate]. However,
+%ribosomal RNA and protein were shown to still rapidly increase
+%across the span of an hour, even while the rest of the cellular
+%growth and division are halted. It is important to note that
+%this study measured nascent relative to extant - that is, an
+%increase in the ratio of nascent to extant can result from either
+%accelerated synthesis or degradation of extant transcripts 
+%[@kief1981coordinate].
 
 %
 %
@@ -26,8 +88,7 @@ Niki Athanasiadou, Benjamin Neymotin, Nathan Brandt,
 \textbf{Darach Miller}, Daniel Tranchina, and David Gresham.
 The \textit{biorxiv} draft is at \url{doi.org/10.1101/044735}
 
-The writing and figures of this chapter are entirely original to this 
-document.
+The writing and figures of this chapter are original to this document.
 
 %
 %
@@ -37,61 +98,29 @@ document.
 %
 %
 
-The study of microbial physiology is a long standing area of
-investigation, and changes in physiological composition is still the
-subject of quantitative and conceptual advances 
-\parencite{henrici1928
-malooe
-waldron?
-carter?
-nitrogen upshift stuff?
-more warner?
-scott2010
-hwarecent stuff
-}.
-
-In recent years, the study of changes in abundance of specific mRNA
-factors in the budding yeast has characterized a phenomenon in which
-approximately one quarter of the yeast transcriptome scales with
-growth rate
-\parencite{ Brauer 2008, Regenberg, Castrillo,  Airoldi2009
-airoldi2016}
-This phenomenon is characterized at the level of molecular species,
-and thus can be compared to changes that occur in response to
-stressors, summarized as the Environmental Stress Response 
-\parencite{gasch2000genomic}.
-Interestingly, overlap?
-In addition, a shared signature of knockout mutants, commonly used to
-probe gene function, is that associated with changes in cell-cycle
-progression distribution due to growth rate changes
-\parencite{
-cell cycle kemmern thing}.
-Thus the appreciation of the systematic physiological changes that
-occur in response to genetic perturbations holds light to many
-biological problems, even if only to identify the domineering and 
-confounding factor of growth-associated physiological changes.
 
 We know that the total RNA content of a cell changes upon changes in
-growth rates (Kief or whatever, benjy's figure, warner changes).
-We know that specific mRNA, a small component of the cell's total RNA
-also change in relative abundance. A less-characterized question is if
-the whole mRNA transcriptome changes, if this is relevant in changing
-the concentration of mRNA species, or if these relative changes have a
-significant regulatory role (as opposed to a regime of saturated
-translation machinery \parencite{shah2013??}.
-Transcriptomic measurements are usually normalized to the relative,
-and is based on the assumption that the total transcriptome does not
-change in abundance.
-However, we now know of cases of where this assumption is violated.
-\parencite{myc example}.
+growth rates \parencite{waldron1975effect}.
+We know that specific mRNA, each a small component of the cell's 
+total RNA also change in relative abundance. A less-characterized 
+question is if the whole mRNA transcriptome changes
+and if this has a significant effect on the regulatory role
+of absolute or relative changes in mRNA abundance.
+Transcriptomic measurements are usually normalized to relative
+measures, and is thus based (sometimes explicitly
+\parencite{love2014moderated})
+on the assumption that the total transcriptome does not change in 
+abundance.  However, we now know of cases of where this 
+assumption is violated \parencite{nie2012c}.
 
 Spike-in normalized RNA sequencing can estimate absolute mRNA
 abundance per cell, but has been criticized before for
 being "too noisy" and instead computational methods of "removing
-unwanted variation" were used \parencite{}. 
+unwanted variation" were used \parencite{risso2014normalization}. 
 Led by Rodoniki Athansidou, our group pursued a more thorough approach
 to this design by normalizing RNA sequencing data using the ERCC
-spike-in set \parencite{ERCC group}, using preliminary sequencing runs
+spike-in set \parencite{jiang2011synthetic}, 
+using preliminary sequencing runs
 to first determine the appropriate amount of spike-ins necessary for
 accurate sequencing. Then, yeast were grown in systematically varied
 nutrient limitations of growth, then RNA sequencing using a known
@@ -100,7 +129,7 @@ measurements to absolute mRNA per cell.
 
 I sought to complement this work by orthogonally estimating the size 
 of the whole yeast transcriptome. To do this, I adapted the screening 
-strategy of \cite{amberg1992???} to work with flow cytometry. 
+strategy of \cite{amberg1992isolation} to flow cytometry. 
 Essentially, this utilized a poly-deoxythymidine oligo singly labeled
 with a fluorophore. This was hybridized in with the fixed and
 permeabilized yeast cell, and the resulting fluorescence after washing
@@ -110,11 +139,11 @@ presumably hybridized to a poly-adenosine sequence, and thus mRNA.
 Another motivation of this was to serve as a fixation-digestion
 control for methods involving single-gene mRNA FISH.
 We had patterns of mRNA FISH hybridization signal that appeared
-bimodal \autoref{gap1Delete}. 
+bimodal \autoref{fig:gap1Delete}. 
 This could be a technical issue of incomplete permeabilization due to
 over-fixing, or a biological phenomenon.
 To distinguish the two would take two-color FISH, with a positive
-control \parencite{regenbergtwocolor???}.
+control \parencite{andersen2014genetic}.
 Since nitrogen-limitation causes a severe restriction of the total
 transcriptome content, we don't have an obvious pick for a uniformly
 expressed positive control. 
@@ -171,7 +200,7 @@ To optimize this design, I varied formamide from 0\% to 50\%, and
 probe concentrations from 10nM to 1$\mu$M. I found that 100nM and 0\%
 formamide saturated the signal of YPD-grown cells without largely
 increasing the signal on the RNAseA-treated cells.
-This assay takes approximately 8 hours of work spread over 3 days.
+This assay takes approximately 4 hours of work spread over 3 days.
 More detailed protocol is maintained by the Gresham laboratory.
 
 %%%%% PUT A CONTROL FIG HERE.
@@ -191,8 +220,8 @@ proline-limited media (NLimPro) only supports division approximately
 every 4.5 hours (.15 specific growth rate). 
 Using this poly-dT FISH method, we see differences in the total 
 poly-adenylated mRNA signal between the different media conditions
-\autoref{fig:ypdnlim}. 
-The distributions are broad, but the distributions are significantly
+(\autoref{fig:ypdnlim}).
+The distributions are significantly
 different (KS test and Wilcoxon, p-value < $2.2 \times 10^{-16}$).
 We know that fast growing cells (YPD) have more RNA per cell, so it
 appears that part of this difference is contributed by a global
@@ -219,14 +248,14 @@ different growth conditions, I grew cells in proline-limited media
 overnight to reach a steady-state of growth, then collected samples
 during a nitrogen-upshift.
 I assayed the poly-A content of the cells using the above assay
-\autoref{fig:upshift}.
+(\autoref{fig:upshift}).
 I found that the total poly-A content took about two hours to increase
 to the new steady-state of a larger transcriptome, a similar timescale
 as the changes in cell size and lag in population growth rate
 (\autoref{fig:figure1a}).
 The final steady-state differences were of a fold-change of 2.16 and
 1.93 for the mean and median poly-A content, consistent with the
-change between specific growth rate s of 0.15 and 0.35 being lower
+change between specific growth rates of 0.15 and 0.35 being lower
 than the difference with YPD (0.45 specific growth rate). 
 
 \afig{
@@ -278,7 +307,7 @@ As a flow cytometry
 assay this has the potential to be used as a marker for
 high-throughput investigations of the genetics of transcriptome size
 changes (or regulation), using methods as described in
-\autoref{subsection:bff}. 
+\nameref{subsection:bff}. 
 This method offers a conveniently high-throughput assay for total
 transcriptome size, and as such is one more tool that microbial
 physiologists can use to probe the functional changes that occur as
@@ -308,49 +337,13 @@ growth}
 \subsection{Introduction}
 
 
-These, and other observations, described microbial growth generally as 
-possessing a kind of "interia" [@henrici1928morphologic], where the
-growth rate 
-of the old culture is maintained for a short period after a
-nutrient-shift.
-@sherman1924function studied changes in resistance in bacterial
-salt-stress 
-during this lag-phase to conclude that old cells would remodel their
-physiological state prior to initiating growth at the maximal rate
-possible of the new environment.
-@kjeldgaard1958transition, @wehr1969macromolecular
-waldron1977synthesis  found that following a nitrogen-source upshift,
-a yeast culture will continue its rate of accumulation of optical
-density
-for about 2 hours before increasing the rate to that appropriate to
-the new
-media.
-In contrast, the RNA accumulation appeared to lag only 10 minutes
-before
-accumulating at a rate temporarily faster than the new steady-state
-rate.
-This suggests that rRNA, thus ribosome content, 
-is a leading feature of this physioloical remodeling.
-A carbon-source upshift also results in massive regulation 
-that reprograms the yeast physiology and transcriptome (and other
--omes) for 
-rapid growth \cite{kief1981coordinate}.
-It was originally observed that yeast paradoxically halts growth
-upon a glucose up-shift for about 60 minutes before resuming
-growth and protein-synthesis [@kief1981coordinate]. However,
-ribosomal RNA and protein were shown to still rapidly increase
-across the span of an hour, even while the rest of the cellular
-growth and division are halted. It is important to note that
-this study measured nascent relative to extant - that is, an
-increase in the ratio of nascent to extant can result from either
-accelerated synthesis or degradation of extant transcripts 
-[@kief1981coordinate].
 
 With changing physiology in response to growth rate changes, many
 molecular and functional phenotypes change. One of these is the
 resistance to stress. 
 It has been long known that slow growing cells are more resistant to
-stressors \parencite{??}.
+stressors
+\parencite{sherman1923physiological,elliott1993stress,lu2009slow}.
 Yeast appears to have adapted to its ecological niche by adopting a
 boom/bust, feast or famine (yeast or famine) approach to quickly
 growing during favorable conditions to the expense of stress
@@ -361,19 +354,19 @@ the two processes might be opposed in objectives and mechanisms to
 achieve these objectives.
 The dimension of coordinated cellular growth may be a simple axis that
 explains much of the variation in gene expression and phenotypic
-differences in budding yeast \parencite{kemmeren, brauer, libotstein}.
-
+differences in budding yeast
+\parencite{brauer2008coordination,lu2009slow}.
 
 One approach to identify the characteristics required for yeast to 
 achieve a faster growth rate is to monitor the regulated changes that
 occur upon the upshift. We could infer
 that since the most logical response to a stress is to express this
 adaptation, then the gene expression increasing upon a stress must be
-adaptive \parencite{gould}. 
+adaptive \parencite{gould1979spandrels}. 
 This has been demonstrated to be a false assumption, at least for the
 case of heatshocks, as the genes whose expression increases do not 
 overlap well with the
-genes important for resistance \parencite{lee li botstein}.
+genes important for resistance \parencite{gibney2013yeast}.
 The later functional genetic measurement is possible to do in 
 high-throughput, as
 the yeast community has access to a yeast deletion collection and
@@ -455,8 +448,8 @@ This calculates
 the expected noise contributed by low integer count observation, but
 has the advantage of converting the measurement to a "counts per
 million" relative metric for normalization. 
-It also has useful plots for characterizing the distribution of counts
-across complex experimental designs, like this one.
+It also has useful visualizations for characterizing the 
+distribution of signal across complex experimental designs.
 
 One other observation in \autoref{fig:sneDist} is that the histograms
 show a log-normal distribution of high counts, then a long tail
@@ -530,14 +523,15 @@ Of the four genes increased in abundance (suggesting a failure to
 resume rapid growth), \textit{SLA1} and
 \textit{CAP2} are involved in actin binding and dynamics.
 \textit{SLA1} is required for the assembly of the cortical actin
-cytoskeleton \parencite{}, while \textit{CAP2} is an actin barbed-end
-capping protein that localizes to cortical actin patches \parencite{}. 
+cytoskeleton \parencite{don'thaveit}, while \textit{CAP2} is an actin barbed-end
+capping protein that localizes to cortical actin patches
+\parencite{needtolook}. 
 This suggests that these mutants specifically are involved in
 remodeling the cortical exoskeleton in a way that makes cells more
 susceptible to heatshock, or that these mutants are defective in
 increases in stress-resistance associated with slow growth rates.
 \textit{SXM1} over-expression rescues mutants defective in mRNA export 
-from the nucleus \parencite{seedorf1999importin}, suggesting that it
+from the nucleus \parencite{seedorf1997importin}, suggesting that it
 may play a role in mRNA export itself and that mRNA export may
 regulate some important downstream factor associated with increasing
 growth.
@@ -548,7 +542,7 @@ Pyruvate is an essential substrate for the
 biogenesis of the carbon structures of alanine, valine, and other 
 amino-acids.
 Carbon-skeletons of glutamine can enter the citric-acid cycle from a
-point between the entry of pyruvate and shunt from malate to pyruvate
+point between the entry of pyruvate, and shunt from malate to pyruvate
 via \textit{MAE1}.
 Considering the enrichment of pyruvate metabolism mRNA identified as 
 destabilized in the 4tU label-chase work in 
@@ -562,7 +556,7 @@ adaptive.
 
 To explore this, I regenerated a \textit{mae1}$\Delta$ mutant using
 a KanMX knockout cassette amplified from the yeast deletion
-collection, confirming incorporation by PCR. I subjected this mutnant
+collection, confirming incorporation by PCR. I subjected this mutant
 to a glutamine upshift, and saw an increase in the lag-phase duration
 (\autoref{fig:mae1})
 compared to wild-type (\autoref{fig:figure1a}). I sought to test if this
@@ -583,13 +577,10 @@ prepared to resume rapid growth.
   \includegraphics[width=.7\textwidth]{img/dme244.png}
   }{
   A \textit{mae1}$\Delta$ strain was subject to a glutamine upshift.
-  (Top) The mutant alone appears to show a slight defect in the lag 
+  \textbf{(Top)} The mutant alone appears to show a slight defect in the lag 
   phase (approximately 3 hours compared to approximately 2 hours
-  \autoref{fig:figure1a}), but the proper replication to directly
-  and authoritatively compare these was not done.
-  Breakpoint modeling of the bottom two panels was not used to explore
-  this, either.
-  (Middle and bottom) The mutant had glutamine or glutamine and either
+  \autoref{fig:figure1a}).
+  \textbf{(Middle and bottom)} The mutant had glutamine or glutamine and either
   alanine (middle) or pyruvate (bottom) added, with two cultures per
   treatment. Neither showed a significant effect in reducing lag phase
   or increasing growth rate.
@@ -604,9 +595,6 @@ We found mutants knocked out for several non-essential genes changed
 their relative susceptibility upon heatshock treatment, suggesting
 that their resistance does not decrease as much as wild-type upon the
 re-addition of a nitrogen source with adding glutamine.
-We did not validate any of these hits for effects of slowed growth
-rate increases.
-
 These mutants could be involved in either the increase in stress
 resistance upon slow growth conditions, or the decrease in stress
 resistance upon increase in growth. 

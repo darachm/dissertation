@@ -13,7 +13,7 @@ If different mechanisms of gene expression act on different properties
 of gene expression, or have different costs of energy or complexity, 
 then we expect that as the environment selects for the use of 
 gene expression patterns that advantageously model the environment
-\parencite{tagkopoulos2008predictive}, we may see the use of different
+\parencite{tagkopoulos2008predictive} we may see the use of different
 mechanisms used to achieve different regulatory demands.
 Thus, understanding how different mechanisms can be used to
 regulate one particular level of gene expression may inform our 
@@ -55,11 +55,10 @@ this is accompanied by large changes in gene expression
 and changes in physiology 
 \parencite{waldron1977synthesis,carter1978protein}.
 including changed rate of proliferation \parencite{slator1918some}, 
-cell size \parencite{}, 
-distribution of cell-cycles \parencite{},
+cell size \parencite{jorgensen2004dynamic},
 RNA content \parencite{waldron1975effect}, 
 protein content \parencite{kief1981coordinate},
-and resistance to stressors \parencite{}.
+and resistance to stressors \parencite{elliott1993stress}.
 This integration of diverse metabolic signals into a coordinated 
 program of growth is thought take place with multiple hierarchies of 
 control, with regulated responses to different particular 
@@ -95,7 +94,7 @@ small subset of transcripts were regulated particular to the specific
 limitation. 
 Statistical modeling of this process
 determined that the molecular signature of this growth-rate signalling
-could be capture in a small number of “calibrator” genes whose
+could be captured in a small number of “calibrator” genes whose
 expression was very well correlated with changes in growth rate or
 perturbation of signalling pathways associated with this process, and
 importantly also changed during dynamic transitions or upon
@@ -107,7 +106,7 @@ and phosphorus upshifts) shared a similar pattern
 and the pattern of gene expression associated with increased
 nutrient availability and growth rates is the opposite of the
 Environmental Stress Response (ESR) --- a shared in co-regulation of
-~600 mRNA across dynamic responses to various stressors 
+$\sim$600 mRNA across dynamic responses to various stressors 
 \parencite{gasch2000genomic}. 
 Together, this shows how yeast has a common molecular response that
 largely corresponds to the suitability of the sensed environment,
@@ -129,7 +128,7 @@ permeases that concentrate these sources inside the cell for use
 \parencite{grenson1992amino}.
 Various
 nitrogen sources are then catabolized to eventually make glutamate and
-glutamine, with an estimated ~85\% of macromolecular nitrogen coming
+glutamine, with an estimated $\sim$85\% of macromolecular nitrogen coming
 from the amino nitrogen in glutamate and the rest from the side-chain
 of glutamine 
 \parencite{magasanik2002nitrogen}. The addition of glutamine to
@@ -283,14 +282,17 @@ and recently by our lab in nitrogen upshifts
 Thus, concordant repression of stress-response and
 metabolism gene expression is theoretically expected to allow more
 focus of gene expression machinery on this pulse of production.
-While the cost of mis-expressing one gene is slight but significant
-\parencite{kafri2016cost}, it may have more of a cost during this
-period of advantageous focus on producing gene expression machinery.
 There is evidence for this in \textit{E. coli}, where
 \cite{shachrai2010cost} induced the expression of a fluorphore at
 different growth stages to show that induction during lag phase 
 had a significant impact on lag duration, while induction during
 exponential phase did not have a significant effect on growth.
+This is also true in yeast, where misexpression of transgenic 
+fluorophores has a cost during this period of advantageous focus on 
+producing gene expression machinery \parencite{kafri2016cost},
+although this may be mediated by the maintenance of additional
+stores of under-utilized ribosomes
+\parencite{metzl2017principles,waldron1977evidence}.
 Thus, the repression of newly unneeded mRNA in yeast may serve a 
 role to reallocate the extant translational
 capacity of the cell to enact a growth-optimal program 
@@ -584,7 +586,7 @@ required for the clear relationship between codon-optimality and mRNA
 stability 
 \parencite{presnyak2015codon,radhakrishnan2016dead}. Although
 the mechanism is at this point unclear, Dhh1p's genetic association 
-may be a fruitful hub to work out from.  
+is an important link to start from.
 
 Alternatively, competition between
 decapping enzymes and translation initiation factors for access to the
@@ -614,14 +616,14 @@ contribute to the effect.
 \subsection{ Regulation of mRNA degradation }
 
 mRNA
-degradation can be affected by various trans factors. While micro RNAs
+degradation can be affected by various \textit{trans} factors. While micro RNAs
 are prolific in regulating mRNA in animals and plants, budding yeast
 do not make use of this mechanism. Instead, in yeast mRNA degradation
 appears to be determined by a combination of intrinsic properties like
 length or codon-optimality, and trans factor RNA binding proteins
 (RBPs) that can bind \textit{cis} element sequences in the mRNA sequence to
 effect changes in stability 
-\parencite{li2010predicting,cheng2017cis}. The best
+\parencite{li2010predicting}. The best
 example of this is Puf3p, which binds motifs in mRNA with products
 destined for mitochondrial function and degrades these in the
 appropriate environment 
@@ -629,13 +631,14 @@ appropriate environment
 mapping phosphorylation of Puf3p to association of these mRNA to
 cytoplasmic granules 
 \parencite{lee2015glucose}. Secondary structures may
-complicate the recognition of linear cis elements, or be used as cis
+complicate the recognition of linear \textit{cis} elements, or be used
+as \textit{cis}
 elements in their own right \parencite{li2010predicting},
 for example Vts1p (Smaug homolog) recognizes a small sequence 
 motif in the context of the loop of a stem-loop hairpin 
 \parencite{she2017comprehensive,aviv2003rna}.
 Degradation rates can be affected by many mechanisms. Elements in
-promoters (cis when in DNA but not part of the affected mRNA) can
+promoters (\textit{cis} when in DNA but not part of the affected mRNA) can
 “mark” transcripts for differential stability 
 \parencite{haimovich2013gene}.
 One of the most well known examples of this is Dbf2p loading onto 
@@ -644,7 +647,7 @@ and \textit{CLB2} mRNA to effect destabilization upon mitosis
 \parencite{trcek2011single}. 
 In a direct example, the transcription activation domain of
 Adr1p fused to a different DNA binding domain has been shown to be
-sufficient to mark ADH2 mRNA for destabilization upon a glucose
+sufficient to mark \textit{ADH2} mRNA for destabilization upon a glucose
 upshift \parencite{braun2016snf1}.
 Thus, RBPs may recognize sequence
 elements in the mRNA or be loaded onto messenger ribonucleo-protein
@@ -671,12 +674,14 @@ the mRNA \parencite{dever2016mechanism}.
 
 While the primary-sequence of the mRNA is often thought to be the
 primary source of \textit{cis}-elements,
-mRNA can be modified in a variety of that may have regulatory effects.
-\textbf{Psu and methyl have been shown to affect stability.
-(psuedo uridine, methylation)
-\parencite{walters2017identification}.}
+mRNA can be modified in a variety of ways.
+The most extensively studied modification so far is m6A methylation of
+adenines, with demonstrated consequences for localization and
+stability \parencite{gilbert2016messenger}.
+The role of these, or other modifications, is still being
+investigated.
 The critical nature of the 5' m7G cap suggests that the
-discovery of NAD+ capped mRNA may have impacts on
+discovery of NAD+ capped mRNA may also have impacts on
 stability, and the introduction of this modification by
 initiating transcription with NAD+ capped mRNA suggests an
 elegant mechanism to explain how factors regulating synthesis 
@@ -684,12 +689,12 @@ processes can mark mRNA for differential
 stability \parencite{walters2017identification}.
 Studies using methods to study the m7G caps may need to be revisited
 to understand the contribution of this modification.
-Application of long-read sequencing technology (both PacBio and 
+Application of improvements in biochemical assays of modifications as
+well as long-read sequencing technology (both PacBio and 
 Nanopore) may yield a new and informative perspective on the single
 molecule extent of base modifications and their impacts on the
 progression of mRNA through various degradation intermediates.
 
-%check redundancy with intro around edc3 intro
 mRNA
 localization within the cytoplasm may affect degradation by virtue of
 regulating the accessibility of degradation factors. Processing-bodies
@@ -731,11 +736,15 @@ reprogramming}
 
 The change in concentration of an mRNA ($R_t$) depends
 on the rates of mature transcript synthesis ($k_s$) and mRNA
-degradation ($k_d$). We assume that the cell volume is fixed, that
+degradation ($k_d$). We assume that
 synthesis is a constant rate dependent on the unchanging concentration
 of the DNA encoding the gene, and that degradation is a random first
 order process of the mRNA interacting with a fixed and unsaturated
-factor degradation. Thus, the change in mRNA over time is $$
+factor degradation. We also disregard dilution from cell volume
+changes because this is approximately 50 times slower than the average
+rates of mRNA degradation and changes will thus not play a large role
+in our measurements of mRNA dynamics on this timescale.  
+Thus, the change in mRNA over time is $$
 \frac{dR_t}{dt} = k_s - R_t k_d$$ From this, the two rates determine
 the steady-state equilibrium of $\frac{k_s}{k_d}$. Given a change in
 these rates, a faster mRNA degradation rate will approach or relax to
@@ -751,7 +760,7 @@ for it
 \parencite{gould1979spandrels},
 then we would expect that studying
 an example of a transcript subject to both synthesis and degradation
-regulation might reveal a balance of selection during steady-state and
+regulation might reveal a balance of selection across steady-state and
 dynamic conditions. 
 
 \subsection{Stress conditions trigger rapid regulation of mRNA stability}
@@ -879,8 +888,9 @@ stability in a technically simple manner and has formed the basis of
 much of what we understand about the pathways of mRNA degradation
 \parencite{parker2012rna,coller2004eukaryotic}.
 While the \textit{GAL1} system is a convenient system for studying 
-degradation intermediates, its use for studying the native stability 
-of different mRNA in different environments is uncertain.  
+degradation intermediates, its demonstrated destabilization upon
+glucose addition makes uncertain its use for studying the native stability 
+of different mRNA in different environments.  
 
 A system
 that does not rely on engineered \textit{cis}-elements would avoid 
@@ -963,8 +973,7 @@ new rate and approach this new equilibrium controlled by the term $(
 zero in an exponential decrease controlled by the term $e^{-k_d^n t}$.
 These are both controlled by $k_d^n$, or the rate of mRNA degradation
 after chasing the label. Thus, by measuring the transition between the
-equilibrium we get the mRNA degradation rate, assuming that synthesis
-rates do not change.  
+equilibrium we get the mRNA degradation rate.
 
 Measuring specific rates with high confidence
 requires a steady-state approximation. RATEseq is one method to do so,
@@ -1090,7 +1099,7 @@ occurs much faster than the repression of the protein-product. We also
 know that Gap1p, the protein product of \textit{GAP1} mRNA, is subject to
 de-activation and re-localization in response to a nitrogen upshift.
 Thus, a functional assay of Gap1p is irrelevant to the dynamics of
-GAP1 mRNA repression, and requires a novel method to screen for
+\textit{GAP1} mRNA repression, and requires a novel method to screen for
 genetic factors of this molecular phenotype.  
 
 Ambitious work from the
@@ -1099,13 +1108,19 @@ perform qPCR assays for NSR1 mRNA abundance 19 minutes after induction
 of an osmotic stress response 
 \parencite{worley2016genome}. While accurate and
 reproducible, the extensive automation and reagent usage to perform
-qPCR on ~4700 mutant strains poses a financial and logistical
+qPCR on $\sim$4700 mutant strains poses a financial and logistical
 challenge to performing the assay, and to perform the assay in
 different genetic backgrounds, in larger libraries, in replicates, or
 in different timepoints.  
-
-I composed several existing technologies
-\parencite{hanley2013detection} to
-develop a direct assay of transcript abundance in a high-throughput
-pooled format. This is discussed in depth in Chapter 3. 
+To accomplish a similar goal using a pooled approach that can scale
+genome-wide without greatly increasing costs, I adapted a mRNA
+FISH assay to use in budding yeast.
+While mRNA has been observed by flow cytometry before
+(\cite{yu1992sensitive} described its use on $\sim$1800 copies of
+histone mRNA), the use of branched DNA probe sets has made sorting
+on low copies of mRNA possible \parencite{hanley2013detection}. 
+In Chapter 3 I discuss in depth the combination of this technology
+with the affore-mentioned SortSeq barcode sequencing and modeling
+approaches to direct estimate transcript abundance in a 
+high-throughput pooled format, and without genetic modifications.
 

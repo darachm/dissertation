@@ -6,11 +6,11 @@ journal for review and publication.
 It is also posted on \textit{biorxiv}, titled:
 \textit{"Global analysis of gene expression dynamics identifies factors
 required for accelerated mRNA degradation"}.
-Authorship of this article is: Darach Miller, Nathan Brandt, 
+Authorship of this article is: \textbf{Darach Miller}, Nathan Brandt, 
 and David Gresham.
 Darach Miller did most of the benchwork, analysis, and writing.
 Nathan Brandt did all benchwork to generate mutants and collect qPCR 
-for \ref{fig:figure5qpcr}.
+for \autoref{fig:figure5qpcr}.
 David Gresham helped with discussions and co-writing the article.
 The \textit{biorxiv} version is at \url{doi.org/10.1101/254920}.
 
@@ -261,8 +261,6 @@ physiological remodeling in response to a nitrogen upshift.
   \includegraphics[width=.8\textwidth]{img/Figure1a.png}
   \includegraphics[width=.8\textwidth]{img/Figure1b.png}
   }{
-    \textbf{Dynamics of physiological and transcriptome remodeling
-    during a nitrogen upshift.}
     \textbf{(Top)} 
     400$\mu$M glutamine was added to a
     culture of yeast cells growing in minimal media containing 800$\mu$M
@@ -280,8 +278,6 @@ physiological remodeling in response to a nitrogen upshift.
 \afig{
   \includegraphics[width=\textwidth]{img/Figure1c.png}
   }{
-    \textbf{Dynamics of physiological and transcriptome remodeling
-    during a nitrogen upshift.}
     PCA analysis of global
     mRNA expression in steady-state chemostats and following an upshift
     \parencite{airoldi2016steady}. Steady-state nitrogen-limited chemostat
@@ -295,10 +291,9 @@ physiological remodeling in response to a nitrogen upshift.
   }{Dynamics of transcriptome remodeling during a nitrogen upshift, 
     on a coarse scale.}
 
-\begin{figure}[h]
+\afig{
   \includegraphics[width=\textwidth]{img/Figure1_S_longTermPCA.png}
-  \caption{
-  The coarse long-term transcriptome dynamics of a glutamine upshift. 
+  }{
   Principal components analysis (SVD) of microarray data from 
   \cite{airoldi2016steady}. 
   Colored points are from steady-state chemostats grown in
@@ -306,8 +301,7 @@ physiological remodeling in response to a nitrogen upshift.
   Time-series experiments are show in grey points, connected by lines,
   and line-type is the type of upshift (in batch or in chemostat).
   \label{fig:longTermPCA}
-  }
-\end{figure}
+  }{The coarse long-term transcriptome dynamics of a glutamine upshift.}
 
 To evaluate concordance in transcriptome remodeling between chemostat
 and batch nitrogen upshifts, and the extent to which they reflect
@@ -335,7 +329,7 @@ To investigate the functional basis of gene expression programs
 in the upshift and steady-state conditions, we computed the
 correlation of each transcript with the loadings on these first two
 principal components and performed gene-set enrichment analysis
-(\autoref{itm:microarrayPCAgsea}). 
+(\nameref{itm:microarrayPCAgsea}). 
 Component 1 is positively correlated with functions like
 mRNA processing, transcription from RNA polymerases (I,II,and III),
 and chromatin organization, and negatively correlated with
@@ -375,24 +369,21 @@ that following complete 4tU labeling and metabolism to nucleotides
 the chase was initiated prior to addition of glutamine or water (mock).
 We normalized data using \textit{in vitro} synthesized thiolated 
 spike-ins by fitting a log-linear model to spike-in counts
-across time (\autoref{subsection:bff}), which reduced noise and increased
-our power to detect stability changes (
-\autoref{itm:dme211raw},
-\autoref{itm:dme211filterDirect},
-\autoref{itm:dme211filterModel}).
+across time (\nameref{subsection:bff}), which reduced noise and increased
+our power to detect stability changes (\nameref{itm:dme211filterModel}).
 Data and models for each transcript can be visualized in browser
 using a Shiny appplication (see
-\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{subsubsection:codeanddata} ). 
+\url{http://shiny.bio.nyu.edu/users/dhm267/} or \nameref{subsubsection:codeanddata} ). 
 
 We modeled the
 log-transformed normalized signal for each mRNA using linear
-regression (\autoref{itm:dme211resultsModel}).
+regression (\nameref{itm:dme211resultsModel}).
 Of 4,859 mRNAs measured we identified 94 that increased in 
 degradation rate and 38 that decreased (FDR < 0.01, using
 \cite{storey2003statistical}). 
 We generated a model of nucleotide
 labeling kinetics to assess the effect of an incomplete label 
-chase on our experimental design ( \autoref{subsection:bff} ),
+chase on our experimental design ( \nameref{subsec:4tuNormalization} ),
  and found that complete transcriptional inhibition alone could 
 theoretically result in a 17\% increase in the apparent 
 degradation rate. In order to eliminate the possibility that
@@ -423,7 +414,7 @@ mRNAs encoding NCR transporters \textit{GAP1}, \textit{DAL5}, and
 subunits \textit{TPS1} and
 \textit{TPS2} (yellow label).
 Destabilized mRNA tend to be more stable before the upshift
-(\autoref{fig:figure2b}),
+(\autoref{fig:figure2bc}),
 (median half-life of 9.46 minutes) and exhibit 
 a median 3.06-fold increase in degradation rates (median half-life of
 3.02 minutes following the upshift). 
@@ -473,7 +464,7 @@ destabilized transcripts are annotated as “ESR-up” genes
 (\autoref{fig:comparisonESR}), on the basis of  their rapid induction
 during the environmental stress response \parencite{gasch2000genomic}. These 78
 destabilized mRNA are enriched (FDR < 0.05) for GO terms and KEGG 
-pathways (\autoref{itm:dme211goAndKegg}) including
+pathways (\nameref{itm:dme211goAndKegg}) including
 glycolysis/gluconeogenesis (6 genes), 
 carbohydrate metabolic process (24),
 trehalose-phosphatase activity (3), 
@@ -485,9 +476,6 @@ and secondary active transmembrane transport
 Thus destabilized mRNA upon a nitrogen upshift regulates, 
 but is not restricted to, NCR-regulated mRNA and reflects broader
 metabolic changes in the cell. 
-
-
-
 
 To investigate the extent to which mRNA stability changes contribute
 to transcriptome reprogramming, we compared degradation rates
@@ -511,11 +499,11 @@ increases in mRNA synthesis rates
 \afig{
   \includegraphics[width=\textwidth]{img/Figure2bc.png}
   }{
-    \textbf{b)} Comparison between the pre-upshift mRNA
+    Comparison between the pre-upshift mRNA
     degradation rate (y-axis) and the post-upshift mRNA degradation rate
-    (x-axis). Positive values result from noise on the slope estimate.
-    \textbf{c)} Comparison between changes in mRNA expression following
-    upshift (Airoldi et al. 2016) (y-axis) and the post-upshift
+    (x-axis). Negative values result from noise on the slope estimate.
+    Comparison between changes in mRNA expression following
+    upshift \parencite{airoldi2016steady} (y-axis) and the post-upshift
     degradation rate (x-axis). Both plots share the same x-axis.
     Transcripts that are significantly destabilized are colored red, and
     shown with red rug-marks in the marginal histograms.
@@ -525,14 +513,11 @@ increases in mRNA synthesis rates
 \afig{
   \includegraphics[width=\textwidth]{img/Figure2_S_globalComparisons.png}
   }{
-  \parencite{airoldi2016steady} and stability measured in this study.
-  Comparisons of rates from this study with mRNA abundance change rates
-  from \cite{airoldi2016steady}. Pre-upshift decay rates (top) don't explain the
-  abundance change. Decay rate refers to the rate of change, thus is
-  the negative of the degradation rate.
-  The degradation rate changes (difference between pre
-  and post upshift) and the post-upshift rates (bottom) are anti-correlated
-  with the abundance changes.
+  Pre-upshift decay rates \textbf{(top)} don't explain the
+  abundance change. 
+  The degradation rate changes (\textbf{middle}, difference between pre
+  and post upshift) and the post-upshift rates \textbf{(bottom)} 
+  are anti-correlated with the abundance changes.
   \label{fig:kkdComparison}
   }{Comparison between rates of mRNA degradation and abundance
     changes.}
@@ -546,7 +531,7 @@ increases in mRNA synthesis rates
   as described in the supplement 
   of \cite{brauer2008coordination}. 
   Many of the destabilized set are ESR "up" genes, as they
-  are increase in expression in response to stresses.
+  are increased in expression in response to stresses.
   \label{fig:comparisonESR}
   }{Many of the destabilized mRNA are members of the ESR-up regulon.}
 
@@ -775,7 +760,7 @@ molecules that appear to be PCR duplicates (false double-counting
 by virtue of the amplification scheme) are actually considered
 to be duplicates in the analysis. For a more in-depth discussion of
 UMIs, please see
-\autoref{subsubsection:rarefractionDiscussion}.
+\nameref{subsubsection:rarefractionDiscussion}.
 
 These ligations were all of the A-tailed product with 20nM annealed
 adapter, each reaction with a different sample index. These were
@@ -846,7 +831,7 @@ disrupting the quantification.
 I decided to smooth the normalization across the samples, as we expect
 the proportion of counts that are the spike-ins to increase over time.
 This assumes that the whole transcriptome decays with exponential
-kinetics \textbf{CITATIONS FOR THIS?}.
+kinetics \parencite{petersen1976half}.
 
 In the sequencing data, we clearly see that the proportion of counts
 that are the spike-ins increases with time.
@@ -889,9 +874,11 @@ By smoothing across timepoints,
 given our expectation of whole-transcriptome exponential
 decay dynamics, we can deliver a more reliable estimate for each gene
 feature. Thus more observations can be reliably analyzed
-without single sample spike-in errors systematically skewing the fits.
+without single sample spike-in errors systematically skewing the fits
+across all features.
 
-We also tried to spike-in labeled ecoli total RNA; however, we found
+We also tried to spike-in labeled \textit{E. coli} total RNA; 
+however, we found
 that those counts were low, noisy, and did not behave as expected
 from previous work \parencite{neymotin2014determination}. We
 hypothesize that this was due to lower addition of \textit{E. coli} 
@@ -993,7 +980,7 @@ mRNA synthesis by other means is feasible, but introduces a compounding
 of errors from both methods. Thus performing one direct assay is
 preferable for precision, and the drawbacks described here are
 unavoidable with current technology (although progress is being made
-\cite{chan2017non}).
+\parencite{chan2017non}).
 
 Therefore, I used simulations to investigate how varying the labelling
 parameter changes the expected dynamics if we also vary the synthesis
@@ -1118,7 +1105,7 @@ degradation in response to a nitrogen upshift. We selected \textit{GAP1}
 as representative of transcript destabilization, as it is abundant in
 nitrogen-limiting conditions and is rapidly cleared upon addition of
 glutamine  (3.24-fold increase in degradation rate, \autoref{fig:figure3a},
-\autoref{itm:dme211resultsModel}). Previous approaches to high-throughput
+\nameref{itm:dme211resultsModel}). Previous approaches to high-throughput
 genetics of transcriptional activity have used protein expression
 reporters \parencite{neklesa2009genome,sliva2016barcode} or automation of qPCR 
 \parencite{worley2016genome}. However, for our
@@ -1155,7 +1142,7 @@ low transcript numbers in yeast cells compared to mammalian cells
 \parencite{klemm2014transcriptional}. Therefore, we used branched DNA probes
 (Quantigene), which serve to amplify the FISH signal
 \parencite{hanley2013detection}. We developed a fixation and permeabilization
-protocol (\autoref{subsection:bff}) that enabled detection of the
+protocol (\nameref{subsection:bff}) that enabled detection of the
 distribution of  \textit{GAP1} mRNA in steady-state nitrogen-limited conditions
 and its repression following the  upshift (\autoref{fig:figure3b}). In control
 experiments, we found that the signal is eliminated in a \textit{GAP1} deletion
@@ -1197,7 +1184,7 @@ p < $10^{-11}$ ).
   Representative cells from each bin sorted from the experiment in 
   \autoref{fig:figure3b}. Alexa647 signal is imaged with a Cy5
   filter set.
-  \label{fig:figure3}
+  \label{fig:figure3c}
   }{Example microscopy of cells sorted by \textit{GAP1} mRNA.}
 
 \afig{
@@ -1216,10 +1203,10 @@ to generate sufficient material for
 Barseq \parencite{sliva2016barcode}. However, formaldehyde fixation precludes
 outgrowth. We found that below approximately $10^6$ templates, the
 Barseq reaction produces primer dimers
-that outcompete the intended PCR product (\autoref{subsection:bff}). 
+that outcompete the intended PCR product (\nameref{subsection:bff}). 
 Therefore, we re-designed the
 PCR reaction \parencite{robinson2014design,smith2009quantitative} to be robust for
-very low sample inputs (\autoref{subsection:bff}). Our protocol
+very low sample inputs (\nameref{subsection:bff}). Our protocol
 incorporates a 6-bp unique molecular identifier (UMI) into the first
 round of extension to identify PCR duplicates, 
 and uses 3'-phosphorylated oligonucleotides and a
@@ -1237,7 +1224,7 @@ using pairwise alignment to invariant flanking sequences.
 Based on \textit{in silico} benchmarks, this
 approach was robust to systematic and simulated random errors 
 that can confound analysis of the yeast deletion barcodes 
-(\autoref{subsubsection:codeanddata}, \autoref{subsection:bff}). 
+(\nameref{subsubsection:codeanddata}, \nameref{subsection:bff}). 
 
 We refer to this experimental approach as BFF (Barseq after FACS after FISH). 
 We used BFF to estimate \textit{GAP1} mRNA abundance for every mutant in the
@@ -1266,17 +1253,6 @@ condition and biological replicates are clustered indicating that our
 approach reproducibly captures the variation of  \textit{GAP1} mRNA flow
 cytometry signal across the library (\autoref{fig:pca}). 
 
-\afig{
-  \includegraphics[width=\linewidth]{img/Figure4a.png}
-  }{
-    Flow cytometry analysis of \textit{GAP1} mRNA 
-    abundance in the prototrophic
-    deletion collection before and after the upshift. 
-    The vertical gray
-    lines denote FACS gates. Biological replicates are
-    indicated by color. 
-    \label{fig:figure4a}
-  }{BFF estimates of \textit{GAP1} mRNA abundance.}
 
 
 \afig{
@@ -1307,7 +1283,7 @@ log-normal distribution using likelihood maximization
 %reflected in the wider distribution of estimated means.
 From model fits we estimated the mean expression value for each
 mutant and found that the distribution of means estimated for
-3,230 strains (\autoref{itm:dme209pooledFits}, \autoref{fig:figure4c}) 
+3,230 strains (\nameref{itm:dme209pooledFits}, \autoref{fig:figure4c}) 
 recapitulates the overall
 distribution of flow cytometry signal (\autoref{fig:figure4a}). 
 %To estimate \textit{GAP1}
@@ -1316,7 +1292,7 @@ distribution of flow cytometry signal (\autoref{fig:figure4a}).
 %of three replicates in at least three of the four bins). We generated
 %expression distribution estimates for 3,230 strains, and used the mean
 %of each distribution as the estimate of \textit{GAP1} mRNA abundance for each
-%strain (\autoref{itm:dme209pooledFits}). %added after commented out
+%strain (\nameref{itm:dme209pooledFits}). %added after commented out
 To validate our approach we first examined
 strains for which we expected to have a specific phenotype and
 compared their mean expression level to the distribution of expression
@@ -1332,6 +1308,18 @@ for the entire population (\autoref{fig:figure4d}).
     \label{fig:figure4b}
   }{Data and models for several individual sample genes from the BFF
     modeling.}
+\afig{
+  \includegraphics[width=\linewidth]{img/Figure4a.png}
+  }{
+    Flow cytometry analysis of \textit{GAP1} mRNA 
+    abundance in the prototrophic
+    deletion collection before and after the upshift. 
+    The vertical gray
+    lines denote FACS gates. Biological replicates are
+    indicated by color. 
+    \label{fig:figure4a}
+  }{Flow cytometry of the \textit{GAP1} mRNA distribution across all
+    mutants.}
 \afig{
   \includegraphics[width=\textwidth]{img/Figure4c.png}
   }{
@@ -1372,10 +1360,10 @@ result from the complex interplay of NCR transcription factors on
 their own expression levels. 
 Data and models for each mutant strain can be visualized in browser
 using a Shiny appplication (see
-\url{http://shiny.bio.nyu.edu/users/dhm267/} or \autoref{subsubsection:codeanddata}). 
+\url{http://shiny.bio.nyu.edu/users/dhm267/} or \nameref{subsubsection:codeanddata}). 
 
 To identify new cellular processes that regulate \textit{GAP1} mRNA abundance, we
-used gene-set enrichment analysis (\autoref{itm:dme209gsea}).
+used gene-set enrichment analysis (\nameref{itm:dme209gsea}).
 Following the upshift we found mutants that have high \textit{GAP1}
 expression before the upshift are enriched for mutants in sulfate
 assimilation, and mutants that 
@@ -1436,7 +1424,7 @@ strain to identify mutants that clear \textit{GAP1} mRNA with kinetics slower
 than expected by this model.
 We found that the Lsm1-7p/Pat1p complex is again strongly 
 enriched for slower than
-expected \textit{GAP1} mRNA clearance (\autoref{itm:dme209pooledFits}). 
+expected \textit{GAP1} mRNA clearance (\nameref{itm:dme209pooledFits}). 
 Specifically
 the \textit{lsm1}$\Delta$, \textit{lsm6}$\Delta$, and 
 \textit{pat1}$\Delta$ strains are highly elevated in \textit{GAP1}
@@ -1563,7 +1551,7 @@ exhibit the phenotype of reduced \textit{GAP1} mRNA before the upshift
 and a reduced rate of transcript clearance following the upshift
 (\autoref{fig:figure5qpcr}). 
 We observed a similar phenotype with a different deletion of 152bp upstream
-of the \textit{GAP1} start codon (\autoref{fig:figure5qcpr}). 
+of the \textit{GAP1} start codon (\autoref{fig:figure5qpcr}). 
 %These measurements suggest altered mRNP composition of the
 %Lsm1-7p/Pat1p complex and associated decapping factors are associated
 %with defects in \textit{GAP1} mRNA expression dynamics upon a 
@@ -1591,7 +1579,7 @@ counter-selecting against the casette with Gal induction of p53
 from within the cassette.
 These strains were generated and confirmed by Sanger sequencing,
 and traces are available in directory \texttt{data/qPCRfollowup/} 
-within the data zip archive (\autoref{subsubsection:codeanddata}).
+within the data zip archive (\nameref{subsubsection:codeanddata}).
 
 \subsubsection{qPCR}
 
@@ -1607,7 +1595,7 @@ using the hot-acid phenol technique .
 For \autoref{fig:figure3a} only, at the beginning of this extraction 
 incubation I added 10$\mu$L of a 0.1ng/$\mu$L in-vitro synthesized 
 spike-in mRNA BAC1200 (as generated
-for the label-chase RNAseq (\autoref{subsubsection:spikeins},
+for the label-chase RNAseq (\nameref{subsubsection:spikeins},
 but without 4-thiouridine). 
 RNA was treated DNAse RQ1 (Promega) according to manufacturer
 instructions, cleaned and precipitated.
@@ -1633,7 +1621,7 @@ These were run on a Roche480 Lightcycler,
 with a max-second derivative estimate
 of the cycles-threshold (the $C_p$ value output by analysis) used 
 for analysis by scripts included in the git repo 
-(\autoref{subsubsection:codeanddata}).
+(\nameref{subsubsection:codeanddata}).
 Linear regression of the log-transformed values was used to quantify
 the dynamics and assess significance of changes in expression
 levels or rates of change.
@@ -1658,7 +1646,7 @@ then spun at 10,000g for 1 minute, aspirated,
 then washed once and resuspended with 1x PBS. 
 Samples were kept on ice, then put onto a coverslip
 for imaging on a DeltaVision scope. Raw images available in the
-microscopy zip archive (\autoref{subsubsection:codeanddata}).
+microscopy zip archive (\nameref{subsubsection:codeanddata}).
 
 \subsection{Methods and materials of Barseq after FACS after FISH experiment}
 
@@ -1809,9 +1797,7 @@ in a few ways.
 The main impetus for this was the generation of primer dimers that form
 when the forward universal primer primes off the reverse universal
 primer. For example, \autoref{fig:dimer} shows a failed experiment
-that shows dimer formation in the sample lanes (on right). In the right
-five samples, there's a balance of the expected product (top bands) and
-the dimer (lower bands).
+that shows dimer formation in the sample lanes (on right). 
 
 \vspace{3em}
 
@@ -1897,7 +1883,7 @@ dramatically (as here it does not, given similar inputs to extractions).
 Optimization of this step did not improve upon this efficacy, and in
 the lack of commercially available thermostable (and active) 
 exonucleases \parencite{fei2015structural}, this background noise 
-must be accepted and understood.
+must be understood and accepted.
 
 To address this, we optimized the reactions on a dilution series of gDNA
 from a different experiment with the same knockout library. By balancing
@@ -2175,7 +2161,7 @@ surprising given that we are using this tool in a labeling regime that
 is wholy inappropriate for what it is trying to do. Thus, I do not use
 this tool an instead used the more conservative 
 correction of \cite{fu2011counting}.
-An appropriately diverse UMI pool would allow a future user to make
+An appropriately complex UMI design would allow a future user to make
 use of error-correcting algorithims in this method.
 
 \subsubsection{Benchmarking this pipeline}
@@ -2596,13 +2582,13 @@ Framework (\url{https://osf.io/7ybsh/}).
 
 To reproduce the entire analysis, or to access a particular 
 analysis, clone the git repo.  
-Download the `zip` data archives from the above
+Download the \texttt{zip} data archives from the above
 OSF link, and put them inside this git repo folder 
-(here, `millerBrandtGresham2018`).
-At minimum, you should have the `data.zip` archive in that directory,
-although records of all R analyses are in `html\_reports.zip`
-and intermediate files are in `tmp.zip`.
-Consult the `README.md` file in the repository for more instructions
+(here, \texttt{millerBrandtGresham2018}).
+At minimum, you should have the \texttt{data.zip} archive in that directory,
+although records of all R analyses are in \texttt{html\_reports.zip}
+and intermediate files are in \texttt{tmp.zip}.
+Consult the \texttt{README.md} file in the repository for more instructions
 and options, including to unzip intermediate files and HTML
 reports generated for every R script which detail the results.
 
@@ -2626,7 +2612,7 @@ These are available on the Open Science Framework archive
   \item Gene set enrichment analysis of loadings on principal 
     components one and two.
     \\\texttt{Figure1\_Table\_GSEofGOtermsAgainstPCcorrelation.csv}
-    \label{microarrayPCAgsea}
+    \label{itm:microarrayPCAgsea}
   \item Raw counts of labeled mRNA quantified by RNAseq in 
     label-chase experiment.
     \\\texttt{Figure2\_Table\_RawCountsTableForPulseChase.csv}
@@ -2776,8 +2762,5 @@ All primers were synthesized by Integrated DNA Technologies (IDT).
 Barseq multiplexing barcode sequences and index numbers available in 
 the file 
 \texttt{data/dme209/sampleBarcodesRobinson2014.txt} within the
-data zip archive (\autoref{subsubsection:codeanddata}). \\
-
-
-
+data zip archive (\nameref{subsubsection:codeanddata}). \\
 
