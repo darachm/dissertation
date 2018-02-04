@@ -92,8 +92,7 @@ of the \textit{GAP1} stop codon, and re-analysis showed that the 5'
 UTR truncations had a very similar phenotype as deletions of
 \textit{SCD6} or \textit{TIF4632}.
 
-\section{Unexplored physiological changes that occur during nitrogen
-upshift}
+\section{Physiological changes that occur during nitrogen upshift}
 
 Combining a fluorescent poly-dT probe assay
 \parencite{amberg1992isolation} with flow cytometry, I was able to
@@ -171,85 +170,84 @@ Degradation is mediated by connections between 3’ and 5’,
 with the Lsm1-7p/Pat1p complex strongly promoting the decapping of
 mRNA requisite for degradation in the main pathway of mRNA
 degradation.
-
- interacting with the cap? This is facilitated by
-deadenylation and antagonized by translation. One idea could be that
-translation initiation and elongation just wiggles the 3’ away from
-the 5’, a sort of ribosome-dependent 3’ extrusion ( referencing the
-cohesin-dependent loop extrusion model ).  This would sorta explain
-Zenklusen’s latest, that cycloheximide preserves distance from 5’ to
-3’, and puromycin doesn’t.  
+One explanation of the interaction between the degradation and
+translation initiation machinery has been proposed as the competition
+for the 5' m7G cap. 
+The interaction of translation initiation factor eIFG2 and
+decapping modulator Scd6p in affecting the degradation of
+\textit{GAP1} suggests and interaction with ribosome loading status.
+One explanation to connect these processes could be that the presence
+of elongating ribosomes separates the 5' and 3' ends of the mRNA, 
+similar to the cohesin-dependent loop extrusion model currently used 
+by some to explain chromatin-organization. 
+This would directly explain the connection between translation status
+and degradation for individual mRNA.
 
 \subsection{An efficient method for estimating mRNA abundance in
 barcoded mutant pools}
 
-Much of what we know about mRNA
-degradation has been worked out using genetics. While appealing in its
-ease of use and functional consequences, the use of genetic
-perturbations also comes with the caveat. Perturbing an exquisitely
-homeostatic system, like a living cell, can result in indirect effects
-as systems of regulatory feedback percolate the signal through the
-network. Thus in this work, the use of knockout mutants is the use of
-an indeterminately perturbed system. Additionally, the laborious
-creation and maintenance of mutants introduces potential artifacts of
-suppressor mutations and additional mutations in the mutant background
-(Markowitz et al. 2017). Technologies have been recently developed to
-scale heterologous repression of expression to genome-wide scales
-(CRISPRi (Smith et al. 2016) and are currently being developed to
-deliver programmed single residue editing at thousands of thousands of
-sites (personal communication). With the ability to induce programmed
-mutagenesis, with  replicates, provides for each experiment a pooled
-de novo mutant library. The pooled assay concept demonstrated here is
-easily composable with these approaches, and should be the next step.
-Critical improvements to this method include a better design of the
-gates to improve estimates of mutants with largely divergent
-phenotypes. A suboptimal design was used here because the samples were
-collected and sorted before the library preparation procedure was
-improved to the point where low-input was a feasible option.  The
-scalable efficiency of the pooled approach could be used to limit the
-search space of more precise but resource-intensive automated assays
-(Worley et al. 2015), and thus this hybrid approach could be used to
-efficiently increase throughput of measured transcript dynamics. In
-particular, the explicit measurement of degradation instead of
-dynamics by use of transcriptional inhibition could be used on a
-case-by-case basis (Worley et al. 2015), so long as the inhibition was
-optimized to offer a relevant measurement (Pelechano and Pérez-Ortín
-2008).
+Much of what we know about mRNA degradation has relied on genetics,
+but perturbing an exquisitely homeostatic system, like a living cell, 
+can result in indirect effects as systems of regulatory feedback 
+percolates the signal through the network. 
+Thus in this work, the use of knockout mutants is the use of
+an indeterminately perturbed system. 
+Additionally, the laborious individual creation and maintenance of a 
+collection of mutants can introduce potential artifacts of suppressor 
+and passenger mutations \parencite{kwan2016rdna,markowitz2017reduced}.
+The development of new methods for making mutant pools with 
+high internal replication and minimal strain-handling selection
+offers a new paradigm of yeast genetics that avoids or
+minimizes some of these drawbacks \parencite{smith2016quantitative}.
+The methods described here for doing SortSeq are, of course,
+compatible with adaptation to any DNA-barcode-based sequencing assay 
+of pooled mutants. 
 
 With the integration of single-cell RNA sequencing with 
-RNA-guided Cas9 genetic-editing
-\parencite{}
-(with potential issues \parencite{hill2018design}),
-this approach of mRNA SortSeq may no longer be necessary for doing 
-high-throughput genetics for mRNA markers. 
+RNA-guided Cas9 genetic-editing 
+\parencite{dixit2016perturb,hill2018design},
+this approach of mRNA SortSeq may no longer be absolutely
+necessary for doing high-throughput genetics for mRNA markers. 
 However, this method works now with common lab reagents and equipment, 
 and only requires sequencing the diversity of generated mutants ---
 not all pairwise combinations of strain and mRNA.
+Additionally, the as-yet recalcitrance of budding yeast for 
+single-cell molecular analysis is still a barrier.
 Thus restricting the requisite sequencing opens the opportunity to
 apply this method across more replicates, markers, and timepoints.
-Scaling this assay up to more cells input and more FACS sorting
-timepoints has the potential to estimate mRNA dynamics across multiple
+Scaling this assay up to more cells input and a greater investment
+in FACS sorting \parencite{de2017deciphering} has the potential to 
+estimate mRNA dynamics across multiple
 timepoints for all barcoded mutants in a library.
+The efficiency of the pooled approach could also be used to limit the
+search space of more precise but resource-intensive automated assays
+\parencite{worley2016genome}, 
+and thus this hybrid approach could be used to
+efficiently increase throughput of measured transcript dynamics. 
 
-\section{Hypotheses}
+\iffalse
 
-\subsection{Possible mechanisms of \textit{GAP1} clearance}
+\subsection{A role for pH in sensing nutrient upshifts?}
 
-More or less ribsomes could affect stability.
-
-Scd6
-
-eIF4G2, sloppy initiation, Nterminal extensions, out of frame stuff
-with the Celiak2017 paper.
-
-\subsection{The role of pH in sensing nutrient upshifts}
-
+Addition of a preferred nitrogen source trigger a destabilization 
+for several mRNA. 
 Glucose upshifts result in a rapid but transient reduction in pH
-that is not mediated by xyz
-\parencite{kresnowati2008quantitative}
+\parencite{kresnowati2008quantitative}.
 Hesso etc have shown that a similar thing could be happening.
 Shifting pH can have strong biophysical effects, including
 the aggregation of the poly-A binding protein pab1
 Riback 2017
 It could also be Gcn2 mediated (huesso)
 
+
+Recent presentations at ICYGMB 2017 from the Andr\'{e} group have
+pointed towards a role for proton-influx in triggering a pulse of
+TORC1 activity, similar to that seen upon addition of a preferred
+nitrogen source.
+
+Thus, secondary-active proton symporters (like \textit{GAP1},
+\textit{MEP2}, or ) could co-transport the signal
+
+\parencite{kim2012need}
+
+\fi
