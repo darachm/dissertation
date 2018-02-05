@@ -197,7 +197,7 @@ fitIt((subset(datar,Minutes==120)$`FL1-A`)[1:1000])
 fitz <- datar %>% group_by(Minutes)%>%
   select(-`FSC-A`,-`FSC-H`,-`FL1-H`)%>%
   nest(`FL1-A`,.key="fl1a")%>%group_by(Minutes)%>%
-  mutate(Parmz=map(fl1a,function(x){fitIt(x[[1]])}))%>%
+  mutate(Parmz=map(fl1a,function(x){fitIt(x[[1]][1:5000])}))%>%
   select(-fl1a)%>%group_by(Minutes)%>%
   mutate(g1=Parmz[[1]][[1]][1]
     ,s=Parmz[[1]][[1]][2]
