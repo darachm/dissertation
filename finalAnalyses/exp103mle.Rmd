@@ -1,0 +1,244 @@
+
+
+```{r,cache=T}
+library(tidyverse)
+library(flowCore)
+
+datar <- tibble(Filename=list.files("exp103sytoxgreen150109/"
+    ,pattern="*fcs",full.names=T)
+    )%>%
+  mutate(Rawfile=map(Filename
+    ,~(as.tibble(exprs(read.FCS(.x,transformation=FALSE)))%>%
+      select(`FSC-A`,`FSC-H`,`FL1-A`,`FL1-H`))
+    ))%>%
+  mutate(Filename=str_replace(Filename,".fcs",""))%>%
+  separate(Filename,into=c("Filename","Minutes"),"\\s")%>%
+  dplyr::filter(!is.na(Minutes)) %>%
+  mutate(Minutes=as.numeric(Minutes)*10) %>% 
+  select(-Filename)%>% unnest()
+```
+
+Got the data, now I cut the crap.
+
+```{r,cache=T}
+
+ggplot(datar[sample(1:nrow(datar),size=1e5),],aes(x=log(`FSC-A`),y=log(`FL1-A`)))+
+	theme_bw()+geom_point(cex=1,alpha=.01)+geom_hline(yintercept=13.5)
+
+datar <- subset(datar,`FL1-A`>exp(13.5)&`FSC-A`>exp(12)&`FSC-A`<exp(15))
+
+ggplot(datar[sample(1:nrow(datar),size=1e5),],aes(x=log(`FSC-A`),y=log(`FL1-A`)))+
+	theme_bw()+geom_point(cex=1,alpha=.05)+geom_abline(intercept=12.7,slope=0.18)
+
+datar <- subset(datar,log(`FL1-A`)<log(`FSC-A`)*0.18+12.7)
+
+ggplot(datar[sample(1:nrow(datar),size=1e5),],aes(x=log(`FSC-A`),y=log(`FL1-A`)))+
+	theme_bw()+geom_point(cex=1,alpha=.05)+geom_abline(intercept=10.9,slope=0.25)
+
+datar <- subset(datar,log(`FL1-A`)>log(`FSC-A`)*0.25+10.9)
+
+ggplot(datar[sample(1:dim(datar)[1],size=1e5),],aes(x=log(`FSC-A`),y=log(`FSC-H`)))+
+	theme_bw()+geom_point(cex=.2,alpha=.2)+geom_abline(intercept=1.5,slope=0.90)
+
+datar <- subset(datar,(log(`FSC-H`)>log(`FSC-A`)*0.90+1.5)&log(`FSC-A`)>12)
+
+```
+
+```{r,cache=T}
+ggplot(subset(datar,Minutes!="0"),aes(x=`FL1-A`,col=factor(Minutes)))+
+	theme_bw()+
+	stat_bin(aes(y = ..density..), binwidth=7e4,geom="line",position="identity",
+		cex=.5,alpha=.5)+
+	stat_bin(aes(y = ..density..),binwidth=7e4,geom="point",position="identity",
+		cex=2,alpha=.5)+
+	xlim(c(5e5,4e6))+
+	scale_color_discrete("Minutes after\nglutamine upshift")+
+	xlab("SytoxGreen signal (DNA content per cell)")
+```
+
+```{r,cache=T}
+
+require(caTools)
+library(stats4)
+
+detectparms <- function(fl1z,plotq=T) {
+#first some stuff# fl1z <- subset(datar,Minutes==0)$`FL1-A`
+	low <- min(fl1z)-100
+	high <- max(fl1z)+100
+	tmp <- hist(fl1z,breaks=seq(low,high,1e2),plot=F)
+	tmpc <- tmp$counts;names(tmpc) <- tmp$mids;tmprm <- runmean(tmpc,1e3)
+	thex <- as.numeric(names(tmpc))
+#pick peaks as medians of the smoothed counts
+	g1peak <- median(as.numeric(names(tmpc[which(tmprm==max(tmprm))])))
+	rightz <- names(tmpc)>median(as.numeric(names(tmpc)))
+	g2peak <-median(as.numeric(names(tmpc[rightz][
+		which(tmprm[rightz]==max(tmprm[rightz]))])))
+#convoluted stuff to get things that are 60% of the peak to get sdz
+	sixtyofg1 <- 0.6*mean(tmprm[which(abs(as.numeric(names(tmpc))-g1peak)==
+		min(abs(as.numeric(names(tmpc))-g1peak)))])
+	firstsixtyofg1 <- names(tmpc[(tmprm>=sixtyofg1)&as.numeric(names(tmpc))<g1peak])[1]
+	g1sd <- g1peak - as.numeric(firstsixtyofg1)
+	sixtyofg2 <- 0.6*mean(tmprm[which(abs(as.numeric(names(tmpc))-g2peak)==
+		min(abs(as.numeric(names(tmpc))-g2peak)))])
+	lastsixtyofg2 <- names(tmpc[(tmprm>=sixtyofg2)&as.numeric(names(tmpc))>g2peak])[
+		length(names(tmpc[(tmprm>=sixtyofg2)&as.numeric(names(tmpc))>g2peak]))]
+	g2sd <- as.numeric(lastsixtyofg2) - g2peak
+	spsd <- mean(c(g1sd,g2sd))
+	scenter <- mean(c(g1peak,g2peak))
+#
+if (plotq) {	####
+	plot(thex,tmprm,xlab="bins",main="running mean, binsize 1e3")
+	tmphist <- hist(fl1z,breaks=seq(range(fl1z)[1],range(fl1z)[2]+1e4,1e4),plot=F)
+	smoothedcounts <- runmean(tmphist$counts,10);lmax <- max(smoothedcounts)
+	rmax <- max(smoothedcounts[tmphist$mids>median(tmphist$mids)])
+	plot(tmphist$mids,tmphist$counts,type="p",pch=16,cex=0.5,
+		xlab="`FL1-A`",ylab="counts in bins of 1e4")
+	lines(tmphist$mids,smoothedcounts,lty="dotted")
+	abline(v=g1peak,col="red");abline(v=g1peak-g1sd,col="red",lty="dashed")
+	abline(v=g1peak+g1sd,col="red",lty="dashed")
+	lines(thex,dnorm(thex,mean=g1peak,sd=g1sd)/
+		max(dnorm(thex,mean=g1peak,sd=g1sd))*lmax,col="red")
+	abline(v=g2peak,col="blue");abline(v=g2peak+g2sd,col="blue",lty="dashed")
+	abline(v=g2peak-g2sd,col="blue",lty="dashed")
+	lines(thex,dnorm(thex,mean=g2peak,sd=g2sd)/
+		max(dnorm(thex,mean=g2peak,sd=g2sd))*rmax,col="blue")
+#
+	sdens <- c(rep(0,which(abs(thex-g1peak+3*g1sd)==min(abs(thex-g1peak+3*g1sd)))[1]-1),
+dnorm(thex[which(abs(thex-g1peak+3*g1sd)==min(abs(thex-g1peak+3*g1sd)))[1]:
+	which(abs(thex-g1peak-2*spsd)==min(abs(thex-g1peak-2*spsd)))[1]],
+	mean=g1peak+2*spsd,sd=spsd)/
+max(dnorm(thex[which(abs(thex-g1peak+3*g1sd)==min(abs(thex-g1peak+3*g1sd)))[1]:
+	which(abs(thex-g1peak-2*spsd)==min(abs(thex-g1peak-2*spsd)))[1]],
+	mean=g1peak+2*spsd,sd=spsd)),
+		rep(1,which(abs(thex-g2peak+2*spsd)==min(abs(thex-g2peak+2*spsd)))[1]-
+			which(abs(thex-g1peak-2*spsd)==min(abs(thex-g1peak-2*spsd)))[1]-1),
+dnorm(thex[which(abs(thex-g2peak+2*spsd)==min(abs(thex-g2peak+2*spsd)))[1]:
+	which(abs(thex-g2peak-3*g2sd)==min(abs(thex-g2peak-3*g2sd)))[1]],
+	mean=g2peak-2*spsd,sd=spsd)/
+max(dnorm(thex[which(abs(thex-g2peak+2*spsd)==min(abs(thex-g2peak+2*spsd)))[1]:
+	which(abs(thex-g2peak-3*g2sd)==min(abs(thex-g2peak-3*g2sd)))[1]],
+	mean=g2peak-2*spsd,sd=spsd)),
+		rep(0,length(thex)-(which(abs(thex-g2peak-3*g2sd)==min(abs(thex-g2peak-3*g2sd))))[1]))
+#
+	lines(thex,sdens*tmphist$counts[which(abs(tmphist$mids-scenter)==min(abs(tmphist$mids-scenter)))],col="green")
+}	####
+	names(sdens) <- thex
+	g1z <- dnorm(as.numeric(names(sdens)),mean=g1peak,sd=g1sd)
+	names(g1z) <- as.numeric(names(sdens))
+	g2z <- dnorm(as.numeric(names(sdens)),mean=g2peak,sd=g2sd)
+	names(g2z) <- as.numeric(names(sdens))
+	return(list(c(g1mean=(g1peak),g2mean=(g2peak),g1sd=g1sd,g2sd=g2sd),
+		g1z=g1z/sum(g1z),
+		sdens=sdens/sum(sdens),
+		g2z=g2z/sum(g2z)))
+}
+parmzobj <- detectparms(subset(datar,Minutes=="240")$`FL1-A`)
+
+
+sdenz <- function(x,g1mean,g1sd,g2mean,g2sd) {
+  lefthump <- g1mean+2*g1sd
+  righthump <- g2mean-2*g2sd
+  c( dnorm(x[x<lefthump],lefthump,g1sd)
+    ,dunif(x[x>=lefthump&x<=righthump],min=lefthump,max=righthump)
+    ,dnorm(x[x>righthump],righthump,g2sd)
+    )/2
+  }
+plot(x=(1e6:3e6),y=(sdenz(1e6:3e6,1.5e6,2e5,2.8e6,2e5)),type="l")
+
+sum(sdenz(1e6:4e6,1.5e6,2e5,2.8e6,2e5))
+
+fitIt <- function(thisDatar) {
+  dparmz <- detectparms(thisDatar)[[1]] # this better be FL1.A
+  fitfunc <- function(g1frac,g2frac,sfrac,dparmz) {
+    theSum <- sum(c(g1frac,sfrac,g2frac))
+    g1frac <- g1frac/theSum
+    sfrac <- sfrac/theSum
+	g2frac <- g2frac/theSum
+#return(c(g1frac,sfrac,g2frac,theSum,NA))
+#
+    pz <- log(
+        sapply(thisDatar,function(x){
+          g1frac*dnorm(x,mean=dparmz["g1mean"],sd=dparmz["g1sd"]) +
+          sfrac*sdenz(x
+            ,g1mean=dparmz["g1mean"],g1sd=dparmz["g1sd"] 
+            ,g2mean=dparmz["g2mean"],g2sd=dparmz["g2sd"] ) +
+          g2frac*dnorm(x,mean=dparmz["g2mean"],sd=dparmz["g2sd"]) 
+        }))
+#
+    pz[!is.finite(pz)] <- -36
+#
+    sll <- sum(-pz,na.rm=T)
+#
+    return(sll)
+  }
+#return(c( fitfunc(1.0,1.0,0,dparmz=dparmz) ,fitfunc(1.0,0.1,0.0,dparmz=dparmz) ,fitfunc(0.1,1.0,0,dparmz=dparmz) ,fitfunc(0.1,0.1,0.8,dparmz=dparmz)))
+  # And the actual fit
+  thisFit <- try(
+    mle(minuslogl=fitfunc
+      ,start=list(g1frac=1.0,g2frac=0.5,sfrac=1.0)
+      ,control=list(maxit=1000,trace=0)
+      ,method="L-BFGS-B"
+      ,fixed=list(dparmz=dparmz)
+      ,lower=c(0.0,0.0,0.0),upper=c(1,1,1)
+      )
+    )
+#return(thisFit)
+# For errors
+  if (is(thisFit)=="try-error") return()
+#debuggin
+#return(thisFit)
+  fracz <- coef(thisFit)[1:3]
+  return(list(fracz/sum(fracz)))
+}
+fitIt((subset(datar,Minutes==60)$`FL1-A`)[1:1000])
+fitIt((subset(datar,Minutes==120)$`FL1-A`)[1:1000])
+
+
+fitz <- datar %>% group_by(Minutes)%>%
+  select(-`FSC-A`,-`FSC-H`,-`FL1-H`)%>%
+  nest(`FL1-A`,.key="fl1a")%>%group_by(Minutes)%>%
+  mutate(Parmz=map(fl1a,function(x){fitIt(x[[1]])}))%>%
+  select(-fl1a)%>%group_by(Minutes)%>%
+  mutate(g1=Parmz[[1]][[1]][1]
+    ,s=Parmz[[1]][[1]][2]
+    ,g2=Parmz[[1]][[1]][3])%>%
+  gather(Stage,Proportion,g1,s,g2)
+
+
+fitz%>%
+  ggplot()+theme_bw()+aes(x=Minutes,y=Proportion,col=Stage)+
+  geom_point()+geom_line()
+
+
+#plotz <- data.frame(matrix(NA,ncol=6))
+#names(plotz) <- c("sample","minutes","g1","g2","sp","lmle")
+#for (smpl in names(mlez)) {
+#	#qcutoff <- max(mlez[[smpl]])
+#	qcutoff <- quantile(mlez[[smpl]],probs=.99)
+#	plotz <- rbind(plotz,data.frame(sample=smpl,
+#		minutes=as.numeric(as.character(sub("min","",smpl))),
+#		g1=thetaz[which(mlez[[smpl]] >= qcutoff),"g1"],
+#		g2=thetaz[which(mlez[[smpl]] >= qcutoff),"g2"],
+#		sp=thetaz[which(mlez[[smpl]] >= qcutoff),"sp"],
+#		lmle=mlez[[smpl]][which(mlez[[smpl]] >= qcutoff)]))
+#};plotz<-plotz[-1,]
+##pdf("150514exp103MLE.pdf",width=5,height=4)
+#ggplot(melt(plotz,id.vars=c("sample","minutes","lmle")),
+#	aes(x=minutes,y=value,col=variable))+theme_bw()+
+#	geom_point(cex=1.3)+stat_smooth()+theme(legend.position="bottom")+
+#	ylab("Proportion in each cell cycle distribution,\ntop 5% of maximum likelihood estimates")+
+#	xlab("Minutes after glutamine upshift")+
+#	scale_color_discrete("Cell cycle phase",labels=c("G1","G2","S"))
+#dev.off()
+#
+
+
+
+
+
+
+
+
+
+
+```
