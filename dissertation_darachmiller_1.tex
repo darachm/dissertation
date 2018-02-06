@@ -9,11 +9,12 @@ each phenotype in each environment
 balanced against the costs of innovating and maintaining
 the machinery for adaptive differential gene expression
 \parencite{kussell2005phenotypic}. 
+One way to achieve this is through the regulation of gene expression.
 If different mechanisms of gene expression act on different properties
 of gene expression, or have different costs of energy or complexity, 
-then we expect that as the environment selects for the use of 
+then we would expect that as the environment selects for the use of 
 gene expression patterns that advantageously model the environment
-\parencite{tagkopoulos2008predictive} we may see the use of different
+\parencite{tagkopoulos2008predictive}, we may see the use of different
 mechanisms used to achieve different regulatory demands.
 Thus, understanding how different mechanisms can be used to
 regulate one particular level of gene expression may inform our 
@@ -21,10 +22,10 @@ understanding of these mechanisms and how multiple levels of selection
 balance in causing an adaptive outcome.
 
 Expression of a protein-coding gene
-product involves many complex steps, each with their own opportunities
-for a variety of regulatory mechanisms. At the outset, DNA sequences
-that encode genetic elements are transcribed into corresponding chains
-of messenger RNA (mRNA). The rate of this transcription is helped by
+product involves many steps, 
+each with a variety of regulatory mechanisms. At the outset, DNA sequences
+that encode genetic elements are transcribed into corresponding 
+messenger RNA (mRNA). The rate of this transcription is helped by
 factors that facilitate recruitment of RNA polymerase II (PolII)
 and is hindered by factors that block this process by physical
 occlusion or changes in the accessibility to the chromatin 
@@ -47,13 +48,13 @@ adaptive, would help us better understand the diversity of gene
 regulatory mechanisms.
 
 The budding yeast \textit{Saccharomyces cerevisiae} is a
-classically studied model system for many fields, including gene
+model system for many fields, including gene
 expression regulation. In response to different nutrient 
 availabilities yeast changes its rate of growth, and
 this is accompanied by large changes in gene expression 
 \parencite{brauer2008coordination,conway2012glucose}
 and changes in physiology 
-\parencite{waldron1977synthesis,carter1978protein}.
+\parencite{waldron1977synthesis,carter1978protein}
 including changed rate of proliferation \parencite{slator1918some}, 
 cell size \parencite{jorgensen2004dynamic},
 RNA content \parencite{waldron1975effect}, 
@@ -61,26 +62,26 @@ protein content \parencite{kief1981coordinate},
 and resistance to stressors \parencite{elliott1993stress}.
 This integration of diverse metabolic signals into a coordinated 
 program of growth is thought take place with multiple hierarchies of 
-control, with regulated responses to different particular 
+control in response to different particular 
 types of nutrients as well as the general availability of any 
 nutrient source 
-\parencite{winderickx2003feast,broach2012nutritional,cooper1982nitrogen},
-integrated into a similar systemic output by well conserved growth 
+\parencite{winderickx2003feast,broach2012nutritional,cooper1982nitrogen}.
+These signals are integrated into a similar systemic output by well conserved growth 
 signalling pathways of eukaryotic cells, like TORC1, Snf1p/AMPK, 
 or PKA \parencite{conrad2014nutrient,thevelein1994signal}.
 Thus, the study of nutrient limitations to growth, especially with 
-an eye towards discerning particular molecular mechanisms 
+the aim of discerning particular molecular mechanisms and how these may overlap
 \parencite{oliveira2015dynamic,oliveira2015inferring,tate2017general,stracka2014nitrogen,peli2015amino} 
-and how these may overlap would shed light on our understanding of
-how a eukaryotic cell regulates its most essential goal in the face of
-diverse limitations.
+would shed light on our understanding of how a eukaryotic cell 
+regulates its most essential goal of growth 
+in the face of diverse limitations.
 
 The particular nutrient availability is described in terms of the 
-quality and quantity of the source provided. Quantity refers 
+quality and quantity of the source provided. Quantity refers to
 the molar availability of the nutrient that the yeast can take up,
 while quality is an empirical reference to how rapidly budding
 yeast can biochemically incorporate the nutrient into their metabolism
---- in essence the resulting rate of population growth. 
+and grow.
 One prediction from this understanding is that
 altering the quantity of the nutrient availability to vary growth
 rates in a range below which the quality limits growth rates will
@@ -121,8 +122,8 @@ nitrogen upshift}
 
 One classically studied transition between growth rates is the 
 nitrogen upshift. Yeast grows quickly when provided with nitrogen 
-sources like glutamine or ammonium sulfate, but can make use of 
-various less-preferred nitrogen sources like proline or urea by 
+sources like glutamine or ammonium, but can make use of 
+various nitrogen sources like proline or urea by 
 expressing overlapping sets of specific and general nitrogen-source 
 permeases that concentrate these sources inside the cell for use
 \parencite{grenson1992amino}.
@@ -153,7 +154,8 @@ found that ammonium addition triggered swift repression of
 glutamine levels \parencite{ter1998repression}. 
 This suggests that the sensing might not be
 simply glutamine abundance, but rather some sensor of flux through 
-central nitrogen metabolism (like Gdh1p) or some other,
+central nitrogen metabolism (like Gdh1p activity
+\parencite{fayyad2016yeast}) or some other,
 heretofore uncharacterized signalling mechanism.
 Whatever the exact mechanism, the degree to which nitrogen sources
 can support growth by providing substrates of central nitrogen
@@ -188,13 +190,12 @@ comparisons of nitrogen “starvation” (8+ hours) versus “limitation”
 Gln3-localization regulation (resulting in transcriptional regulation
 of NCR) was still unexplained by TORC1 signalling alone
 \parencite{tate2013five}. By way
-of a temperature-sensitive tRNA allele, they have since identified
+of a temperature-sensitive tRNA allele, researchers have since identified
 that Gcn2p impinges in a parallel pathway through the 14-3-3 proteins
 Bmh1/2 to promote the export of Gln3p and Gat1p 
 \parencite{tate2015gata,tate2017general}. 
 Additionally, others have suggested that the
-amino-acid permease Gap1p may directly signal to PKA, although this is
-still a developing line of research
+amino-acid permease Gap1p may directly signal to PKA
 \parencite{donaton2003gap1,van2009transport}.
 Thus, multiple growth signalling pathways converge to
 affect the import and export of NCR GATA factors to effect multiply
@@ -231,12 +232,11 @@ NCR mRNA as well as mRNA associated with other metabolic processes.
 during an increase in growth rate?}
 
 A landmark integrative study of proteome and transcriptome dynamics 
-from the Gasch laboratory \parencite{lee2011dynamic} showed that
-for most cases of mRNA repression during the stress, there was not
-a correlated downregulation of protein products, 
-on the timescales measured.
-This asymmetry makes sense, as with protein approximately 30-50 times
-more stable than the mRNA they derive from 
+\parencite{lee2011dynamic} showed that
+for most cases of mRNA repression upon osmotic stress, there was not
+a correlated downregulation of protein products in the same timescale.
+This asymmetry makes sense, with protein gene-products being 
+approximately 30-50 times more stable than the mRNA intermediate 
 \parencite{christiano2014global}. 
 Given the assumption that adaptation implies function, what purpose
 might this repression fulfill?
@@ -311,8 +311,8 @@ mechanism.
 
 \section{mRNA degradation and its regulation}
 
-Even simply considering the regulation of mRNA
-abundance, there are at least two processes that contribute --- that
+When considering only the regulation of mRNA abundance, 
+there are at least two processes that contribute --- that
 of synthesis and degradation. We know much about transcript synthesis,
 perhaps owing to the fact that virtually all events of mRNA synthesis
 pass through a well-characterized reaction of synthesis by RNA Pol II,
@@ -419,7 +419,7 @@ has emerged wherein deadenylation promotes the association of the
 Lsm1-7p/Pat1p complex to the shortened poly-A tail, then re-arranges
 to associate this 3' end of the mRNA molecule with the 5' end,
 resulting in an interaction that recruits and triggers decapping
-of the mRNA. But what modulates the progression of this pathway?
+of the mRNA. 
 The Lsm1-7p/Pat1p
 complex and Dcp2p/Dcp1p are physically associated (by
 co-immunoprecipitation) with several factors that genetically modulate
@@ -513,21 +513,24 @@ Non-Stop Decay refers to the inverse of
 NMD, no stop codon. Ribosomes that over-run into the poly-A tail
 recruit degradation by the 3' exonuclease 
 \parencite{schmid2008exosome}. No-go Decay is
-named after the phenomenon that triggers it, when ribosomes no go.
-Difficult to translate sequences (such as lysine repeats) trigger the
+named for the phenomenon that triggers it, when ribosomes "no go"
+(encounter a difficult to elongate sequence).
+Difficult to translate sequences (such as arginine or lysine repeats) 
+trigger the
 endonucleolytic cleavage of the offending mRNA, which is then degraded
 from the cut towards both ends 
 \parencite{doma2006endonucleolytic}. While the molecular mechanisms of
 this process have been not been comprehensively defined, 
 it has been shown that it is likely the ribosome collisions that
 promote the ribosome ubiquitination associated with the triggering of
-No-Go decay 
-\parencite{simms2017ribosome}, other work has suggested that the
-protein Asc1p may play a key role in this process 
-\parencite{ikeuchi2016ribosome}, and perhaps via K63 ubiquitination 
-plays a role in signalling this
-\parencite{saito2015inhibiting}. Thus a model for ribosomal subunits
-sensing ribosome collisions offers an elegant mechanism to sense
+No-Go decay \parencite{simms2017ribosome}, 
+other work has suggested that the
+protein Asc1p \parencite{ikeuchi2016ribosome} 
+or K63 ubiquitination \parencite{saito2015inhibiting}
+may play a role.
+Thus a model for ribosomal subunits sensing ribosome collisions 
+and activating this quality control pathway through ubiquitination
+of ribosome-associated factors offers an elegant mechanism to sense
 locally-stalled ribsomes, although this idea is still beginning to be
 explored.
 
@@ -566,7 +569,8 @@ Codon-optimality refers to the concept that certain codons
 are translated by the ribosome more quickly than other codons. This is
 thought to result in part from changes in tRNA abundance and in part
 due to intrinsic differences in the decoding rates 
-\parencite{curran1989rates,thomas1988codon}, and often quantified using the tAI index
+\parencite{curran1989rates,thomas1988codon}, and often quantified
+using the tRNA adaptation index (tAI)
 \parencite{reis2004solving}. The expectation that tRNA availability is
 associated with increased rates of translation has been tested with
 more recent ribosome footprint profiling experiments, and consistent
@@ -742,7 +746,7 @@ The change in concentration of an mRNA ($R_t$) depends
 on the rates of mature transcript synthesis ($k_s$) and mRNA
 degradation ($k_d$). We assume that
 synthesis is a constant rate dependent on the unchanging concentration
-of the DNA encoding the gene, and that degradation is a random first
+of the DNA encoding the gene, and that degradation is a first
 order process of the mRNA interacting with a fixed and unsaturated
 factor degradation. We also disregard dilution from cell volume
 changes because this is approximately 50 times slower than the average
@@ -750,11 +754,12 @@ rates of mRNA degradation and changes will thus not play a large role
 in our measurements of mRNA dynamics on this timescale.  
 Thus, the change in mRNA over time is $$
 \frac{dR_t}{dt} = k_s - R_t k_d$$ From this, the two rates determine
-the steady-state equilibrium of $\frac{k_s}{k_d}$. Given a change in
-these rates, a faster mRNA degradation rate will approach or relax to
-the new equilibrium value quicker (Hargrove and Schmidt 1989), as the
-doubling time (or half-life) of the mRNA is dependent on only the
-degradation rate $\frac{log(2)}{k_d}$.  
+the steady-state equilibrium of $\frac{k_s}{k_d}$. 
+Given a singular regulatory event,
+the doubling time (or half-life) of the mRNA is dependent on only the
+degradation rate $\frac{log(2)}{k_d}$ and thus 
+a faster mRNA degradation rate will approach or relax to
+the new equilibrium value quicker \parencite{hargrove1989role}.
 
 While both synthesis and
 degradation contribute to changes in abundance, changes in degradation
@@ -782,8 +787,10 @@ transient pulse of regulation
 \parencite{shalem2008transient,rabani2011metabolic},
 demonstrating a key functional role in stability control in
 achieving a particular pattern of mRNA dynamics. Interestingly, these
-stability changes appear to be a singular regulatory event
-\parencite{perez2013eukaryotic}. 
+stability changes seem to usually be a singular regulatory event
+\parencite{perez2013eukaryotic}, suggesting that the mechanism is
+coordinated in its effect across the entire transcriptome during
+the first response to the stress.
 
 \subsection{Nutrient shifts also trigger mRNA stability changes }
 
@@ -854,8 +861,9 @@ nutrient upshift.
 
 \section{Measuring mRNA dynamics}
 
-It is easier to measure the abundance of a mRNA than it is to 
-measure the change in abundance of a mRNA. While mRNA
+%It is easier to measure the abundance of a mRNA than it is to 
+%measure the change in abundance of a mRNA. 
+While mRNA
 abundance measurements for entire transcriptomes are now routine,
 determining the rates that underlie this molecular phenotype has
 lagged. Synthesis rate control has largely been assayed by techniques
@@ -912,9 +920,9 @@ associated with processes distinct from heat-shocks may be unaffected
 by these, the complexity of the cell demonstrated itself in vital
 controls run in \cite{mercado1994levels} which demonstrated that
 gluconeogenic mRNA were subject to destabilization upon a
-heat-shock. Shutting off transcription has complex and difficult to
-predict effects on transcript abundance as the cells die over the
-course of the experiment.  
+heat-shock. Thus in several examples we see that shutting off 
+transcription has complex and difficult to
+predict effects on transcript abundance as the cells die.
 
 Orthogonal to these approaches is Genomic Run On approaches
 \parencite{garcia2004genomic}, including microarray or sequencing
@@ -1092,7 +1100,8 @@ given the stability of the cleaved GFP tag in the vacuole
 
 \textit{GAP1} mRNA degradation, which we identify as
 being subject to accelerated mRNA degradation in Chapter 2 and 3,
-occurs much faster than the repression of the protein-product. We also
+occurs much faster than the repression of the protein-product 
+\parencite{hein1997ac}. We also
 know that Gap1p, the protein product of \textit{GAP1} mRNA, is subject to
 de-activation and re-localization in response to a nitrogen upshift.
 Thus, a functional assay of Gap1p is irrelevant to the dynamics of
@@ -1117,7 +1126,7 @@ While mRNA has been observed by flow cytometry before
 histone mRNA), the use of branched DNA probe sets has made sorting
 on low copies of mRNA possible \parencite{hanley2013detection}. 
 In Chapter 3 I discuss in depth the combination of this technology
-with the affore-mentioned SortSeq barcode sequencing and modeling
+with the aforementioned SortSeq barcode sequencing and modeling
 approaches to direct estimate transcript abundance in a 
 high-throughput pooled format, and without genetic modifications.
 

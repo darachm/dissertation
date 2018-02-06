@@ -209,20 +209,27 @@ RNA-guided Cas9 genetic-editing
 this approach of mRNA SortSeq may no longer be absolutely
 necessary for doing high-throughput genetics for mRNA markers. 
 However, this method works now with common lab reagents and equipment, 
-and only requires sequencing the diversity of generated mutants ---
-not all pairwise combinations of strain and mRNA.
-Additionally, the as-yet recalcitrance of budding yeast for 
-single-cell molecular analysis is still a barrier.
-Thus restricting the requisite sequencing opens the opportunity to
-apply this method across more replicates, markers, and timepoints.
-Scaling this assay up to more cells input and a greater investment
+and only requires quantifying the mutants across bins---
+not quantifying all mRNA for all mutants.
+For questions regarding a small number of transcripts,
+the depth of replicates and timepoints possible with a SortSeq
+design may be advantageous.
+Additionally, the recalcitrance of budding yeast for 
+single-cell molecular analysis is still technically challenging
+\parencite{gasch2017single}.
+Scaling this BFF assay up to more cells input and a greater investment
 in FACS sorting \parencite{de2017deciphering} has the potential to 
 estimate mRNA dynamics across multiple
 timepoints for all barcoded mutants in a library.
-The efficiency of the pooled approach could also be used to limit the
-search space of more precise but resource-intensive automated assays
-\parencite{worley2016genome}, 
-and thus this hybrid approach could be used to
+However, single-cell RNA sequencing is advantaged in its global 
+perspective and will presumably scale with methodological 
+developments to increase cell throughput 
+(thus replicating measures per genotype)
+and sequencing throughput.
+The efficiency of the pooled SortSeq approach could also be used to 
+limit the search space of more precise but resource-intensive 
+automated assays \parencite{worley2016genome}, 
+and thus a hybrid approach could be used to
 efficiently increase throughput of measured transcript dynamics. 
 
 \iffalse

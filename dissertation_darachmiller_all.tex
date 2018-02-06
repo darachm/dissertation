@@ -61,7 +61,7 @@
   \end{center}
 \vfill
 \begin{flushright}
-  $\rule{5cm}{0.01mm}$\\
+  $\rule{3.25in}{0.01mm}$\\
   David Gresham
 \end{flushright}
   \pagebreak
@@ -75,8 +75,8 @@
 
 \title{
 The extent of mRNA destabilization and 
-genetic factors of rapid \textit{GAP1} repression 
-upon a nitrogen upshift.
+\\genetic factors of rapid \textit{GAP1} mRNA clearance 
+\\upon a nitrogen upshift.
 }
 \author{Darach Miller}
 \def\monthz{May}
@@ -169,7 +169,7 @@ upon a nitrogen upshift.
 
 \makemytitle
 
-\iffalse
+\iftrue
 \begin{quote}
 \SingleSpace
 "Science is a match that a person has just got alight. 
@@ -198,12 +198,28 @@ anticipated, \vspace{0.5em} darkness still."
 
 \iffalse
 
+The aim of sailing is to juxtapose a variety of forces against 
+each other such that they have no other option than to cause progress.
+Without the right constraints and re-direction the system is a 
+mess, and destined for the rocks.
+Without a good keel there's little for the winds to push off of,
+without sails there's little action, and a tiller's important for
+deciding where the action should proceed.
+Many human endeavors can be described with 
+this metaphor --- a variety of forces, pressures, opportunities, 
+all swirling around to make something flow in a particular
+direction. When all the components align with and against each
+other harmoniously, then the effect is made. 
+A rope does not sail upwind, but depends on the cleats, pulleys,
+mast, hull, and so forth.
+ 
+Here, I acknowledge some of the people that have 
+made my progress possible.
 
 The culture built over these many years at NYU Biology is a unique 
-moment of growth, and these informal linkages play a surprisingly
-important role in facilitating the collaboration and support
-necessary.As Benjy Neymotin 
-pointed out several years ago: "it takes a village".
+moment of growth, and the informal networks of instinctive support
+have been essential.
+As Benjy Neymotin pointed out several years ago: "it takes a village".
 
 Specifically,
 I thank the kind folks on the 4th floor of CGSB, namely
@@ -271,26 +287,6 @@ not yet had the time to condense it into a sharable form (or a Kit).
 the NYU Genomics Core facility for sequencing, flow cytometry,
 
 
-The aim of sailing is to use lines and fabric and structure to
-juxtapose a variety of forces against each other, 
-and thus give them the only option of causing progress. 
-Without the right constraints and re-direction, 
-the system is a mess, destined for the rocks.
-A sailboat needs the wind as much as it needs the water,
-for without a good keel there's little for the winds to push off of.
-Without wind there's little action, and a tiller's important for
-deciding where the action should proceed.
-Many human endeavors can be described with 
-this metaphor --- a variety of forces, pressures, opportunities, 
-all swirling around to make something flow in a particular
-direction. When all the components align with and against each
-other harmoniously, then the effect is made. Just a rope does not make
-much progress upwind, and it depends on the cleats and pulleys and
-sails and so forth to give it purpose and allow it to play any role in
-effecting progress.
- 
-I would like to acknowledge the system of people that has made 
-progress possible.
 
 \fi
 
@@ -299,53 +295,50 @@ progress possible.
 
 \section*{Abstract}
 \addcontentsline{toc}{section}{\numberline{}Abstract}
+\vspace{-0.5em}
 
 Cellular responses to changing environments frequently involve rapid
-reprogramming of the transcriptome. Regulated
-changes in mRNA degradation rates can accelerate reprogramming by
-clearing or stabilizing extant transcripts. 
-During a nitrogen upshift, the budding yeast \textit{Saccharomyces
-cerevisiae} reprograms its physiology in order to enter into  
-a state of rapid growth. 
-I sought to understand the role of transcriptome reprogramming
-in effecting this transition.
-During the first minutes of a nitrogen upshift,
-preceding the changes in population growth rate,
-the transcriptome quickly into a state transiently distinct from
-either rapid or slow growth.
-During this, the five fastest decreasing mRNA are all NCR-regulated 
-transporters, suggesting that this reprogramming is specifically
-targeted to set the transcriptional program for rapid growth.
-Many transcripts decrease significantly faster than expected from
-their stability measured during steady-state growth during
-rich media conditions, so I set out to determine the stability of
-the yeast transcriptome preceding and during a nitrogen upshift.
-I used 4-thiouracil labeling to track mRNA stability, and found 
-that 78 mRNAs are subject to destabilization. 
-These transcripts include
-Nitrogen Catabolite Repression (NCR) and carbon metabolism mRNAs,
-suggesting that mRNA destabilization is a mechanism for targeted
-reprogramming. 
-To explore the molecular basis of destabilization and possible
-mechanisms of specifying or effecting the destabilization, I
+transcriptome reprogramming, and regulated changes in mRNA 
+degradation rates can accelerate this process.
+Upon the addition of glutamine to budding yeast 
+(\textit{Saccharomyces cerevisiae}) limited for nitrogen,
+yeast cells resume rapid growth. 
+Preceding the changes in population growth rate,
+the transcriptome quickly reprograms through a state transiently 
+distinct from either rapid or slow growth.
+As part of this,
+the five fastest decreasing mRNA are all 
+\underline{N}itrogen \underline{C}atabolite \underline{R}epression 
+(\underline{NCR})-regulated transporters, decreasing 
+significantly faster than expected from their mRNA 
+stability measured in nitrogen-replete conditions, 
+I determined the stability of the yeast transcriptome 
+preceding and during a nitrogen upshift using 
+4-thiouracil labeling and found that 78 mRNAs are destabilized,
+a set enriched for NCR and carbon metabolism mRNAs.
+To find factors specifying or effecting the destabilization, I
 developed a novel method combining mRNA FISH, fluorescence-activated
 cell sorting, and DNA barcode sequencing to screen the pooled deletion
 collection library for \textit{trans} factors that mediate rapid GAP1 mRNA
-repression. This required that I completely redesign the methods for 
-low-input multiplexed barcode sequencing, as well as adapt 
-branched-DNA single-molecule mRNA FISH protocols to work in budding
-yeast. Modeling of the data identifies known factors of mRNA
-degradation, namely all three non-essential components of the
+repression. 
+%This required that I redesign the methods for 
+%low-input multiplexed barcode sequencing, as well as adapt 
+%branched-DNA single-molecule mRNA FISH protocols to work in budding
+%yeast. 
+Modeling of the data identifies known factors of mRNA
+degradation, namely all three tested components of the
 Lsm1-7p/Pat1p complex, as being important for proper \textit{GAP1}
-mRNA dynamics. However, the modulators \textit{EDC3} and \textit{SCD6}
-have more complex phenotypes. Re-analyzing previously collected data,
+mRNA dynamics. The modulators \textit{EDC3} and \textit{SCD6}
+have more complex phenotypes including reduced clearance of
+\textit{GAP1}. Re-analyzing previously collected data,
 I identified that a \textit{scd6}$\Delta$, \textit{tif4632}$\Delta$
-(eIF4G2 knock-out), and a \textit{GAP1} 5' UTR delete strain all
+(eIF4G2 delete), and a \textit{GAP1} 5' UTR delete strain all
 share a similar phenotype of lower \textit{GAP1} expression preceding
-the upshift, and reduced decay upon the upshift. This suggests that 
-translation initiation dynamics may play a role in mRNA levels and 
-their stability, and suggests that the destabilization phenomenon 
-may in fact be the release of a stabilization effect.
+the upshift, and reduced decay upon the upshift. This suggests a
+connection between translation initiation and mRNA level in different
+environments of nitrogen availability, and that the destabilization 
+phenomenon may in fact be the release of a stabilizing effect on these 
+mRNA during growth in nitrogen limitation.
 
 \newpage
 
