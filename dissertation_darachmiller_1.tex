@@ -1,4 +1,5 @@
 \chapter{Introduction}
+\label{chapter:one}
 
 Organisms adapt to their environment 
 by expressing different phenotypes 
@@ -114,7 +115,7 @@ largely corresponds to the suitability of the sensed environment,
 in addition to the physiological changes previously described.
 A better environment translates to faster growth, with
 more growth associated mRNA and less stress response mRNA, and this
-holds true in steady-state differences and the dynamics of 
+holds true in different steady-states and in the dynamics of 
 transitions between steady-states.
 
 
@@ -316,7 +317,7 @@ in slow-growth conditions.
 The relative allocation of gene expression resources in the cell is a
 fundamentally important decision cells must make, and modeling
 of this phenomenon across various conditions in \textit{E. coli} has
-lead to a simple partitioning model in which the proteome can be
+led to a simple partitioning model in which the proteome can be
 divided into functional sectors
 \parencite{scott2010interdependence,scott2014emergence}.
 While these simple models might explain the balance during
@@ -341,7 +342,7 @@ Thus, concordant repression of stress-response and
 metabolism gene expression is theoretically expected to allow more
 focus of gene expression machinery on this pulse of production.
 There is evidence for this in \textit{E. coli}, where
-\cite{shachrai2010cost} induced the expression of a fluorphore at
+\cite{shachrai2010cost} induced the expression of a fluorophore at
 different growth stages to show that induction during lag phase 
 had a significant impact on lag duration, while induction during
 exponential phase did not have a significant effect on growth.
@@ -373,8 +374,8 @@ capping and polyadenylation, and export into the cytoplasm. The
 details may vary, but the common pathway is the same. mRNA
 degradation does have a main pathway that performs the bulk of mRNA
 degradation, but mRNA are also subject to divergent redundant pathways
-that have been challenging to measure. Moreover, the rates of this
-various process are subject to control in ways less well-understood.
+that have been challenging to measure. Moreover, the rates of these
+various processes are subject to control in ways less well-understood.
 While some similarity is thought to exist in how RBPs may recognize
 \textit{cis}-element sequences in RNA similar to how TFs recognize 
 upstream
@@ -401,35 +402,7 @@ completion of this process, the nascent mRNA is exported to the
 cytoplasm where it enters into the pool of translatable mRNA.
 Typically, translation begins when initiation factors load ribosomal
 subunits to scan the 5' leader or untranslated region (UTR) for the
-start codon where the process of coding sequence translation begins.
-These initiation factors (eIF4F) bind the m7G cap to load ribosome
-subunits (Dever et al. 2016), and thus most translation depends on the
-cap (with exceptions demonstrated by internal ribosome entry sites
-\parencite{gilbert2007cap}).
-The m7G cap is also critical for mRNA
-stability. Xrn1p is a highly-processive combination of helicase and
-exonucleolytic domains that alone can rapidly degrade
-transcripts from a 5' to 3' end, recognizing unprotected 5'
-phosphorylated ribonucleotides as substrates \parencite{parker2012rna}. 
-Thus, the inverted linkage of the m7G escapes degradation.  
-
-
-During rounds of
-translation the poly-adenosine tail is shortened from about 65-90
-adenosines to about 10 adenosines by a combination of the Pan2/3 and
-Ccr4/Pop2 deadenylase complexes, with activity antagonized by the
-poly-A binding protein Pab1p
-\parencite{parker2012rna,decker1993turnover}.
-When the tail is thus shortened, the Lsm1-7p/Pat1p
-complex binds the remainder of the poly-A tail (Tharun et al. 2000).
-This complex is a heptameric ring of the Lsm1-7 proteins with the
-Lsm1p's C-terminal domain elegantly spanning the center 
-\parencite{sharif2013architecture}
-and the last eight residues projecting into this center
-and critical for binding the shortened poly-A tail 
-\parencite{chowdhury2016mutagenic}.
-The critical function of this complex is to recruit and promote
-activity 
+start codon, where the process of coding sequence translation begins.
 \afig{
   \begin{tikzpicture}[scale=1.0
     ,every node/.style={scale=1.0}
@@ -553,15 +526,44 @@ activity
 %
   \end{tikzpicture}
   }{
-    Newly transcribed and poly-adenylated mRNA is progressively
+    Newly transcribed and poly-adenylated mRNA are progressively
     deadenylated until the Lsm1-7p/Pat1p complex binds to recruit
-    decapping factors.
+    decapping factors and Dcp2p.
     Co-transcriptional proof-reading surveils the transcript for
-    aberrant translation dynamics; 
-    nonsense-mediated decay for example triggers decapping.
+    aberrant translation dynamics.
+    Nonsense-mediated decay, for example, triggers decapping.
     A decapped mRNA is rapidly degraded from 5' to 3' by Xrn1p.
   }
   {Diagram of canonical deadenylation-dependent 5' to 3' mRNA degradation}
+These initiation factors (eIF4F) bind the m7G cap to load ribosome
+subunits \parencite{dever2016mechanism}, and thus most translation depends on the
+cap (with exceptions demonstrated by internal ribosome entry sites
+\parencite{gilbert2007cap}).
+The m7G cap is also critical for mRNA
+stability. Xrn1p is a highly-processive combination of helicase and
+exonucleolytic domains that alone can rapidly degrade
+transcripts from a 5' to 3' end, recognizing unprotected 5'
+phosphorylated ribonucleotides as substrates \parencite{parker2012rna}. 
+Thus, the inverted linkage of the m7G escapes degradation.  
+
+
+During rounds of
+translation the poly-adenosine tail is shortened from about 65-90
+adenosines to about 10 adenosines by a combination of the Pan2/3 and
+Ccr4/Pop2 deadenylase complexes, with activity antagonized by the
+poly-A binding protein Pab1p
+\parencite{parker2012rna,decker1993turnover}.
+When the tail is thus shortened, the Lsm1-7p/Pat1p
+complex binds the remainder of the poly-A tail
+\parencite{tharun2000yeast}.
+This complex is a heptameric ring of the Lsm1-7 proteins with the
+Lsm1p's C-terminal domain elegantly spanning the center 
+\parencite{sharif2013architecture},
+and the last eight residues projecting into this center
+and critical for binding the shortened poly-A tail 
+\parencite{chowdhury2016mutagenic}.
+The critical function of this complex is to recruit and promote
+activity 
 of the decapping complex to the 5' end of the mRNA, and in
 cooperation with Pat1p \parencite{chowdhury2014pat1}
 the binding of this
@@ -601,7 +603,7 @@ translation initiation inhibits decapping
 \parencite{huch2014interrelations}.
 The requirement of sufficient
 poly-A tail for Pab1p to bind is consistent with the effect of
-deadenylation in promoting deapping (Parker 2012), and thus a model
+deadenylation in promoting decapping (Parker 2012), and thus a model
 has emerged wherein deadenylation promotes the association of the 
 Lsm1-7p/Pat1p complex to the shortened poly-A tail, then re-arranges
 to associate this 3' end of the mRNA molecule with the 5' end,
@@ -671,12 +673,12 @@ complex from binding and stabilizing the mRNA through translation.
 Other pathways
 of mRNA degradation exist. If the poly-A tail is completely removed,
 the cytoplasmic exosome complex can degrade the mRNA from 3' to 5'.
-This redundant mechanism allows a xrn1$\Delta$ mutant to grow, although
+This redundant mechanism allows a \textit{xrn1}$\Delta$ mutant to grow, although
 slowly, as the 5' to 3' pathway is throught to effect the bulk of mRNA
 degradation \parencite{parker2012rna}. 
 The balance between the two may be because
 of the enzymatic rate of digestion, but more likely because the
-binding of the Lsm1-7 complex to the shortened poly-A tail protects
+binding of the Lsm1-7p complex to the shortened poly-A tail protects
 the mRNA from further deadenylation and thus inhibit this 3' pathway
 \parencite{tharun2009lsm1}.
 
@@ -699,18 +701,18 @@ towards the 3' end of the transcript
 Non-Stop Decay refers to the inverse of
 NMD, no stop codon. Ribosomes that over-run into the poly-A tail
 recruit degradation by the 3' exonuclease 
-\parencite{schmid2008exosome}. No-go Decay is
+\parencite{schmid2008exosome}. No-Go Decay is
 named for the phenomenon that triggers it, when ribosomes "no go"
 (encounter a difficult to elongate sequence).
 Difficult to translate sequences (such as arginine or lysine repeats) 
 trigger the
 endonucleolytic cleavage of the offending mRNA, which is then degraded
-from the cut towards both ends 
+from the cut site towards both ends 
 \parencite{doma2006endonucleolytic}. While the molecular mechanisms of
 this process have been not been comprehensively defined, 
 it has been shown that it is likely the ribosome collisions that
 promote the ribosome ubiquitination associated with the triggering of
-No-Go decay \parencite{simms2017ribosome}, 
+No-Go decay \parencite{simms2017ribosome}, and
 other work has suggested that the
 protein Asc1p \parencite{ikeuchi2016ribosome} 
 or K63 ubiquitination \parencite{saito2015inhibiting}
@@ -734,7 +736,7 @@ UPF1-3, and subsequent ribosome profiling found this targeting to be
 associated with out-of-frame translation effects and non-optimal
 codons \parencite{celik2017high}.
 NMD has been implicated in the regulation
-of ribosomal protein subunit pre-mRNA 
+of ribosomal subunit protein pre-mRNA 
 \parencite{garre2013nonsense}
 in different
 environmental conditions, has been shown to interact genetically with
@@ -756,7 +758,7 @@ Codon-optimality refers to the concept that certain codons
 are translated by the ribosome more quickly than other codons. This is
 thought to result in part from changes in tRNA abundance and in part
 due to intrinsic differences in the decoding rates 
-\parencite{curran1989rates,thomas1988codon}, and often quantified
+\parencite{curran1989rates,thomas1988codon}, and is often quantified
 using the tRNA adaptation index (tAI)
 \parencite{reis2004solving}. The expectation that tRNA availability is
 associated with increased rates of translation has been tested with
@@ -782,7 +784,7 @@ required for the clear relationship between codon-optimality and mRNA
 stability 
 \parencite{presnyak2015codon,radhakrishnan2016dead}. Although
 the mechanism is at this point unclear, Dhh1p's genetic association 
-is an important link to start from.
+is an important link from which to start.
 
 Alternatively, competition between
 decapping enzymes and translation initiation factors for access to the
@@ -986,7 +988,7 @@ In response to a carbon-source downshift
 available), functionally important regulatory changes in mRNA
 stability occur 
 \parencite{munchel2011dynamic}. Ribosome biogenesis associated
-mRNAs are are destabilized, an effect that can be phenocopied by the
+mRNAs are destabilized, an effect that can be phenocopied by the
 addition of rapamycin (inhibitor of the central growth signalling
 TORC1 pathway). Conversely, a carbon source
 upshift (galactose to glucose) triggers a destabilization of inducible
@@ -995,7 +997,7 @@ condition as mRNA transgenically overexpressed in glucose media were
 stable \parencite{munchel2011dynamic}.
 
 Global changes in transcription and
-mRNA destabilization has been observed before 
+mRNA destabilization have been observed before 
 \parencite{jona2000glucose}, and
 recently systematically measured to be correlated with changes in
 growth rate 
@@ -1021,7 +1023,7 @@ gluconeogenic transcripts
 \parencite{de2002role,mercado1994levels,scheffler1998control,lombardo1992control}. 
 Mapping the
 determinants of this effect has been met with mixed success. The
-destabilization of \textit{SDH2} and \textit{GAL1} mRNA have been 
+destabilization of \textit{SDH2} and \textit{GAL1} mRNA has been 
 mapped to elements in the 5' UTR 
 \parencite{scheffler1998control,bennett2008metabolic}
 with destabilization of GAL1 being
@@ -1035,8 +1037,7 @@ unknown mechanisms \parencite{andrade2005multiple}.
 Subsequent work has identified \textit{DHH1} as being a genetic 
 factor of the \textit{JEN1} destabilization \parencite{mota2014role}. 
 Some transcripts respond at different levels of glucose
-addition and differently in different genetically-perturbed metabolic
-backgrounds 
+addition 
 \parencite{yin2000differential}, and disrupting signalling through the
 PKA pathway affects destabilization of some mRNA but not others 
 \parencite{yin2003glucose}. 
@@ -1195,7 +1196,7 @@ and with rapamycin treatment inhibiting TORC1
 \parencite{munchel2011dynamic}
 
 In Chapter 3 I demonstrate the use of a similar 4-thiouracil
-label-chase experimental design, with with refined analysis to 
+label-chase experimental design, with refined analysis to 
 explore per-transcript destabilization upon a nitrogen upshift.  
 
 \section{Methods for determining the genetic basis of a transcript
@@ -1255,10 +1256,10 @@ high temperature to identify mutants in critically important pathways
 advancing our understanding of the cell cycle. However, this concept
 becomes problematic when studying a molecular phenotype which is not
 known to be adaptive, and thus is not known to be selected in this
-process.
+process of accelerated mRNA degradation.
 
 For example, gene regulation might not have a
-clear phenotypic outcome or be subject to redundant layers of
+clear phenotypic outcome, or could be subject to redundant layers of
 regulation that mask the effect of a mutation. One solution is to
 engineer a specific reporter into the expressed gene, such that
 defects in gene expression can be assayed. It becomes more difficult
@@ -1302,11 +1303,11 @@ of an osmotic stress response
 \parencite{worley2016genome}. While accurate and
 reproducible, the extensive automation and reagent usage to perform
 qPCR on $\sim$4700 mutant strains poses a financial and logistical
-challenge to performing the assay, and to perform the assay in
+challenge. To perform the assay in
 different genetic backgrounds, in larger libraries, in replicates, or
-in different timepoints.  
-To accomplish a similar goal using a pooled approach that can scale
-genome-wide without greatly increasing costs, I adapted a mRNA
+in different timepoints requires a pooled approach that can scale
+genome-wide without greatly increasing costs. 
+To do this, I adapted a mRNA
 FISH assay to use in budding yeast.
 While mRNA has been observed by flow cytometry before
 (\cite{yu1992sensitive} described its use on $\sim$1800 copies of
@@ -1314,6 +1315,6 @@ histone mRNA), the use of branched DNA probe sets has made sorting
 on low copies of mRNA possible \parencite{hanley2013detection}. 
 In Chapter 3 I discuss in depth the combination of this technology
 with the aforementioned SortSeq barcode sequencing and modeling
-approaches to direct estimate transcript abundance in a 
+approaches to directly estimate transcript abundance in a 
 high-throughput pooled format, and without genetic modifications.
 

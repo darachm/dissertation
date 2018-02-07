@@ -1,5 +1,6 @@
 \chapter{Measuring the extent of mRNA destabilization and screening 
 for genetic factors of \textit{GAP1} repression}
+\label{chapter:three}
 
 This chapter is similar to an article currently submitted to a 
 journal for review and publication. 
@@ -354,7 +355,7 @@ upshift (\autoref{fig:figure1c}). As batch cultures are a technically
 simpler experimental system, we performed all subsequent experiments
 using batch culture nitrogen upshifts. 
 
-\label{subsection:pcaGoCorr}
+\label{subsec:pcaGoCorr}
 
 \subsection{Global analysis of mRNA stability changes during the
 nitrogen upshift}
@@ -482,6 +483,8 @@ and secondary active transmembrane transport
 Thus destabilized mRNA upon a nitrogen upshift regulates, 
 but is not restricted to, NCR-regulated mRNA and reflects broader
 metabolic changes in the cell. 
+
+\label{subsec:destabGoCorr}
 
 To investigate the extent to which mRNA stability changes contribute
 to transcriptome reprogramming, we compared degradation rates
@@ -1572,7 +1575,7 @@ has a similar phenotype.
     codon has no significant effect, but a deletion of 100bp
     immediately upstream of the start codon has slower clearance 
     (p-value < $10^{-4}$) and 
-    lower level of \texit{GAP1}/\textit{HTA1} before the upshift (p-value < 0.0015).
+    lower level of \textit{GAP1}/\textit{HTA1} before the upshift (p-value < 0.0015).
     During strain construction, a deletion of 152bp 5' of the start
     codon was also generated, and expresses a similar phenotype 
     ( p-value < $10^{-5}$ clearance defect, p-value < $0.0061$ ).
@@ -1717,8 +1720,8 @@ fixation before pelleting and washing the cells with centrifugation
 at 1200g room temperature. An experiment where quenching did not
 take place resulted in smaller fixed cells that were less accessible
 to the FISH hybridization.
-After washing three times with Buffer B (from Pringle's
-immunofluoresence method) these were permeabilized with ethanol at
+After washing three times with Buffer B \parencite{pringle199140} 
+these were permeabilized with ethanol at
 4C overnight.
 
 \subsubsection{Hybridization}
@@ -1774,7 +1777,7 @@ trying to obtain genomic DNA.
 \subsubsection{Construction of amplicon sequencing libraries for barcode counting}
 
 gDNA was amplified in technical triplicates in a heavily modified 
-BarSeq protocol
+BarSeq protocol.
 
 A master mix of buffer, BSA, dNTPs, MgSO$_4$, and Vent (exo-)
 polymerase (NEB) is made containing three oligos DGO1562, DGO1588, 
@@ -1886,7 +1889,7 @@ product and can result in a loss of amplicon before the amplicon is
 amplified enough to gel extract (above figure, lane 6). The dimer is
 also sequenced via Illumina chemistry (not desired). By Sanger
 sequencing we found that it appears to result from a three base
-trucation of the forward primer priming perfectly for about 6 bases off
+truncation of the forward primer priming perfectly for about 6 bases off
 the reverse primer. This was not solved by switching to a polymerase
 without 3' exonuclease activity, or by using HPLC purified primers.
 Using different reverse primers lead to off-target products.
@@ -1902,10 +1905,11 @@ strongly recommend using more degenerate bases for such a low-complexity
 library \parencite{fu2011counting}. 
 
 In order to digest the
-excess un-incorporated UMI primers it requires the addition of a
-exonuclease. ExoI is characterized to be maximally effective at
+excess un-incorporated UMI primers, addition of a
+exonuclease is required. 
+ExoI is characterized to be maximally effective at
 37\(^{\circ}\)C, and although it can have activity at 42\(^{\circ}\)C
-for a some time \parencite{fei2015structural} it
+for some time \parencite{fei2015structural}, it
 will be inactivated. This low temperature requirement likely exacerbates
 dimer and off-target product formation.
 The common, but incorrect, one-UMI-one-molecule assumption is based on
@@ -1914,7 +1918,7 @@ first round. The exonuclease step must therefore digest all
 un-extended UMI-containing primers for this to be true. One control
 for this is to monitor the primer concentrations using a technology
 like HPLC to measure abundance, but a small number is, again, not
-necessarily negligable. The proper control is to not use the
+necessarily negligible. The proper control is to not use the
 polymerase to extend the first round, and instead immediately digest
 the UMI-containing primers. This is a crucial control, and on the
 basis of experiments I did using this setup using dilutions of
@@ -1923,7 +1927,7 @@ absence of the first round of extension, reduced product formation
 by about 20 fold. However, it was not absent. Thus, I suspect that 
 the exonuclease digestion only ensures that $\approx$20/21 UMIs are
 from the first round of incorporation. While small, this is not
-negigable, especially in conditions where template number changes
+negligible, especially in conditions where template number changes
 dramatically (as here it does not, given similar inputs to extractions).
 Optimization of this step did not improve upon this efficacy, and in
 the lack of commercially available thermostable (and active) 
@@ -1932,8 +1936,8 @@ must be understood and accepted.
 
 To address this, we optimized the reactions on a dilution series of gDNA
 from a different experiment with the same knockout library. By balancing
-MgSO\(_4\) and glycerol concentrations we got better amplification, and
-tried to use a ``booster'' \parencite{ruano1989biphasic} PCR approach. 
+MgSO\(_4\) and glycerol concentrations, we got better amplification and
+then tried to use a ``booster'' \parencite{ruano1989biphasic} PCR approach. 
 This gave some improvements in how low we
 could detect before saturating the reaction with dimers, but we could
 not go lower in primer concentration and attributed this to the
@@ -1948,7 +1952,7 @@ assuming 12.5 picograms gDNA per genome).
 The major solution to this problem was the addition of 3' phosphorylated
 blocker oligos. These are not extended by DNA polymerases but are
 displaced by a strand-displacing polymerase like Vent exo-. By using
-this polymerase and blocker combo, we prevent new 3' ends from annealing
+this polymerase and blocker combination, we prevent new 3' ends from annealing
 but allow properly annealed primers to extend through this region. This,
 in combination with the exonuclease digestion of most of the reverse
 primer, prevented dimer formation. This revealed that these universal
@@ -2118,7 +2122,7 @@ amplicons in one step. This extraction improved our accuracy, for
 example eliminating spurious alignments of the forward priming sequence
 against the barcode of \emph{ymr258c}\(\Delta\), a barcode re-annotated
 with striking similarity to the fixed priming sequence
-\cite{smith2009quantitative}.
+\parencite{smith2009quantitative}.
 
 There are several different ways to use the UMI information to estimate
 unique input molecules from a sequencing assay. The naive approach is to
@@ -2209,7 +2213,7 @@ into a small number of real clusters. This is not
 surprising given that we are using this tool in a labeling regime that
 is wholy inappropriate for what it is trying to do. 
 Thus, I do not use
-this tool an instead used the more conservative 
+this tool and instead used the more conservative 
 correction of \cite{fu2011counting}, \autoref{fig:umi} left.
 An appropriately complex UMI design would allow a future user to make
 use of error-correcting algorithims in this method.
@@ -2246,7 +2250,7 @@ with the following parameters:
 \end{itemize}
 
 After quantification, we calculate pearson correlation, spearman
-correlation, and the number of mistaken strain-identifications.
+correlation, and the number of mistaken strain identifications.
 Tolerated mismatches is a parameter set in BarNone or by the score
 requirements for alignment in \texttt{bwa}.
 
@@ -2307,12 +2311,12 @@ flatter profile in the higher regimes of mutations. However,
 \texttt{bwa} starts out higher. Accounting for duplication, as generated
 by the exponential distribution described above, greatly improves
 performance. At an average coverage here of a half-million reads, the
-difference between the UMI-collision and unique counts is less that
+difference between the UMI-collision and unique counts is less than
 with large coverage.  
 In conclusion, our pipline for analysis is able to use an early
 filtration step (SLAPCHOP) to improve strain barcode
 identification and to extract UMIs that are useful for de-duplicating
-PCR duplicates back to better estimates of the ground truth.
+PCR duplicates for better estimates of the ground truth.
 
 \subsubsection{Modeling \textit{GAP1} FISH signal per strain in the pool}
 
@@ -2369,7 +2373,7 @@ sample.
 
 \section{Discussion}
 
-Regulated changes in mRNA stability allows cells to rapidly reprogram
+Regulated changes in mRNA stability allow cells to rapidly reprogram
 gene expression, clearing extant transcripts that are no longer
 required and potentially reallocating translational capacity.
 %Despite progress in understanding the pathways that mediate
@@ -2400,7 +2404,7 @@ existing methods to measure
 post-transcriptional regulation of the yeast transcriptome in a
 nitrogen upshift using 4-thiouracil labeling
 \parencite{miller2011dynamic,neymotin2014determination,munchel2011dynamic}. These
-modifications entailed improved normalization and quantification of
+modifications included improved normalization and quantification of
 extant transcripts and explicit modeling of labelling dynamics to
 account for some of the inherent limitations of metabolic labeling
 approaches \parencite{perez2013eukaryotic}. Continued development of
@@ -2637,7 +2641,7 @@ At minimum, you should have the \texttt{data.zip} archive in that directory,
 although records of all R analyses are in \texttt{html\_reports.zip}
 and intermediate files are in \texttt{tmp.zip}.
 Consult the \texttt{README.md} file in the repository for more instructions
-and options, including to unzip intermediate files and HTML
+and options, including how to unzip intermediate files and HTML
 reports generated for every R script which detail the results.
 
 A Shiny application is also available to explore the two main 
@@ -2656,7 +2660,7 @@ These are available on the Open Science Framework archive
 \url{https://osf.io/9ct3m/} .
 
 \begin{itemize}
-  \SingleSpacing
+  \OnehalfSpacing
   \setlength\itemsep{0em}
   \item Gene set enrichment analysis of loadings on principal 
     components one and two.

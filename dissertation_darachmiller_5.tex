@@ -1,30 +1,42 @@
 \chapter{Conclusion}
+\label{chapter:five}
 
-The nitrogen-upshift in budding yeast is a model system for studying
-how diverse mechanisms of regulation converge on remodeling cellular
-physiology and reprogramming the molecular specifics to 
-carry out the feasting (or yeasting) of the \textit{Saccharomyces
-cerevisiae} feast-and-famine life cycle.
+%The nitrogen-upshift in budding yeast is a model system for studying
+%how diverse mechanisms of regulation converge on remodeling cellular
+%physiology and reprogramming the molecular specifics to 
+%carry out the feasting (or yeasting) of the \textit{Saccharomyces
+%cerevisiae} feast-and-famine life cycle.
+
+Upon repletion of nitrogen, \textit{Saccharomyces cerevisiae} 
+resumes rapid growth.
+This involves physiological remodeling as discussed in
+\autoref{chapter:four}.
+Rapid transcriptional reprogramming also occurs to repress mRNA of 
+genes newly unneeded in the replete nitrogen condition, especially
+NCR-regulated transporters as seen in \autoref{chapter:two} and
+\autoref{chapter:three}.
+In efforts to determine the genetic basis of the rapid clearance of
+\textit{GAP1} mRNA in particular, I found that decapping modulators
+play a role in these dynamics \autoref{chapter:three}. 
+Here, I summarize these findings and speculate on future
+directions that this work could contribute to.
 
 \section{mRNA destabilization hastens functional reprogramming}
 
-We showed that among the rapid changes that occur upon
-nitrogen re-feeding (\autoref{fig:figure1a}), 
-rapid repression of the nitrogen catabolite repression (NCR) 
-regulon includes transporter mRNA that are the five
-fastest decreasing mRNA in the transcriptome 
+The five fastest decreasing mRNA in the transcriptome upon the
+nitrogen upshift are NCR transporter mRNA 
 (\autoref{fig:airoldi2016f6}).
-Using principal components analysis, we find that the changes
-that occur during the first few minutes and hour of a transition
-to an environment of replete nitrogen do not resemble just the changes
-that occur between the two steady-states of slow and fast growth
-\autoref{fig:longTermPCA}.
+Using principal components analysis, 
+we find that the changes in mRNA abundances across the transcriptome
+during the upshift are in some ways distinct from simply a switch
+from a slow-growing gene expression state to a fast-growing gene
+expression state (\autoref{fig:longTermPCA}).
 Instead, there is an enrichment in promotion of RNA production and
 processing, and a repression of cytoskeleton and membrane
-organization (\autoref{subsection:pcaGoCorr}).
+organization (\autoref{subsec:pcaGoCorr}).
 
 mRNA degradation rate control is known to play a role in other
-environmental transitions, so we used a 4-thiouracil label-chase
+environmental transitions, so I used a 4-thiouracil label-chase
 experiment with RNAseq to characterize the stability and changes
 of stability of individual mRNA in the yeast transcriptome 
 (\autoref{fig:figure2a}).
@@ -33,32 +45,35 @@ necessary for labeling changes, I used an interrupted chase
 design.
 To smooth technical noise inherent in the normalization of sequencing
 data to low amounts of spike-ins, I used a normalization that models
-the change of the whole yeast transcriptome in order to smooth over
-particularly noisy measurements of spike-ins from being interpreted
-as changes in mRNA dynamics (\autoref{subsec:4tuNormalization}).
-To address potential confounding of synthesis rate changes with
+the change of the whole yeast transcriptome.
+This prevents particularly noisy measurements of spike-ins from 
+being interpreted as changes in mRNA dynamics 
+(\autoref{subsec:4tuNormalization}).
+To address the potential confounding of synthesis rate changes with
 measures of destabilization, I used modeling to characterize the
 expected error and threshold our calls of significance on the
 effect size (\autoref{subsec:4tuNormalization}).
 These methods may assist the future application of the 4tU label-chase
-design to studying extant mRNA stability across dynamic conditions.
+approach to studying extant mRNA stability across dynamic conditions.
 
 Using these methods, I estimated mRNA degradation rates for the
 yeast transcriptome and found a median half-life of 6.92 minutes
 (\autoref{tab:table1}).
 This is less than previous estimates in rich media, suggesting that
 mRNA may be less stable during these conditions of limitation of
-nitrogen-quality in batch growth conditions. This could reflect 
-more of a need for flexibility in nitrogen allocation than the
-energy needed to turnover mRNA frequently.
+nitrogen-quality in batch growth conditions. This may reflect 
+an evolved preference for flexibility in nitrogen allocation over
+the energy costs of turning over mRNA frequently.
 Upon the upshift,
 I found that degradation rates and changes in
 mRNA abundance are, as expected, anti-correlated but not entirely
 co-directional in their effect
 (\autoref{fig:kkdComparison},\autoref{fig:comparisonDestabilized}).
+
 I found that 78 mRNA are destabilized upon the upshift, with
 enrichment for NCR mRNA as well as mRNA encoding factors of carbon
-metabolism. Amongst these, \textit{GAP1} is subject to an
+metabolism and vacuole components (\autoref{subsec:destabGoCorr}). 
+Amongst these, \textit{GAP1} is subject to an
 approximately three-fold increase in degradation rates. 
 Thus, mRNA destabilization plays a role in the regulation of this
 canonical NCR-regulated mRNA, in addition to the previously known
@@ -69,20 +84,20 @@ control.
 
 I aimed to determine the genetic factors of this swift clearance, and
 so combined mRNA FISH with FACS and sequencing to estimate
-\textit{GAP1} mRNA for mutants in barcoded pool. Development of this
+\textit{GAP1} mRNA for mutants in a barcoded pool. Development of this
 method required several technical advances in optimizing 
 \textit{in situ} hybridization methods, developing a robust method 
 for barcode sequencing in the face of seemingly inescapable dimer 
-formation \autoref{subsection:bff}, and implementing a modeling
+formation (\autoref{subsection:bff}), and implementing a modeling
 analysis to estimate mutants distributions across bins of 
-\textit{GAP1} abundance \autoref{fig:figure4b}. 
+\textit{GAP1} abundance (\autoref{fig:figure4b}). 
 
 Using this method, I determined that factors of the Lsm1-7p/Pat1p
 complex were important for wild-type \textit{GAP1} expression
-dynamics \autoref{fig:figure5a}. Importantly, the modulators
+dynamics (\autoref{fig:figure5a}). Importantly, the modulators
 \textit{EDC3} and \textit{SCD6} had defects that did not appear
 to generally affect the whole transcriptome, unlike with defects in
-\textit{LSM1} and \textit{LSM6} \autoref{fig:figure5qpcr}.
+\textit{LSM1} and \textit{LSM6} (\autoref{fig:figure5qpcr}).
 Fortunately, more analyses of related genes had been completed
 by Nathan Brandt, and a re-analysis of this data revealed that 
 the Scd6p-interacting eIF4G2/Tif4632p had a similar defect.
@@ -91,6 +106,10 @@ sequence upstream of the \textit{GAP1} start codon or downstream
 of the \textit{GAP1} stop codon, and re-analysis showed that the 5'
 UTR truncations had a very similar phenotype as deletions of
 \textit{SCD6} or \textit{TIF4632}.
+These similarities suggest a connection between translation initiation
+and mRNA stability during steady-state and dynamic conditions that
+may inform our general understanding of the competition of these 
+processes.
 
 \section{Physiological changes that occur during nitrogen upshift}
 
@@ -100,14 +119,16 @@ orthogonally confirm the phenomenon of mRNA transcriptome scaling
 in different nutrient environments (\autoref{fig:nikis}) and 
 measure the dynamics of this transition (\autoref{fig:upshift}).
 Given the compatibility of this assay with the SortSeq approach
-described in Chapter 3, this could be used to efficiently probe the 
+described in \autoref{chapter:three}, this could be used to efficiently probe the 
 genetic factors of transcriptome scaling dynamics in response to
 changing environments. Understanding this process in yeast may
-inform the study of how c-Myc signalling affects on this process
-\parencite{nie2012c}.
+inform the study of how c-Myc signalling affects (or effects) 
+this process \parencite{nie2012c}.
 
-Stress-resistance decreases with an increasing growth rate
-\autoref{fig:dme180}.
+It is well known that
+stress-resistance decreases with an increasing growth rate,
+and we demonstrated this is true for a nitrogen-upshift as well
+(\autoref{fig:dme180}).
 We used this property to enrich a mutant library for defects in
 increased susceptibility upon a nitrogen upshift, and found an
 enrichment of two components that regulate the cortical actin 
@@ -118,39 +139,65 @@ of Mae1p to connect nitrogen and carbon metabolism.
 
 \section{Suggested future directions}
 
+I would like to expand on these findings to suggest future 
+directions of inquiry.
+
 \subsection{All metabolism is connected}
 
+We often reduce phenomena to simple models in order to
+create a more powerful generality, but sometimes a
+powerful categorization can be too far
+\parencite{lazebnik2002can}.
 In the label-chase experiment, I found that mRNA encoding factors of
 carbon metabolism (namely pyruvate metabolism, and the isoenzymes 
 \textit{PYK2} and \textit{HXK1}) were destabilized.
 In the genetic screen (BFF), we found that mutants in negative
 regulation of gluconeogenesis were enriched in mutants with high
 \textit{GAP1} mRNA estimated after the shift
-\autoref{fig:gluco}, suggesting defects 
+(\autoref{fig:gluco}), suggesting defects 
 in repression. The core of nitrogen metabolism (glutamate and
 glutamine) are intimately connected with the citric acid cycle via
 alpha-ketoglutarate, and the roles of these metabolites or their
 rates of inter-conversion have been proposed to play roles in
 signalling changes in growth \parencite{fayyad2016yeast}.
-Thus, continued study of the cross-talk amongst this network of
-metabolism might reveal that distal metabolic read-outs could
-elegantly regulate the integrated systematic scheme of cellular 
-metabolism in changing environments.
+Thus, continued study of the metabolic networks during perturbations
+(like a glutamine upshift) may reveal an unappreciated cross-talk
+amongst sub-networks that are currently considered as distinct. 
+This may reveal contingent or adaptive regulation of diverse
+signalling pathways from secondary metabolite read-outs that are
+distal from the experimenter's intended input.
+Here, glutamine is considered as a nitrogen-source but delivers to 
+the cell two nitrogen atoms and a carbon skeleton that can be
+delivered into the citric-acid cycle.
+Thus, a systematic view of metabolism during this transitions may
+reveal that the effects of a glutamine upshift may be more broad than
+just nitrogen metabolism and regulation.
 
 \subsection{Possible mechanisms of \textit{GAP1} clearance}
+
+\textit{GAP1} mRNA is now an example of mRNA destabilized upon
+a nutrient upshift. What effects this regulation?
+I identified several candidate factors, here I speculate on the
+implications of one group of factors.
 
 Scd6p interaction with eIF4G1 has been primarily studied, 
 but here we see a similar phenotype with eIF4G2 
 (eIF4G1 was not tested). These are
-homologs with similar function, although eIF4G1 is expressed higher
+homologs with very similar functionality
+\parencite{clarkson2010functional}, 
+although eIF4G1 is expressed higher
 during “normal” laboratory growth conditions, ie rich media. 
 eIF4G2 has been shown to be more highly expressed and localized to
-processing-bodies during conditions of nutrient limitations 
-\parencite{brengues2007accumulation}, 
-thus this initiation factor may help to specify
-proper storage of certain mRNA during conditions of low amino-acid,
-and thus low charged tRNA, availability to help ensure translation
-with low resource availability. Differential regulation of 
+processing-bodies during conditions of nutrient limitations, and
+this is suggested to specify the storage of mRNA in anticipation of
+resuming rapid growth \parencite{brengues2007accumulation}.
+This initiation factor may help to globally (or specifically)
+reduce the initiation frequency, thus reducing the fraction of
+ribosomes consuming tRNA under conditions of low amino-acid,
+and thus low charged-tRNA, availability.
+This would help ensure an adequate
+supply of charged-tRNAs for elongation of engaged ribosomes.
+Differential regulation of 
 translation initiation could explain the observation of sub-maximal
 usage of extant ribosomes in initiation-limited regimes of cellular
 growth \parencite{kafri2016cost,metzl2017principles}.
@@ -158,7 +205,7 @@ Continued studies of the role of Scd6p in specifying ribosome
 loading in diverse environmental conditions could reveal a mechanism
 to effect these adaptive changes in translation.
 Additionally, a systematic study of the \textit{GAP1} 5' UTR could
-reveal \textit{cis}-elements for this regulation.
+reveal \textit{cis}-elements necessary for this regulation.
 
 The translation and degradation of mRNA are intimately coupled
 processes which compete for the same substrate, the mRNA. 
@@ -166,7 +213,7 @@ Very recently, imaging studies have challenged the 5'-3' closed loop
 model of mRNA \parencite{adivarahan2017spatial}, and demonstrated
 a strong effect of the translational status of ribosomal loading in 
 separating the 5' and 3' ends of a single mRNA.
-Degradation is mediated by connections between 3’ and 5’, 
+Degradation is mediated by connections between 3' and 5' ends, 
 with the Lsm1-7p/Pat1p complex strongly promoting the decapping of
 mRNA requisite for degradation in the main pathway of mRNA
 degradation.
@@ -176,12 +223,14 @@ for the 5' m7G cap.
 The interaction of translation initiation factor eIFG2 and
 decapping modulator Scd6p in affecting the degradation of
 \textit{GAP1} suggests and interaction with ribosome loading status.
-One explanation to connect these processes could be that the presence
+One explanation that connects these processes could be that the presence
 of elongating ribosomes separates the 5' and 3' ends of the mRNA, 
 similar to the cohesin-dependent loop extrusion model currently used 
 by some to explain chromatin-organization. 
 This would directly explain the connection between translation status
-and degradation for individual mRNA.
+and degradation for individual mRNA as a simple function of 
+3'-associated decapping factors stochastically interacting with 
+the 5' end of the mRNA tether.
 
 \subsection{An efficient method for estimating mRNA abundance in
 barcoded mutant pools}
@@ -199,9 +248,8 @@ The development of new methods for making mutant pools with
 high internal replication and minimal strain-handling selection
 offers a new paradigm of yeast genetics that avoids or
 minimizes some of these drawbacks \parencite{smith2016quantitative}.
-The methods described here for doing SortSeq are, of course,
-compatible with adaptation to any DNA-barcode-based sequencing assay 
-of pooled mutants. 
+The methods described here for doing SortSeq can be adapted
+to any DNA-barcode-based sequencing assay of pooled mutants. 
 
 With the integration of single-cell RNA sequencing with 
 RNA-guided Cas9 genetic-editing 
@@ -231,6 +279,10 @@ limit the search space of more precise but resource-intensive
 automated assays \parencite{worley2016genome}, 
 and thus a hybrid approach could be used to
 efficiently increase throughput of measured transcript dynamics. 
+SortSeq for estimating mRNA abundance, or other steps of gene
+expression, may be a useful orthogonal tool complementing
+other approaches with its potential for scaling measurements across
+timepoints, conditions, variants, and replicates.
 
 \iffalse
 
