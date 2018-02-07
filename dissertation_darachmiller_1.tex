@@ -177,12 +177,12 @@ to which they are unneeded for growth.
     \node[textz] at (0.5,-3) (citrate){};
     \node[textz] at (1,-3) (akg){$\alpha$-ketoglutarate};
     \node[textz,right=1cm of akg] (glu) {glutamate};
-    \node[textz,right=1cm of glu,fill=green] (gln) {glutamine};
+    \node[textz,right=1cm of glu,fill=green!60] (gln) {glutamine};
     \node[textz,above right=1.5cm and -0.3cm of akg] (nh41) {NH4$^+$};
     \node[textz,above right=1.5cm and -0.3cm of glu] (nh42) {NH4$^+$};
     \node[textz,below left=1.5cm and 0.3cm of glu] (nh43) {NH4$^+$};
     \node[textz,below left=1.5cm and -2.0cm of gln] (akg2){$\alpha$-ketoglutarate};
-    \node[textz,above=2cm of glu,fill=red] (pro) {proline};
+    \node[textz,above=2cm of glu,fill=red!60] (pro) {proline};
     \node[textz,below=2cm of glu] (m1) {};
     \node[textz,below=2cm of gln] (m2) {};
 %    \draw[->,shorten >= 2pt] (glucose) to (pyruvate);
@@ -438,7 +438,7 @@ activity
     ,textz/.style={ font=\scriptsize,align=left }
     ]
 %
-    \draw[very thick] (-3,2) -- node[textz,above,pos=0.9] (dna) {genome} (3,2);
+    \draw[very thick] (-6,2) -- node[textz,above,pos=0.9] (dna) {genome} (6,2);
 %    \draw[thick,color=red] (-2,-1) .. controls (-1.75,-1.2) ..  (-1.5,-1);
     \draw[thick,color=red] (-1.5,1) .. controls (-1.25,1.2) ..  (-1,1);
     \draw[thick,color=red] (-1,1) .. controls (-.75,0.8) and (-.75,1.2) .. (-0.5,1.5);
@@ -457,8 +457,8 @@ activity
     \node[circle,fill=yellow!80!black,textz] at (3.5,-1.5) {Pab1p};
     \node[anchor=east,font=\tiny,circle,fill=yellow] at
       (-2.8,-2.0) (eif4f1) {eIF4F};
-    \draw[fill=blue,color=blue] (-1.4,-2.050) ellipse (0.16cm and 0.08cm);
-    \draw[fill=blue,color=blue] (-1.4,-1.900) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (-1.4,-2.050) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (-1.4,-1.900) ellipse (0.16cm and 0.16cm);
     \draw[->] (eif4f1) to[out=45,in=135] node[above,pos=0.5,textz]
       {loads ribosome} (-1.6,-1.8);
 % Second one
@@ -471,8 +471,10 @@ activity
 %
     \draw[thick,->] (0,-2.50) -- (0,-3.5);
     \node[textz,anchor=east] at (0,-3.0) {continued translation};
-%    \draw[fill=blue,color=blue] (-0.4,-4.050) ellipse (0.16cm and 0.08cm);
-%    \draw[fill=blue,color=blue] (-0.4,-3.900) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (0.4,-4.050) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (0.4,-3.900) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (-0.8,-4.050) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (-0.8,-3.900) ellipse (0.16cm and 0.16cm);
 % NMD
     \draw[thick,->] (0,-0.50) .. controls (5,-0.5) and (6.5,-1.0) .. 
       node[above,pos=0.7,textz,sloped] {error in transcription} (6.5,-2.5);
@@ -480,8 +482,8 @@ activity
     \draw[thick,color=red] (5,-3.0) -- (8,-3.0);
     \node[anchor=east,font=\tiny] at (5.0,-3.0) {m7G};
     \node[anchor=west,font=\tiny] at (8,-3.0) {AAAAAA};
-    \draw[fill=blue,color=blue] (5.8,-3.050) ellipse (0.16cm and 0.08cm);
-    \draw[fill=blue,color=blue] (5.8,-2.900) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue!50,color=blue!50] (5.8,-3.050) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue!50,color=blue!50] (5.8,-2.900) ellipse (0.16cm and 0.16cm);
     \node[fill=red,textz,circle] at (6.5,-3.000) (stop) 
       {\scriptsize STOP};
     \draw[-|] (stop) to[out=-90,in=-90] 
@@ -492,8 +494,8 @@ activity
     \node[anchor=west,font=\tiny] at (1,-6.0) {AAAAAA};
     \node[anchor=east,font=\tiny,circle,fill=yellow] at
       (-2.8,-6.0) (eif4f2) {eIF4F};
-    \draw[fill=blue,color=blue] (-0.4,-6.050) ellipse (0.16cm and 0.08cm);
-    \draw[fill=blue,color=blue] (-0.4,-5.900) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (-0.4,-6.050) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (-0.4,-5.900) ellipse (0.16cm and 0.16cm);
 %
     \draw[thick,->] (0,-4.50) -- (0,-5.5);
     \node[textz,anchor=east] at (0,-5.0) {continued translation};
@@ -508,7 +510,7 @@ activity
       ($(decap)+(210:1.3)$) (cap) {m7G};
     \node[textz,rotate=40,anchor=east] at 
       ($(decap)+(-30:1.5)$) {AAAAA};
-    \node[circle,fill=green!80!black,textz] at 
+    \node[circle,fill=green!80,textz] at 
       ($(decap)+(-40:1.5)$) (lsm) {Lsm1-7p};
     \node[circle,fill=white!80!black,textz
       ,below right=0cm and 0cm of lsm] (pat) {Pat1p};
@@ -528,21 +530,21 @@ activity
 %
     \draw[thick,color=red] (deg) to ($(deg)+(3,0)$);
     \node[textz,anchor=west] at ($(deg)+(3,0)$) {AAAAA};
-    \node[circle,fill=green!80!black,textz] at 
+    \node[circle,fill=green!80,textz] at 
       ($(deg)+(3.5,0)$) {Lsm1-7p};
     \node[circle,fill=red!50,textz] at 
       ($(deg)+(0,0)$) {Xrn1p};
 %
     \draw[thick,color=red] ($(deg)+(1,-2)$) to ($(deg)+(3,-2)$);
     \node[textz,anchor=west] at ($(deg)+(3,-2)$) {AAAAA};
-    \node[circle,fill=green!80!black,textz] at 
+    \node[circle,fill=green!80,textz] at 
       ($(deg)+(3.5,-2)$) {Lsm1-7p};
     \node[circle,fill=red!50,textz] at 
       ($(deg)+(1,-2)$) {Xrn1p};
 %
     \draw[thick,color=red] ($(deg)+(2,-4)$) to ($(deg)+(3,-4)$);
     \node[textz,anchor=west] at ($(deg)+(3,-4)$) {AAAAA};
-    \node[circle,fill=green!80!black,textz] at 
+    \node[circle,fill=green!80,textz] at 
       ($(deg)+(3.5,-4)$) {Lsm1-7p};
     \node[circle,fill=red!50,textz] at 
       ($(deg)+(2,-4)$) {Xrn1p};
@@ -554,8 +556,9 @@ activity
     Newly transcribed and poly-adenylated mRNA is progressively
     deadenylated until the Lsm1-7p/Pat1p complex binds to recruit
     decapping factors.
-    Nonsense-mediated decay, for example, co-translationally
-    proof-reads mRNA to trigger decapping.
+    Co-transcriptional proof-reading surveils the transcript for
+    aberrant translation dynamics; 
+    nonsense-mediated decay for example triggers decapping.
     A decapped mRNA is rapidly degraded from 5' to 3' by Xrn1p.
   }
   {Diagram of canonical deadenylation-dependent 5' to 3' mRNA degradation}
