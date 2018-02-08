@@ -24,7 +24,8 @@ balance in causing an adaptive outcome.
 
 Expression of a protein-coding gene
 product involves many steps, 
-each with a variety of regulatory mechanisms. At the outset, DNA sequences
+each with a variety of opportunities for regulation. 
+At the outset, DNA sequences
 that encode genetic elements are transcribed into corresponding 
 messenger RNA (mRNA). The rate of this transcription is helped by
 factors that facilitate recruitment of RNA polymerase II (PolII)
@@ -56,7 +57,7 @@ this is accompanied by large changes in gene expression
 \parencite{brauer2008coordination,conway2012glucose}
 and changes in physiology 
 \parencite{waldron1977synthesis,carter1978protein}
-including changed rate of proliferation \parencite{slator1918some}, 
+including a changed rate of proliferation \parencite{slator1918some}, 
 cell size \parencite{jorgensen2004dynamic},
 RNA content \parencite{waldron1975effect}, 
 protein content \parencite{kief1981coordinate},
@@ -74,10 +75,10 @@ Thus, the study of nutrient limitations to growth, especially with
 the aim of discerning particular molecular mechanisms and how these may overlap
 \parencite{oliveira2015dynamic,oliveira2015inferring,tate2017general,stracka2014nitrogen,peli2015amino} 
 would shed light on our understanding of how a eukaryotic cell 
-regulates its most essential goal of growth 
+regulates its most essential project of growth 
 in the face of diverse limitations.
 
-The particular nutrient availability is described in terms of the 
+Nutrient availability is described in terms of the 
 quality and quantity of the source provided. Quantity refers to
 the molar availability of the nutrient that the yeast can take up,
 while quality is an empirical reference to how rapidly budding
@@ -93,7 +94,7 @@ expressed at different steady-state nutrient-limited growth states,
 regardless of nutrient used to limit growth 
 \parencite{brauer2008coordination,regenberg2006growth}, and that a
 small subset of transcripts were regulated particular to the specific
-limitation. 
+type of limitation. 
 Statistical modeling of this process
 determined that the molecular signature of this growth-rate signalling
 could be captured in a small number of “calibrator” genes whose
@@ -106,7 +107,8 @@ Dynamic transitions to better nutrient environments (nitrogen, carbon,
 and phosphorus upshifts) shared a similar pattern 
 \parencite{conway2012glucose}, 
 and the pattern of gene expression associated with increased
-nutrient availability and growth rates is the opposite of the
+nutrient availability and growth rates is similar but of opposite
+sign compared to the
 Environmental Stress Response (ESR) --- a shared in co-regulation of
 $\sim$600 mRNA across dynamic responses to various stressors 
 \parencite{gasch2000genomic}. 
@@ -262,9 +264,10 @@ long observed that upon addition of a preferred nitrogen source the
 enzymatic and permease activities are repressed faster than can be
 caused by a shut-off of synthesis 
 \parencite{cooper1983function}. A
-classical NCR-regulated gene is the general amino-acid permease GAP1.
-GAP1 mRNA is repressed much faster than the repression of the
-protein-product 
+classical NCR-regulated gene is the general amino-acid permease
+\textit{GAP1}.
+Gap1p transport activity is repressed much faster than the 
+degradation of the protein-product 
 \parencite{stanbrough1995transcriptional}, and we know that this
 Gap1p shut-off is adaptive \parencite{risinger2006activity}, 
 perhaps due to an
@@ -292,8 +295,9 @@ a correlated downregulation of protein products in the same timescale.
 This asymmetry makes sense, with protein gene-products being 
 approximately 30-50 times more stable than the mRNA intermediate 
 \parencite{christiano2014global}. 
-Given the assumption that adaptation implies function, what purpose
-might this repression fulfill?
+Given the assumption that adaptation implies function
+\parencite{gould1979spandrels}, what purpose
+might this rapid repression of mRNA fulfill?
 
 An increase in growth rate is associated with a rapid
 up-regulation of the ribosomal protein (RP)
@@ -396,13 +400,8 @@ is synthesized in the nucleus from a DNA template by RNA PolII, and
 is capped co-transcriptionally at the 5' end with a m7G cap. As PolII
 transcribes sequence 3' of the stop codon the cleavage factor complex
 (of which Hrp1p is a sub-unit \parencite{chen1998specific})
-recognizes cis element binding motifs in the RNA to direct cleavage
-and polyadenylation to specific sites in the mRNA. Upon successful
-completion of this process, the nascent mRNA is exported to the
-cytoplasm where it enters into the pool of translatable mRNA.
-Typically, translation begins when initiation factors load ribosomal
-subunits to scan the 5' leader or untranslated region (UTR) for the
-start codon, where the process of coding sequence translation begins.
+recognizes \textit{cis}-element binding motifs in the RNA to direct 
+cleavage and polyadenylation to specific sites in the mRNA. 
 \afig{
   \begin{tikzpicture}[scale=1.0
     ,every node/.style={scale=1.0}
@@ -535,6 +534,12 @@ start codon, where the process of coding sequence translation begins.
     A decapped mRNA is rapidly degraded from 5' to 3' by Xrn1p.
   }
   {Diagram of canonical deadenylation-dependent 5' to 3' mRNA degradation}
+Upon successful
+completion of this process, the nascent mRNA is exported to the
+cytoplasm where it enters into the pool of translatable mRNA.
+Typically, translation begins when initiation factors load ribosomal
+subunits to scan the 5' leader or untranslated region (UTR) for the
+start codon, where the process of coding sequence translation begins.
 These initiation factors (eIF4F) bind the m7G cap to load ribosome
 subunits \parencite{dever2016mechanism}, and thus most translation depends on the
 cap (with exceptions demonstrated by internal ribosome entry sites
@@ -1255,8 +1260,7 @@ high temperature to identify mutants in critically important pathways
 \parencite{hartwell1970genetic}, work that contributed to a 2001 Nobel Prize for
 advancing our understanding of the cell cycle. However, this concept
 becomes problematic when studying a molecular phenotype which is not
-known to be adaptive, and thus is not known to be selected in this
-process of accelerated mRNA degradation.
+known to change growth rates, and thus is not known to be selected.
 
 For example, gene regulation might not have a
 clear phenotypic outcome, or could be subject to redundant layers of
