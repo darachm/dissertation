@@ -34,8 +34,6 @@ g
 ggsave("../img/polya_ypdnlim.png",g,width=4,height=4)
 ```
 ```{r,cache=T}
-
-
 g<-ggplot(subset(bdf,fix==120))+theme_bw()+
   aes(x=factor(media):factor(probe),y=(FL1.A))+#/FSC.A))+
   ylab("polyA signal, per cell")+xlab("")+
@@ -45,8 +43,26 @@ g<-ggplot(subset(bdf,fix==120))+theme_bw()+
   theme(axis.text.x=element_text(angle=90))
 g
 ```
+
 ```{r,cache=F}
 ggsave("../img/polya_ypdnlim_controls.png",g,width=4,height=4)
+```
+
+```{r,cache=T}
+g2<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
+  aes(x=factor(media):factor(probe),y=(FL1.A))+#/FSC.A))+
+  ylab("polyA signal, per cell")+xlab("")+
+  scale_x_discrete(labels=c("0.15 rate, \nN-limited (Proline)",
+    "~0.45 rate,\nRich media (YPD)"))+
+  geom_violin(adjust=0.1)+
+  geom_boxplot(outlier.size=0.1,width=0.1)+
+  scale_y_log10(limits=c(1e3,3e5))+
+#  coord_cartesian(ylim=c(0.0,1.5e5))+
+  theme(axis.text.x=element_text(angle=90))
+g2
+```
+```{r,cache=F}
+ggsave("../img/polya_ypdnlim_prezi.png",g2,width=4,height=4)
 ```
 ```{r,cache=T}
 
@@ -76,6 +92,9 @@ u
 ```
 ```{r,cache=F}
 ggsave("../img/polya_upshift.png",u,width=5,height=3)
+ggsave("../img/polya_upshift_prezi.png",u+
+  coord_cartesian(ylim=c(3.7,5.25),xlim=c(-10,130))
+,width=4,height=4)
 ```
 ```{r,cache=T}
 
