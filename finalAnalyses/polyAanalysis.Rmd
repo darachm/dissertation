@@ -27,7 +27,7 @@ g<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
   ylab("log10( polyA signal, per cell )")+xlab("")+
   scale_x_discrete(labels=c("N-limited (Proline)","Rich media (YPD)"))+
   geom_boxplot(outlier.size=0.1,width=0.3)+#+coord_cartesian(ylim=c(0.1,7.0))
-  theme(axis.text.x=element_text(angle=90))
+  theme(axis.text.x=element_text(angle=0,color="black"))
 g
 ```
 ```{r,cache=F}
@@ -58,7 +58,8 @@ g2<-ggplot(subset(bdf,fix==120&probe==T))+theme_bw()+
   geom_boxplot(outlier.size=0.1,width=0.1)+
   scale_y_log10(limits=c(1e3,3e5))+
 #  coord_cartesian(ylim=c(0.0,1.5e5))+
-  theme(axis.text.x=element_text(angle=90))
+#  theme(axis.text.x=element_text(angle=90))
+  theme(axis.text.x=element_text(angle=0,color="black"))
 g2
 ```
 ```{r,cache=F}
