@@ -599,7 +599,10 @@ destabilized mRNAs are longer and contain more optimal codons
 Together, this analysis suggests that the
 mechanism of destabilization may act through cis elements in the 5'
 UTR or biased codon usage.
-
+Both of these may affect the density or elongation kinetics of the
+process of translation, which may directly interact with components
+involved in mRNA degradation or indirectly affect the accessibility
+of the mRNA to these components in the cytoplasm \cite{huch2017mrna}.
 
 \afig{
   \includegraphics[width=.8\textwidth]{img/Figure2_S_averageMotifsPerSection.png}
@@ -642,7 +645,7 @@ UTR or biased codon usage.
 
 A single colony of FY4 was inoculated in 5mL proline-limited
 media and grown to exponential phase, then back diluted in
-proline-limted media
+proline-limited media
 in a baffled flask. 
 Samples were collected into an eppendorf, sonicated,
 diluted in isoton solution, and analyzed with a Coulter Counter Z2
@@ -1089,7 +1092,7 @@ To detect if \textit{de novo} or known \textit{cis} elements were
 associated with destabilization upon a nitrogen upshift,
 I used a variety of bioinformatic methods.  
 For each transcript, I used a GFF file to extract the coding sequence
-of each annotated mRNA and four different definitions of it's
+of each annotated mRNA and four different definitions of its
 untranslated regions --- 
 200bp upstream of the start codon or downstream
 of the stop codon, the largest detected isoform in TIF-seq from
@@ -1139,6 +1142,13 @@ reporters \parencite{neklesa2009genome,sliva2016barcode} or automation of qPCR
 \parencite{worley2016genome}. However, for our
 purposes, we required direct measurement of \textit{GAP1} mRNA 
 changes on a rapid timescale.
+We decided to focus on a single mRNA readout to explore the efficacy
+of this approach. 
+While multiple readouts is theoretically more informative, the
+practicality of expanding the SortSeq paradigm to another marker
+poses technical challenges beyond our current capabilities
+(moving from 4 bins to 16 bins dilutes the library greatly,
+available sorter does 4 bins maximum).
 Therefore, we applied single molecule fluorescent \textit{in situ}
 hybridization (smFISH) to quantify 
 native \textit{GAP1} transcripts in yeast cells in the pooled
@@ -1397,7 +1407,7 @@ previously been reported \parencite{scherens2006identification} and is thought t
 result from the complex interplay of NCR transcription factors on
 their own expression levels. 
 Data and models for each mutant strain can be visualized in browser
-using a Shiny appplication (see
+using a Shiny application (see
 \url{http://shiny.bio.nyu.edu/users/dhm267/} or \nameref{subsubsection:codeanddata}). 
 
 
