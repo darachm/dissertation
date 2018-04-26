@@ -18,10 +18,13 @@ NCR-regulated transporters as seen in \autoref{chapter:two} and
 In efforts to determine the genetic basis of the rapid clearance of
 \textit{GAP1} mRNA in particular, I found that decapping modulators
 play a role in these dynamics, as discussed in \autoref{chapter:three}. 
+
+\section{Summary}
+
 Here, I summarize these findings and speculate on future
 directions that this work could contribute to.
 
-\section{mRNA destabilization hastens functional reprogramming}
+\subsection{mRNA destabilization hastens functional reprogramming}
 
 The five fastest decreasing mRNA in the transcriptome upon the
 nitrogen upshift are NCR transporter mRNAs
@@ -80,7 +83,7 @@ canonical NCR-regulated mRNA, in addition to the previously known
 regulation at layers of mRNA synthesis and post-translational
 control.
 
-\section{Decapping is important for \textit{GAP1} clearance}
+\subsection{Decapping is important for \textit{GAP1} clearance}
 
 I aimed to determine the genetic factors of this swift clearance, and
 so combined mRNA FISH with FACS and sequencing to estimate
@@ -111,7 +114,7 @@ and mRNA stability during steady-state and dynamic conditions that
 may inform our general understanding of the competition of these 
 processes.
 
-\section{Physiological changes that occur during nitrogen upshift}
+\subsection{Physiological changes that occur during nitrogen upshift}
 
 Combining a fluorescent poly-dT probe assay
 \parencite{amberg1992isolation} with flow cytometry, I was able to
@@ -137,100 +140,11 @@ mutants, may reveal growth-rate regulation of the cortical actin
 cytoskeleton involvement in yeast stress-resistance, and a potential
 of Mae1p to connect nitrogen and carbon metabolism.
 
+
 \section{Suggested future directions}
 
 I would like to expand on these findings to suggest future 
 directions of inquiry.
-
-\subsection{All metabolism is connected}
-
-We often reduce phenomena to simple models in order to
-create a more powerful generality, but sometimes a
-powerful categorization can be too far
-\parencite{lazebnik2002can}.
-In the label-chase experiment, I found that mRNA encoding factors of
-carbon metabolism (namely pyruvate metabolism, and the isoenzymes 
-\textit{PYK2} and \textit{HXK1}) were destabilized.
-In the genetic screen (BFF), we found that mutants in negative
-regulation of gluconeogenesis were enriched in mutants with high
-\textit{GAP1} mRNA estimated after the shift
-(\autoref{fig:gluco}), suggesting defects 
-in repression. The core of nitrogen metabolism (glutamate and
-glutamine) are intimately connected with the citric acid cycle via
-alpha-ketoglutarate, and the roles of these metabolites or their
-rates of inter-conversion have been proposed to play roles in
-signalling changes in growth \parencite{fayyad2016yeast}.
-Thus, continued study of the metabolic networks during perturbations
-(like a glutamine upshift) may reveal an unappreciated cross-talk
-amongst sub-networks that are currently considered as distinct. 
-This may reveal contingent or adaptive regulation of diverse
-signalling pathways from secondary metabolite read-outs that are
-distal from the experimenter's intended input.
-Here, glutamine is considered as a nitrogen-source but delivers to 
-the cell two nitrogen atoms and a carbon skeleton that can be
-delivered into the citric-acid cycle.
-Thus, a systematic view of metabolism during this transitions may
-reveal that the effects of a glutamine upshift may be more broad than
-just nitrogen metabolism and regulation.
-
-\subsection{Possible mechanisms of \textit{GAP1} clearance}
-
-\textit{GAP1} mRNA is now an example of mRNA destabilized upon
-a nutrient upshift. What effects this regulation?
-I identified several candidate factors, here I speculate on the
-implications of one group of factors.
-
-Scd6p interaction with eIF4G1 has been primarily studied, 
-but here we see a similar phenotype with eIF4G2 
-(eIF4G1 was not tested). These are
-homologs with very similar functionality
-\parencite{clarkson2010functional}, 
-although eIF4G1 is expressed higher
-during “normal” laboratory growth conditions, ie rich media. 
-eIF4G2 has been shown to be more highly expressed and localized to
-processing-bodies during conditions of nutrient limitations, and
-this is suggested to specify the storage of mRNA in anticipation of
-resuming rapid growth \parencite{brengues2007accumulation}.
-This initiation factor may help to globally (or specifically)
-reduce the initiation frequency, thus reducing the fraction of
-ribosomes consuming tRNA under conditions of low amino-acid,
-and thus low charged-tRNA, availability.
-This would help ensure an adequate
-supply of charged-tRNAs for elongation of engaged ribosomes.
-Differential regulation of 
-translation initiation could explain the observation of sub-maximal
-usage of extant ribosomes in initiation-limited regimes of cellular
-growth \parencite{kafri2016cost,metzl2017principles}.
-Continued studies of the role of Scd6p in specifying ribosome
-loading in diverse environmental conditions could reveal a mechanism
-to effect these adaptive changes in translation.
-Additionally, a systematic study of the \textit{GAP1} 5' UTR could
-reveal \textit{cis}-elements necessary for this regulation.
-
-The translation and degradation of mRNA are intimately coupled
-processes which compete for the same substrate, the mRNA. 
-Very recently, imaging studies have challenged the 5'-3' closed loop
-model of mRNA \parencite{adivarahan2017spatial}, and demonstrated
-a strong effect of the translational status of ribosomal loading in 
-separating the 5' and 3' ends of a single mRNA.
-Degradation is mediated by connections between 3' and 5' ends, 
-with the Lsm1-7p/Pat1p complex strongly promoting the decapping of
-mRNA requisite for degradation in the main pathway of mRNA
-degradation.
-One explanation of the interaction between the degradation and
-translation initiation machinery has been proposed as the competition
-for the 5' m7G cap. 
-The interaction of translation initiation factor eIFG2 and
-decapping modulator Scd6p in affecting the degradation of
-\textit{GAP1} suggests and interaction with ribosome loading status.
-One explanation that connects these processes could be that the presence
-of elongating ribosomes separates the 5' and 3' ends of the mRNA, 
-similar to the cohesin-dependent loop extrusion model currently used 
-by some to explain chromatin-organization. 
-This would directly explain the connection between translation status
-and degradation for individual mRNA as a simple function of 
-3'-associated decapping factors stochastically interacting with 
-the 5' end of the mRNA tether.
 
 \subsection{An efficient method for estimating mRNA abundance in
 barcoded mutant pools}
@@ -284,9 +198,39 @@ expression, may be a useful orthogonal tool complementing
 other approaches with its potential for scaling measurements across
 timepoints, conditions, variants, and replicates.
 
-\iffalse
+\subsection{All metabolism is connected}
 
-\subsection{A role for pH in sensing nutrient upshifts?}
+We often reduce phenomena to simple models in order to
+create a more powerful generality, but sometimes a
+powerful categorization can be too far
+\parencite{lazebnik2002can}.
+In the label-chase experiment, I found that mRNA encoding factors of
+carbon metabolism (namely pyruvate metabolism, and the isoenzymes 
+\textit{PYK2} and \textit{HXK1}) were destabilized.
+In the genetic screen (BFF), we found that mutants in negative
+regulation of gluconeogenesis were enriched in mutants with high
+\textit{GAP1} mRNA estimated after the shift
+(\autoref{fig:gluco}), suggesting defects 
+in repression. The core of nitrogen metabolism (glutamate and
+glutamine) are intimately connected with the citric acid cycle via
+alpha-ketoglutarate, and the roles of these metabolites or their
+rates of inter-conversion have been proposed to play roles in
+signalling changes in growth \parencite{fayyad2016yeast}.
+Thus, continued study of the metabolic networks during perturbations
+(like a glutamine upshift) may reveal an unappreciated cross-talk
+amongst sub-networks that are currently considered as distinct. 
+This may reveal contingent or adaptive regulation of diverse
+signalling pathways from secondary metabolite read-outs that are
+distal from the experimenter's intended input.
+Here, glutamine is considered as a nitrogen-source but delivers to 
+the cell two nitrogen atoms and a carbon skeleton that can be
+delivered into the citric-acid cycle.
+Thus, a systematic view of metabolism during this transitions may
+reveal that the effects of a glutamine upshift may be more broad than
+just nitrogen metabolism and regulation, and may inform our more
+specific interpretation of these perturbation experiments.
+
+\subsection{pH as a signal sensing changes in environmental conditions?}
 
 Addition of a preferred nitrogen source trigger a destabilization 
 for several mRNA. 
@@ -298,7 +242,6 @@ the aggregation of the poly-A binding protein pab1
 Riback 2017
 It could also be Gcn2 mediated (huesso)
 
-
 Recent presentations at ICYGMB 2017 from the Andr\'{e} group have
 pointed towards a role for proton-influx in triggering a pulse of
 TORC1 activity, similar to that seen upon addition of a preferred
@@ -309,4 +252,260 @@ Thus, secondary-active proton symporters (like \textit{GAP1},
 
 \parencite{kim2012need}
 
-\fi
+Given that the condensation of processing-bodies is correlated with
+impacts on the pace of mRNA degradation metabolism in the yeast
+cytoplasm, and that pH changes are known to impact condensation
+of mRNA-associated factors in vitro (riback2017, pab1story), 
+with in vivo fitness consequences
+upon changing environments (riback2017),
+it may be that pH changes play a role in these changes.
+These effects might be seen because they are indeed adaptive, 
+or it may be simply the result of a systematic disruption of 
+normal protein function.
+
+Signalling via Gcn2, or just pbody dissolution
+
+\subsection{Possible mechanisms of \textit{GAP1} clearance}
+
+\textit{GAP1} mRNA is now an example of mRNA destabilized upon
+a nutrient upshift. What effects this regulation?
+I identified several candidate factors, here I speculate on the
+implications of one group of factors.
+
+Scd6p interaction with eIF4G1 has been primarily studied, 
+but here we see a similar phenotype with eIF4G2 
+(eIF4G1 was not tested). These are
+homologs with very similar functionality
+\parencite{clarkson2010functional}, 
+although eIF4G1 is expressed higher
+during “normal” laboratory growth conditions, ie rich media. 
+eIF4G2 has been shown to be more highly expressed and localized to
+processing-bodies during conditions of nutrient limitations, and
+this is suggested to specify the storage of mRNA in anticipation of
+resuming rapid growth \parencite{brengues2007accumulation}.
+This initiation factor may help to globally (or specifically)
+reduce the initiation frequency, thus reducing the fraction of
+ribosomes consuming tRNA under conditions of low amino-acid,
+and thus low charged-tRNA, availability (\autoref{fig:trna})
+This would help ensure an adequate
+supply of charged-tRNAs for elongation of engaged ribosomes.
+Differential regulation of 
+translation initiation could explain the observation of sub-maximal
+usage of extant ribosomes in initiation-limited regimes of cellular
+growth \parencite{kafri2016cost,metzl2017principles}.
+Continued studies of the role of Scd6p in specifying ribosome
+loading in diverse environmental conditions could reveal a mechanism
+to effect these adaptive changes in translation.
+Additionally, a systematic study of the \textit{GAP1} 5' UTR could
+reveal \textit{cis}-elements necessary for this regulation.
+In particular, the study of the rapid changes that occur during the
+nitrogen upshift may shed light on their role during steady-state
+growth.
+
+\vspace{2em}
+
+\afig{
+  \begin{tikzpicture}[scale=0.9
+    ,every node/.style={scale=0.9}
+    ,>={Latex[length=3mm,width=3mm]}
+%    ,snakey/.style={decorate,decoration={snake,segment length=0.75cm}}
+    ,textz/.style={ font=\scriptsize,align=left }
+    ]
+
+\foreach \y/\riboOne/\riboTwo/\riboThree in {0.0/-1/-1/-1,-3/0/2/4,-6/0/0.75/1.5,-9/3/3/3} {
+  % First translating one
+    \draw[thick,color=red] (-2.0,\y) -- (5,\y);
+    \node[anchor=east,font=\tiny] at (-2.0,\y) {m7G};
+    \node[anchor=west,font=\tiny] at (5,\y) {AAAAAAAAAAAAAAAAA};
+    \newcommand*{\pablif}{\y+0.5}
+    \node[circle,fill=yellow!80!black,textz] at (6.5,\pablif) {Pab1p};
+    \node[anchor=east,font=\tiny,circle,fill=yellow] at
+      (-2.8,\y) (eif4f1) {eIF4F};
+    \newcommand*{\ribodrop}{\y-0.1}
+    \newcommand*{\ribolif}{\y+0.1}
+    \draw[fill=blue,color=blue!50] (\riboOne,\ribodrop) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (\riboOne,\ribolif) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (\riboTwo,\ribodrop) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (\riboTwo,\ribolif) ellipse (0.16cm and 0.16cm);
+    \draw[fill=blue,color=blue!50] (\riboThree,\ribodrop) ellipse (0.16cm and 0.08cm);
+    \draw[fill=blue,color=blue!50] (\riboThree,\ribolif) ellipse (0.16cm and 0.16cm);
+}
+
+  \node[align=left,font=\small,anchor=west] at (-6,0.0) 
+    {Nitrogen\\rich, high \\ initiation};
+  \draw[->,very thick] (-2.8,0) to[out=45,in=135] node[above,pos=0.5,textz]
+    {loads ribosome} (-1.2,0.2);
+  \draw[->,thick,color=green] (-0.6,-0.5) to (-0.0,-0.5);
+  \draw[->,thick,color=green] (-1.3,-0.5) to (-0.7,-0.5);
+  \draw[->,thick,color=green] (-2.0,-0.5) to (-1.4,-0.5);
+  \node[align=left,font=\small,anchor=west] at (1,-1.0) 
+    {abundant charged tRNAs, fast elongation};
+
+  \node[align=left,font=\small,anchor=west] at (-6,-3.0) 
+    {Nitrogen\\rich, high \\ initiation};
+  \draw[->,very thick] (-2.8,-3) to[out=45,in=135] (-1.2,-2.8);
+  \draw[->,thick,color=green] (-1.0,-3.5) to (-0.4,-3.5);
+  \draw[->,thick,color=green] (-0.3,-3.5) to (0.3,-3.5);
+  \draw[->,thick,color=green] (0.4,-3.5) to (1.0,-3.5);
+%
+  \draw[->,thick,color=green] (1.1,-3.5) to (1.6,-3.5);
+  \draw[->,thick,color=green] (1.7,-3.5) to (2.3,-3.5);
+  \draw[->,thick,color=green] (2.4,-3.5) to (2.9,-3.5);
+%
+  \draw[->,thick,color=green] (3.0,-3.5) to (3.6,-3.5);
+  \draw[->,thick,color=green] (3.7,-3.5) to (4.3,-3.5);
+  \draw[->,thick,color=green] (4.4,-3.5) to (5.0,-3.5);
+
+  \node[align=left,font=\small,anchor=west] at (-6,-6.0) 
+    {Nitrogen\\poor, high \\ initiation};
+  \draw[->,very thick] (-2.8,-6) to[out=45,in=135] (-1.2,-5.8);
+  \draw[->,thin,color=green] (-0.3,-6.5) to (0.3,-6.5);
+  \draw[-|,red,color=red] (0.4,-6.5) to (1.0,-6.5);
+  \draw[-,color=gray] (1.1,-6.5) to (1.7,-6.5);
+  \node[align=left,font=\small,anchor=west] at (1,-7.3) 
+    {scarce charged tRNAs per ribosome, \\ 
+      inconsistent elongation, ribosome stalling \\ and collisions};
+
+  \node[align=left,font=\small,anchor=west] at (-6,-9.0) 
+    {Nitrogen\\poor, low \\ initiation};
+  \draw[->,dashed] (-2.8,-9) to[out=45,in=135] (-1.2,-8.8);
+%  \draw[->,thick,color=yellow] (-0.3,-9.5) to (0.3,-9.5);
+  \draw[->,thick,color=yellow] (2.7,-9.5) to (3.3,-9.5);
+  \node[align=left,font=\small,anchor=west] at (1,-10.3) 
+    {match elongating ribosomes to charged tRNAs , \\ 
+      more consistent elongation, less stalling \\ and collisions};
+
+  \node[align=left,font=\small,anchor=west] at (9,-6) 
+    {\textit{GAP1} mRNA, \\ mutant \\ 5' UTR or \\ \textit{scd6}$\Delta$};
+
+  \node[align=left,font=\small,anchor=west] at (9,-8.5) 
+    {wild-type \\ \textit{GAP1} mRNA};
+
+  \end{tikzpicture}
+  }{
+    Low tRNA charging could limit translation elongation rates,
+    and this could result in ribosome collisions that have been
+    proposed to trigger quality control mechanisms. 
+    Limiting translation initiation in an elongation-limited regime 
+    would prevent such collisions and conserve the tRNA pool to
+    allow engaged ribosomes to finish elongation.
+    \label{fig:trna}
+  }
+  {Hypothetical adaptive role for slowed translation under low
+   amino-acid conditions}
+
+The translation and degradation of mRNA are intimately coupled
+processes which compete for the same substrate, the mRNA. 
+Very recently, imaging studies have challenged the 5'-3' closed loop
+model of mRNA \parencite{adivarahan2017spatial}, and demonstrated
+a strong effect of the translational status of ribosomal loading in 
+separating the 5' and 3' ends of a single mRNA.
+Degradation is mediated by connections between 3' and 5' ends, 
+with the Lsm1-7p/Pat1p complex strongly promoting the decapping of
+mRNA requisite for degradation in the main pathway of mRNA
+degradation.
+One explanation of the interaction between the degradation and
+translation initiation machinery has been proposed as the competition
+for the 5' m7G cap. 
+The interaction of translation initiation factor eIFG2 and
+decapping modulator Scd6p in affecting the degradation of
+\textit{GAP1} suggests and interaction with ribosome loading status.
+One explanation that connects these processes could be that the presence
+of elongating ribosomes separates the 5' and 3' ends of the mRNA, 
+similar to the cohesin-dependent loop extrusion model currently used 
+by some to explain chromatin-organization (\autoref{fig:riboextrusion}).
+This would directly explain the connection between translation status
+and degradation for individual mRNA as a simple function of 
+3'-associated decapping factors stochastically interacting with 
+the 5' end of the mRNA tether.
+
+\afig{
+  \begin{tikzpicture}[scale=0.9
+    ,every node/.style={scale=0.9}
+    ,>={Latex[length=2mm,width=2mm]}
+    ,textz/.style={ font=\scriptsize,align=left }
+    ]
+
+  \node[align=left,font=\small,anchor=west] at (-4,1) 
+    {wild-type \textit{GAP1} mRNA, actively translating during nitrogen-limitation\\
+      separated 5' and 3' subcomplexes rarely interact, low degradation probability};
+  \draw[fill=red!80!black,color=red!80!black] (9.0,-1.0) arc (0:360:1) --
+    (8.5,-1) arc (0:-360:0.5) -- cycle;
+  \draw[decorate,decoration={text along path,text=|\footnotesize|Lsm1-7p/Pat1p complex}]
+    (6.8,-1) arc (180:0:1.2);
+  \draw[thick,color=red] (-2.0,-1.0) 
+    .. controls (-1,0.0) and (0,-2) .. (1,-1)
+    .. controls (2,0.0) and (3,-2) .. (4,-1)
+    .. controls (5,0.0) and (6,-2) .. (7,-1);
+  \node[anchor=east,font=\tiny] at (-2.0,-1.0) {m7G};
+  \node[anchor=west,font=\tiny] at (7,-1.0) {AAAAAA};
+%{Lsm1-7p/Pat1p\\complex};
+  \node[anchor=east,font=\tiny,circle,fill=yellow] at
+    (-2.8,-1.0) (eif4f1) {eIF4F};
+  \draw[fill=blue,color=blue!50] (-0.5,-1.0+0.2) ellipse (0.32cm and 0.16cm);
+  \draw[fill=blue,color=blue!50] (-0.5,-1.0-0.2) ellipse (0.32cm and 0.32cm);
+  \draw[fill=blue,color=blue!50] (1.6,-.8+0.2) ellipse (0.32cm and 0.16cm);
+  \draw[fill=blue,color=blue!50] (1.6,-.8-0.2) ellipse (0.32cm and 0.32cm);
+  \draw[fill=blue,color=blue!50] (5.0,-.8+0.2) ellipse (0.32cm and 0.16cm);
+  \draw[fill=blue,color=blue!50] (5.0,-.8-0.2) ellipse (0.32cm and 0.32cm);
+
+%
+
+  \node[align=left,font=\small,anchor=west] at (-4,-4) 
+    {wild-type \textit{GAP1} mRNA, halt in translation due to N-upshift \\
+      5' and 3' subcomplexes are tethered, this passively promotes interaction,\\
+      high degradation probability};
+
+  \draw[fill=red!80!black,color=red!80!black] (6.0,-6.0) arc (0:360:1) --
+    (5.5,-6) arc (0:-360:0.5) -- cycle;
+  \draw[decorate,decoration={text along path,text=|\footnotesize|Lsm1-7p/Pat1p complex}]
+    (3.8,-6) arc (180:0:1.2);
+  \draw[thick,color=red] (-1.0,-6) 
+    .. controls (0,-10) .. (0.5,-8)
+    .. controls (1.0,-3) and (1.5,-11) .. (2.0,-8)
+    .. controls (2.5,-3) and (3.0,-11) .. (3.5,-8)
+    .. controls (3.75,-6) .. (4,-6) ;
+  \node[anchor=east,font=\tiny] at (-1.0,-6.0) {m7G};
+  \node[anchor=west,font=\tiny] at (4,-6.0) {AAAAAA};
+%{Lsm1-7p/Pat1p\\complex};
+  \node[anchor=east,font=\tiny,circle,fill=yellow] at
+    (-1.8,-6.0) (eif4f1) {eIF4F};
+
+
+  \draw[fill=red!80!black,color=red!80!black] (4.0,-13.0) arc (0:360:1) --
+    (3.5,-13) arc (0:-360:0.5) -- cycle;
+  \draw[decorate,decoration={text along path,text=|\footnotesize|Lsm1-7p/Pat1p complex}]
+    (1.8,-13) arc (180:0:1.2);
+  \draw[thick,color=red] (-1,-13) 
+    .. controls (-2.5,-17) and (-1.5,-16) .. (-1.0,-15)
+    .. controls (-0.5,-14) and (0.0,-17) .. (0.5,-15)
+    .. controls (1.0,-14) and (1.5,-17) .. (2.0,-13);
+  \node[anchor=south,font=\tiny] at (-1.0,-13) {m7G};
+  \node[anchor=west,font=\tiny] at (2,-13) {AAAAAA};
+%{Lsm1-7p/Pat1p\\complex};
+  \node[anchor=south,font=\tiny,circle,fill=yellow] at
+    (-1.0,-12.6) (eif4f1) {eIF4F};
+
+  \draw[->,very thick,color=red] (1.5,-12) to[bend right] (-0.5,-12.5);
+  \node[anchor=south,font=\small] at (0.5,-11.5) {decapping};
+
+  \end{tikzpicture}
+  }{
+    In the crowded cytoplasm, mRNA are not likely to resemble 
+    straight lines. The tethering of the 5' to the 3' end by the
+    mRNA molecule would be expected to drive interaction of the two
+    RNP subcomplexes. Some evidence points toward ribosomal 
+    elongation as a process by which the two halves are separated,
+    and would be a simple explanation for the observation that
+    inhibiting either elongation or initiation appears to affect
+    mRNA degradation rates, given that the assembly of the decapping
+    complex with the assistance of the 3' Lsm1-7p/Pat1p complex 
+    appears to important for decapping.
+    \label{fig:riboextrusion}
+  }
+  {Hypothetical mechanism by which translation initiation and 
+   elongation inhibit mRNA degradation --- ribosome extrusion.}
+
+
+
+
