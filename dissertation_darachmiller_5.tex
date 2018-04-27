@@ -230,40 +230,87 @@ reveal that the effects of a glutamine upshift may be more broad than
 just nitrogen metabolism and regulation, and may inform our more
 specific interpretation of these perturbation experiments.
 
-\subsection{pH as a signal sensing changes in environmental conditions?}
+\subsection{pH as a possible cause of mRNA destabilization}
 
-Addition of a preferred nitrogen source trigger a destabilization 
+Addition of a preferred nitrogen source triggers a destabilization 
 for several mRNA. 
-Glucose upshifts result in a rapid but transient reduction in pH
-\parencite{kresnowati2008quantitative}.
-Hesso etc have shown that a similar thing could be happening.
-Shifting pH can have strong biophysical effects, including
-the aggregation of the poly-A binding protein pab1
-Riback 2017
-It could also be Gcn2 mediated (huesso)
+A similar phenomenon of mRNA destabilization is observed during the 
+re-addition of glucose to cultures limited for growth by carbon 
+availability \parencite{braun2016snf1}. 
+The mechanisms by which this occurs appear to be diverse, although
+they tend to occur via the canonical 5'-decapping mechanism.
+How might these two transitions be similar?
 
+Yeast acidify their media via the action of the ATP-dependent
+proton export pump \textit{PMA1}, regulating their cytoplasmic pH
+at approximately pH 7 (or $\sim$3000 protons in total 
+\cite{orij2011intracellular}).
+The General Amino-Acid Permease 1 (\textit{GAP1}) and other
+transporters use this proton-gradient to symport amino-acids into
+the cell \parencite{grenson1992amino}. 
+The re-addition of amino acids is expected to depolarize this 
+gradient, and \textit{GAP1} mutants who are defective in the 
+inactivation of Gap1p upon refeeding have a growth defect
+\parencite{risinger2006activity}, suggesting that the process of
+active transport is what contributes to the defect in cellular 
+metabolism and growth.
+Glucose upshifts result in a rapid but transient reduction in pH
+\parencite{kresnowati2008quantitative}, thought to result from
+a sudden increase in proton-release during the early steps of 
+glycolysis \parencite{orij2011intracellular}.
+Similarly, the catabolism of glutamine into alpha-ketoglutarate
+and free ammonium ions should produce one proton per glutamine
+\parencite{magasanik2002nitrogen}, in addition to the proton
+from symport of one glutamine.
+
+Both of these upshifts are likely to decrease cytoplasmic pH.
+This could affect mRNA stability via effects through signalling
+pathways like Ras/PKA, which is known to affect the signalling
+of this pathway through cAMP \parencite{orij2011intracellular}.
 Recent presentations at ICYGMB 2017 from the Andr\'{e} group have
 pointed towards a role for proton-influx in triggering a pulse of
 TORC1 activity, similar to that seen upon addition of a preferred
-nitrogen source.
+nitrogen source. 
+The GAAC pathway via the Gcn2p kinase has been shown to respond
+and be important for responding to acidification 
+\parencite{hueso2012novel}.
+Single or combinations of these pathways may signal to alter
+mRNA degradation rates.
 
-Thus, secondary-active proton symporters (like \textit{GAP1},
-\textit{MEP2}, or ) could co-transport the signal
+Alternatively, changing pH can have strong biophysical effects on
+protein-protein interactions and folding that may perturb mRNA
+degradation metabolism. 
+Pab1 has been recently shown to have a pH-dependent tendency to
+condense in response to stressors, a process that affects its 
+function likely through Ccr4-dependent deadenylation
+\parencite{riback2017stress,yao2007pab1}.
+Additionally, the condensation of mRNA processing-bodies is 
+correlated with impacts on the pace of mRNA degradation metabolism 
+in the yeast cytoplasm \parencite{huch2017mrna, rao2017numerous}.
+Thus large changes in the pH may directly perturb the molecular
+interactions that effect the processes of mRNA degradation.
 
-\parencite{kim2012need}
+pH changes as directly impacting the molecular processes that are
+sensitive to changes in post-translational modifications and
+localization would be a mechanism to explain the general phenomenon
+of mRNA stability changes during environmental changes
+\parencite{perez2013eukaryotic, canadell2015impact}.
+The role of metabolism or proton-symporters in causing this would
+explain some of the generality of the phenomenon that has been
+described as "transceptors" in the work of Theiveilen.
 
-Given that the condensation of processing-bodies is correlated with
-impacts on the pace of mRNA degradation metabolism in the yeast
-cytoplasm, and that pH changes are known to impact condensation
-of mRNA-associated factors in vitro (riback2017, pab1story), 
-with in vivo fitness consequences
-upon changing environments (riback2017),
-it may be that pH changes play a role in these changes.
-These effects might be seen because they are indeed adaptive, 
-or it may be simply the result of a systematic disruption of 
-normal protein function.
-
-Signalling via Gcn2, or just pbody dissolution
+Future work to define the extent and impact of this phenomenon
+would make a significant impact on our understanding of cytoplasmic
+processes and the determinants of mRNA degradation metabolism. 
+Precisely defining the changes in cytoplasmic pH
+on the seconds timescale during these environmental changes would 
+define the timescales of interest. Metabolic label-chase experiments
+with mutants allow a genome-wide assay of functional impact.
+Live-cell microscopy in micro (or milli) fludics devices would
+allow the integration of these datasets to test if
+molecular-condensation events may play a role, a hypothesis
+that could be explored mechanistically with biochemical 
+\textit{in vitro} work.
 
 \subsection{Possible mechanisms of \textit{GAP1} clearance}
 
